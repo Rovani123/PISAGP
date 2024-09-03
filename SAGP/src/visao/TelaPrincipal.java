@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import net.miginfocom.swing.MigLayout;
+import javax.swing.JButton;
+import java.awt.Color;
 
 public class TelaPrincipal extends JFrame {
 
@@ -35,10 +37,16 @@ public class TelaPrincipal extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
+		contentPane.setForeground(new Color(255, 128, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(new MigLayout("", "[]", "[]"));
+		contentPane.setLayout(new MigLayout("", "[][][][][][][][][][][]", "[][][][][][]"));
+		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.setBackground(new Color(255, 0, 0));
+		contentPane.add(btnNewButton, "cell 10 5");
 	}
 
 }
