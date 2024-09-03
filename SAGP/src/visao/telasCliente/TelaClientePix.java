@@ -1,4 +1,4 @@
-package visao;
+package visao.telasCliente;
 
 import java.awt.EventQueue;
 
@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class TelaClienteInicial extends JFrame {
+public class TelaClientePix extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -18,7 +18,7 @@ public class TelaClienteInicial extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaClienteInicial frame = new TelaClienteInicial();
+					TelaClientePix frame = new TelaClientePix();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -30,7 +30,7 @@ public class TelaClienteInicial extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaClienteInicial() {
+	public TelaClientePix() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
