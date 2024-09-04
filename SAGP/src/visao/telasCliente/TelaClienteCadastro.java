@@ -141,7 +141,7 @@ public class TelaClienteCadastro extends JFrame {
 			}
 		});
 		btnNewButton_5.setForeground(new Color(255, 255, 255));
-		btnNewButton_5.setBackground(new Color(224, 83, 76));
+		btnNewButton_5.setBackground(Color.DARK_GRAY);
 		contentPane.add(btnNewButton_5, "cell 6 13");
 	}
 
