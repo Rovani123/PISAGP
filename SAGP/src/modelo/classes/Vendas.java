@@ -1,4 +1,4 @@
-package modelo;
+package modelo.classes;
 
 public class Vendas {
 
@@ -6,8 +6,6 @@ public class Vendas {
 	private int idFuncionario;
 	private int idVenda;
 	private String metodoPagamento;
-	
-	
 	
 	public int getIdCliente() {
 		return idCliente;
