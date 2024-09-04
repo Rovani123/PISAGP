@@ -36,16 +36,22 @@ public class TelaPrincipal extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 321, 240);
 		contentPane = new JPanel();
+		contentPane.setForeground(new Color(245, 245, 245));
 		contentPane.setBackground(new Color(230, 230, 230));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[]", "[][][][][]"));
+		contentPane.setLayout(new MigLayout("", "[][][][]", "[][][][][]"));
 		
 		JButton btnNewButton = new RoundButton("SOU CLIENTE");
 		btnNewButton.setBackground(new Color(224, 83, 76));
 		btnNewButton.setForeground(new Color(245, 245, 245));
 		contentPane.add(btnNewButton, "cell 0 1");
+		
+		JButton btnNewButton_1 = new RoundButton("SOU FUNCIONARIO");
+		btnNewButton_1.setForeground(new Color(245, 245, 245));
+		btnNewButton_1.setBackground(new Color(224, 83, 76));
+		contentPane.add(btnNewButton_1, "cell 3 1");
 	}
 
 }
