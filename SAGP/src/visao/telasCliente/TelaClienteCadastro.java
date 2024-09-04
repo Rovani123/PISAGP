@@ -6,11 +6,15 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import net.miginfocom.swing.MigLayout;
+import visao.RoundButton;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaClienteCadastro extends JFrame {
 
@@ -65,7 +69,12 @@ public class TelaClienteCadastro extends JFrame {
 		contentPane.add(textField, "cell 4 5,growx");
 		textField.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Limpar");
+		JButton btnNewButton = new RoundButton("Limpar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnNewButton.setBackground(new Color(224, 83, 76));
 		btnNewButton.setForeground(new Color(255, 255, 255));
 		contentPane.add(btnNewButton, "cell 5 5");
@@ -77,7 +86,12 @@ public class TelaClienteCadastro extends JFrame {
 		contentPane.add(textField_1, "cell 4 7,growx");
 		textField_1.setColumns(10);
 		
-		JButton btnNewButton_1 = new JButton("Limpar");
+		JButton btnNewButton_1 = new RoundButton("Limpar");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnNewButton_1.setForeground(new Color(255, 255, 255));
 		btnNewButton_1.setBackground(new Color(224, 83, 76));
 		contentPane.add(btnNewButton_1, "cell 5 7");
@@ -89,23 +103,43 @@ public class TelaClienteCadastro extends JFrame {
 		contentPane.add(textField_2, "cell 4 9,growx");
 		textField_2.setColumns(10);
 		
-		JButton btnNewButton_2 = new JButton("Limpar");
+		JButton btnNewButton_2 = new RoundButton("Limpar");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnNewButton_2.setForeground(new Color(255, 255, 255));
 		btnNewButton_2.setBackground(new Color(224, 83, 76));
 		contentPane.add(btnNewButton_2, "cell 5 9");
 		
-		JButton btnNewButton_3 = new JButton("Cadastrar");
+		JButton btnNewButton_3 = new RoundButton("Cadastrar");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnNewButton_3.setForeground(new Color(255, 255, 255));
 		btnNewButton_3.setBackground(new Color(224, 83, 76));
 		btnNewButton_3.setFont(new Font("Arial", Font.PLAIN, 11));
 		contentPane.add(btnNewButton_3, "cell 4 11");
 		
-		JButton btnNewButton_4 = new JButton("Cancelar");
+		JButton btnNewButton_4 = new RoundButton("Cancelar");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnNewButton_4.setForeground(new Color(255, 255, 255));
 		btnNewButton_4.setBackground(new Color(0, 0, 0));
 		contentPane.add(btnNewButton_4, "cell 5 13");
 		
-		JButton btnNewButton_5 = new JButton("Entrar");
+		JButton btnNewButton_5 = new RoundButton("Entrar");
+		btnNewButton_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnNewButton_5.setForeground(new Color(255, 255, 255));
 		btnNewButton_5.setBackground(new Color(224, 83, 76));
 		contentPane.add(btnNewButton_5, "cell 6 13");
