@@ -8,6 +8,10 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaPrincipal extends JFrame {
 
@@ -34,24 +38,32 @@ public class TelaPrincipal extends JFrame {
 	 */
 	public TelaPrincipal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 321, 240);
+		setBounds(100, 100, 331, 240);
 		contentPane = new JPanel();
 		contentPane.setForeground(new Color(245, 245, 245));
 		contentPane.setBackground(new Color(230, 230, 230));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[][][][]", "[][][][][]"));
+		contentPane.setLayout(new MigLayout("", "[][][][][]", "[][][][][][]"));
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(TelaPrincipal.class.getResource("/Imagem/Group 1.png")));
+		contentPane.add(lblNewLabel, "cell 0 0 3 1");
 		
 		JButton btnNewButton = new RoundButton("SOU CLIENTE");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnNewButton.setBackground(new Color(224, 83, 76));
 		btnNewButton.setForeground(new Color(245, 245, 245));
-		contentPane.add(btnNewButton, "cell 0 1");
+		contentPane.add(btnNewButton, "cell 0 4");
 		
 		JButton btnNewButton_1 = new RoundButton("SOU FUNCIONARIO");
 		btnNewButton_1.setForeground(new Color(245, 245, 245));
 		btnNewButton_1.setBackground(new Color(224, 83, 76));
-		contentPane.add(btnNewButton_1, "cell 3 1");
+		contentPane.add(btnNewButton_1, "cell 2 4");
 	}
 
 }
