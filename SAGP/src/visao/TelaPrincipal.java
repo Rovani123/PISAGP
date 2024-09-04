@@ -1,6 +1,7 @@
 package visao;
 
 import java.awt.EventQueue;
+import java.awt.Image;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -8,6 +9,9 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
 
 public class TelaPrincipal extends JFrame {
 
