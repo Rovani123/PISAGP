@@ -37,19 +37,20 @@ public class TelaPrincipal extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaPrincipal() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 331, 240);
+		setBounds(100, 100, 600, 600);
 		contentPane = new JPanel();
 		contentPane.setForeground(new Color(245, 245, 245));
 		contentPane.setBackground(new Color(230, 230, 230));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[][][][][]", "[][][][][][]"));
+		contentPane.setLayout(new MigLayout("", "[grow][][][][][][][][grow]", "[grow][120px][150px][grow]"));
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(TelaPrincipal.class.getResource("/Imagem/Group 1.png")));
-		contentPane.add(lblNewLabel, "cell 0 0 3 1");
+		contentPane.add(lblNewLabel, "cell 1 1 7 1,alignx center");
 		
 		JButton btnNewButton = new RoundButton("SOU CLIENTE");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -58,12 +59,12 @@ public class TelaPrincipal extends JFrame {
 		});
 		btnNewButton.setBackground(new Color(224, 83, 76));
 		btnNewButton.setForeground(new Color(245, 245, 245));
-		contentPane.add(btnNewButton, "cell 0 4");
+		contentPane.add(btnNewButton, "cell 2 2 2 1,growx");
 		
 		JButton btnNewButton_1 = new RoundButton("SOU FUNCIONARIO");
 		btnNewButton_1.setForeground(new Color(245, 245, 245));
 		btnNewButton_1.setBackground(new Color(224, 83, 76));
-		contentPane.add(btnNewButton_1, "cell 2 4");
+		contentPane.add(btnNewButton_1, "cell 5 2,growx");
 	}
 
 }
