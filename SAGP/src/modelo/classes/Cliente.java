@@ -2,19 +2,19 @@ package modelo.classes;
 
 public class Cliente {
 
-	private String nome;
-	private int cpf;
+	private String usuario;
+	private long senha;
+	public String getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+	public long getSenha() {
+		return senha;
+	}
+	public void setSenha(long senha) {
+		this.senha = senha;
+	}
 	
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	public int getCpf() {
-		return cpf;
-	}
-	public void setCpf(int cpf) {
-		this.cpf = cpf;
-	} 
 }
