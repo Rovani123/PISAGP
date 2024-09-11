@@ -21,14 +21,12 @@ public class TelaClienteCadastro extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-<<<<<<< Updated upstream
 	private JTextField txtEntreComSeu;
 	private JTextField txtEntreComSeu_1;
 	private JTextField txtEntreComUma;
-=======
 	private JTextField txtUsuario;
 	private JTextField txtSenha;
->>>>>>> Stashed changes
+
 
 	/**
 	 * Launch the application.
@@ -75,17 +73,17 @@ public class TelaClienteCadastro extends JFrame {
 		JLabel lblNewLabel = new JLabel("Usuario: *");
 		contentPane.add(lblNewLabel, "cell 4 4");
 		
-<<<<<<< Updated upstream
+
 		txtEntreComSeu = new JTextField();
 		txtEntreComSeu.setForeground(new Color(130, 130, 130));
 		txtEntreComSeu.setText("Entre com seu nome para logar no sistema");
 		contentPane.add(txtEntreComSeu, "cell 4 5,growx");
 		txtEntreComSeu.setColumns(10);
-=======
+
 		txtUsuario = new JTextField();
 		contentPane.add(txtUsuario, "cell 4 5,growx");
 		txtUsuario.setColumns(10);
->>>>>>> Stashed changes
+
 		
 		JButton btnNewButton = new RoundButton("Limpar");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -97,7 +95,6 @@ public class TelaClienteCadastro extends JFrame {
 		btnNewButton.setForeground(new Color(255, 255, 255));
 		contentPane.add(btnNewButton, "cell 5 5");
 		
-<<<<<<< Updated upstream
 		JLabel lblNewLabel_1 = new JLabel("Usuário: *");
 		contentPane.add(lblNewLabel_1, "cell 4 6");
 		
@@ -125,14 +122,11 @@ public class TelaClienteCadastro extends JFrame {
 		txtEntreComUma.setText("Entre com uma senha");
 		contentPane.add(txtEntreComUma, "cell 4 9,growx");
 		txtEntreComUma.setColumns(10);
-=======
-		JLabel lblNewLabel_2 = new JLabel("Senha: *");
-		contentPane.add(lblNewLabel_2, "cell 4 8");
+		
 		
 		txtSenha = new JTextField();
 		contentPane.add(txtSenha, "cell 4 9,growx");
 		txtSenha.setColumns(10);
->>>>>>> Stashed changes
 		
 		JButton btnNewButton_2 = new RoundButton("Limpar");
 		btnNewButton_2.addActionListener(new ActionListener() {
