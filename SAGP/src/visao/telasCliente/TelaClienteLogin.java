@@ -13,6 +13,8 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaClienteLogin extends JFrame {
 
@@ -52,7 +54,7 @@ public class TelaClienteLogin extends JFrame {
 		
 		JLabel lblNewLabel_5 = new JLabel("");
 		lblNewLabel_5.setIcon(new ImageIcon(TelaClienteLogin.class.getResource("/Imagem/Group 1.png")));
-		contentPane.add(lblNewLabel_5, "cell 5 1");
+		contentPane.add(lblNewLabel_5, "cell 5 1,alignx center");
 		
 		JLabel lblNewLabel_4 = new JLabel("ENTRE NA SUA CONTA:");
 		contentPane.add(lblNewLabel_4, "cell 5 3,alignx center");
@@ -65,6 +67,11 @@ public class TelaClienteLogin extends JFrame {
 		textField.setColumns(10);
 		
 		RoundButton btnNewButton_1 = new RoundButton("Limpar");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton_1.setForeground(new Color(255, 255, 255));
 		btnNewButton_1.setBackground(new Color(224, 83, 76));
 		contentPane.add(btnNewButton_1, "cell 6 5");
 		
@@ -79,6 +86,7 @@ public class TelaClienteLogin extends JFrame {
 		textField_1.setColumns(10);
 		
 		RoundButton btnNewButton_2 = new RoundButton("Limpar");
+		btnNewButton_2.setForeground(new Color(255, 255, 255));
 		btnNewButton_2.setBackground(new Color(224, 83, 76));
 		contentPane.add(btnNewButton_2, "cell 6 7,alignx left");
 		
@@ -86,10 +94,12 @@ public class TelaClienteLogin extends JFrame {
 		contentPane.add(lblNewLabel_3, "cell 7 7");
 		
 		RoundButton btnNewButton = new RoundButton("Entrar");
+		btnNewButton.setForeground(new Color(255, 255, 255));
 		btnNewButton.setBackground(new Color(224, 83, 76));
 		contentPane.add(btnNewButton, "cell 5 9,alignx center");
 		
 		RoundButton btnNewButton_3 = new RoundButton("Cancelar");
+		btnNewButton_3.setForeground(new Color(255, 255, 255));
 		contentPane.add(btnNewButton_3, "cell 6 11");
 	}
 

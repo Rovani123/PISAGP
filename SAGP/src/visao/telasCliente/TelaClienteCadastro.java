@@ -57,7 +57,7 @@ public class TelaClienteCadastro extends JFrame {
 		
 		JLabel lblNewLabel_6 = new JLabel("");
 		lblNewLabel_6.setIcon(new ImageIcon(TelaClienteCadastro.class.getResource("/Imagem/Group 1.png")));
-		contentPane.add(lblNewLabel_6, "cell 4 0");
+		contentPane.add(lblNewLabel_6, "cell 4 0,alignx center");
 		
 		JLabel lblNewLabel_3 = new JLabel("CRIE UMA CONTA:");
 		contentPane.add(lblNewLabel_3, "cell 4 2 2 1,alignx center");
