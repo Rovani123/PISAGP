@@ -24,8 +24,6 @@ public class TelaClienteCadastro extends JFrame {
 	private JTextField txtEntreComSeu;
 	private JTextField txtEntreComSeu_1;
 	private JTextField txtEntreComUma;
-	private JTextField txtUsuario;
-	private JTextField txtSenha;
 
 
 	/**
@@ -62,7 +60,7 @@ public class TelaClienteCadastro extends JFrame {
 		contentPane.add(lblNewLabel_6, "cell 4 0");
 		
 		JLabel lblNewLabel_3 = new JLabel("CRIE UMA CONTA:");
-		contentPane.add(lblNewLabel_3, "cell 4 2");
+		contentPane.add(lblNewLabel_3, "cell 4 2 2 1,alignx center");
 		
 		JLabel lblNewLabel_4 = new JLabel("");
 		contentPane.add(lblNewLabel_4, "cell 6 2");
@@ -76,13 +74,8 @@ public class TelaClienteCadastro extends JFrame {
 
 		txtEntreComSeu = new JTextField();
 		txtEntreComSeu.setForeground(new Color(130, 130, 130));
-		txtEntreComSeu.setText("Entre com seu nome para logar no sistema");
 		contentPane.add(txtEntreComSeu, "cell 4 5,growx");
 		txtEntreComSeu.setColumns(10);
-
-		txtUsuario = new JTextField();
-		contentPane.add(txtUsuario, "cell 4 5,growx");
-		txtUsuario.setColumns(10);
 
 		
 		JButton btnNewButton = new RoundButton("Limpar");
@@ -100,7 +93,6 @@ public class TelaClienteCadastro extends JFrame {
 		
 		txtEntreComSeu_1 = new JTextField();
 		txtEntreComSeu_1.setForeground(new Color(130, 130, 130));
-		txtEntreComSeu_1.setText("Entre com seu usuário para logar no sistema");
 		contentPane.add(txtEntreComSeu_1, "cell 4 7,growx");
 		txtEntreComSeu_1.setColumns(10);
 		
@@ -119,14 +111,8 @@ public class TelaClienteCadastro extends JFrame {
 		
 		txtEntreComUma = new JTextField();
 		txtEntreComUma.setForeground(new Color(130, 130, 130));
-		txtEntreComUma.setText("Entre com uma senha");
 		contentPane.add(txtEntreComUma, "cell 4 9,growx");
 		txtEntreComUma.setColumns(10);
-		
-		
-		txtSenha = new JTextField();
-		contentPane.add(txtSenha, "cell 4 9,growx");
-		txtSenha.setColumns(10);
 		
 		JButton btnNewButton_2 = new RoundButton("Limpar");
 		btnNewButton_2.addActionListener(new ActionListener() {
@@ -147,7 +133,7 @@ public class TelaClienteCadastro extends JFrame {
 		btnNewButton_3.setForeground(new Color(255, 255, 255));
 		btnNewButton_3.setBackground(new Color(224, 83, 76));
 		btnNewButton_3.setFont(new Font("Arial", Font.PLAIN, 11));
-		contentPane.add(btnNewButton_3, "cell 4 11");
+		contentPane.add(btnNewButton_3, "cell 4 11,alignx center");
 		
 		JButton btnNewButton_4 = new RoundButton("Cancelar");
 		btnNewButton_4.addActionListener(new ActionListener() {
