@@ -1,11 +1,13 @@
 package visao.telasFuncionário;
 
 import java.awt.EventQueue;
+import java.awt.Image;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import net.miginfocom.swing.MigLayout;
+import visao.ImageLabel;
 import visao.RoundButton;
 
 import javax.swing.JLabel;
@@ -53,9 +55,9 @@ public class TelaFuncionarioCadastro extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new MigLayout("", "[grow][][][][grow][][][][][][][grow]", "[grow][][][][][][][][][][grow]"));
 		
-		JLabel lblNewLabel = new JLabel("");
+		ImageLabel lblNewLabel = new ImageLabel("");
 		lblNewLabel.setIcon(new ImageIcon(TelaFuncionarioCadastro.class.getResource("/Imagem/Group 1.png")));
-		contentPane.add(lblNewLabel, "cell 4 0 6 2,grow");
+		contentPane.add(lblNewLabel, "cell 3 0 7 2,alignx center,aligny center");
 		
 		JLabel lblNewLabel_1 = new JLabel("CRIE UMA CONTA:");
 		contentPane.add(lblNewLabel_1, "cell 4 2 6 1,alignx center");
