@@ -8,8 +8,11 @@ import javax.swing.border.EmptyBorder;
 
 import controle.ConexaoBD;
 import net.miginfocom.swing.MigLayout;
+import visao.telasFuncionário.TelaFuncionarioEstoque;
+
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -23,8 +26,8 @@ public class TelaLogin extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_2;
+	private JTextField txtUsuario;
+	private JTextField txtSenha;
 
 	/**
 	 * Launch the application.
@@ -54,22 +57,22 @@ public class TelaLogin extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new MigLayout("", "[][][][][][][][grow][][][grow]", "[][][][][][][][][][][][][]"));
 		
-		JLabel lblUsuario = new JLabel("Usuário:");
-		contentPane.add(lblUsuario, "cell 4 2");
+		JLabel lblUser = new JLabel("Usuário");
+		contentPane.add(lblUser, "cell 4 2");
 		
-		textField = new JTextField();
-		contentPane.add(textField, "cell 4 3,growx");
-		textField.setColumns(10);
+		txtUsuario = new JTextField();
+		contentPane.add(txtUsuario, "cell 4 3,growx");
+		txtUsuario.setColumns(10);
 		
 		JButton bntLimpa = new JButton("Limpa");
 		contentPane.add(bntLimpa, "cell 5 3");
 		
-		JLabel lblEmail = new JLabel("Email:");
-		contentPane.add(lblEmail, "cell 4 4");
+		JLabel lblSenha = new JLabel("Senha");
+		contentPane.add(lblSenha, "cell 4 4");
 		
-		textField_2 = new JTextField();
-		contentPane.add(textField_2, "cell 4 5,growx");
-		textField_2.setColumns(10);
+		txtSenha = new JTextField();
+		contentPane.add(txtSenha, "cell 4 5,growx");
+		txtSenha.setColumns(10);
 		
 		JButton btnLimpa_1 = new JButton("Limpa");
 		contentPane.add(btnLimpa_1, "cell 5 5");
@@ -81,12 +84,42 @@ public class TelaLogin extends JFrame {
 		});
 		contentPane.add(btnCancelar, "cell 4 7");
 		
-		JButton btnEntre = new JButton("Entrar");
-		btnEntre.addActionListener(new ActionListener() {
+		JButton btEntrar = new JButton("Entrar");
+		btEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Statement stml = null;
+				Connection conn = ConexaoBD.getConexaoMySQL();
+				
+				String user = txtUsuario.getText();
+				String senha = txtSenha.getText();
+				
+				try {
+					stml = (Statement) conn.createStatement();
+					ResultSet resl = null;
+					resl = stml.executeQuery("SELECT * FROM FUNCIONARIOS");
+					while(resl.next())
+					{
+						if(user.equals(resl.getString("usuarioFuncionario")) && senha.equals(resl.getString("Senha")))
+						{
+							TelaFuncionarioEstoque janelaF = new TelaFuncionarioEstoque();
+							janelaF.setVisible(true);
+						} else
+						{
+							
+						}
+						
+					}
+					
+					resl.close();
+					stml.close();
+					conn.close();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+					System.out.println("N foi");
+				}
 			}
 		});
-		contentPane.add(btnEntre, "cell 5 7");
+		contentPane.add(btEntrar, "cell 5 7");
 	}
 
 }
