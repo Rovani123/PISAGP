@@ -115,7 +115,6 @@ public class TelaLogin extends JFrame {
 					conn.close();
 				} catch (SQLException e1) {
 					e1.printStackTrace();
-					System.out.println("N foi");
 				}
 			}
 		});

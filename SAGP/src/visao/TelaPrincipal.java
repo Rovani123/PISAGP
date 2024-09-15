@@ -56,7 +56,7 @@ public class TelaPrincipal extends JFrame {
 		contentPane.setLayout(new MigLayout("", "[grow][][][][][][][][grow]", "[grow][120px][150px][grow]"));
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(TelaPrincipal.class.getResource("/Imagem/Group 1.png")));
+		lblNewLabel.setIcon(new ImageIcon(TelaPrincipal.class.getResource("/Imagem/Logo.png")));
 		contentPane.add(lblNewLabel, "cell 1 1 7 1,alignx center");
 		
 		JButton btnNewButton = new RoundButton("SOU CLIENTE");

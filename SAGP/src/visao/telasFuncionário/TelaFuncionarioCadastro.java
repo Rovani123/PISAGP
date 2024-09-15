@@ -64,7 +64,7 @@ public class TelaFuncionarioCadastro extends JFrame {
 		});
 		
 		ImageLabel lblNewLabel = new ImageLabel("");
-		lblNewLabel.setIcon(new ImageIcon(TelaFuncionarioCadastro.class.getResource("/Imagem/Group 1.png")));
+		lblNewLabel.setIcon(new ImageIcon(TelaFuncionarioCadastro.class.getResource("/Imagem/Logo.png")));
 		contentPane.add(lblNewLabel, "cell 3 2 9 1,alignx center,growy");
 		
 		JLabel lblNewLabel_1 = new JLabel("CRIE UMA CONTA:");
