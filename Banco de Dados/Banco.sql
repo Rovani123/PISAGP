@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS Funcionarios
     nomeFuncionario VARCHAR(45) NOT NULL,
     usuarioFuncionario VARCHAR(45) NOT NULL,
     senha VARCHAR(16) NOT NULL,
+    administrador INT NOT NULL,
     PRIMARY KEY (idFuncionario)
 );
 
