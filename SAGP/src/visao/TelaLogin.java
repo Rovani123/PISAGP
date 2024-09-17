@@ -21,13 +21,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+import java.awt.Color;
 
 public class TelaLogin extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField txtUsuario;
-	private JTextField txtSenha;
+	private JTextField txtEntreComSeu;
+	private JTextField txtEntreComUma;
 
 	/**
 	 * Launch the application.
@@ -50,75 +52,77 @@ public class TelaLogin extends JFrame {
 	 */
 	public TelaLogin() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 423, 305);
+		setBounds(100, 100, 602, 450);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[][][][][][][][grow][][][grow]", "[][][][][][][][][][][][][]"));
+		contentPane.setLayout(new MigLayout("", "[][][][grow][][][][grow][][][grow]", "[][][][][][][][][][][][][]"));
 		
-		JLabel lblUser = new JLabel("Usuário");
-		contentPane.add(lblUser, "cell 4 2");
+		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setIcon(new ImageIcon(TelaLogin.class.getResource("/Imagem/Logo.png")));
+		contentPane.add(lblNewLabel_3, "cell 5 1 2 1,alignx center");
 		
-		txtUsuario = new JTextField();
-		contentPane.add(txtUsuario, "cell 4 3,growx");
-		txtUsuario.setColumns(10);
+		JLabel lblNewLabel_2 = new JLabel("ENTRE COM SUA CONTA:");
+		contentPane.add(lblNewLabel_2, "cell 5 3 2 1,alignx center");
 		
-		JButton bntLimpa = new JButton("Limpa");
-		contentPane.add(bntLimpa, "cell 5 3");
+		JLabel lblNewLabel = new JLabel("Usuário: *");
+		contentPane.add(lblNewLabel, "cell 4 5");
 		
-		JLabel lblSenha = new JLabel("Senha");
-		contentPane.add(lblSenha, "cell 4 4");
+		txtEntreComSeu = new JTextField();
+		txtEntreComSeu.setForeground(new Color(130, 130, 130));
+		txtEntreComSeu.setText("Entre com seu usuário para logar no sistema");
+		contentPane.add(txtEntreComSeu, "cell 4 6 4 1,growx");
+		txtEntreComSeu.setColumns(10);
 		
-		txtSenha = new JTextField();
-		contentPane.add(txtSenha, "cell 4 5,growx");
-		txtSenha.setColumns(10);
-		
-		JButton btnLimpa_1 = new JButton("Limpa");
-		contentPane.add(btnLimpa_1, "cell 5 5");
-		
-		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.addActionListener(new ActionListener() {
+		RoundButton btnLimpa_1 = new RoundButton("Limpa");
+		btnLimpa_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 			}
 		});
-		contentPane.add(btnCancelar, "cell 4 7");
+		btnLimpa_1.setForeground(new Color(255, 255, 255));
+		btnLimpa_1.setBackground(new Color(224, 83, 76));
+		contentPane.add(btnLimpa_1, "cell 9 6");
 		
-		JButton btEntrar = new JButton("Entrar");
-		btEntrar.addActionListener(new ActionListener() {
+		JLabel lblNewLabel_1 = new JLabel("Senha: *");
+		contentPane.add(lblNewLabel_1, "cell 4 7");
+		
+		txtEntreComUma = new JTextField();
+		txtEntreComUma.setForeground(new Color(130, 130, 130));
+		txtEntreComUma.setText("Entre com uma senha");
+		contentPane.add(txtEntreComUma, "cell 4 8 4 1,growx");
+		txtEntreComUma.setColumns(10);
+		
+		RoundButton bntLimpa = new RoundButton("Limpa");
+		bntLimpa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Statement stml = null;
-				Connection conn = ConexaoBD.getConexaoMySQL();
 				
-				String user = txtUsuario.getText();
-				String senha = txtSenha.getText();
-				
-				try {
-					stml = (Statement) conn.createStatement();
-					ResultSet resl = null;
-					resl = stml.executeQuery("SELECT * FROM FUNCIONARIOS");
-					while(resl.next())
-					{
-						if(user.equals(resl.getString("usuarioFuncionario")) && senha.equals(resl.getString("Senha")))
-						{
-							TelaFuncionarioEstoque janelaF = new TelaFuncionarioEstoque();
-							janelaF.setVisible(true);
-						} else
-						{
-							
-						}
-						
-					}
-					
-					resl.close();
-					stml.close();
-					conn.close();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-				}
 			}
 		});
-		contentPane.add(btEntrar, "cell 5 7");
+		bntLimpa.setForeground(new Color(255, 255, 255));
+		bntLimpa.setBackground(new Color(224, 83, 76));
+		contentPane.add(bntLimpa, "cell 9 8");
+		
+		RoundButton btnNewButton_1 = new RoundButton("Cancelar");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		RoundButton btnNewButton = new RoundButton("Entrar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btnNewButton.setForeground(new Color(255, 255, 255));
+		btnNewButton.setBackground(new Color(224, 83, 76));
+		contentPane.add(btnNewButton, "cell 5 10 2 1,alignx center");
+		btnNewButton_1.setForeground(new Color(255, 255, 255));
+		btnNewButton_1.setBackground(new Color(0, 0, 0));
+		contentPane.add(btnNewButton_1, "cell 9 11");
 	}
 
 }

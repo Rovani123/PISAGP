@@ -69,7 +69,7 @@ public class TelaPrincipal extends JFrame {
 		});
 		btnNewButton.setBackground(new Color(224, 83, 76));
 		btnNewButton.setForeground(new Color(245, 245, 245));
-		contentPane.add(btnNewButton, "cell 2 2 2 1,growx");
+		contentPane.add(btnNewButton, "cell 2 2 3 1,growx");
 		
 		JButton btnNewButton_1 = new RoundButton("SOU FUNCIONARIO");
 		btnNewButton_1.addActionListener(new ActionListener() {
