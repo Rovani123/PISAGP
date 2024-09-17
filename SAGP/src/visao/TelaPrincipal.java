@@ -9,6 +9,7 @@ import java.awt.Color;
 import net.miginfocom.swing.MigLayout;
 import visao.telasCliente.TelaClienteCadastro;
 import visao.telasFuncionário.TelaFuncionarioCadastro;
+import visao.telasFuncionário.TelaFuncionarioLogin;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -74,7 +75,7 @@ public class TelaPrincipal extends JFrame {
 		JButton btnNewButton_1 = new RoundButton("SOU FUNCIONARIO");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaFuncionarioCadastro telaF = new TelaFuncionarioCadastro();
+				TelaFuncionarioLogin telaF = new TelaFuncionarioLogin();
 				dispose();
 				telaF.setVisible(true);
 			}

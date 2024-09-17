@@ -173,6 +173,7 @@ public class TelaFuncionarioCadastro extends JFrame {
 					preparedStatement.setString(2, txtUsuario.getText());
 					preparedStatement.setString(3, txtSenha.getText());
 					
+					
 					System.out.println(preparedStatement);
 					
 					int row = preparedStatement.executeUpdate();
