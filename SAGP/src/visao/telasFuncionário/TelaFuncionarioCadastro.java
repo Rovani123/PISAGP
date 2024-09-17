@@ -6,25 +6,33 @@ import java.awt.Image;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controle.ConexaoBD;
+import modelo.classes.Funcionario;
 import net.miginfocom.swing.MigLayout;
 import visao.ImageLabel;
 import visao.RoundButton;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
 
 public class TelaFuncionarioCadastro extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField txtEntreComSeu;
-	private JTextField txtEntreComUma;
-	private JTextField txtEntreComSeu_1;
+	private JTextField txtUsuario;
+	private JTextField txtSenha;
+	private JTextField txtNome;
 
 	/**
 	 * Launch the application.
@@ -77,11 +85,11 @@ public class TelaFuncionarioCadastro extends JFrame {
 		lblNewLabel_5.setForeground(new Color(255, 0, 0));
 		contentPane.add(lblNewLabel_5, "cell 4 5,alignx left");
 		
-		txtEntreComSeu = new JTextField();
-		txtEntreComSeu.setForeground(new Color(128, 128, 128));
-		txtEntreComSeu.setText("Coloque o seu usuario para cadastar");
-		contentPane.add(txtEntreComSeu, "cell 5 5 6 1,growx");
-		txtEntreComSeu.setColumns(10);
+		txtUsuario = new JTextField();
+		txtUsuario.setForeground(new Color(128, 128, 128));
+		txtUsuario.setText("Coloque o seu usuario para cadastar");
+		contentPane.add(txtUsuario, "cell 5 5 6 1,growx");
+		txtUsuario.setColumns(10);
 		contentPane.add(btnNewButton, "cell 11 5");
 		
 		JLabel lblNewLabel_4 = new JLabel("NOME:");
@@ -91,11 +99,11 @@ public class TelaFuncionarioCadastro extends JFrame {
 		lblNewLabel_6.setForeground(new Color(255, 0, 0));
 		contentPane.add(lblNewLabel_6, "cell 4 7,alignx left");
 		
-		txtEntreComSeu_1 = new JTextField();
-		txtEntreComSeu_1.setForeground(new Color(128, 128, 128));
-		txtEntreComSeu_1.setText("Entre com seu nome para cadastar");
-		contentPane.add(txtEntreComSeu_1, "cell 5 7 6 1,growx");
-		txtEntreComSeu_1.setColumns(10);
+		txtNome = new JTextField();
+		txtNome.setForeground(new Color(128, 128, 128));
+		txtNome.setText("Entre com seu nome para cadastar");
+		contentPane.add(txtNome, "cell 5 7 6 1,growx");
+		txtNome.setColumns(10);
 		
 		JButton btnNewButton_5 = new RoundButton("New button");
 		btnNewButton_5.setText("LIMPAR");
@@ -109,11 +117,11 @@ public class TelaFuncionarioCadastro extends JFrame {
 		JLabel lblNewLabel_7 = new JLabel("*");
 		contentPane.add(lblNewLabel_7, "cell 4 9,alignx trailing");
 		
-		txtEntreComUma = new JTextField();
-		txtEntreComUma.setForeground(new Color(128, 128, 128));
-		txtEntreComUma.setText("Entre com uma senha");
-		contentPane.add(txtEntreComUma, "cell 5 9 6 1,growx");
-		txtEntreComUma.setColumns(10);
+		txtSenha = new JTextField();
+		txtSenha.setForeground(new Color(128, 128, 128));
+		txtSenha.setText("Entre com uma senha");
+		contentPane.add(txtSenha, "cell 5 9 6 1,growx");
+		txtSenha.setColumns(10);
 		
 		JButton btnNewButton_1 = new RoundButton("LIMPAR");
 		btnNewButton_1.setBackground(new Color(224, 83, 76));
@@ -121,6 +129,56 @@ public class TelaFuncionarioCadastro extends JFrame {
 		contentPane.add(btnNewButton_1, "cell 11 9");
 		
 		JButton btnNewButton_2 = new RoundButton("CADASTRAR");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+
+
+				Funcionario novoFuncionario = new Funcionario();
+				
+				String usuario = txtUsuario.getText();
+				String nome = txtNome.getText();
+				String senha = txtSenha.getText();
+				
+				
+				novoFuncionario.setUsuarioFuncionario(usuario);
+				novoFuncionario.setNome(nome);
+				novoFuncionario.setSenha(senha);
+				
+				String insert = "insert into Funcionarios (nomeFuncionario,usuarioFuncionario,senha) VALUES (?,?,?)";
+				
+				Statement stml = null;
+				Connection conn = ConexaoBD.getConexaoMySQL();
+				
+				try {
+					//stml = (Statement) conn.prepareStatement(insert);
+					PreparedStatement preparedStatement = conn.prepareStatement(insert);
+					//ResultSet resl = null;
+					
+					preparedStatement.setString(1, txtNome.getText());
+					preparedStatement.setString(2, txtUsuario.getText());
+					preparedStatement.setString(3, txtSenha.getText());
+					
+					System.out.println(preparedStatement);
+					
+					int row = preparedStatement.executeUpdate();
+					
+					System.out.println(row); 
+					
+					preparedStatement.close();
+					//resl.close();
+					//stml.close();
+					conn.close();
+					
+					JOptionPane.showMessageDialog(null,"Deu Certo");
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+					
+					
+				}
+			
+			}
+		});
 		btnNewButton_2.setBackground(new Color(224, 83, 76));
 		btnNewButton_2.setForeground(new Color(245, 245, 245));
 		contentPane.add(btnNewButton_2, "cell 7 10");
