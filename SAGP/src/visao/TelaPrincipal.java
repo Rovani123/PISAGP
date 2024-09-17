@@ -75,9 +75,9 @@ public class TelaPrincipal extends JFrame {
 		JButton btnNewButton_1 = new RoundButton("SOU FUNCIONARIO");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaFuncionarioLogin telaF = new TelaFuncionarioLogin();
+				TelaLogin TelaL = new TelaLogin();
 				dispose();
-				telaF.setVisible(true);
+				TelaL.setVisible(true);
 			}
 		});
 		btnNewButton_1.setForeground(new Color(245, 245, 245));
