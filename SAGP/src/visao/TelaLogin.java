@@ -28,8 +28,8 @@ public class TelaLogin extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField txtEntreComSeu;
-	private JTextField txtEntreComUma;
+	private JTextField txtUser;
+	private JTextField txtSenha;
 
 	/**
 	 * Launch the application.
@@ -69,11 +69,11 @@ public class TelaLogin extends JFrame {
 		JLabel lblNewLabel = new JLabel("Usuário: *");
 		contentPane.add(lblNewLabel, "cell 4 5");
 		
-		txtEntreComSeu = new JTextField();
-		txtEntreComSeu.setForeground(new Color(130, 130, 130));
-		txtEntreComSeu.setText("Entre com seu usuário para logar no sistema");
-		contentPane.add(txtEntreComSeu, "cell 4 6 4 1,growx");
-		txtEntreComSeu.setColumns(10);
+		txtUser = new JTextField();
+		txtUser.setForeground(new Color(130, 130, 130));
+		txtUser.setText("Entre com seu usuário para logar no sistema");
+		contentPane.add(txtUser, "cell 4 6 4 1,growx");
+		txtUser.setColumns(10);
 		
 		RoundButton btnLimpa_1 = new RoundButton("Limpa");
 		btnLimpa_1.addActionListener(new ActionListener() {
@@ -88,11 +88,11 @@ public class TelaLogin extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel("Senha: *");
 		contentPane.add(lblNewLabel_1, "cell 4 7");
 		
-		txtEntreComUma = new JTextField();
-		txtEntreComUma.setForeground(new Color(130, 130, 130));
-		txtEntreComUma.setText("Entre com uma senha");
-		contentPane.add(txtEntreComUma, "cell 4 8 4 1,growx");
-		txtEntreComUma.setColumns(10);
+		txtSenha = new JTextField();
+		txtSenha.setForeground(new Color(130, 130, 130));
+		txtSenha.setText("Entre com uma senha");
+		contentPane.add(txtSenha, "cell 4 8 4 1,growx");
+		txtSenha.setColumns(10);
 		
 		RoundButton bntLimpa = new RoundButton("Limpa");
 		bntLimpa.addActionListener(new ActionListener() {
@@ -104,25 +104,58 @@ public class TelaLogin extends JFrame {
 		bntLimpa.setBackground(new Color(224, 83, 76));
 		contentPane.add(bntLimpa, "cell 9 8");
 		
-		RoundButton btnNewButton_1 = new RoundButton("Cancelar");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		RoundButton btEntrar = new RoundButton("Entrar");
+		btEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Statement stml = null;
+				Connection conn = ConexaoBD.getConexaoMySQL();
 				
+				try {
+					stml = (Statement) conn.createStatement();
+					ResultSet resl = null;
+					resl = stml.executeQuery("SELECT * FROM Funcionarios");
+					while(resl.next())
+					{
+						if(txtUser.getText().equals(resl.getString("usuarioFuncionario")))
+						{
+							if(txtSenha.getText().equals(resl.getString("Senha")))
+							{
+								if(resl.getInt("administrador") == 1)
+								{
+									JOptionPane.showMessageDialog(null, "ADM");
+								}
+								else
+								{
+									JOptionPane.showMessageDialog(null, "FUNC");
+								}
+							}
+						}
+					}
+					resl.close();
+					stml.close();
+					conn.close();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+					System.out.println("N foi");
+				}
 			}
 		});
 		
-		RoundButton btnNewButton = new RoundButton("Entrar");
-		btnNewButton.addActionListener(new ActionListener() {
+		RoundButton btVoltar = new RoundButton("Voltar");
+		btVoltar.setText("Voltar");
+		btVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				TelaPrincipal telaP = new TelaPrincipal();
+				dispose();
+				telaP.setVisible(true);
 			}
 		});
-		btnNewButton.setForeground(new Color(255, 255, 255));
-		btnNewButton.setBackground(new Color(224, 83, 76));
-		contentPane.add(btnNewButton, "cell 5 10 2 1,alignx center");
-		btnNewButton_1.setForeground(new Color(255, 255, 255));
-		btnNewButton_1.setBackground(new Color(0, 0, 0));
-		contentPane.add(btnNewButton_1, "cell 9 11");
+		btVoltar.setForeground(new Color(255, 255, 255));
+		btVoltar.setBackground(new Color(0, 0, 0));
+		contentPane.add(btVoltar, "cell 4 10");
+		btEntrar.setForeground(new Color(255, 255, 255));
+		btEntrar.setBackground(new Color(224, 83, 76));
+		contentPane.add(btEntrar, "cell 5 10 2 1,alignx center");
 	}
 
 }
