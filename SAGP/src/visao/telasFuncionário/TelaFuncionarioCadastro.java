@@ -12,6 +12,7 @@ import modelo.classes.Funcionario;
 import net.miginfocom.swing.MigLayout;
 import visao.ImageLabel;
 import visao.RoundButton;
+import visao.TelaPrincipal;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -68,6 +69,9 @@ public class TelaFuncionarioCadastro extends JFrame {
 		btnNewButton.setForeground(new Color(245, 245, 245));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				txtUsuario.setText("");
+				
 			}
 		});
 		
@@ -106,6 +110,11 @@ public class TelaFuncionarioCadastro extends JFrame {
 		txtNome.setColumns(10);
 		
 		JButton btnNewButton_5 = new RoundButton("New button");
+		btnNewButton_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtNome.setText("");
+			}
+		});
 		btnNewButton_5.setText("LIMPAR");
 		btnNewButton_5.setBackground(new Color(224, 83, 76));
 		btnNewButton_5.setForeground(new Color(245, 245, 245));
@@ -124,6 +133,11 @@ public class TelaFuncionarioCadastro extends JFrame {
 		txtSenha.setColumns(10);
 		
 		JButton btnNewButton_1 = new RoundButton("LIMPAR");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtSenha.setText("");
+			}
+		});
 		btnNewButton_1.setBackground(new Color(224, 83, 76));
 		btnNewButton_1.setForeground(new Color(245, 245, 245));
 		contentPane.add(btnNewButton_1, "cell 11 9");
@@ -184,6 +198,15 @@ public class TelaFuncionarioCadastro extends JFrame {
 		contentPane.add(btnNewButton_2, "cell 7 10");
 		
 		JButton btnNewButton_4 = new RoundButton("CANCELAR");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				TelaPrincipal telaP = new TelaPrincipal ();
+				dispose();
+				telaP.setVisible(true);
+				
+			}
+		});
 		btnNewButton_4.setBackground(new Color(0, 0, 0));
 		btnNewButton_4.setForeground(new Color(245, 245, 245));
 		contentPane.add(btnNewButton_4, "cell 10 11");
