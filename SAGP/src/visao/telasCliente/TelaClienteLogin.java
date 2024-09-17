@@ -53,7 +53,7 @@ public class TelaClienteLogin extends JFrame {
 		contentPane.setLayout(new MigLayout("", "[][][][][][grow][][]", "[][][][][][][][][][][][]"));
 		
 		JLabel lblNewLabel_5 = new JLabel("");
-		lblNewLabel_5.setIcon(new ImageIcon(TelaClienteLogin.class.getResource("/Imagem/Group 1.png")));
+		lblNewLabel_5.setIcon(new ImageIcon(TelaClienteLogin.class.getResource("/Imagem/Logo.png")));
 		contentPane.add(lblNewLabel_5, "cell 5 1,alignx center");
 		
 		JLabel lblNewLabel_4 = new JLabel("ENTRE NA SUA CONTA:");
