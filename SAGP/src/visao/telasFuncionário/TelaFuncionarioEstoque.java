@@ -16,6 +16,9 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import controle.EstoqueDAO;
+
 import javax.swing.ImageIcon;
 import java.awt.Color;
 
@@ -46,6 +49,7 @@ public class TelaFuncionarioEstoque extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaFuncionarioEstoque() {
+		EstoqueDAO estoquedao = new EstoqueDAO ();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 961, 638);
 		contentPane = new JPanel();
@@ -76,41 +80,44 @@ public class TelaFuncionarioEstoque extends JFrame {
 		JLabel lblNewLabel_2 = new JLabel("Categorias:");
 		panel.add(lblNewLabel_2, "cell 1 4,alignx center");
 		
-		RoundButton btnNewButton_5 = new RoundButton("Salgado");
-		btnNewButton_5.addActionListener(new ActionListener() {
+		RoundButton btnSalgados = new RoundButton("Salgado");
+		btnSalgados.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				table.setModel(estoquedao.visualizarTabela("salgados"));
 			}
 		});
-		btnNewButton_5.setBackground(new Color(255, 255, 255));
-		panel.add(btnNewButton_5, "cell 1 5,alignx center");
+		btnSalgados.setBackground(new Color(255, 255, 255));
+		panel.add(btnSalgados, "cell 1 5,alignx center");
 		
-		RoundButton btnNewButton_6 = new RoundButton("Doce");
-		btnNewButton_6.addActionListener(new ActionListener() {
+		RoundButton btnDoces = new RoundButton("Doce");
+		btnDoces.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				table.setModel(estoquedao.visualizarTabela("doces"));
+			
 			}
 		});
-		btnNewButton_6.setBackground(new Color(167, 208, 214));
-		panel.add(btnNewButton_6, "cell 1 6,alignx center");
+		btnDoces.setBackground(new Color(167, 208, 214));
+		panel.add(btnDoces, "cell 1 6,alignx center");
 		
-		RoundButton btnNewButton_7 = new RoundButton("Bebidas");
-		btnNewButton_7.addActionListener(new ActionListener() {
+		RoundButton btnBebidas = new RoundButton("Bebidas");
+		btnBebidas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				table.setModel(estoquedao.visualizarTabela("bebidas"));
 			}
 		});
-		btnNewButton_7.setBackground(new Color(167, 208, 214));
-		panel.add(btnNewButton_7, "cell 1 7,alignx center");
+		btnBebidas.setBackground(new Color(167, 208, 214));
+		panel.add(btnBebidas, "cell 1 7,alignx center");
 		
-		RoundButton btnNewButton_8 = new RoundButton("Ofertas");
-		btnNewButton_8.addActionListener(new ActionListener() {
+		RoundButton btnOfertas = new RoundButton("Ofertas");
+		btnOfertas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 			}
 		});
-		btnNewButton_8.setBackground(new Color(167, 208, 214));
-		panel.add(btnNewButton_8, "cell 1 8,alignx center");
+		btnOfertas.setBackground(new Color(167, 208, 214));
+		panel.add(btnOfertas, "cell 1 8,alignx center");
 		
 		RoundButton btnNewButton_4 = new RoundButton("Adicionar");
 		btnNewButton_4.addActionListener(new ActionListener() {
@@ -173,6 +180,12 @@ public class TelaFuncionarioEstoque extends JFrame {
 			}
 		));
 		scrollPane.setViewportView(table);
+	
+		
+	
+		//criar if 
+		//selecionar as categorias
+	
 	}
 
 }
