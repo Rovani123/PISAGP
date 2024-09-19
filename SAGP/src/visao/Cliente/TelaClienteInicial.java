@@ -1,4 +1,4 @@
-package visao.telasCliente;
+package visao.Cliente;
 
 import java.awt.EventQueue;
 

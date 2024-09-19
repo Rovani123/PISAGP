@@ -7,6 +7,8 @@ import java.sql.Statement;
 
 import javax.swing.table.DefaultTableModel;
 
+import dal.ConexaoBD;
+
 public class EstoqueDAO {
 
 	public DefaultTableModel visualizarTabela(String categoria) {
