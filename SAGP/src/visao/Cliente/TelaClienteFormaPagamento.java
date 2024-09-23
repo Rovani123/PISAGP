@@ -1,4 +1,4 @@
-package visao.telasCliente;
+package visao.Cliente;
 
 import java.awt.EventQueue;
 
@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class TelaClienteInserirCartao extends JFrame {
+public class TelaClienteFormaPagamento extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -18,7 +18,7 @@ public class TelaClienteInserirCartao extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaClienteInserirCartao frame = new TelaClienteInserirCartao();
+					TelaClienteFormaPagamento frame = new TelaClienteFormaPagamento();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -30,7 +30,7 @@ public class TelaClienteInserirCartao extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaClienteInserirCartao() {
+	public TelaClienteFormaPagamento() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

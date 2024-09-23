@@ -1,4 +1,4 @@
-package visao.telasCliente;
+package visao.Cliente;
 
 import java.awt.EventQueue;
 
@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class TelaClienteFormaPagamento extends JFrame {
+public class TelaClienteCarrinho extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -18,7 +18,7 @@ public class TelaClienteFormaPagamento extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaClienteFormaPagamento frame = new TelaClienteFormaPagamento();
+					TelaClienteCarrinho frame = new TelaClienteCarrinho();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -30,7 +30,7 @@ public class TelaClienteFormaPagamento extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaClienteFormaPagamento() {
+	public TelaClienteCarrinho() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

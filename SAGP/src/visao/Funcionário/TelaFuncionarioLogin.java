@@ -1,4 +1,4 @@
-package visao.telasFuncionário;
+package visao.Funcionário;
 
 import java.awt.EventQueue;
 
