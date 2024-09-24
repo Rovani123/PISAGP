@@ -8,6 +8,7 @@ import javax.swing.border.EmptyBorder;
 
 import dal.ConexaoBD;
 import net.miginfocom.swing.MigLayout;
+import visao.Administrador.TelaAdministrador;
 import visao.Funcionário.TelaFuncionarioEstoque;
 
 import javax.swing.JTextField;
@@ -27,7 +28,8 @@ import java.awt.Color;
 public class TelaLogin extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
+	private JPanel Painel;
+	private ImageIcon logo;
 	private JTextField txtUser;
 	private JTextField txtSenha;
 
@@ -51,58 +53,61 @@ public class TelaLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaLogin() {
+		logo = new ImageIcon(TelaPrincipal.class.getResource("/Imagem/Logo.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 602, 450);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		Painel = new JPanel();
+		Painel.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[][][][grow][][][][grow][][][grow]", "[][][][][][][][][][][][][]"));
+		setContentPane(Painel);
+		Painel.setLayout(new MigLayout("", "[grow][grow][grow][grow][grow][grow][grow][grow][grow][grow][grow]", "[grow][grow][grow][grow][grow][grow][grow][grow][grow][grow][grow][grow][grow]"));
 		
-		JLabel lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setIcon(new ImageIcon(TelaLogin.class.getResource("/Imagem/Logo.png")));
-		contentPane.add(lblNewLabel_3, "cell 5 1 2 1,alignx center");
+		JLabel lblLogo = new JLabel("");
+		lblLogo.setIcon(logo);
+		Painel.add(lblLogo, "cell 5 1 2 1,alignx center");
 		
-		JLabel lblNewLabel_2 = new JLabel("ENTRE COM SUA CONTA:");
-		contentPane.add(lblNewLabel_2, "cell 5 3 2 1,alignx center");
+		JLabel lblEntre = new JLabel("ENTRE COM SUA CONTA:");
+		Painel.add(lblEntre, "cell 5 3 2 1,alignx center");
 		
-		JLabel lblNewLabel = new JLabel("Usuário: *");
-		contentPane.add(lblNewLabel, "cell 4 5");
+		JLabel lblUsuario = new JLabel("Usuário: *");
+		Painel.add(lblUsuario, "cell 4 5");
 		
 		txtUser = new JTextField();
+		txtUser.setHorizontalAlignment(SwingConstants.LEFT);
 		txtUser.setForeground(new Color(130, 130, 130));
 		txtUser.setText("Entre com seu usuário para logar no sistema");
-		contentPane.add(txtUser, "cell 4 6 4 1,growx");
+		Painel.add(txtUser, "cell 4 6 4 1,growx");
 		txtUser.setColumns(10);
 		
-		RoundButton btnLimpa_1 = new RoundButton("Limpa");
-		btnLimpa_1.addActionListener(new ActionListener() {
+		RoundButton btnLimpa1 = new RoundButton("Limpa");
+		btnLimpa1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				txtUser.setText("");
 				
 			}
 		});
-		btnLimpa_1.setForeground(new Color(255, 255, 255));
-		btnLimpa_1.setBackground(new Color(224, 83, 76));
-		contentPane.add(btnLimpa_1, "cell 9 6");
+		btnLimpa1.setForeground(new Color(255, 255, 255));
+		btnLimpa1.setBackground(new Color(224, 83, 76));
+		Painel.add(btnLimpa1, "cell 9 6");
 		
-		JLabel lblNewLabel_1 = new JLabel("Senha: *");
-		contentPane.add(lblNewLabel_1, "cell 4 7");
+		JLabel lblSenha = new JLabel("Senha: *");
+		Painel.add(lblSenha, "cell 4 7");
 		
 		txtSenha = new JTextField();
 		txtSenha.setForeground(new Color(130, 130, 130));
 		txtSenha.setText("Entre com uma senha");
-		contentPane.add(txtSenha, "cell 4 8 4 1,growx");
+		Painel.add(txtSenha, "cell 4 8 4 1,growx");
 		txtSenha.setColumns(10);
 		
-		RoundButton bntLimpa = new RoundButton("Limpa");
-		bntLimpa.addActionListener(new ActionListener() {
+		RoundButton bntLimpa2 = new RoundButton("Limpa");
+		bntLimpa2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				txtSenha.setText("");
 			}
 		});
-		bntLimpa.setForeground(new Color(255, 255, 255));
-		bntLimpa.setBackground(new Color(224, 83, 76));
-		contentPane.add(bntLimpa, "cell 9 8");
+		bntLimpa2.setForeground(new Color(255, 255, 255));
+		bntLimpa2.setBackground(new Color(224, 83, 76));
+		Painel.add(bntLimpa2, "cell 9 8");
 		
 		RoundButton btEntrar = new RoundButton("Entrar");
 		btEntrar.addActionListener(new ActionListener() {
@@ -122,11 +127,13 @@ public class TelaLogin extends JFrame {
 							{
 								if(resl.getInt("administrador") == 1)
 								{
-									JOptionPane.showMessageDialog(null, "ADM");
+									TelaAdministrador telaAdm = new TelaAdministrador();
+									dispose();
+									telaAdm.setVisible(true);
 								}
 								else
 								{
-									JOptionPane.showMessageDialog(null, "FUNC");
+									//criar tela funcionario
 								}
 							}
 						}
@@ -152,10 +159,10 @@ public class TelaLogin extends JFrame {
 		});
 		btVoltar.setForeground(new Color(255, 255, 255));
 		btVoltar.setBackground(new Color(0, 0, 0));
-		contentPane.add(btVoltar, "cell 4 10");
+		Painel.add(btVoltar, "cell 4 10");
 		btEntrar.setForeground(new Color(255, 255, 255));
 		btEntrar.setBackground(new Color(224, 83, 76));
-		contentPane.add(btEntrar, "cell 5 10 2 1,alignx center");
+		Painel.add(btEntrar, "cell 5 10 2 1,alignx center");
 	}
 
 }
