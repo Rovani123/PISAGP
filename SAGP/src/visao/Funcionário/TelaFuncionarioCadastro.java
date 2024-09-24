@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import controle.AdmDAO;
 import dal.ConexaoBD;
 import modelo.classes.Funcionario;
 import net.miginfocom.swing.MigLayout;
@@ -130,52 +131,10 @@ public class TelaFuncionarioCadastro extends JFrame {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
-
-
-				Funcionario novoFuncionario = new Funcionario();
+				AdmDAO adm = new AdmDAO();
 				
-				String usuario = txtUsuario.getText();
-				String nome = txtNome.getText();
-				String senha = txtSenha.getText();
+				adm.CadastrarFuncionario(txtNome.getText(),txtUsuario.getText(),txtSenha.getText());
 				
-				
-				novoFuncionario.setUsuarioFuncionario(usuario);
-				novoFuncionario.setNome(nome);
-				novoFuncionario.setSenha(senha);
-				
-				String insert = "insert into Funcionarios (nomeFuncionario,usuarioFuncionario,senha) VALUES (?,?,?)";
-				
-				Statement stml = null;
-				Connection conn = ConexaoBD.getConexaoMySQL();
-				
-				try {
-					//stml = (Statement) conn.prepareStatement(insert);
-					PreparedStatement preparedStatement = conn.prepareStatement(insert);
-					//ResultSet resl = null;
-					
-					preparedStatement.setString(1, txtNome.getText());
-					preparedStatement.setString(2, txtUsuario.getText());
-					preparedStatement.setString(3, txtSenha.getText());
-					
-					
-					System.out.println(preparedStatement);
-					
-					int row = preparedStatement.executeUpdate();
-					
-					System.out.println(row); 
-					
-					preparedStatement.close();
-					//resl.close();
-					//stml.close();
-					conn.close();
-					
-					JOptionPane.showMessageDialog(null,"Deu Certo");
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-					
-					
-				}
-			
 			}
 		});
 		
