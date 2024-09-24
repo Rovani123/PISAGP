@@ -23,10 +23,19 @@ public class FuncionarioDAO {
 			
 			if(categoria.equals("salgados"))
 			{
-				reslt = stml.executeQuery("SELECT * FROM PRODUTOS where categoria = salgados");
+				reslt = stml.executeQuery("SELECT * FROM PRODUTOS where categoria = 'salgados'");
 				
 			}
-			
+			if(categoria.equals("doces"))
+			{
+				reslt = stml.executeQuery("SELECT * FROM PRODUTOS where categoria = 'doces'");
+				
+			}
+			if(categoria.equals("bebidas"))
+			{
+				reslt = stml.executeQuery("SELECT * FROM PRODUTOS where categoria = 'bebidas'");
+				
+			}
 			
 			while(reslt.next())
 			{
