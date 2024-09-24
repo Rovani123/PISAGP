@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import net.miginfocom.swing.MigLayout;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 public class TelaClienteCarrinho extends JFrame {
 
@@ -32,11 +35,12 @@ public class TelaClienteCarrinho extends JFrame {
 	 */
 	public TelaClienteCarrinho() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 558, 511);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
+		contentPane.setLayout(new MigLayout("", "[][]", "[][]"));
 	}
 
 }
