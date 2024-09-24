@@ -9,12 +9,15 @@ import visao.RoundButton;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import controle.EstoqueDAO;
+import controle.FuncionarioDAO;
+import modelo.classes.Produto;
+
 import javax.swing.ImageIcon;
 import java.awt.Color;
 
@@ -45,7 +48,7 @@ public class TelaFuncionarioEstoque extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaFuncionarioEstoque() {
-		EstoqueDAO estoquedao = new EstoqueDAO ();
+		FuncionarioDAO estoquedao = new FuncionarioDAO ();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 961, 638);
 		contentPane = new JPanel();
@@ -80,7 +83,7 @@ public class TelaFuncionarioEstoque extends JFrame {
 		btnSalgados.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				table.setModel(estoquedao.visualizarTabela("salgados"));
+
 			}
 		});
 		btnSalgados.setBackground(new Color(255, 255, 255));
@@ -90,7 +93,7 @@ public class TelaFuncionarioEstoque extends JFrame {
 		btnDoces.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				table.setModel(estoquedao.visualizarTabela("doces"));
+				//refazer
 			
 			}
 		});
@@ -100,7 +103,7 @@ public class TelaFuncionarioEstoque extends JFrame {
 		RoundButton btnBebidas = new RoundButton("Bebidas");
 		btnBebidas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				table.setModel(estoquedao.visualizarTabela("bebidas"));
+				//refazer
 			}
 		});
 		btnBebidas.setBackground(new Color(167, 208, 214));
@@ -172,15 +175,25 @@ public class TelaFuncionarioEstoque extends JFrame {
 				{null, null, null, null},
 			},
 			new String[] {
-				"Pastel de Calabresa", "Pastel de Pizza", "Pastel de Frango", "Pastel de Carne"
+				"", "", "", ""
 			}
 		));
 		scrollPane.setViewportView(table);
-	
 		
-	
-		//criar if 
-		//selecionar as categorias
+		DefaultTableModel tableModel = new DefaultTableModel(
+				new Object[][] {
+				},
+				new String[] {
+					"nomeProduto","preco","quantidadeEstoque","categoria"
+				}
+			);
+		
+		ArrayList<Produto> lista = estoquedao.getProdutos("");
+		
+		for (Produto p : lista) {
+			tableModel.addRow(new Object[] {p.getNomeProduto(),p.getPreco(),p.getQuantidadeEstoque(),p.getCategoria()});
+			table.setModel(tableModel);
+		}
 	
 	}
 
