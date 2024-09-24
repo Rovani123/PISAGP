@@ -55,7 +55,7 @@ public class TelaClienteCarrinho extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(167, 208, 214));
 		contentPane.add(panel, "cell 0 0 1 5,alignx left,growy");
-		panel.setLayout(new MigLayout("", "[][][][][grow]", "[][][][][][][][][][][][][][][grow]"));
+		panel.setLayout(new MigLayout("", "[][][][][]", "[][][][][][][][][][][][][][][]"));
 		
 		JButton btnNewButton = new RoundButton("");
 		btnNewButton.setBackground(new Color(224, 83, 76));
@@ -115,13 +115,10 @@ public class TelaClienteCarrinho extends JFrame {
 		contentPane.add(btnNewButton_5, "cell 1 1");
 		
 		JScrollPane scrollPane = new JScrollPane();
-		contentPane.add(scrollPane, "cell 1 2 6 1,grow");
+		contentPane.add(scrollPane, "cell 1 2 6 2,grow");
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
-		
-		JLabel lblNewLabel_2 = new JLabel("TOTAL A PAGAR:");
-		contentPane.add(lblNewLabel_2, "cell 4 3");
 		
 		JButton btnNewButton_6 = new RoundButton("FINALIZAR COMPRA");
 		btnNewButton_6.setBackground(new Color(224, 83, 76));
@@ -129,7 +126,10 @@ public class TelaClienteCarrinho extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		contentPane.add(btnNewButton_6, "cell 6 3,growx,aligny center");
+		
+		JLabel lblNewLabel_2 = new JLabel("TOTAL A PAGAR:");
+		contentPane.add(lblNewLabel_2, "cell 4 4");
+		contentPane.add(btnNewButton_6, "cell 6 4,growx,aligny center");
 	}
 
 }
