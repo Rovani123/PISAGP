@@ -13,7 +13,7 @@ import java.awt.Frame;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import net.miginfocom.swing.MigLayout;
-import visao.TelaPrincipal;
+import visao.TelaInicial;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -65,7 +65,7 @@ public class TesteCardapio extends JFrame {
 		panel.setLayout(new GridLayout(2, 1, 0, 0));
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(TelaPrincipal.class.getResource("/Imagem/Logo.png")));
+		lblNewLabel.setIcon(new ImageIcon(TelaInicial.class.getResource("/Imagem/Logo.png")));
 		panel.add(lblNewLabel);
 		
 		JButton btOk = new JButton("Ok");

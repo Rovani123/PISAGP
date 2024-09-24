@@ -7,9 +7,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import net.miginfocom.swing.MigLayout;
+import visao.Administrador.TelaCadastroFuncionario;
 import visao.Cliente.TelaClienteCadastro;
 import visao.Cliente.TelaClienteInicial;
-import visao.Funcionário.TelaFuncionarioCadastro;
 import visao.Funcionário.TelaFuncionarioLogin;
 
 import javax.swing.JButton;
@@ -21,7 +21,7 @@ import java.awt.Window.Type;
 import java.awt.Cursor;
 import java.awt.Point;
 
-public class TelaPrincipal extends JFrame {
+public class TelaInicial extends JFrame {
 
 	private JPanel Painel;
 	private ImageIcon logo;
@@ -33,7 +33,7 @@ public class TelaPrincipal extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaPrincipal frame = new TelaPrincipal();
+					TelaInicial frame = new TelaInicial();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,8 +45,8 @@ public class TelaPrincipal extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaPrincipal() {
-		logo = new ImageIcon(TelaPrincipal.class.getResource("/Imagem/Logo.png"));
+	public TelaInicial() {
+		logo = new ImageIcon(TelaInicial.class.getResource("/Imagem/Logo.png"));
 		setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

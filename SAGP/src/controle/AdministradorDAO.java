@@ -4,13 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import javax.swing.JOptionPane;
-
 import dal.ConexaoBD;
 import modelo.classes.Funcionario;
 
-public class AdmDAO {
+public class AdministradorDAO {
 
 	public void CadastrarFuncionario(String nome,String usuario, String senha) {
 		// TODO Auto-generated method stub
@@ -36,18 +33,15 @@ public class AdmDAO {
 			preparedStatement.setString(3, senha);
 			preparedStatement.setInt(4,0);
 			
-			System.out.println(preparedStatement);
 			
 			int row = preparedStatement.executeUpdate();
 			
-			System.out.println(row); 
 			
 			preparedStatement.close();
 			//resl.close();
 			//stml.close();
 			conn.close();
 			
-			JOptionPane.showMessageDialog(null,"Deu Certo");
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 			

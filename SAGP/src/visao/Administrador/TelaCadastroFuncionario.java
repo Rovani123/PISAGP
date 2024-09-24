@@ -1,4 +1,4 @@
-package visao.Funcionário;
+package visao.Administrador;
 
 import java.awt.EventQueue;
 import java.awt.Image;
@@ -7,13 +7,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import controle.AdmDAO;
+import controle.AdministradorDAO;
 import dal.ConexaoBD;
 import modelo.classes.Funcionario;
 import net.miginfocom.swing.MigLayout;
 import visao.ImageLabel;
 import visao.RoundButton;
-import visao.TelaPrincipal;
+import visao.TelaInicial;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -28,7 +28,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.awt.event.ActionEvent;
 
-public class TelaFuncionarioCadastro extends JFrame {
+public class TelaCadastroFuncionario extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -43,7 +43,7 @@ public class TelaFuncionarioCadastro extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaFuncionarioCadastro frame = new TelaFuncionarioCadastro();
+					TelaCadastroFuncionario frame = new TelaCadastroFuncionario();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -55,7 +55,7 @@ public class TelaFuncionarioCadastro extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaFuncionarioCadastro() {
+	public TelaCadastroFuncionario() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 703, 556);
 		contentPane = new JPanel();
@@ -66,7 +66,7 @@ public class TelaFuncionarioCadastro extends JFrame {
 		contentPane.setLayout(new MigLayout("", "[grow][][][][][grow][][][][][][][grow]", "[grow][][][grow][][][][][][][][][grow]"));
 		
 		ImageLabel lblNewLabel = new ImageLabel("");
-		lblNewLabel.setIcon(new ImageIcon(TelaFuncionarioCadastro.class.getResource("/Imagem/Logo.png")));
+		lblNewLabel.setIcon(new ImageIcon(TelaCadastroFuncionario.class.getResource("/Imagem/Logo.png")));
 		contentPane.add(lblNewLabel, "cell 3 2 9 1,alignx center,growy");
 		
 		JLabel lblNewLabel_1 = new JLabel("CRIE UMA CONTA:");
@@ -131,7 +131,7 @@ public class TelaFuncionarioCadastro extends JFrame {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
-				AdmDAO adm = new AdmDAO();
+				AdministradorDAO adm = new AdministradorDAO();
 				
 				adm.CadastrarFuncionario(txtNome.getText(),txtUsuario.getText(),txtSenha.getText());
 				
@@ -161,7 +161,7 @@ public class TelaFuncionarioCadastro extends JFrame {
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
-				TelaPrincipal telaP = new TelaPrincipal ();
+				TelaInicial telaP = new TelaInicial ();
 				dispose();
 				telaP.setVisible(true);
 				

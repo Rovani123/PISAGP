@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import dal.ConexaoBD;
 import net.miginfocom.swing.MigLayout;
 import visao.Administrador.TelaAdministrador;
+import visao.Funcionário.TelaFuncionario;
 import visao.Funcionário.TelaFuncionarioEstoque;
 
 import javax.swing.JTextField;
@@ -53,7 +54,7 @@ public class TelaLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaLogin() {
-		logo = new ImageIcon(TelaPrincipal.class.getResource("/Imagem/Logo.png"));
+		logo = new ImageIcon(TelaInicial.class.getResource("/Imagem/Logo.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 602, 450);
 		Painel = new JPanel();
@@ -133,7 +134,9 @@ public class TelaLogin extends JFrame {
 								}
 								else
 								{
-									//criar tela funcionario
+									TelaFuncionario telaF = new TelaFuncionario();
+									dispose();
+									telaF.setVisible(true);
 								}
 							}
 						}
@@ -152,7 +155,7 @@ public class TelaLogin extends JFrame {
 		btVoltar.setText("Voltar");
 		btVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaPrincipal telaP = new TelaPrincipal();
+				TelaInicial telaP = new TelaInicial();
 				dispose();
 				telaP.setVisible(true);
 			}

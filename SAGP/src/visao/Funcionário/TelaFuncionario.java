@@ -1,26 +1,23 @@
-package visao.Administrador;
+package visao.Funcionário;
 
+import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
 import visao.TelaInicial;
-import visao.TelaLogin;
-import visao.Cliente.TelaClienteInicial;
 
-import java.awt.Color;
-import java.awt.Cursor;
-
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-
-public class TelaAdministrador extends JFrame {
+public class TelaFuncionario extends JFrame {
 
 	private JPanel Painel;
 	private ImageIcon logo;
@@ -32,7 +29,7 @@ public class TelaAdministrador extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaAdministrador frame = new TelaAdministrador();
+					TelaFuncionario frame = new TelaFuncionario();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -44,7 +41,7 @@ public class TelaAdministrador extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaAdministrador() {
+	public TelaFuncionario() {
 		logo = new ImageIcon(TelaInicial.class.getResource("/Imagem/Logo.png"));
 		setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		setResizable(false);
@@ -62,27 +59,29 @@ public class TelaAdministrador extends JFrame {
 		lblLogo.setIcon(logo);
 		Painel.add(lblLogo, "cell 1 1 7 1,alignx center");
 		
-		JButton btVendas = new RoundButton("");
-		btVendas.setText("Histórico de vendas");
-		btVendas.addActionListener(new ActionListener() {
+		JButton btEstoque = new RoundButton("");
+		btEstoque.setText("Estoque");
+		btEstoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//fazer tela
+				TelaFuncionarioEstoque telaE = new TelaFuncionarioEstoque();
+				dispose();
+				telaE.setVisible(true);
 			}
 		});
-		btVendas.setBackground(new Color(224, 83, 76));
-		btVendas.setForeground(new Color(245, 245, 245));
-		Painel.add(btVendas, "cell 2 2 3 1,growx");
+		btEstoque.setBackground(new Color(224, 83, 76));
+		btEstoque.setForeground(new Color(245, 245, 245));
+		Painel.add(btEstoque, "cell 2 2 3 1,growx");
 		
-		JButton btFuncionarios = new RoundButton("");
-		btFuncionarios.setText("Funcionários");
-		btFuncionarios.addActionListener(new ActionListener() {
+		JButton btPromo = new RoundButton("");
+		btPromo.setText("Promoções");
+		btPromo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//fazer tela
 			}
 		});
-		btFuncionarios.setForeground(new Color(245, 245, 245));
-		btFuncionarios.setBackground(new Color(224, 83, 76));
-		Painel.add(btFuncionarios, "cell 5 2,growx");
+		btPromo.setForeground(new Color(245, 245, 245));
+		btPromo.setBackground(new Color(224, 83, 76));
+		Painel.add(btPromo, "cell 5 2,growx");
 	}
 
 }
