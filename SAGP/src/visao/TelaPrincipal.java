@@ -8,6 +8,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import net.miginfocom.swing.MigLayout;
 import visao.Cliente.TelaClienteCadastro;
+import visao.Cliente.TelaClienteInicial;
 import visao.Funcionário.TelaFuncionarioCadastro;
 import visao.Funcionário.TelaFuncionarioLogin;
 
@@ -22,7 +23,8 @@ import java.awt.Point;
 
 public class TelaPrincipal extends JFrame {
 
-	private JPanel contentPane;
+	private JPanel Painel;
+	private ImageIcon logo;
 
 	/**
 	 * Launch the application.
@@ -44,45 +46,48 @@ public class TelaPrincipal extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaPrincipal() {
+		logo = new ImageIcon(TelaPrincipal.class.getResource("/Imagem/Logo.png"));
 		setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setForeground(new Color(245, 245, 245));
-		contentPane.setBackground(new Color(230, 230, 230));
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		Painel = new JPanel();
+		Painel.setForeground(new Color(245, 245, 245));
+		Painel.setBackground(new Color(230, 230, 230));
+		Painel.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[grow][][][][][][][][grow]", "[grow][120px][150px][grow]"));
+		setContentPane(Painel);
+		Painel.setLayout(new MigLayout("", "[grow][][][][][][][][grow]", "[grow][120px][150px][grow]"));
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(TelaPrincipal.class.getResource("/Imagem/Logo.png")));
-		contentPane.add(lblNewLabel, "cell 1 1 7 1,alignx center");
+		JLabel lblLogo = new JLabel("");
+		lblLogo.setIcon(logo);
+		Painel.add(lblLogo, "cell 1 1 7 1,alignx center");
 		
-		JButton btnNewButton = new RoundButton("SOU CLIENTE");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btCliente = new RoundButton("");
+		btCliente.setText("Entrar como cliente");
+		btCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaClienteCadastro telaC = new TelaClienteCadastro();
+				TelaClienteInicial telaC = new TelaClienteInicial();
 				dispose();
 				telaC.setVisible(true);
 			}
 		});
-		btnNewButton.setBackground(new Color(224, 83, 76));
-		btnNewButton.setForeground(new Color(245, 245, 245));
-		contentPane.add(btnNewButton, "cell 2 2 3 1,growx");
+		btCliente.setBackground(new Color(224, 83, 76));
+		btCliente.setForeground(new Color(245, 245, 245));
+		Painel.add(btCliente, "cell 2 2 3 1,growx");
 		
-		JButton btnNewButton_1 = new RoundButton("SOU FUNCIONARIO");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton btLogin = new RoundButton("");
+		btLogin.setText("Entrar como funcionario");
+		btLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaLogin TelaL = new TelaLogin();
 				dispose();
 				TelaL.setVisible(true);
 			}
 		});
-		btnNewButton_1.setForeground(new Color(245, 245, 245));
-		btnNewButton_1.setBackground(new Color(224, 83, 76));
-		contentPane.add(btnNewButton_1, "cell 5 2,growx");
+		btLogin.setForeground(new Color(245, 245, 245));
+		btLogin.setBackground(new Color(224, 83, 76));
+		Painel.add(btLogin, "cell 5 2,growx");
 	}
 
 }
