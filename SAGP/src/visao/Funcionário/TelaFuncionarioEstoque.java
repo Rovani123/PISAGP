@@ -48,6 +48,7 @@ public class TelaFuncionarioEstoque extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaFuncionarioEstoque() {
+		setBackground(new Color(230, 230, 230));
 		FuncionarioDAO estoquedao = new FuncionarioDAO();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 961, 638);
@@ -60,25 +61,25 @@ public class TelaFuncionarioEstoque extends JFrame {
 
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(167, 208, 214));
-		contentPane.add(panel, "cell 0 0 2 18,grow");
+		contentPane.add(panel, "cell 0 0 1 18,alignx left,growy");
 		panel.setLayout(new MigLayout("", "[][]", "[][][][][][][][][][][][][][][][][][]"));
-
-		RoundButton btnNewButton = new RoundButton("Sair");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-			}
-		});
-		btnNewButton.setForeground(new Color(255, 255, 255));
-		btnNewButton.setBackground(new Color(0, 0, 0));
-		panel.add(btnNewButton, "cell 1 0,alignx left");
+		
+				RoundButton btnNewButton = new RoundButton("Sair");
+				btnNewButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						dispose();
+					}
+				});
+				btnNewButton.setForeground(new Color(255, 255, 255));
+				btnNewButton.setBackground(new Color(0, 0, 0));
+				panel.add(btnNewButton, "cell 0 0,alignx left");
 
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(TelaFuncionarioEstoque.class.getResource("/Imagem/Logo.png")));
-		panel.add(lblNewLabel_1, "cell 1 2");
+		lblNewLabel_1.setIcon(new ImageIcon(TelaFuncionarioEstoque.class.getResource("/Imagem/LogoPequena.png")));
+		panel.add(lblNewLabel_1, "cell 0 2 2 1");
 
 		JLabel lblNewLabel_2 = new JLabel("Categorias:");
-		panel.add(lblNewLabel_2, "cell 1 4,alignx center");
+		panel.add(lblNewLabel_2, "cell 1 4,alignx left");
 
 		RoundButton btnSalgados = new RoundButton("Salgado");
 		btnSalgados.addActionListener(new ActionListener() {
@@ -96,8 +97,12 @@ public class TelaFuncionarioEstoque extends JFrame {
 				}				
 			}
 		});
+		
+		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setIcon(new ImageIcon(TelaFuncionarioEstoque.class.getResource("/Imagem/biscoitos.png")));
+		panel.add(lblNewLabel_3, "cell 0 5,alignx center");
 		btnSalgados.setBackground(new Color(255, 255, 255));
-		panel.add(btnSalgados, "cell 1 5,alignx center");
+		panel.add(btnSalgados, "cell 1 5,alignx left");
 
 		RoundButton btnDoces = new RoundButton("Doce");
 		btnDoces.addActionListener(new ActionListener() {
@@ -116,8 +121,12 @@ public class TelaFuncionarioEstoque extends JFrame {
 
 			}
 		});
+		
+		JLabel lblNewLabel_4 = new JLabel("");
+		lblNewLabel_4.setIcon(new ImageIcon(TelaFuncionarioEstoque.class.getResource("/Imagem/bolinho.png")));
+		panel.add(lblNewLabel_4, "cell 0 6,alignx center");
 		btnDoces.setBackground(new Color(167, 208, 214));
-		panel.add(btnDoces, "cell 1 6,alignx center");
+		panel.add(btnDoces, "cell 1 6,alignx left");
 
 		RoundButton btnBebidas = new RoundButton("Bebidas");
 		btnBebidas.addActionListener(new ActionListener() {
@@ -135,8 +144,12 @@ public class TelaFuncionarioEstoque extends JFrame {
 
 			}
 		});
+		
+		JLabel lblNewLabel_5 = new JLabel("");
+		lblNewLabel_5.setIcon(new ImageIcon(TelaFuncionarioEstoque.class.getResource("/Imagem/garrafa-de-agua.png")));
+		panel.add(lblNewLabel_5, "cell 0 7,alignx center");
 		btnBebidas.setBackground(new Color(167, 208, 214));
-		panel.add(btnBebidas, "cell 1 7,alignx center");
+		panel.add(btnBebidas, "cell 1 7,alignx left");
 
 		RoundButton btnOfertas = new RoundButton("Ofertas");
 		btnOfertas.addActionListener(new ActionListener() {
@@ -144,8 +157,11 @@ public class TelaFuncionarioEstoque extends JFrame {
 
 			}
 		});
+		
+		JLabel lblNewLabel_6 = new JLabel("icone");
+		panel.add(lblNewLabel_6, "cell 0 8");
 		btnOfertas.setBackground(new Color(167, 208, 214));
-		panel.add(btnOfertas, "cell 1 8,alignx center");
+		panel.add(btnOfertas, "cell 1 8,alignx left");
 
 		RoundButton btnNewButton_4 = new RoundButton("Adicionar");
 		btnNewButton_4.addActionListener(new ActionListener() {
@@ -167,15 +183,26 @@ public class TelaFuncionarioEstoque extends JFrame {
 
 			}
 		});
+		
+		JLabel lblNewLabel_7 = new JLabel("");
+		lblNewLabel_7.setIcon(new ImageIcon(TelaFuncionarioEstoque.class.getResource("/Imagem/troca.png")));
+		panel.add(lblNewLabel_7, "cell 0 15,alignx center");
 		btnNewButton_1.setForeground(new Color(255, 255, 255));
 		btnNewButton_1.setBackground(new Color(0, 0, 0));
-		panel.add(btnNewButton_1, "cell 1 15,alignx center");
+		panel.add(btnNewButton_1, "cell 1 15,alignx left");
+		
+		JLabel lblNewLabel_8 = new JLabel("");
+		lblNewLabel_8.setIcon(new ImageIcon(TelaFuncionarioEstoque.class.getResource("/Imagem/lixeira.png")));
+		panel.add(lblNewLabel_8, "cell 0 16,alignx center");
 		btnNewButton_2.setForeground(new Color(255, 255, 255));
 		btnNewButton_2.setBackground(new Color(224, 83, 76));
-		panel.add(btnNewButton_2, "cell 1 16,alignx center");
+		panel.add(btnNewButton_2, "cell 1 16,alignx left");
+		
+		JLabel lblNewLabel_9 = new JLabel("Adicionar");
+		panel.add(lblNewLabel_9, "cell 0 17");
 		btnNewButton_4.setForeground(new Color(255, 255, 255));
 		btnNewButton_4.setBackground(new Color(0, 0, 0));
-		panel.add(btnNewButton_4, "cell 1 17,alignx center");
+		panel.add(btnNewButton_4, "cell 1 17,alignx left");
 
 		JLabel lblNewLabel = new JLabel("Estoque");
 		contentPane.add(lblNewLabel, "cell 2 0,alignx trailing");
@@ -195,7 +222,7 @@ public class TelaFuncionarioEstoque extends JFrame {
 		contentPane.add(btnNewButton_3, "cell 8 0");
 
 		JScrollPane scrollPane = new JScrollPane();
-		contentPane.add(scrollPane, "cell 2 2 7 16,grow");
+		contentPane.add(scrollPane, "cell 1 2 8 16,grow");
 
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
