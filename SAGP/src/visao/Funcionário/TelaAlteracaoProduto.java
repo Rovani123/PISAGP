@@ -13,6 +13,8 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaAlteracaoProduto extends JFrame {
 
@@ -93,6 +95,7 @@ public class TelaAlteracaoProduto extends JFrame {
 		contentPane.add(lblNewLabel_3, "cell 4 10");
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setBackground(new Color(245, 245, 245));
 		contentPane.add(comboBox, "cell 4 11,growx");
 		
 		RoundButton btnNewButton_3 = new RoundButton("Limpar");
@@ -101,6 +104,10 @@ public class TelaAlteracaoProduto extends JFrame {
 		contentPane.add(btnNewButton_3, "cell 5 11");
 		
 		RoundButton btnNewButton_4 = new RoundButton("Salvar");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnNewButton_4.setBackground(new Color(224, 83, 76));
 		btnNewButton_4.setForeground(new Color(245, 245, 245));
 		contentPane.add(btnNewButton_4, "cell 4 14,alignx center");
