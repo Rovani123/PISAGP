@@ -1,4 +1,4 @@
-package visao.Funcionário;
+package visao.Administrador;
 
 import java.awt.EventQueue;
 
@@ -17,7 +17,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 
-public class TelaAlteracaoFuncionario extends JFrame {
+public class TelaAlteracaoF extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -31,7 +31,7 @@ public class TelaAlteracaoFuncionario extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaAlteracaoFuncionario frame = new TelaAlteracaoFuncionario();
+					TelaAlteracaoF frame = new TelaAlteracaoF();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,7 +43,7 @@ public class TelaAlteracaoFuncionario extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaAlteracaoFuncionario() {
+	public TelaAlteracaoF() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 897, 628);
 		contentPane = new JPanel();
@@ -53,7 +53,7 @@ public class TelaAlteracaoFuncionario extends JFrame {
 		contentPane.setLayout(new MigLayout("", "[grow][][][][][][][][][grow]", "[grow][][grow][][][][][][][][][grow]"));
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(TelaAlteracaoFuncionario.class.getResource("/Imagem/logoGrande.png")));
+		lblNewLabel.setIcon(new ImageIcon(TelaAlteracaoF.class.getResource("/Imagem/logoGrande.png")));
 		contentPane.add(lblNewLabel, "cell 6 1,growx,aligny center");
 		
 		JLabel lblNewLabel_1 = new JLabel("NOME DO FUNCIORARIO:");

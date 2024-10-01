@@ -10,7 +10,7 @@ import dal.ConexaoBD;
 import net.miginfocom.swing.MigLayout;
 import visao.Administrador.TelaAdministrador;
 import visao.Funcionário.TelaFuncionario;
-import visao.Funcionário.TelaFuncionarioEstoque;
+import visao.Funcionário.TelaGerenciamentoP;
 
 import javax.swing.JTextField;
 import javax.swing.JLabel;

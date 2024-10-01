@@ -1,63 +1,53 @@
 package controle;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import dal.ConexaoBD;
-import modelo.classes.Produto;
+import modelo.classes.Funcionario;
 
 public class FuncionarioDAO {
 
-	public ArrayList<Produto> getProdutos(String categoria) {
+	public void CadastrarFuncionario(String nome,String usuario, String senha) {
+		// TODO Auto-generated method stub
+
+		Funcionario novoFuncionario = new Funcionario();
+		
+		novoFuncionario.setUsuarioFuncionario(usuario);
+		novoFuncionario.setNome(nome);
+		novoFuncionario.setSenha(senha);
+		
+		String insert = "insert into Funcionarios (nomeFuncionario,usuarioFuncionario,senha,administrador) VALUES (?,?,?,?)";
 		
 		Statement stml = null;
 		Connection conn = ConexaoBD.getConexaoMySQL();
 		
-		ArrayList<Produto> lista = new ArrayList<Produto>();
 		try {
-			stml = (Statement) conn.createStatement();
-			ResultSet reslt = null;
-			reslt = stml.executeQuery("SELECT * FROM PRODUTOS");
+			//stml = (Statement) conn.prepareStatement(insert);
+			PreparedStatement preparedStatement = conn.prepareStatement(insert);
+			//ResultSet resl = null;
 			
-			if(categoria.equals("salgados"))
-			{
-				reslt = stml.executeQuery("SELECT * FROM PRODUTOS where categoria = 'salgados'");
-				
-			}
-			if(categoria.equals("doces"))
-			{
-				reslt = stml.executeQuery("SELECT * FROM PRODUTOS where categoria = 'doces'");
-				
-			}
-			if(categoria.equals("bebidas"))
-			{
-				reslt = stml.executeQuery("SELECT * FROM PRODUTOS where categoria = 'bebidas'");
-				
-			}
+			preparedStatement.setString(1, usuario);
+			preparedStatement.setString(2, nome);
+			preparedStatement.setString(3, senha);
+			preparedStatement.setInt(4,0);
 			
-			while(reslt.next())
-			{
-				Produto p = new Produto();
-					p.setIdProduto(reslt.getInt("idProduto"));
-					p.setNomeProduto(reslt.getString("nomeProduto"));
-					p.setPreco(reslt.getFloat("preco"));
-					p.setQuantidadeEstoque(reslt.getInt("quantidadeEstoque"));
-					p.setCategoria(reslt.getString("categoria"));
-					lista.add(p);
-				
-				
-				}
-			reslt.close();
-			stml.close();
+			
+			int row = preparedStatement.executeUpdate();
+			
+			
+			preparedStatement.close();
+			//resl.close();
+			//stml.close();
 			conn.close();
-			return lista;
 			
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return null;
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+			
+			
 		}
 		
 	}
+	
 }

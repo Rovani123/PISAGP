@@ -13,7 +13,6 @@ public class ConexaoBD {
 			Class.forName(driverName);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			System.out.println("N foi");
 		}
 		
 		String serverName = "localhost:3306/";
@@ -26,7 +25,6 @@ public class ConexaoBD {
 			connection = DriverManager.getConnection(url,user,password);
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("N foi");
 		}
 		
 		return connection;

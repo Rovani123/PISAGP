@@ -63,7 +63,7 @@ public class TelaFuncionario extends JFrame {
 		btEstoque.setText("Estoque");
 		btEstoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaFuncionarioEstoque telaE = new TelaFuncionarioEstoque();
+				TelaGerenciamentoP telaE = new TelaGerenciamentoP();
 				dispose();
 				telaE.setVisible(true);
 			}

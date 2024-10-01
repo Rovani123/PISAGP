@@ -16,7 +16,7 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class TelaFuncionarioLogin extends JFrame {
+public class ZTelaFuncionarioLogin extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -30,7 +30,7 @@ public class TelaFuncionarioLogin extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaFuncionarioLogin frame = new TelaFuncionarioLogin();
+					ZTelaFuncionarioLogin frame = new ZTelaFuncionarioLogin();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,7 +42,7 @@ public class TelaFuncionarioLogin extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaFuncionarioLogin() {
+	public ZTelaFuncionarioLogin() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 578, 439);
 		contentPane = new JPanel();
@@ -52,7 +52,7 @@ public class TelaFuncionarioLogin extends JFrame {
 		contentPane.setLayout(new MigLayout("", "[][][][][grow][][]", "[][][][][][][][][][][][]"));
 		
 		JLabel lblNewLabel_5 = new JLabel("");
-		lblNewLabel_5.setIcon(new ImageIcon(TelaFuncionarioLogin.class.getResource("/Imagem/Logo.png")));
+		lblNewLabel_5.setIcon(new ImageIcon(ZTelaFuncionarioLogin.class.getResource("/Imagem/Logo.png")));
 		contentPane.add(lblNewLabel_5, "cell 4 1,alignx center");
 		
 		JLabel lblNewLabel_4 = new JLabel("ENTRE NA SUA CONTA:");

@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import controle.AdministradorDAO;
+import controle.FuncionarioDAO;
 import dal.ConexaoBD;
 import modelo.classes.Funcionario;
 import net.miginfocom.swing.MigLayout;
@@ -28,7 +28,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.awt.event.ActionEvent;
 
-public class TelaCadastroFuncionario extends JFrame {
+public class TelaCadastroF extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -43,7 +43,7 @@ public class TelaCadastroFuncionario extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaCadastroFuncionario frame = new TelaCadastroFuncionario();
+					TelaCadastroF frame = new TelaCadastroF();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -55,7 +55,7 @@ public class TelaCadastroFuncionario extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaCadastroFuncionario() {
+	public TelaCadastroF() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 703, 556);
 		contentPane = new JPanel();
@@ -66,7 +66,7 @@ public class TelaCadastroFuncionario extends JFrame {
 		contentPane.setLayout(new MigLayout("", "[grow][][][][][grow][][][][][][][grow]", "[grow][][][grow][][][][][][][][][grow]"));
 		
 		ImageLabel lblNewLabel = new ImageLabel("");
-		lblNewLabel.setIcon(new ImageIcon(TelaCadastroFuncionario.class.getResource("/Imagem/Logo.png")));
+		lblNewLabel.setIcon(new ImageIcon(TelaCadastroF.class.getResource("/Imagem/Logo.png")));
 		contentPane.add(lblNewLabel, "cell 3 2 9 1,alignx center,growy");
 		
 		JLabel lblNewLabel_1 = new JLabel("CRIE UMA CONTA:");
@@ -131,7 +131,7 @@ public class TelaCadastroFuncionario extends JFrame {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
-				AdministradorDAO adm = new AdministradorDAO();
+				FuncionarioDAO adm = new FuncionarioDAO();
 				
 				adm.CadastrarFuncionario(txtNome.getText(),txtUsuario.getText(),txtSenha.getText());
 				

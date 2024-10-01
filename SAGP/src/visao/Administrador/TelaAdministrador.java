@@ -11,7 +11,7 @@ import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
 import visao.TelaInicial;
 import visao.TelaLogin;
-import visao.Cliente.TelaClienteInicial;
+import visao.Cliente.TelaCompra;
 
 import java.awt.Color;
 import java.awt.Cursor;

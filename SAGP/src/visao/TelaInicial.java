@@ -7,10 +7,10 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import net.miginfocom.swing.MigLayout;
-import visao.Administrador.TelaCadastroFuncionario;
+import visao.Administrador.TelaCadastroF;
 import visao.Cliente.TelaClienteCadastro;
-import visao.Cliente.TelaClienteInicial;
-import visao.Funcionário.TelaFuncionarioLogin;
+import visao.Cliente.TelaCompra;
+import visao.Funcionário.ZTelaFuncionarioLogin;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -67,7 +67,7 @@ public class TelaInicial extends JFrame {
 		btCliente.setText("Entrar como cliente");
 		btCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaClienteInicial telaC = new TelaClienteInicial();
+				TelaCompra telaC = new TelaCompra();
 				dispose();
 				telaC.setVisible(true);
 			}

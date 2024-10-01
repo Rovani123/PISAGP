@@ -15,13 +15,13 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import controle.FuncionarioDAO;
+import controle.ProdutoDAO;
 import modelo.classes.Produto;
 
 import javax.swing.ImageIcon;
 import java.awt.Color;
 
-public class TelaFuncionarioEstoque extends JFrame {
+public class TelaGerenciamentoP extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -35,7 +35,7 @@ public class TelaFuncionarioEstoque extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaFuncionarioEstoque frame = new TelaFuncionarioEstoque();
+					TelaGerenciamentoP frame = new TelaGerenciamentoP();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -47,9 +47,9 @@ public class TelaFuncionarioEstoque extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaFuncionarioEstoque() {
+	public TelaGerenciamentoP() {
 		setBackground(new Color(230, 230, 230));
-		FuncionarioDAO estoquedao = new FuncionarioDAO();
+		ProdutoDAO estoquedao = new ProdutoDAO();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 961, 638);
 		contentPane = new JPanel();
@@ -75,7 +75,7 @@ public class TelaFuncionarioEstoque extends JFrame {
 				panel.add(btnNewButton, "cell 0 0,alignx left");
 
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(TelaFuncionarioEstoque.class.getResource("/Imagem/LogoPequena.png")));
+		lblNewLabel_1.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/LogoPequena.png")));
 		panel.add(lblNewLabel_1, "cell 0 2 2 1");
 
 		JLabel lblNewLabel_2 = new JLabel("Categorias:");
@@ -99,7 +99,7 @@ public class TelaFuncionarioEstoque extends JFrame {
 		});
 		
 		JLabel lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setIcon(new ImageIcon(TelaFuncionarioEstoque.class.getResource("/Imagem/biscoitos.png")));
+		lblNewLabel_3.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/biscoitos.png")));
 		panel.add(lblNewLabel_3, "cell 0 5,alignx center");
 		btnSalgados.setBackground(new Color(255, 255, 255));
 		panel.add(btnSalgados, "cell 1 5,alignx left");
@@ -123,7 +123,7 @@ public class TelaFuncionarioEstoque extends JFrame {
 		});
 		
 		JLabel lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.setIcon(new ImageIcon(TelaFuncionarioEstoque.class.getResource("/Imagem/bolinho.png")));
+		lblNewLabel_4.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/bolinho.png")));
 		panel.add(lblNewLabel_4, "cell 0 6,alignx center");
 		btnDoces.setBackground(new Color(167, 208, 214));
 		panel.add(btnDoces, "cell 1 6,alignx left");
@@ -146,7 +146,7 @@ public class TelaFuncionarioEstoque extends JFrame {
 		});
 		
 		JLabel lblNewLabel_5 = new JLabel("");
-		lblNewLabel_5.setIcon(new ImageIcon(TelaFuncionarioEstoque.class.getResource("/Imagem/garrafa-de-agua.png")));
+		lblNewLabel_5.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/garrafa-de-agua.png")));
 		panel.add(lblNewLabel_5, "cell 0 7,alignx center");
 		btnBebidas.setBackground(new Color(167, 208, 214));
 		panel.add(btnBebidas, "cell 1 7,alignx left");
@@ -185,14 +185,14 @@ public class TelaFuncionarioEstoque extends JFrame {
 		});
 		
 		JLabel lblNewLabel_7 = new JLabel("");
-		lblNewLabel_7.setIcon(new ImageIcon(TelaFuncionarioEstoque.class.getResource("/Imagem/troca.png")));
+		lblNewLabel_7.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/troca.png")));
 		panel.add(lblNewLabel_7, "cell 0 15,alignx center");
 		btnNewButton_1.setForeground(new Color(255, 255, 255));
 		btnNewButton_1.setBackground(new Color(0, 0, 0));
 		panel.add(btnNewButton_1, "cell 1 15,alignx left");
 		
 		JLabel lblNewLabel_8 = new JLabel("");
-		lblNewLabel_8.setIcon(new ImageIcon(TelaFuncionarioEstoque.class.getResource("/Imagem/lixeira.png")));
+		lblNewLabel_8.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/lixeira.png")));
 		panel.add(lblNewLabel_8, "cell 0 16,alignx center");
 		btnNewButton_2.setForeground(new Color(255, 255, 255));
 		btnNewButton_2.setBackground(new Color(224, 83, 76));

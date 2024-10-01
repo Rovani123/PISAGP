@@ -1,4 +1,4 @@
-package visao.Funcionário;
+package visao.Administrador;
 
 import java.awt.EventQueue;
 
@@ -18,7 +18,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class TelaDeFuncionario extends JFrame {
+public class TelaGerenciamentoF extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
@@ -43,7 +43,7 @@ public class TelaDeFuncionario extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaDeFuncionario frame = new TelaDeFuncionario();
+					TelaGerenciamentoF frame = new TelaGerenciamentoF();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -55,7 +55,7 @@ public class TelaDeFuncionario extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaDeFuncionario() {
+	public TelaGerenciamentoF() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 795, 553);
 		contentPane = new JPanel();
@@ -71,7 +71,7 @@ public class TelaDeFuncionario extends JFrame {
 		panel.setLayout(new MigLayout("", "[][][][]", "[][][][grow][][grow][][][][][][grow][][][grow]"));
 		
 		lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(TelaDeFuncionario.class.getResource("/Imagem/LogoPequena.png")));
+		lblNewLabel_1.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/LogoPequena.png")));
 		panel.add(lblNewLabel_1, "cell 0 1 4 1,alignx center,aligny center");
 		
 		lblNewLabel_2 = new JLabel("TABELA DE FUNCIONARIO");
@@ -86,12 +86,12 @@ public class TelaDeFuncionario extends JFrame {
 		});
 		
 		lblNewLabel_5 = new JLabel("");
-		lblNewLabel_5.setIcon(new ImageIcon(TelaDeFuncionario.class.getResource("/Imagem/troca.png")));
+		lblNewLabel_5.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/troca.png")));
 		panel.add(lblNewLabel_5, "cell 1 6,alignx right");
 		panel.add(btnNewButton_2, "cell 2 6,alignx left,aligny center");
 		
 		lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.setIcon(new ImageIcon(TelaDeFuncionario.class.getResource("/Imagem/lixeira.png")));
+		lblNewLabel_4.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/lixeira.png")));
 		panel.add(lblNewLabel_4, "cell 1 7,alignx right");
 		
 		btnNewButton_3 = new RoundButton("DELETAR");
@@ -100,7 +100,7 @@ public class TelaDeFuncionario extends JFrame {
 		panel.add(btnNewButton_3, "cell 2 7,alignx left,aligny center");
 		
 		lblNewLabel_6 = new JLabel("");
-		lblNewLabel_6.setIcon(new ImageIcon(TelaDeFuncionario.class.getResource("/Imagem/lupa.png")));
+		lblNewLabel_6.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/lupa.png")));
 		panel.add(lblNewLabel_6, "cell 1 8,alignx right");
 		
 		btnNewButton_4 = new RoundButton("ADICIONAR");
@@ -113,7 +113,7 @@ public class TelaDeFuncionario extends JFrame {
 		panel.add(btnNewButton_4, "cell 2 8,alignx left,aligny center");
 		
 		lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setIcon(new ImageIcon(TelaDeFuncionario.class.getResource("/Imagem/volte.png")));
+		lblNewLabel_3.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/volte.png")));
 		panel.add(lblNewLabel_3, "cell 1 13");
 		
 		btnNewButton = new RoundButton("VOLTAR");
@@ -130,7 +130,7 @@ public class TelaDeFuncionario extends JFrame {
 		
 		btnNewButton_1 = new RoundButton("");
 		btnNewButton_1.setBackground(new Color(230, 230, 230));
-		btnNewButton_1.setIcon(new ImageIcon(TelaDeFuncionario.class.getResource("/Imagem/lupa.png")));
+		btnNewButton_1.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/lupa.png")));
 		contentPane.add(btnNewButton_1, "cell 9 1,alignx center");
 		
 		JScrollPane scrollPane = new JScrollPane();
