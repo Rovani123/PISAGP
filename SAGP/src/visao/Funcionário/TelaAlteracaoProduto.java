@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import modelo.classes.Produto;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
 
@@ -13,37 +15,23 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaAlteracaoProduto extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField txtNome;
+	private JTextField txtPreco;
+	private JTextField txtQuantidade;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaAlteracaoProduto frame = new TelaAlteracaoProduto();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the frame.
-	 */
-	public TelaAlteracaoProduto() {
+
+
+	public TelaAlteracaoProduto(TelaFuncionarioEstoque TelaAlterada,Produto produto) {
 		setBackground(new Color(230, 230, 230));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 680, 460);
+		setBounds(100, 100, 680, 460);	
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -56,59 +44,81 @@ public class TelaAlteracaoProduto extends JFrame {
 		JLabel lblNewLabel = new JLabel("Nome do Produto:");
 		contentPane.add(lblNewLabel, "cell 4 4");
 		
-		textField = new JTextField();
-		contentPane.add(textField, "cell 4 5,growx");
-		textField.setColumns(10);
+		txtNome = new JTextField();
+		contentPane.add(txtNome, "cell 4 5,growx");
+		txtNome.setColumns(10);
 		
-		RoundButton btnNewButton = new RoundButton("Limpar");
-		btnNewButton.setForeground(new Color(245, 245, 245));
-		btnNewButton.setBackground(new Color(224, 83, 76));
-		contentPane.add(btnNewButton, "cell 5 5");
+		RoundButton btnLimpar = new RoundButton("Limpar");
+		btnLimpar.setForeground(new Color(245, 245, 245));
+		btnLimpar.setBackground(new Color(224, 83, 76));
+		contentPane.add(btnLimpar, "cell 5 5");
 		
 		JLabel lblNewLabel_1 = new JLabel("Preço:");
 		contentPane.add(lblNewLabel_1, "cell 4 6");
 		
-		textField_1 = new JTextField();
-		contentPane.add(textField_1, "cell 4 7,growx");
-		textField_1.setColumns(10);
+		txtPreco = new JTextField();
+		contentPane.add(txtPreco, "cell 4 7,growx");
+		txtPreco.setColumns(10);
 		
-		RoundButton btnNewButton_1 = new RoundButton("Limpar");
-		btnNewButton_1.setForeground(new Color(245, 245, 245));
-		btnNewButton_1.setBackground(new Color(224, 83, 76));
-		contentPane.add(btnNewButton_1, "cell 5 7");
+		RoundButton btnLimpar2 = new RoundButton("Limpar");
+		btnLimpar2.setForeground(new Color(245, 245, 245));
+		btnLimpar2.setBackground(new Color(224, 83, 76));
+		contentPane.add(btnLimpar2, "cell 5 7");
 		
 		JLabel lblNewLabel_2 = new JLabel("Quantidade:");
 		contentPane.add(lblNewLabel_2, "cell 4 8");
 		
-		textField_2 = new JTextField();
-		contentPane.add(textField_2, "cell 4 9,growx");
-		textField_2.setColumns(10);
+		txtQuantidade = new JTextField();
+		contentPane.add(txtQuantidade, "cell 4 9,growx");
+		txtQuantidade.setColumns(10);
 		
-		RoundButton btnNewButton_2 = new RoundButton("Limpar");
-		btnNewButton_2.setBackground(new Color(224, 83, 76));
-		btnNewButton_2.setForeground(new Color(245, 245, 245));
-		contentPane.add(btnNewButton_2, "cell 5 9");
+		RoundButton btnLimpar3 = new RoundButton("Limpar");
+		btnLimpar3.setBackground(new Color(224, 83, 76));
+		btnLimpar3.setForeground(new Color(245, 245, 245));
+		contentPane.add(btnLimpar3, "cell 5 9");
 		
 		JLabel lblNewLabel_3 = new JLabel("Categoria:");
 		contentPane.add(lblNewLabel_3, "cell 4 10");
 		
-		JComboBox comboBox = new JComboBox();
-		contentPane.add(comboBox, "cell 4 11,growx");
+		JComboBox cbCategoria = new JComboBox();
+		contentPane.add(cbCategoria, "cell 4 11,growx");
 		
-		RoundButton btnNewButton_3 = new RoundButton("Limpar");
-		btnNewButton_3.setBackground(new Color(224, 83, 76));
-		btnNewButton_3.setForeground(new Color(245, 245, 245));
-		contentPane.add(btnNewButton_3, "cell 5 11");
+		RoundButton btnLimpar4 = new RoundButton("Limpar");
+		btnLimpar4.setBackground(new Color(224, 83, 76));
+		btnLimpar4.setForeground(new Color(245, 245, 245));
+		contentPane.add(btnLimpar4, "cell 5 11");
 		
-		RoundButton btnNewButton_4 = new RoundButton("Salvar");
-		btnNewButton_4.setBackground(new Color(224, 83, 76));
-		btnNewButton_4.setForeground(new Color(245, 245, 245));
-		contentPane.add(btnNewButton_4, "cell 4 14,alignx center");
+		RoundButton btnSalvar = new RoundButton("Salvar");
+		btnSalvar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				Produto p = new Produto();
+				
+				p.setIdProduto(produto.getIdProduto());
+				String nomeProduto = txtNome.getText();
+				float preco = Float.parseFloat(txtPreco.getText());
+				Integer quantidadeEstoque = Integer.parseInt(txtQuantidade.getText());
+				cbCategoria.getSelectedItem();
+				
+				p.setNomeProduto(nomeProduto);
+				p.setPreco(preco);
+				p.setQuantidadeEstoque(quantidadeEstoque);
+				p.setCategoria(nomeProduto);
+				
+				
+				
+				//TelaAlterada.(p);
+				dispose();
+			}
+		});
+		btnSalvar.setBackground(new Color(224, 83, 76));
+		btnSalvar.setForeground(new Color(245, 245, 245));
+		contentPane.add(btnSalvar, "cell 4 14,alignx center");
 		
-		RoundButton btnNewButton_5 = new RoundButton("Cancelar");
-		btnNewButton_5.setBackground(new Color(0, 0, 0));
-		btnNewButton_5.setForeground(new Color(245, 245, 245));
-		contentPane.add(btnNewButton_5, "cell 5 14");
+		RoundButton btnCancelar = new RoundButton("Cancelar");
+		btnCancelar.setBackground(new Color(0, 0, 0));
+		btnCancelar.setForeground(new Color(245, 245, 245));
+		contentPane.add(btnCancelar, "cell 5 14");
 	}
 
 }
