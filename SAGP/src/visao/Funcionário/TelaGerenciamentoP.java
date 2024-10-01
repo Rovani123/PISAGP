@@ -48,8 +48,9 @@ public class TelaGerenciamentoP extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaGerenciamentoP() {
+		ProdutoDAO pdao = new ProdutoDAO();
+
 		setBackground(new Color(230, 230, 230));
-		ProdutoDAO estoquedao = new ProdutoDAO();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 961, 638);
 		contentPane = new JPanel();
@@ -85,16 +86,7 @@ public class TelaGerenciamentoP extends JFrame {
 		btnSalgados.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				DefaultTableModel tableModel = new DefaultTableModel(new Object[][] {},
-						new String[] { "nomeProduto", "preco", "quantidadeEstoque", "categoria" });
-
-				ArrayList<Produto> lista = estoquedao.getProdutos("salgados");
-
-				for (Produto p : lista) {
-					tableModel.addRow(new Object[] { p.getNomeProduto(), p.getPreco(), p.getQuantidadeEstoque(),
-							p.getCategoria() });
-					table.setModel(tableModel);
-				}				
+				getProdutosFiltro("salgados");
 			}
 		});
 		
@@ -108,16 +100,7 @@ public class TelaGerenciamentoP extends JFrame {
 		btnDoces.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				DefaultTableModel tableModel = new DefaultTableModel(new Object[][] {},
-						new String[] { "nomeProduto", "preco", "quantidadeEstoque", "categoria" });
-
-				ArrayList<Produto> lista = estoquedao.getProdutos("doces");
-
-				for (Produto p : lista) {
-					tableModel.addRow(new Object[] { p.getNomeProduto(), p.getPreco(), p.getQuantidadeEstoque(),
-							p.getCategoria() });
-					table.setModel(tableModel);
-				}
+				getProdutosFiltro("doces");
 
 			}
 		});
@@ -131,17 +114,8 @@ public class TelaGerenciamentoP extends JFrame {
 		RoundButton btnBebidas = new RoundButton("Bebidas");
 		btnBebidas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DefaultTableModel tableModel = new DefaultTableModel(new Object[][] {},
-						new String[] { "nomeProduto", "preco", "quantidadeEstoque", "categoria" });
-
-				ArrayList<Produto> lista = estoquedao.getProdutos("bebidas");
-
-				for (Produto p : lista) {
-					tableModel.addRow(new Object[] { p.getNomeProduto(), p.getPreco(), p.getQuantidadeEstoque(),
-							p.getCategoria() });
-					table.setModel(tableModel);
-				}
-
+			
+				getProdutosFiltro("bebidas");
 			}
 		});
 		
@@ -231,17 +205,34 @@ public class TelaGerenciamentoP extends JFrame {
 				new String[] { "", "", "", "" }));
 		scrollPane.setViewportView(table);
 
+		getProdutos();
+	}
+	private void getProdutos() {
+		ProdutoDAO pdao = new ProdutoDAO();
 		DefaultTableModel tableModel = new DefaultTableModel(new Object[][] {},
 				new String[] { "nomeProduto", "preco", "quantidadeEstoque", "categoria" });
 
-		ArrayList<Produto> lista = estoquedao.getProdutos("");
+		ArrayList<Produto> lista = pdao.getProdutos();
 
 		for (Produto p : lista) {
 			tableModel.addRow(
 					new Object[] { p.getNomeProduto(), p.getPreco(), p.getQuantidadeEstoque(), p.getCategoria() });
 			table.setModel(tableModel);
 		}
-
 	}
+	
+	private void getProdutosFiltro(String categoria) {
+		ProdutoDAO pdao = new ProdutoDAO();
 
+		DefaultTableModel tableModel = new DefaultTableModel(new Object[][] {},
+				new String[] { "nomeProduto", "preco", "quantidadeEstoque", "categoria" });
+
+		ArrayList<Produto> lista = pdao.getProdutosFiltro(categoria);
+
+		for (Produto p : lista) {
+			tableModel.addRow(new Object[] { p.getNomeProduto(), p.getPreco(), p.getQuantidadeEstoque(),
+					p.getCategoria() });
+			table.setModel(tableModel);
+		}		
+	}
 }

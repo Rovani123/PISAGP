@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `bsagp` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `bsagp`;
 -- MySQL dump 10.13  Distrib 8.0.32, for Win64 (x86_64)
 --
 -- Host: localhost    Database: bsagp
@@ -113,7 +111,7 @@ CREATE TABLE `produtos` (
   `quantidadeEstoque` int NOT NULL,
   `categoria` varchar(12) NOT NULL,
   PRIMARY KEY (`idProduto`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,7 +120,7 @@ CREATE TABLE `produtos` (
 
 LOCK TABLES `produtos` WRITE;
 /*!40000 ALTER TABLE `produtos` DISABLE KEYS */;
-INSERT INTO `produtos` VALUES (1,'Coxinha',5.00,10,'salgados'),(2,'Pastel de carne',6.00,10,'salgados'),(3,'Pastel de pizza',6.00,10,'salgados');
+INSERT INTO `produtos` VALUES (1,'Coxinha',5.00,10,'salgados'),(2,'Pastel de carne',6.00,10,'salgados'),(3,'Pastel de pizza',6.00,10,'salgados'),(4,'Bolo',10.00,15,'doces'),(5,'Donut',12.00,15,'doces'),(6,'Coca-Cola',10.00,5,'bebidas'),(7,'Guarana',9.00,7,'bebidas'),(8,'Fanta',7.00,5,'bebidas');
 /*!40000 ALTER TABLE `produtos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -142,7 +140,7 @@ CREATE TABLE `produtospromocao` (
   KEY `idPromocao` (`idPromocao`),
   CONSTRAINT `produtospromocao_ibfk_1` FOREIGN KEY (`idProduto`) REFERENCES `produtos` (`idProduto`),
   CONSTRAINT `produtospromocao_ibfk_2` FOREIGN KEY (`idPromocao`) REFERENCES `promocoes` (`idPromocao`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -151,7 +149,7 @@ CREATE TABLE `produtospromocao` (
 
 LOCK TABLES `produtospromocao` WRITE;
 /*!40000 ALTER TABLE `produtospromocao` DISABLE KEYS */;
-INSERT INTO `produtospromocao` VALUES (4,1,1),(5,2,2),(6,3,3);
+INSERT INTO `produtospromocao` VALUES (1,1,1),(2,2,2),(3,3,3);
 /*!40000 ALTER TABLE `produtospromocao` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -220,4 +218,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-18  8:34:10
+-- Dump completed on 2024-10-01 11:48:17

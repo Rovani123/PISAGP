@@ -10,7 +10,6 @@ import modelo.classes.Funcionario;
 public class FuncionarioDAO {
 
 	public void CadastrarFuncionario(String nome,String usuario, String senha) {
-		// TODO Auto-generated method stub
 
 		Funcionario novoFuncionario = new Funcionario();
 		
