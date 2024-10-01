@@ -66,7 +66,7 @@ public class TelaDeFuncionario extends JFrame {
 		contentPane.setLayout(new MigLayout("", "[grow][][][][][][][][][][grow]", "[][][grow]"));
 		
 		panel = new JPanel();
-		panel.setBackground(new Color(230, 230, 230));
+		panel.setBackground(new Color(167, 208, 214));
 		contentPane.add(panel, "cell 0 0 1 3,alignx left,growy");
 		panel.setLayout(new MigLayout("", "[][][][]", "[][][][grow][][grow][][][][][][grow][][][grow]"));
 		
