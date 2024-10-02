@@ -1,4 +1,4 @@
-package controle;
+package modelo.dao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import dal.ConexaoBD;
 import modelo.classes.Produto;
 
-public class ProdutoDAO {
-
+public class ProdutoDAO extends ModeloDAO{
+	
 	public ArrayList<Produto> getProdutosFiltro(String categoria) {
 		
 		Statement stml = null;
@@ -64,7 +64,7 @@ public class ProdutoDAO {
 	public ArrayList<Produto> getProdutos() {
 		
 		Statement stml = null;
-		Connection conn = ConexaoBD.getConexaoMySQL();
+		Connection conn = getConnection();
 		
 		ArrayList<Produto> lista = new ArrayList<Produto>();
 		try {

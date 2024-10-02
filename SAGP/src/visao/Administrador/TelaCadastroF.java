@@ -7,9 +7,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import controle.FuncionarioDAO;
 import dal.ConexaoBD;
 import modelo.classes.Funcionario;
+import modelo.dao.FuncionarioDAO;
 import net.miginfocom.swing.MigLayout;
 import visao.ImageLabel;
 import visao.RoundButton;

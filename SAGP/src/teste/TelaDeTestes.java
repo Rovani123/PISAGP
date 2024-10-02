@@ -15,8 +15,10 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import controle.FuncionarioDAO;
+
 import modelo.classes.Produto;
+import modelo.dao.FuncionarioDAO;
+
 import javax.swing.ImageIcon;
 import java.awt.Color;
 
