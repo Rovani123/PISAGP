@@ -3,9 +3,10 @@ package modelo.classes;
 public class Funcionario {
 	
 	private int idFuncionario;
-	private String usuarioFuncionario;
+	private String usuario;
 	private String nome;
 	private String senha;
+	private int administrador;
 	
 	public int getIdFuncionario() {
 		return idFuncionario;
@@ -14,10 +15,10 @@ public class Funcionario {
 		this.idFuncionario = idFuncionario;
 	}
 	public String getUsuarioFuncionario() {
-		return usuarioFuncionario;
+		return usuario;
 	}
 	public void setUsuarioFuncionario(String usuarioFuncionario) {
-		this.usuarioFuncionario = usuarioFuncionario;
+		this.usuario = usuarioFuncionario;
 	}
 	public String getNome() {
 		return nome;
@@ -30,6 +31,13 @@ public class Funcionario {
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	public int getadministrador() {
+		return administrador;
+	}
+	
+	public void setadministrador(int administrador) {
+		this.administrador = administrador;
 	}
 	
 	

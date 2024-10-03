@@ -6,7 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import controle.LoginControle;
 import dal.ConexaoBD;
+import modelo.classes.Funcionario;
 import net.miginfocom.swing.MigLayout;
 import visao.Administrador.TelaAdministrador;
 import visao.Funcionário.TelaFuncionario;
@@ -33,7 +35,7 @@ public class TelaLogin extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel Painel;
 	private ImageIcon logo;
-	private JTextField txtUser;
+	private JTextField txtUsuario;
 	private JTextField txtSenha;
 
 	/**
@@ -56,6 +58,7 @@ public class TelaLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaLogin() {
+		TelaLogin tl= this;
 		setExtendedState(Frame.MAXIMIZED_BOTH);
 		logo = new ImageIcon(TelaInicial.class.getResource("/Imagem/Logo.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -80,19 +83,19 @@ public class TelaLogin extends JFrame {
 		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		Painel.add(lblUsuario, "cell 4 5");
 		
-		txtUser = new JTextField();
-		txtUser.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		txtUser.setHorizontalAlignment(SwingConstants.LEFT);
-		txtUser.setForeground(new Color(130, 130, 130));
-		txtUser.setText("Entre com seu usuário para logar no sistema");
-		Painel.add(txtUser, "cell 4 6 3 1,growx");
-		txtUser.setColumns(10);
+		txtUsuario = new JTextField();
+		txtUsuario.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		txtUsuario.setHorizontalAlignment(SwingConstants.LEFT);
+		txtUsuario.setForeground(new Color(130, 130, 130));
+		txtUsuario.setText("Entre com seu usuário para logar no sistema");
+		Painel.add(txtUsuario, "cell 4 6 3 1,growx");
+		txtUsuario.setColumns(10);
 		
 		RoundButton btnLimpa1 = new RoundButton("Limpa");
 		btnLimpa1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnLimpa1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				txtUser.setText("");
+				txtUsuario.setText("");
 				
 			}
 		});
@@ -115,41 +118,8 @@ public class TelaLogin extends JFrame {
 		btEntrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Statement stml = null;
-				Connection conn = ConexaoBD.getConexaoMySQL();
+				logar();
 				
-				try {
-					stml = (Statement) conn.createStatement();
-					ResultSet resl = null;
-					resl = stml.executeQuery("SELECT * FROM Funcionarios");
-					while(resl.next())
-					{
-						if(txtUser.getText().equals(resl.getString("usuarioFuncionario")))
-						{
-							if(txtSenha.getText().equals(resl.getString("Senha")))
-							{
-								if(resl.getInt("administrador") == 1)
-								{
-									TelaAdministrador telaAdm = new TelaAdministrador();
-									dispose();
-									telaAdm.setVisible(true);
-								}
-								else
-								{
-									TelaFuncionario telaF = new TelaFuncionario();
-									dispose();
-									telaF.setVisible(true);
-								}
-							}
-						}
-					}
-					resl.close();
-					stml.close();
-					conn.close();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-					System.out.println("N foi");
-				}
 			}
 		});
 		
@@ -180,6 +150,30 @@ public class TelaLogin extends JFrame {
 		btEntrar.setForeground(new Color(255, 255, 255));
 		btEntrar.setBackground(new Color(224, 83, 76));
 		Painel.add(btEntrar, "cell 5 9 2 1,alignx center");
+	}
+	private void logar() {
+		LoginControle lc = new LoginControle();
+		Funcionario f;
+		f =lc.logar(txtUsuario.getText(), txtSenha.getText());
+		if(f != null)
+		{
+			if(f.getadministrador() == 1)
+			{
+				TelaAdministrador tA = new TelaAdministrador();
+				tA.setVisible(true);
+				dispose();
+			}else
+			{
+				TelaFuncionario tF = new TelaFuncionario();
+				tF.setVisible(true);
+				dispose();
+			}
+		}else
+		{
+			JOptionPane.showMessageDialog(null,"Usuário ou senha incorretos");
+		}
+		
+
 	}
 
 }

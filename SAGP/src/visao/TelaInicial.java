@@ -78,10 +78,10 @@ public class TelaInicial extends JFrame {
 			}
 		});
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel.setIcon(new ImageIcon(TelaInicial.class.getResource("/Imagem/carrinho-de-compras.png")));
-		Painel.add(lblNewLabel, "cell 3 2");
+		JLabel lblCarrinho = new JLabel("");
+		lblCarrinho.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblCarrinho.setIcon(new ImageIcon(TelaInicial.class.getResource("/Imagem/carrinho-de-compras.png")));
+		Painel.add(lblCarrinho, "cell 3 2");
 		btCliente.setBackground(new Color(224, 83, 76));
 		btCliente.setForeground(new Color(245, 245, 245));
 		Painel.add(btCliente, "cell 4 2 9 1,alignx left,aligny center");
@@ -97,10 +97,10 @@ public class TelaInicial extends JFrame {
 			}
 		});
 		
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1.setIcon(new ImageIcon(TelaInicial.class.getResource("/Imagem/lupa.png")));
-		Painel.add(lblNewLabel_1, "cell 16 2");
+		JLabel lblLupa = new JLabel("");
+		lblLupa.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblLupa.setIcon(new ImageIcon(TelaInicial.class.getResource("/Imagem/lupa.png")));
+		Painel.add(lblLupa, "cell 16 2");
 		btLogin.setForeground(new Color(245, 245, 245));
 		btLogin.setBackground(new Color(224, 83, 76));
 		Painel.add(btLogin, "cell 17 2 8 1,alignx left,aligny center");
