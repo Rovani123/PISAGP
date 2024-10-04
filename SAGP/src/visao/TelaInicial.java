@@ -48,6 +48,7 @@ public class TelaInicial extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaInicial() {
+		TelaInicial tI= this;
 		setExtendedState(Frame.MAXIMIZED_BOTH);
 		setBackground(new Color(230, 230, 230));
 		logo = new ImageIcon(TelaInicial.class.getResource("/Imagem/Logo.png"));
@@ -91,7 +92,7 @@ public class TelaInicial extends JFrame {
 		btLogin.setText("Entrar como funcionario");
 		btLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaLogin TelaL = new TelaLogin();
+				TelaLogin TelaL = new TelaLogin(tI);
 				dispose();
 				TelaL.setVisible(true);
 			}

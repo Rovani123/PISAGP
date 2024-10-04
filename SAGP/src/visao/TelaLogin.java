@@ -38,26 +38,8 @@ public class TelaLogin extends JFrame {
 	private JTextField txtUsuario;
 	private JTextField txtSenha;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaLogin frame = new TelaLogin();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the frame.
-	 */
-	public TelaLogin() {
+	public TelaLogin(JFrame telaA) {
 		TelaLogin tl= this;
 		setExtendedState(Frame.MAXIMIZED_BOTH);
 		logo = new ImageIcon(TelaInicial.class.getResource("/Imagem/Logo.png"));
@@ -153,21 +135,9 @@ public class TelaLogin extends JFrame {
 	}
 	private void logar() {
 		LoginControle lc = new LoginControle();
-		Funcionario f;
-		f =lc.logar(txtUsuario.getText(), txtSenha.getText());
-		if(f != null)
+		if(lc.validarLogin(txtUsuario.getText(), txtSenha.getText()))
 		{
-			if(f.getadministrador() == 1)
-			{
-				TelaAdministrador tA = new TelaAdministrador();
-				tA.setVisible(true);
-				dispose();
-			}else
-			{
-				TelaFuncionario tF = new TelaFuncionario();
-				tF.setVisible(true);
-				dispose();
-			}
+			dispose();
 		}else
 		{
 			JOptionPane.showMessageDialog(null,"Usuário ou senha incorretos");
