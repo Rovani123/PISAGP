@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import modelo.classes.Produto;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
 
@@ -15,34 +17,19 @@ import javax.swing.JComboBox;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.DefaultComboBoxModel;
+import modelo.enumerador.Categoria;
 
 public class TelaAlteracaoP extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField txtNome;
+	private JTextField txtPreco;
+	private JTextField txtQuantidade;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaAlteracaoP frame = new TelaAlteracaoP();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the frame.
-	 */
-	public TelaAlteracaoP() {
+
+	public TelaAlteracaoP(JFrame telaA,Produto p) {
 		setBackground(new Color(230, 230, 230));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 680, 460);
@@ -58,9 +45,9 @@ public class TelaAlteracaoP extends JFrame {
 		JLabel lblNewLabel = new JLabel("Nome do Produto:");
 		contentPane.add(lblNewLabel, "cell 4 4");
 		
-		textField = new JTextField();
-		contentPane.add(textField, "cell 4 5,growx");
-		textField.setColumns(10);
+		txtNome = new JTextField();
+		contentPane.add(txtNome, "cell 4 5,growx");
+		txtNome.setColumns(10);
 		
 		RoundButton btnNewButton = new RoundButton("Limpar");
 		btnNewButton.setForeground(new Color(245, 245, 245));
@@ -70,9 +57,9 @@ public class TelaAlteracaoP extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel("Preço:");
 		contentPane.add(lblNewLabel_1, "cell 4 6");
 		
-		textField_1 = new JTextField();
-		contentPane.add(textField_1, "cell 4 7,growx");
-		textField_1.setColumns(10);
+		txtPreco = new JTextField();
+		contentPane.add(txtPreco, "cell 4 7,growx");
+		txtPreco.setColumns(10);
 		
 		RoundButton btnNewButton_1 = new RoundButton("Limpar");
 		btnNewButton_1.setForeground(new Color(245, 245, 245));
@@ -82,9 +69,9 @@ public class TelaAlteracaoP extends JFrame {
 		JLabel lblNewLabel_2 = new JLabel("Quantidade:");
 		contentPane.add(lblNewLabel_2, "cell 4 8");
 		
-		textField_2 = new JTextField();
-		contentPane.add(textField_2, "cell 4 9,growx");
-		textField_2.setColumns(10);
+		txtQuantidade = new JTextField();
+		contentPane.add(txtQuantidade, "cell 4 9,growx");
+		txtQuantidade.setColumns(10);
 		
 		RoundButton btnNewButton_2 = new RoundButton("Limpar");
 		btnNewButton_2.setBackground(new Color(224, 83, 76));
@@ -95,6 +82,7 @@ public class TelaAlteracaoP extends JFrame {
 		contentPane.add(lblNewLabel_3, "cell 4 10");
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(Categoria.values()));
 		comboBox.setBackground(new Color(245, 245, 245));
 		contentPane.add(comboBox, "cell 4 11,growx");
 		
@@ -118,4 +106,6 @@ public class TelaAlteracaoP extends JFrame {
 		contentPane.add(btnNewButton_5, "cell 5 14");
 	}
 
+	//txtnomeset .get p
+	
 }

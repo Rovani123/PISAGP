@@ -95,4 +95,39 @@ public class ProdutoDAO extends ModeloDAO{
 		}
 		
 	}
+	
+	public void AlteraProduto(Produto p) throws SQLException {
+		
+		super.update("UPDATE produtos SET nomeProduto = ?, preco = ?, quantidadeEstoque = ?, categoria = ? WHERE idProduto = ?", p.getIdProduto(), p.getNomeProduto(),p.getPreco(),p.getQuantidadeEstoque(),p.getCategoria());
+		
+		/*
+		Statement stml = null;
+		Connection conn = getConnection();
+		
+		try {
+			stml = (Statement) conn.createStatement();
+			int reslt;
+			reslt = stml.executeUpdate("UPDATE produtos SET nomeProduto = ?,"
+					+ " preco = ?, quantidadeEstoque = ?, categoria = ? WHERE idProduto = ?");
+			
+			 stml.setString(1, produto.getNome());
+		     stml.setDouble(2, produto.getPreco());
+		     stml.setInt(3, produto.getQuantidadeEstoque());
+		     stml.setString(4, produto.getCategoria());
+		     stml.setInt(5, produto.getId());
+			
+			
+			//			while(reslt.next()){}
+			
+			
+			reslt.close();
+			stml.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+*/
+
+	}
+	
 }
