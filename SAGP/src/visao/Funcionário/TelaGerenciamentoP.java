@@ -1,26 +1,26 @@
 package visao.Funcionário;
 
+import java.awt.Color;
 import java.awt.EventQueue;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import net.miginfocom.swing.MigLayout;
-import visao.RoundButton;
-import javax.swing.JButton;
-import javax.swing.JTextField;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-
-import modelo.classes.Produto;
-import modelo.dao.ProdutoDAO;
 
 import javax.swing.ImageIcon;
-import java.awt.Color;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import controle.ProdutoControle;
+import modelo.classes.Produto;
+import modelo.dao.ProdutoDAO;
+import net.miginfocom.swing.MigLayout;
+import visao.RoundButton;
 
 public class TelaGerenciamentoP extends JFrame {
 
@@ -209,11 +209,11 @@ public class TelaGerenciamentoP extends JFrame {
 		getProdutos();
 	}
 	private void getProdutos() {
-		ProdutoDAO pdao = new ProdutoDAO();
+		ProdutoControle pc = new ProdutoControle();
 		DefaultTableModel tableModel = new DefaultTableModel(new Object[][] {},
 				new String[] { "nomeProduto", "preco", "quantidadeEstoque", "categoria" });
 
-		ArrayList<Produto> lista = pdao.getProdutos();
+		ArrayList<Produto> lista = pc.getProdutos();
 
 		for (Produto p : lista) {
 			tableModel.addRow(
@@ -223,12 +223,12 @@ public class TelaGerenciamentoP extends JFrame {
 	}
 	
 	private void getProdutosFiltro(String categoria) {
-		ProdutoDAO pdao = new ProdutoDAO();
-
-		DefaultTableModel tableModel = new DefaultTableModel(new Object[][] {},
-				new String[] { "nomeProduto", "preco", "quantidadeEstoque", "categoria" });
-
-		ArrayList<Produto> lista = pdao.getProdutosFiltro(categoria);
+			ProdutoControle pc = new ProdutoControle();
+			DefaultTableModel tableModel = new DefaultTableModel(new Object[][] {},
+					new String[] { "nomeProduto", "preco", "quantidadeEstoque", "categoria" });
+			
+			
+		ArrayList<Produto> lista = pc.getProdutoFiltro(categoria);
 
 		for (Produto p : lista) {
 			tableModel.addRow(new Object[] { p.getNomeProduto(), p.getPreco(), p.getQuantidadeEstoque(),
