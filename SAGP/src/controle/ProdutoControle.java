@@ -27,5 +27,8 @@ public class ProdutoControle {
 			e.printStackTrace();
 		}
 	}
+	public void cadastrarProduto() {
+
+	}
 	
 }

@@ -143,8 +143,10 @@ public class TelaGerenciamentoP extends JFrame {
 
 		RoundButton btnNewButton_4 = new RoundButton("Adicionar");
 		btnNewButton_4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
+			public void actionPerformed(ActionEvent e) {			
+				TelaCadastroP tcp = new TelaCadastroP(tgp);
+				dispose();
+				tcp.setVisible(true);
 			}
 		});
 
