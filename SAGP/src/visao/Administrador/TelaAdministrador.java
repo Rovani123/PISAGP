@@ -45,6 +45,8 @@ public class TelaAdministrador extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaAdministrador() {
+		setTitle("Tela Administrador");
+		setBackground(new Color(230, 230, 230));
 		logo = new ImageIcon(TelaInicial.class.getResource("/Imagem/Logo.png"));
 		setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		setResizable(false);
@@ -57,6 +59,9 @@ public class TelaAdministrador extends JFrame {
 
 		setContentPane(Painel);
 		Painel.setLayout(new MigLayout("", "[grow][][][][][][][][grow]", "[grow][120px][150px][grow]"));
+		
+		JLabel lblNewLabel = new JLabel("");
+		Painel.add(lblNewLabel, "cell 0 0 1 3,grow");
 		
 		JLabel lblLogo = new JLabel("");
 		lblLogo.setIcon(logo);
