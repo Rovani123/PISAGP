@@ -73,9 +73,9 @@ public class TelaCheia extends JFrame {
 		JButton btnNewButton_1 = new RoundButton("SOU FUNCIONARIO");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaLogin TelaL = new TelaLogin();
-				dispose();
-				TelaL.setVisible(true);
+//				TelaLogin TelaL = new TelaLogin();
+//				dispose();
+//				TelaL.setVisible(true);
 			}
 		});
 		

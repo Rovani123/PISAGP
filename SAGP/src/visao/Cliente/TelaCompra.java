@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import modelo.classes.Produto;
+import modelo.classes.Vendas;
 import modelo.dao.ProdutoDAO;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
@@ -148,6 +149,11 @@ public class TelaCompra extends JFrame {
 			PainelProduto pp = new PainelProduto(produto);
 			painelProdutos.add(pp,"");
 		}
+		criarVendas();
 	}
+	private void criarVendas() {
+		Vendas venda = new Vendas();
+		
 
+	}
 }
