@@ -50,6 +50,11 @@ public class TelaAlteracaoP extends JFrame {
 		txtNome.setColumns(10);
 		
 		RoundButton btnNewButton = new RoundButton("Limpar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtNome.setText("");
+			}
+		});
 		btnNewButton.setForeground(new Color(245, 245, 245));
 		btnNewButton.setBackground(new Color(224, 83, 76));
 		contentPane.add(btnNewButton, "cell 5 5");
@@ -62,6 +67,11 @@ public class TelaAlteracaoP extends JFrame {
 		txtPreco.setColumns(10);
 		
 		RoundButton btnNewButton_1 = new RoundButton("Limpar");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtPreco.setText("");
+			}
+		});
 		btnNewButton_1.setForeground(new Color(245, 245, 245));
 		btnNewButton_1.setBackground(new Color(224, 83, 76));
 		contentPane.add(btnNewButton_1, "cell 5 7");
@@ -74,6 +84,11 @@ public class TelaAlteracaoP extends JFrame {
 		txtQuantidade.setColumns(10);
 		
 		RoundButton btnNewButton_2 = new RoundButton("Limpar");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtQuantidade.setText("");
+			}
+		});
 		btnNewButton_2.setBackground(new Color(224, 83, 76));
 		btnNewButton_2.setForeground(new Color(245, 245, 245));
 		contentPane.add(btnNewButton_2, "cell 5 9");
@@ -104,8 +119,15 @@ public class TelaAlteracaoP extends JFrame {
 		btnNewButton_5.setBackground(new Color(0, 0, 0));
 		btnNewButton_5.setForeground(new Color(245, 245, 245));
 		contentPane.add(btnNewButton_5, "cell 5 14");
+		setText(p);
 	}
 
+	public void setText(Produto p) {
+		
+		txtNome.setText(p.getNomeProduto());
+		txtPreco.setText(String.valueOf(p.getPreco()));
+		txtQuantidade.setText(String.valueOf(p.getQuantidadeEstoque()));
+	}
 	//txtnomeset .get p
 	
 }
