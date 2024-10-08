@@ -1,5 +1,6 @@
 package controle;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import modelo.classes.Produto;
@@ -18,5 +19,13 @@ public class ProdutoControle {
 		
 	}
 	
+	public void alterarProduto(Produto p) {
+		ProdutoDAO pdal = new ProdutoDAO();
+		try {
+			pdal.AlteraProduto(p);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	
 }

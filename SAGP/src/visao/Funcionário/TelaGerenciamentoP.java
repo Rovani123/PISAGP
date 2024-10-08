@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -21,6 +22,7 @@ import modelo.classes.Produto;
 import modelo.dao.ProdutoDAO;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
+import visao.TelaLogin;
 
 public class TelaGerenciamentoP extends JFrame {
 
@@ -49,6 +51,7 @@ public class TelaGerenciamentoP extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaGerenciamentoP() {
+		TelaGerenciamentoP tgp= this;
 		ProdutoDAO pdao = new ProdutoDAO();
 
 		setBackground(new Color(230, 230, 230));
@@ -155,7 +158,13 @@ public class TelaGerenciamentoP extends JFrame {
 		RoundButton btnNewButton_1 = new RoundButton("Alterar");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				
+				Produto p = ((ProdutosTableModel) table.getModel()).getItem(table.getSelectedRow());
+				
+				TelaAlteracaoP tap = new TelaAlteracaoP(tgp, p);
+				dispose();
+				tap.setVisible(true);
+				
 			}
 		});
 		
@@ -210,30 +219,18 @@ public class TelaGerenciamentoP extends JFrame {
 	}
 	private void getProdutos() {
 		ProdutoControle pc = new ProdutoControle();
-		DefaultTableModel tableModel = new DefaultTableModel(new Object[][] {},
-				new String[] { "nomeProduto", "preco", "quantidadeEstoque", "categoria" });
-
 		ArrayList<Produto> lista = pc.getProdutos();
+	
+		ProdutosTableModel model = new ProdutosTableModel (lista);
+		table.setModel(model);
 
-		for (Produto p : lista) {
-			tableModel.addRow(
-					new Object[] { p.getNomeProduto(), p.getPreco(), p.getQuantidadeEstoque(), p.getCategoria() });
-			table.setModel(tableModel);
-		}
 	}
 	
 	private void getProdutosFiltro(String categoria) {
-			ProdutoControle pc = new ProdutoControle();
-			DefaultTableModel tableModel = new DefaultTableModel(new Object[][] {},
-					new String[] { "nomeProduto", "preco", "quantidadeEstoque", "categoria" });
-			
-			
+		ProdutoControle pc = new ProdutoControle();
 		ArrayList<Produto> lista = pc.getProdutoFiltro(categoria);
-
-		for (Produto p : lista) {
-			tableModel.addRow(new Object[] { p.getNomeProduto(), p.getPreco(), p.getQuantidadeEstoque(),
-					p.getCategoria() });
-			table.setModel(tableModel);
-		}		
+	
+		ProdutosTableModel model = new ProdutosTableModel (lista);
+		table.setModel(model);		
 	}
 }
