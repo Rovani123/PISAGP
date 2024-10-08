@@ -13,6 +13,7 @@ public class ProdutoControle {
 		return pdal.getProdutos();		
 	
 	}
+	
 	public ArrayList<Produto> getProdutoFiltro(String categoria) {
 		ProdutoDAO pdal = new ProdutoDAO();
 		return pdal.getProdutosFiltro(categoria);
@@ -22,13 +23,19 @@ public class ProdutoControle {
 	public void alterarProduto(Produto p) {
 		ProdutoDAO pdal = new ProdutoDAO();
 		try {
-			pdal.AlteraProduto(p);
+			pdal.alteraProduto(p);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
-	public void cadastrarProduto() {
-
+	
+	public void cadastrarProduto(String nome,float preco,int quantidade,String categoria) {
+		ProdutoDAO pdao = new ProdutoDAO();
+		try {
+			pdao.cadastrarProduto(nome, preco, quantidade, categoria);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 }

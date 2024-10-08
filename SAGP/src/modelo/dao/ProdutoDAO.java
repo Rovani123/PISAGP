@@ -96,7 +96,7 @@ public class ProdutoDAO extends ModeloDAO{
 		
 	}
 	
-	public void AlteraProduto(Produto p) throws SQLException {
+	public void alteraProduto(Produto p) throws SQLException {
 		
 		super.update("UPDATE produtos SET nomeProduto = ?, preco = ?, quantidadeEstoque = ?, categoria = ? WHERE idProduto = ?", p.getIdProduto(), p.getNomeProduto(),p.getPreco(),p.getQuantidadeEstoque(),p.getCategoria());
 		
@@ -128,6 +128,10 @@ public class ProdutoDAO extends ModeloDAO{
 		}
 */
 
+	}
+
+	public void cadastrarProduto(String nome,float preco,int quantidade,String categoria) throws SQLException {
+		super.save("insert into produtos(nomeProduto,preco,quantidadeEstoque,categoria) values(?,?,?,?)", nome,preco,quantidade,categoria);
 	}
 	
 }

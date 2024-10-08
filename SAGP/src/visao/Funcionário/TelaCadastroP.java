@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import controle.ProdutoControle;
 import modelo.classes.Produto;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
@@ -113,13 +114,11 @@ public class TelaCadastroP extends JFrame {
 		RoundButton btnNewButton_4 = new RoundButton("Salvar");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Produto p = null;
-				p.setNomeProduto(txtNome.getText());
-				p.setPreco(Float.parseFloat(txtPreco.getText()));
-				p.setQuantidadeEstoque(Integer.parseInt(txtQuantidade.getText()));
-				p.setCategoria(String.valueOf(cbCategoria.getSelectedItem()));
-				JOptionPane.showMessageDialog(null, p.getCategoria());
-				cadastrarProduto();
+				String nome =(txtNome.getText());
+				float preco =(Float.parseFloat(txtPreco.getText()));
+				int quantidade =(Integer.parseInt(txtQuantidade.getText()));
+				String categoria = "salgados"; //N sei pega combobox
+				cadastrarProduto(nome, preco, quantidade, categoria);
 			}
 		});
 		btnNewButton_4.setForeground(new Color(245, 245, 245));
@@ -136,8 +135,9 @@ public class TelaCadastroP extends JFrame {
 		btnNewButton_5.setBackground(new Color(0, 0, 0));
 		painelPrincipal.add(btnNewButton_5, "cell 5 13");
 	}
-	private void cadastrarProduto() {
-		
+	private void cadastrarProduto(String nome,float preco,int quantidade,String categoria) {
+		ProdutoControle pc = new ProdutoControle();
+		pc.cadastrarProduto(nome, preco, quantidade, categoria);
 
 	}
 
