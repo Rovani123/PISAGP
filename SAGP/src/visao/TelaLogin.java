@@ -100,7 +100,7 @@ public class TelaLogin extends JFrame {
 		btEntrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				logar();
+				logar(txtUsuario.getText(),txtSenha.getText());
 				
 			}
 		});
@@ -133,14 +133,25 @@ public class TelaLogin extends JFrame {
 		btEntrar.setBackground(new Color(224, 83, 76));
 		Painel.add(btEntrar, "cell 5 9 2 1,alignx center");
 	}
-	private void logar() {
+	private void logar(String usuario, String senha) {
 		LoginControle lc = new LoginControle();
-		if(lc.validarLogin(txtUsuario.getText(), txtSenha.getText()))
+		Funcionario f = lc.validarLogin(usuario,senha);
+		if(f != null)
 		{
-			dispose();
-		}else
+			if(f.getadministrador() == 1)
+			{
+				TelaAdministrador tA = new TelaAdministrador();
+				dispose();
+				tA.setVisible(true);
+			}else
+			{
+				TelaFuncionario tF = new TelaFuncionario();
+				dispose();
+				tF.setVisible(true);
+			}
+		}else 
 		{
-			JOptionPane.showMessageDialog(null,"Usuário ou senha incorretos");
+			JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos");
 		}
 		
 
