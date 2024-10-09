@@ -130,4 +130,9 @@ public class ProdutoDAO extends ModeloDAO{
 
 	}
 	
+	public void DeletarProduto(Produto p) throws SQLException{
+		super.delete("DELETE FROM produtos WHERE idProduto = ?", p.getIdProduto());
+		
+	}
+	
 }

@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -151,8 +152,23 @@ public class TelaGerenciamentoP extends JFrame {
 		RoundButton btnNewButton_2 = new RoundButton("Deletar");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				Produto p = ((ProdutosTableModel) table.getModel()).getItem(table.getSelectedRow());
+				ProdutoDAO pdal = new ProdutoDAO();
+				try {
+					pdal.DeletarProduto(p);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				getProdutos();
 
 			}
+			
+			public void deletarProduto(Produto deletarProduto) {
+				
+			}
+
 		});
 
 		RoundButton btnNewButton_1 = new RoundButton("Alterar");

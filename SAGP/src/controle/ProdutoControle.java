@@ -28,4 +28,13 @@ public class ProdutoControle {
 		}
 	}
 	
+	public void deletarProduto(Produto deletarProduto) {
+		ProdutoDAO pdal = new ProdutoDAO();
+		try {
+			pdal.DeletarProduto(deletarProduto);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 }
