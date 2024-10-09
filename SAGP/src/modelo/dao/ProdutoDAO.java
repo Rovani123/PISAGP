@@ -125,5 +125,9 @@ public class ProdutoDAO extends ModeloDAO{
 	public void cadastrarProduto(String nome,float preco,int quantidade,String categoria) throws SQLException {
 		super.save("insert into produtos(nomeProduto,preco,quantidadeEstoque,categoria) values(?,?,?,?)", nome,preco,quantidade,categoria);
 	}
+	public void DeletarProduto(Produto p) throws SQLException{
+		super.delete("DELETE FROM produtos WHERE idProduto = ?", p.getIdProduto());
+		
+	}
 	
 }

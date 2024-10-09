@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -20,7 +21,6 @@ import javax.swing.table.DefaultTableModel;
 import controle.ProdutoControle;
 import modelo.classes.Produto;
 import modelo.dao.ProdutoDAO;
-import modelo.enumerador.Categoria;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
 import visao.TelaLogin;
@@ -73,9 +73,7 @@ public class TelaGerenciamentoP extends JFrame {
 				RoundButton btnNewButton = new RoundButton("Sair");
 				btnNewButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						TelaFuncionario TelaE = new TelaFuncionario();
 						dispose();
-						TelaE.setVisible(true);
 					}
 				});
 				btnNewButton.setForeground(new Color(255, 255, 255));
@@ -93,7 +91,7 @@ public class TelaGerenciamentoP extends JFrame {
 		btnSalgados.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				getProdutosFiltro(Categoria.SALGADO);
+				getProdutosFiltro("salgados");
 			}
 		});
 		
@@ -107,7 +105,7 @@ public class TelaGerenciamentoP extends JFrame {
 		btnDoces.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				getProdutosFiltro(Categoria.DOCE);
+				getProdutosFiltro("doces");
 
 			}
 		});
@@ -122,7 +120,7 @@ public class TelaGerenciamentoP extends JFrame {
 		btnBebidas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
-				getProdutosFiltro(Categoria.BEBIDAS);
+				getProdutosFiltro("bebidas");
 			}
 		});
 		
@@ -146,18 +144,28 @@ public class TelaGerenciamentoP extends JFrame {
 
 		RoundButton btnNewButton_4 = new RoundButton("Adicionar");
 		btnNewButton_4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {			
-				TelaCadastroP tcp = new TelaCadastroP(tgp);
-				dispose();
-				tcp.setVisible(true);
+			public void actionPerformed(ActionEvent e) {
+
 			}
 		});
 
 		RoundButton btnNewButton_2 = new RoundButton("Deletar");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				Produto p = ((ProdutosTableModel) table.getModel()).getItem(table.getSelectedRow());
+				ProdutoDAO pdal = new ProdutoDAO();
+				try {
+					pdal.DeletarProduto(p);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				getProdutos();
 
 			}
+			
+
 		});
 
 		RoundButton btnNewButton_1 = new RoundButton("Alterar");
@@ -231,7 +239,7 @@ public class TelaGerenciamentoP extends JFrame {
 
 	}
 	
-	private void getProdutosFiltro(Categoria categoria) {
+	private void getProdutosFiltro(String categoria) {
 		ProdutoControle pc = new ProdutoControle();
 		ArrayList<Produto> lista = pc.getProdutoFiltro(categoria);
 	

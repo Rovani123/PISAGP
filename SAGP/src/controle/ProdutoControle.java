@@ -30,6 +30,15 @@ public class ProdutoControle {
 		}
 	}
 	
+	public void deletarProduto(Produto deletarProduto) {
+		ProdutoDAO pdal = new ProdutoDAO();
+		try {
+			pdal.DeletarProduto(deletarProduto);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public void cadastrarProduto(String nome,float preco,int quantidade,String categoria) {
 		ProdutoDAO pdao = new ProdutoDAO();
 		try {
@@ -38,5 +47,6 @@ public class ProdutoControle {
 			e.printStackTrace();
 		}
 	}
+	
 	
 }
