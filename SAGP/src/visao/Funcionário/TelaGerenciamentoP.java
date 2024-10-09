@@ -171,12 +171,15 @@ public class TelaGerenciamentoP extends JFrame {
 		RoundButton btnNewButton_1 = new RoundButton("Alterar");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				Produto p = ((ProdutosTableModel) table.getModel()).getItem(table.getSelectedRow());
-				
-				TelaAlteracaoP tap = new TelaAlteracaoP(tgp, p);
-				dispose();
-				tap.setVisible(true);
+				try {
+					Produto p = ((ProdutosTableModel) table.getModel()).getItem(table.getSelectedRow());
+					TelaAlteracaoP tap = new TelaAlteracaoP(tgp, p);
+					dispose();
+					tap.setVisible(true);
+				}catch (Exception e1) {
+					e1.printStackTrace();
+					JOptionPane.showMessageDialog(null, "N");
+				}
 				
 			}
 		});
