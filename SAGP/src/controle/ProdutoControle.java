@@ -15,7 +15,7 @@ public class ProdutoControle {
 	
 	}
 	
-	public ArrayList<Produto> getProdutoFiltro(String categoria) {
+	public ArrayList<Produto> getProdutoFiltro(Categoria categoria) {
 		ProdutoDAO pdal = new ProdutoDAO();
 		return pdal.getProdutosFiltro(categoria);
 		

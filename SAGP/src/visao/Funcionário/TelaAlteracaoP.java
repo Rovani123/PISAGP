@@ -26,7 +26,7 @@ public class TelaAlteracaoP extends JFrame {
 	private JTextField txtNome;
 	private JTextField txtPreco;
 	private JTextField txtQuantidade;
-
+	private JComboBox cbCategoria;
 
 
 	public TelaAlteracaoP(JFrame telaA,Produto p) {
@@ -96,10 +96,10 @@ public class TelaAlteracaoP extends JFrame {
 		JLabel lblNewLabel_3 = new JLabel("Categoria:");
 		contentPane.add(lblNewLabel_3, "cell 4 10");
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(Categoria.values()));
-		comboBox.setBackground(new Color(245, 245, 245));
-		contentPane.add(comboBox, "cell 4 11,growx");
+		cbCategoria = new JComboBox();
+		cbCategoria.setModel(new DefaultComboBoxModel(Categoria.values()));
+		cbCategoria.setBackground(new Color(245, 245, 245));
+		contentPane.add(cbCategoria, "cell 4 11,growx");
 		
 		RoundButton btnNewButton_3 = new RoundButton("Limpar");
 		btnNewButton_3.setBackground(new Color(224, 83, 76));
@@ -109,6 +109,7 @@ public class TelaAlteracaoP extends JFrame {
 		RoundButton btnNewButton_4 = new RoundButton("Salvar");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 			}
 		});
 		btnNewButton_4.setBackground(new Color(224, 83, 76));
@@ -116,6 +117,13 @@ public class TelaAlteracaoP extends JFrame {
 		contentPane.add(btnNewButton_4, "cell 4 14,alignx center");
 		
 		RoundButton btnNewButton_5 = new RoundButton("Cancelar");
+		btnNewButton_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaGerenciamentoP telaE = new TelaGerenciamentoP();
+				dispose();
+				telaE.setVisible(true);
+			}
+		});
 		btnNewButton_5.setBackground(new Color(0, 0, 0));
 		btnNewButton_5.setForeground(new Color(245, 245, 245));
 		contentPane.add(btnNewButton_5, "cell 5 14");
@@ -127,7 +135,8 @@ public class TelaAlteracaoP extends JFrame {
 		txtNome.setText(p.getNomeProduto());
 		txtPreco.setText(String.valueOf(p.getPreco()));
 		txtQuantidade.setText(String.valueOf(p.getQuantidadeEstoque()));
+		cbCategoria.setSelectedItem(p.getCategoria());
 	}
-	//txtnomeset .get p
+	
 	
 }

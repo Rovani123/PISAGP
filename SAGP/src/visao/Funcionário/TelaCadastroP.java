@@ -48,7 +48,7 @@ public class TelaCadastroP extends JFrame {
 		RoundButton btnNewButton = new RoundButton("Limpar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				txtNome.setText("");
 			}
 		});
 		btnNewButton.setForeground(new Color(245, 245, 245));
@@ -124,7 +124,9 @@ public class TelaCadastroP extends JFrame {
 		RoundButton btnNewButton_5 = new RoundButton("Cancelar");
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				TelaGerenciamentoP telaE = new TelaGerenciamentoP();
+				dispose();
+				telaE.setVisible(true);
 			}
 		});
 		btnNewButton_5.setForeground(new Color(245, 245, 245));

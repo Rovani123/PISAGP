@@ -1,12 +1,14 @@
 package modelo.classes;
 
+import modelo.enumerador.Categoria;
+
 public class Produto {
 
 	private int idProduto;
 	private String nomeProduto;
 	private float preco;
 	private int quantidadeEstoque;
-	private String categoria;
+	private Categoria categoria;
 	
 	public int getIdProduto() {
 		return idProduto;
@@ -32,10 +34,10 @@ public class Produto {
 	public void setQuantidadeEstoque(int quantidadeEstoque) {
 		this.quantidadeEstoque = quantidadeEstoque;
 	}
-	public String getCategoria() {
+	public Categoria getCategoria() {
 		return categoria;
 	}
-	public void setCategoria(String categoria) {
+	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
 	

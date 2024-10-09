@@ -12,7 +12,7 @@ import modelo.enumerador.Categoria;
 
 public class ProdutoDAO extends ModeloDAO{
 	
-	public ArrayList<Produto> getProdutosFiltro(String categoria) {
+	public ArrayList<Produto> getProdutosFiltro(Categoria categoria) {
 		
 		Statement stml = null;
 		Connection conn = ConexaoBD.getConexaoMySQL();
@@ -23,22 +23,10 @@ public class ProdutoDAO extends ModeloDAO{
 			ResultSet reslt = null;
 			reslt = stml.executeQuery("SELECT * FROM PRODUTOS");
 			
-			if(categoria.equals("salgados"))
-			{
-				reslt = stml.executeQuery("SELECT * FROM PRODUTOS where categoria = 'salgados'");
-				
-			}
-			if(categoria.equals("doces"))
-			{
-				reslt = stml.executeQuery("SELECT * FROM PRODUTOS where categoria = 'doces'");
-				
-			}
-			if(categoria.equals("bebidas"))
-			{
-				reslt = stml.executeQuery("SELECT * FROM PRODUTOS where categoria = 'bebidas'");
-				
-			}
+							reslt = stml.executeQuery("SELECT * FROM PRODUTOS where categoria = '"+categoria.toString()+"'");
+
 			
+						
 			while(reslt.next())
 			{
 				Produto p = new Produto();
@@ -46,7 +34,8 @@ public class ProdutoDAO extends ModeloDAO{
 					p.setNomeProduto(reslt.getString("nomeProduto"));
 					p.setPreco(reslt.getFloat("preco"));
 					p.setQuantidadeEstoque(reslt.getInt("quantidadeEstoque"));
-					p.setCategoria(reslt.getString("categoria"));
+					Categoria cat = Categoria.categoriaString(reslt.getString("categoria"));
+					p.setCategoria(cat);
 					lista.add(p);
 				
 				
@@ -81,7 +70,8 @@ public class ProdutoDAO extends ModeloDAO{
 					p.setNomeProduto(reslt.getString("nomeProduto"));
 					p.setPreco(reslt.getFloat("preco"));
 					p.setQuantidadeEstoque(reslt.getInt("quantidadeEstoque"));
-					p.setCategoria(reslt.getString("categoria"));
+					Categoria cat = Categoria.categoriaString(reslt.getString("categoria"));
+					p.setCategoria(cat);
 					lista.add(p);
 				
 				
@@ -100,7 +90,7 @@ public class ProdutoDAO extends ModeloDAO{
 	
 	public void alteraProduto(Produto p) throws SQLException {
 		
-		super.update("UPDATE produtos SET nomeProduto = ?, preco = ?, quantidadeEstoque = ?, categoria = ? WHERE idProduto = ?", p.getIdProduto(), p.getNomeProduto(),p.getPreco(),p.getQuantidadeEstoque(),p.getCategoria());
+		super.update("UPDATE produtos SET nomeProduto = ?, preco = ?, quantidadeEstoque = ?, categoria = ? WHERE idProduto = ?", p.getIdProduto(), p.getNomeProduto(),p.getPreco(),p.getQuantidadeEstoque(),p.getCategoria().toString());
 		
 		/*
 		Statement stml = null;
