@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -21,9 +20,9 @@ import javax.swing.table.DefaultTableModel;
 import controle.ProdutoControle;
 import modelo.classes.Produto;
 import modelo.dao.ProdutoDAO;
+import modelo.enumerador.Categoria;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
-import visao.TelaLogin;
 
 public class TelaGerenciamentoP extends JFrame {
 
@@ -91,7 +90,7 @@ public class TelaGerenciamentoP extends JFrame {
 		btnSalgados.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				getProdutosFiltro("salgados");
+				getProdutosFiltro(Categoria.categoriaString("salgados"));
 			}
 		});
 		
@@ -105,7 +104,7 @@ public class TelaGerenciamentoP extends JFrame {
 		btnDoces.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				getProdutosFiltro("doces");
+				getProdutosFiltro(Categoria.categoriaString("doces"));
 
 			}
 		});
@@ -120,7 +119,7 @@ public class TelaGerenciamentoP extends JFrame {
 		btnBebidas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
-				getProdutosFiltro("bebidas");
+				getProdutosFiltro(Categoria.categoriaString("bebidas"));
 			}
 		});
 		
@@ -239,7 +238,7 @@ public class TelaGerenciamentoP extends JFrame {
 
 	}
 	
-	private void getProdutosFiltro(String categoria) {
+	private void getProdutosFiltro(Categoria categoria) {
 		ProdutoControle pc = new ProdutoControle();
 		ArrayList<Produto> lista = pc.getProdutoFiltro(categoria);
 	
