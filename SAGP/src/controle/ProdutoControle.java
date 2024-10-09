@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import modelo.classes.Produto;
 import modelo.dao.ProdutoDAO;
+import modelo.enumerador.Categoria;
 
 public class ProdutoControle {
 	

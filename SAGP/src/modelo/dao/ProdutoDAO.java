@@ -5,8 +5,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
 import dal.ConexaoBD;
 import modelo.classes.Produto;
+import modelo.enumerador.Categoria;
 
 public class ProdutoDAO extends ModeloDAO{
 	

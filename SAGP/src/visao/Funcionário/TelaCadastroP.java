@@ -1,26 +1,21 @@
 package visao.Funcionário;
 
-import java.awt.EventQueue;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import controle.ProdutoControle;
-import modelo.classes.Produto;
+import modelo.enumerador.Categoria;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
-
-import java.awt.Color;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.DefaultComboBoxModel;
-import modelo.enumerador.Categoria;
 
 public class TelaCadastroP extends JFrame {
 
@@ -117,7 +112,8 @@ public class TelaCadastroP extends JFrame {
 				String nome =(txtNome.getText());
 				float preco =(Float.parseFloat(txtPreco.getText()));
 				int quantidade =(Integer.parseInt(txtQuantidade.getText()));
-				String categoria = "salgados"; //N sei pega combobox
+				Categoria categoriaC = (Categoria) cbCategoria.getSelectedItem();
+				String categoria = String.valueOf(categoriaC);
 				cadastrarProduto(nome, preco, quantidade, categoria);
 			}
 		});
