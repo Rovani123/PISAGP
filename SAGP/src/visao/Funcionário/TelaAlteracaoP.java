@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import controle.ProdutoControle;
 import modelo.classes.Produto;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
@@ -109,6 +110,13 @@ public class TelaAlteracaoP extends JFrame {
 		RoundButton btnNewButton_4 = new RoundButton("Salvar");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String nome = txtNome.getText();
+				float preco = Float.parseFloat(txtPreco.getText());
+				int quantidade = Integer.parseInt(txtQuantidade.getText());
+				Categoria categoria = (Categoria) cbCategoria.getSelectedItem();
+				
+				alterarProduto(p, nome, preco, quantidade, categoria);
+				
 				
 			}
 		});
@@ -136,6 +144,16 @@ public class TelaAlteracaoP extends JFrame {
 		txtPreco.setText(String.valueOf(p.getPreco()));
 		txtQuantidade.setText(String.valueOf(p.getQuantidadeEstoque()));
 		cbCategoria.setSelectedItem(p.getCategoria());
+	}
+	private void alterarProduto(Produto p,String nome,float preco,int quantidade,Categoria categoria ) {
+		
+		p.setNomeProduto(nome);
+		p.setPreco(preco);
+		p.setQuantidadeEstoque(quantidade);
+		p.setCategoria(categoria);
+		ProdutoControle pc = new ProdutoControle();
+		pc.alterarProduto(p);
+		
 	}
 	
 	
