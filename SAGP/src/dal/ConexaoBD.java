@@ -19,7 +19,7 @@ public class ConexaoBD {
 		String mydatabase = "bsagp";
 		String url = "jdbc:mysql://" + serverName + mydatabase;
 		String user = "root";
-		String password = "aluno";
+		String password = "Felipe.lezio575";
 		
 		try {
 			connection = DriverManager.getConnection(url,user,password);
