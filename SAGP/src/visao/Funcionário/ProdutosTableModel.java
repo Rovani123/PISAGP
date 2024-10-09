@@ -8,10 +8,8 @@ import modelo.classes.Produto;
 
 public class ProdutosTableModel extends AbstractTableModel{
 	
-	
 	ArrayList<Produto> lista;
 	String[] colunas = new String[] { "Nome do Produto", "preco", "quantidadeEstoque", "categoria" };
-
 
 	public String getColumnName(int column) {
 		return colunas[column];

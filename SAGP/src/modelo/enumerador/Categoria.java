@@ -2,7 +2,7 @@ package modelo.enumerador;
 
 public enum Categoria {
 	
-	SALGADO("salgados"),DOCE("doces"),BEBIDAS("bebidas"),BOLO("bolos");
+	SALGADOS("salgados"),DOCES("doces"),BEBIDAS("bebidas"),BOLOS("bolos");
 	
 	private String nome;
 
@@ -19,14 +19,14 @@ public enum Categoria {
 	public static Categoria categoriaString(String categoria){
 		if(categoria.equals("salgados"))
 		{
-			return SALGADO;
+			return SALGADOS;
 		}else if(categoria.equals("doces"))
 		{
-			return DOCE;
+			return DOCES;
 		}else if(categoria.equals("bebidas")) {
 			return BEBIDAS;
 		} else if(categoria.equals("bolos")) {
-			return BOLO;
+			return BOLOS;
 		}else {
 			System.err.println(categoria);
 			return null;

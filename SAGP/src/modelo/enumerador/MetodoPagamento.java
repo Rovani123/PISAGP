@@ -2,7 +2,7 @@ package modelo.enumerador;
 
 public enum MetodoPagamento {
 	
-	DINHEIRO("Dinheiro"),DEBITO("Débito"),CREDITO("Crédito"),PIX("Pix");
+	DINHEIRO("dinheiro"),DEBITO("débito"),CREDITO("crédito"),PIX("pix");
 	
 	private String nome;
 	
@@ -10,7 +10,6 @@ public enum MetodoPagamento {
 		this.nome = nome;
 	}
 
-	@Override
 	public String toString() {
 		return nome;
 	}

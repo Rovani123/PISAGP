@@ -28,9 +28,7 @@ public class TelaInicial extends JFrame {
 	private JPanel Painel;
 	private ImageIcon logo;
 
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -44,9 +42,6 @@ public class TelaInicial extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public TelaInicial() {
 		TelaInicial tI= this;
 		setExtendedState(Frame.MAXIMIZED_BOTH);

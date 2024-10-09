@@ -21,12 +21,9 @@ public class ProdutoDAO extends ModeloDAO{
 		try {
 			stml = (Statement) conn.createStatement();
 			ResultSet reslt = null;
-			reslt = stml.executeQuery("SELECT * FROM PRODUTOS");
 			
-							reslt = stml.executeQuery("SELECT * FROM PRODUTOS where categoria = '"+categoria.toString()+"'");
-
-			
-						
+			reslt = stml.executeQuery("SELECT * FROM PRODUTOS where categoria = '"+categoria.toString()+"'");
+	
 			while(reslt.next())
 			{
 				Produto p = new Produto();
@@ -37,7 +34,6 @@ public class ProdutoDAO extends ModeloDAO{
 					Categoria cat = Categoria.categoriaString(reslt.getString("categoria"));
 					p.setCategoria(cat);
 					lista.add(p);
-				
 				
 				}
 			reslt.close();
@@ -89,18 +85,15 @@ public class ProdutoDAO extends ModeloDAO{
 	}
 	
 	public void alteraProduto(Produto p) throws SQLException {
-		
 		super.update("UPDATE produtos SET nomeProduto = ?, preco = ?, quantidadeEstoque = ?, categoria = ? WHERE idProduto = ?", p.getIdProduto(), p.getNomeProduto(),p.getPreco(),p.getQuantidadeEstoque(),p.getCategoria().toString());
-		
-		
 	}
 
 	public void cadastrarProduto(String nome,float preco,int quantidade,String categoria) throws SQLException {
 		super.save("insert into produtos(nomeProduto,preco,quantidadeEstoque,categoria) values(?,?,?,?)", nome,preco,quantidade,categoria);
 	}
+	
 	public void DeletarProduto(Produto p) throws SQLException{
 		super.delete("DELETE FROM produtos WHERE idProduto = ?", p.getIdProduto());
-		
 	}
 	
 }

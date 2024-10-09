@@ -17,6 +17,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import javax.swing.DefaultComboBoxModel;
 import modelo.enumerador.Categoria;
@@ -115,7 +116,11 @@ public class TelaAlteracaoP extends JFrame {
 				int quantidade = Integer.parseInt(txtQuantidade.getText());
 				Categoria categoria = (Categoria) cbCategoria.getSelectedItem();
 				
-				alterarProduto(p, nome, preco, quantidade, categoria);
+				try {
+					alterarProduto(p, nome, preco, quantidade, categoria);
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
 				
 				
 			}
@@ -145,7 +150,7 @@ public class TelaAlteracaoP extends JFrame {
 		txtQuantidade.setText(String.valueOf(p.getQuantidadeEstoque()));
 		cbCategoria.setSelectedItem(p.getCategoria());
 	}
-	private void alterarProduto(Produto p,String nome,float preco,int quantidade,Categoria categoria ) {
+	private void alterarProduto(Produto p,String nome,float preco,int quantidade,Categoria categoria ) throws SQLException {
 		
 		p.setNomeProduto(nome);
 		p.setPreco(preco);

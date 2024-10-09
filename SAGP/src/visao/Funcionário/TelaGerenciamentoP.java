@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -31,9 +32,7 @@ public class TelaGerenciamentoP extends JFrame {
 	private JTextField textField;
 	private JTable table;
 
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -47,12 +46,9 @@ public class TelaGerenciamentoP extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+	
 	public TelaGerenciamentoP() {
 		TelaGerenciamentoP tgp= this;
-		ProdutoDAO pdao = new ProdutoDAO();
 
 		setBackground(new Color(230, 230, 230));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -72,7 +68,9 @@ public class TelaGerenciamentoP extends JFrame {
 				RoundButton btnNewButton = new RoundButton("Sair");
 				btnNewButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						TelaFuncionario tf = new TelaFuncionario();
 						dispose();
+						tf.setVisible(true);
 					}
 				});
 				btnNewButton.setForeground(new Color(255, 255, 255));
@@ -144,7 +142,9 @@ public class TelaGerenciamentoP extends JFrame {
 		RoundButton btnNewButton_4 = new RoundButton("Adicionar");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				TelaCadastroP tcp = new TelaCadastroP(tgp);
+				dispose();
+				tcp.setVisible(true);
 			}
 		});
 
@@ -156,9 +156,10 @@ public class TelaGerenciamentoP extends JFrame {
 				ProdutoDAO pdal = new ProdutoDAO();
 				try {
 					pdal.DeletarProduto(p);
+					JOptionPane.showMessageDialog(null, "operação realizada com sucesso");
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
+					JOptionPane.showMessageDialog(null, "Não é possivel remover esse produto");
 				}
 				getProdutos();
 

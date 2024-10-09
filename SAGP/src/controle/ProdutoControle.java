@@ -21,13 +21,9 @@ public class ProdutoControle {
 		
 	}
 	
-	public void alterarProduto(Produto p) {
+	public void alterarProduto(Produto p) throws SQLException {
 		ProdutoDAO pdal = new ProdutoDAO();
-		try {
-			pdal.alteraProduto(p);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		pdal.alteraProduto(p);
 	}
 	
 	public void deletarProduto(Produto deletarProduto) {
@@ -39,13 +35,10 @@ public class ProdutoControle {
 		}
 	}
 	
-	public void cadastrarProduto(String nome,float preco,int quantidade,String categoria) {
+	public void cadastrarProduto(String nome,float preco,int quantidade,String categoria) throws SQLException {
 		ProdutoDAO pdao = new ProdutoDAO();
-		try {
-			pdao.cadastrarProduto(nome, preco, quantidade, categoria);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		pdao.cadastrarProduto(nome, preco, quantidade, categoria);
+		
 	}
 	
 	

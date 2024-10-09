@@ -3,6 +3,7 @@ package visao.Funcionário;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
@@ -114,7 +115,11 @@ public class TelaCadastroP extends JFrame {
 				int quantidade =(Integer.parseInt(txtQuantidade.getText()));
 				Categoria categoriaC = (Categoria) cbCategoria.getSelectedItem();
 				String categoria = String.valueOf(categoriaC);
-				cadastrarProduto(nome, preco, quantidade, categoria);
+				try {
+					cadastrarProduto(nome, preco, quantidade, categoria);
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 		btnNewButton_4.setForeground(new Color(245, 245, 245));
@@ -133,7 +138,7 @@ public class TelaCadastroP extends JFrame {
 		btnNewButton_5.setBackground(new Color(0, 0, 0));
 		painelPrincipal.add(btnNewButton_5, "cell 5 13");
 	}
-	private void cadastrarProduto(String nome,float preco,int quantidade,String categoria) {
+	private void cadastrarProduto(String nome,float preco,int quantidade,String categoria) throws SQLException {
 		ProdutoControle pc = new ProdutoControle();
 		pc.cadastrarProduto(nome, preco, quantidade, categoria);
 
