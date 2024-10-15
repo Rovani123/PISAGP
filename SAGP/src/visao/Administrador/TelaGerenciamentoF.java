@@ -38,7 +38,6 @@ public class TelaGerenciamentoF extends JFrame {
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
 	private JButton btnNewButton;
-	private JLabel lblNewLabel_3;
 	private JButton btnNewButton_1;
 	private JButton btnNewButton_2;
 	private JButton btnNewButton_3;
@@ -91,6 +90,7 @@ public class TelaGerenciamentoF extends JFrame {
 		panel.add(lblNewLabel_2, "cell 0 4 4 1,alignx center,aligny center");
 		
 		btnNewButton_2 = new RoundButton("ALTERAR");
+		btnNewButton_2.setText("Alterar");
 		btnNewButton_2.setForeground(new Color(245, 245, 245));
 		btnNewButton_2.setBackground(new Color(224, 83, 76));
 		btnNewButton_2.addActionListener(new ActionListener() {
@@ -112,6 +112,7 @@ public class TelaGerenciamentoF extends JFrame {
 		panel.add(lblNewLabel_4, "cell 1 7,alignx right");
 		
 		btnNewButton_3 = new RoundButton("DELETAR");
+		btnNewButton_3.setText("Deletar");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Funcionario f = ((FuncionariosTableModel) table.getModel()).getItem(table.getSelectedRow());
@@ -134,6 +135,7 @@ public class TelaGerenciamentoF extends JFrame {
 		panel.add(lblNewLabel_6, "cell 1 8,alignx right");
 		
 		btnNewButton_4 = new RoundButton("ADICIONAR");
+		btnNewButton_4.setText("Adicionar");
 		btnNewButton_4.setForeground(new Color(245, 245, 245));
 		btnNewButton_4.setBackground(new Color(224, 83, 76));
 		btnNewButton_4.addActionListener(new ActionListener() {
@@ -150,20 +152,18 @@ public class TelaGerenciamentoF extends JFrame {
 		});
 		panel.add(btnNewButton_4, "cell 2 8,alignx left,aligny center");
 		
-		lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/volte.png")));
-		panel.add(lblNewLabel_3, "cell 1 13");
-		
 		btnNewButton = new RoundButton("VOLTAR");
+		btnNewButton.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/volte.png")));
+		btnNewButton.setText("");
 		btnNewButton.setForeground(new Color(245, 245, 245));
-		btnNewButton.setBackground(new Color(224, 83, 76));
+		btnNewButton.setBackground(new Color(245, 245, 245));
 		panel.add(btnNewButton, "cell 2 13,alignx left,aligny center");
 		
-		JLabel lblNewLabel = new JLabel("FUNCIONARIO");
+		JLabel lblNewLabel = new JLabel("Funcionário");
 		contentPane.add(lblNewLabel, "cell 1 1,alignx center,aligny center");
 		
 		textField = new JTextField();
-		contentPane.add(textField, "cell 2 1 7 1,growx,aligny center");
+		contentPane.add(textField, "cell 2 1 8 1,growx,aligny center");
 		textField.setColumns(10);
 		
 		btnNewButton_1 = new RoundButton("");
