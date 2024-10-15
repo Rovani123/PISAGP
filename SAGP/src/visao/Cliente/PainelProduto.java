@@ -30,6 +30,7 @@ public class PainelProduto extends JPanel {
 		painelImagem.setLayout(new BorderLayout(0, 0));
 		
 		JLabel lblImagem = new JLabel("");
+		lblImagem.setIcon(new ImageIcon(PainelProduto.class.getResource("/Imagem/Pizza.png")));
 		painelImagem.add(lblImagem);
 		
 		JLabel lblNome = new JLabel("");
