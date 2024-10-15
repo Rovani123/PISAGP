@@ -144,10 +144,18 @@ public class TelaCompra extends JFrame {
 		painelProdutos = new JPanel();
 		scrollPane.setViewportView(painelProdutos);
 		painelProdutos.setLayout(new MigLayout("", "[]", "[]"));
-		
+		int c =0;
+		int l=0;
 		for (Produto produto : listaProdutos) {
 			PainelProduto pp = new PainelProduto(produto);
-			painelProdutos.add(pp,"");
+			painelProdutos.add(pp,"cell "+l+" "+c);
+			l++;
+			if(l%3==0)
+			{
+				c++;
+				l=0;
+			}
+								
 		}
 		criarVendas();
 	}
