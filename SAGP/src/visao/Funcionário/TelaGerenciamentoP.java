@@ -204,6 +204,9 @@ public class TelaGerenciamentoP extends JFrame {
 		btnNewButton_4.setForeground(new Color(255, 255, 255));
 		btnNewButton_4.setBackground(new Color(0, 0, 0));
 		panel.add(btnNewButton_4, "cell 1 17,alignx left");
+		
+		JLabel lblNewLabel_10 = new JLabel("iconeestoque");
+		contentPane.add(lblNewLabel_10, "cell 1 0");
 
 		JLabel lblNewLabel = new JLabel("Estoque");
 		contentPane.add(lblNewLabel, "cell 2 0,alignx trailing");
@@ -213,6 +216,8 @@ public class TelaGerenciamentoP extends JFrame {
 		textField.setColumns(10);
 
 		RoundButton btnNewButton_3 = new RoundButton("Pesquisar");
+		btnNewButton_3.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/lupa.png")));
+		btnNewButton_3.setText("");
 		btnNewButton_3.setForeground(new Color(255, 255, 255));
 		btnNewButton_3.setBackground(new Color(0, 0, 0));
 		btnNewButton_3.addActionListener(new ActionListener() {
