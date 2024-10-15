@@ -165,7 +165,7 @@ public class TelaGerenciamentoF extends JFrame {
 		btnNewButton_1 = new RoundButton("");
 		btnNewButton_1.setBackground(new Color(230, 230, 230));
 		btnNewButton_1.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/lupa.png")));
-		contentPane.add(btnNewButton_1, "cell 9 1,alignx center");
+		contentPane.add(btnNewButton_1, "cell 10 1,alignx center");
 		
 		JScrollPane scrollPane = new JScrollPane();
 		contentPane.add(scrollPane, "cell 1 2 10 1,grow");

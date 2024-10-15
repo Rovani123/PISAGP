@@ -119,9 +119,13 @@ public class TelaAlteracaoP extends JFrame {
 				
 				try {
 					alterarProduto(p, nome, preco, quantidade, categoria);
-					JOptionPane.showMessageDialog(null, "Não é possivel alterar esse produto");
+					TelaGerenciamentoP telaGerenciamentoP = new TelaGerenciamentoP();
+					dispose();
+					telaGerenciamentoP.setVisible(true);
+					JOptionPane.showMessageDialog(null, "Alteração feita com sucesso");
 				} catch (SQLException e1) {
 					e1.printStackTrace();
+					JOptionPane.showMessageDialog(null, "Não foi possivel alterar esse produto");
 				}
 				
 				

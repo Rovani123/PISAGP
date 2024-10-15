@@ -9,6 +9,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
@@ -117,8 +118,14 @@ public class TelaCadastroP extends JFrame {
 				String categoria = String.valueOf(categoriaC);
 				try {
 					cadastrarProduto(nome, preco, quantidade, categoria);
+					TelaGerenciamentoP telaGerenciamentoP = new TelaGerenciamentoP();
+					dispose();
+					telaGerenciamentoP.setVisible(true);
+					JOptionPane.showMessageDialog(null, "Produto adicionado com sucesso");
 				} catch (SQLException e1) {
 					e1.printStackTrace();
+					JOptionPane.showMessageDialog(null, "Não foi possivel adicionar esse produto");
+
 				}
 			}
 		});

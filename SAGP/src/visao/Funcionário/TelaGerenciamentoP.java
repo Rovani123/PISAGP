@@ -66,6 +66,8 @@ public class TelaGerenciamentoP extends JFrame {
 		panel.setLayout(new MigLayout("", "[][]", "[][][][][][][][][][][][][][][][][][]"));
 		
 				RoundButton btnNewButton = new RoundButton("Sair");
+				btnNewButton.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/volte.png")));
+				btnNewButton.setText("");
 				btnNewButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						TelaFuncionario tf = new TelaFuncionario();
