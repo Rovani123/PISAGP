@@ -5,17 +5,26 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controle.ProdutoControle;
+import modelo.classes.Funcionario;
+import modelo.classes.Produto;
+import modelo.dao.ProdutoDAO;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
+import visao.Funcionário.ProdutosTableModel;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class TelaGerenciamentoF extends JFrame {
@@ -56,6 +65,8 @@ public class TelaGerenciamentoF extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaGerenciamentoF() {
+		TelaGerenciamentoF tgf = this;
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 795, 553);
 		contentPane = new JPanel();
@@ -95,6 +106,21 @@ public class TelaGerenciamentoF extends JFrame {
 		panel.add(lblNewLabel_4, "cell 1 7,alignx right");
 		
 		btnNewButton_3 = new RoundButton("DELETAR");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+//				Funcionario f = ((FuncionarioTableModel) table.getModel()).getItem(table.getSelectedRow());
+//				FuncionarioControle fc = new FuncionarioControle();
+//				try {
+//					fc.deletarProduto(f);
+//					JOptionPane.showMessageDialog(null, "operação realizada com sucesso");
+//				} catch (SQLException e1) {
+//					e1.printStackTrace();
+//					JOptionPane.showMessageDialog(null, "Não é possivel remover esse produto");
+//				}
+//				getfuncionarios();
+
+			}
+		});
 		btnNewButton_3.setForeground(new Color(245, 245, 245));
 		btnNewButton_3.setBackground(new Color(224, 83, 76));
 		panel.add(btnNewButton_3, "cell 2 7,alignx left,aligny center");
@@ -108,6 +134,14 @@ public class TelaGerenciamentoF extends JFrame {
 		btnNewButton_4.setBackground(new Color(224, 83, 76));
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					TelaCadastroF tcf = new TelaCadastroF();
+					dispose();
+					tcf.setVisible(true);
+				} catch (Exception e2) {
+				}
+				
 			}
 		});
 		panel.add(btnNewButton_4, "cell 2 8,alignx left,aligny center");
@@ -138,6 +172,15 @@ public class TelaGerenciamentoF extends JFrame {
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
+		getfuncionarios();
+	}
+	private void getfuncionarios() {
+//		FuncionarioControle pf = new FuncionarioControle();
+//		ArrayList<Funcionario> lista = pf.getFuncionarios();
+		ArrayList<Funcionario> lista = new ArrayList<Funcionario>(); //remove essa linha depois
+		
+		FuncionariosTableModel model = new FuncionariosTableModel (lista);
+		table.setModel(model);
 	}
 
 }
