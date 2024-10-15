@@ -66,6 +66,8 @@ public class TelaGerenciamentoP extends JFrame {
 		panel.setLayout(new MigLayout("", "[][]", "[][][][][][][][][][][][][][][][][][]"));
 		
 				RoundButton btnNewButton = new RoundButton("Sair");
+				btnNewButton.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/volte.png")));
+				btnNewButton.setText("");
 				btnNewButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						TelaFuncionario tf = new TelaFuncionario();
@@ -142,6 +144,7 @@ public class TelaGerenciamentoP extends JFrame {
 		RoundButton btnNewButton_4 = new RoundButton("Adicionar");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				TelaCadastroP tcp = new TelaCadastroP(tgp);
 				dispose();
 				tcp.setVisible(true);
@@ -177,9 +180,7 @@ public class TelaGerenciamentoP extends JFrame {
 					dispose();
 					tap.setVisible(true);
 				}catch (Exception e1) {
-					e1.printStackTrace();
-					JOptionPane.showMessageDialog(null, "N");
-				}
+					e1.printStackTrace();				}
 				
 			}
 		});
