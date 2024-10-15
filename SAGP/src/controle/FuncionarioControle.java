@@ -3,6 +3,8 @@ package controle;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import modelo.classes.Funcionario;
 import modelo.dao.FuncionarioDAO;
 
@@ -19,13 +21,10 @@ public class FuncionarioControle {
 		fdal.alteraFuncionario(f);
 	}
 	
-	public void deletarFuncionario(Funcionario deletarFuncionario) {
+	public void deletarFuncionario(Funcionario f) throws SQLException {
 		FuncionarioDAO fdal = new FuncionarioDAO();
-		try {
-			fdal.DeletarFuncionario(deletarFuncionario);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		fdal.deletarFuncionario(f);
+		
 	}
 	
 	public void cadastrarFuncionario(String nome,String usuario,String senha) throws SQLException {

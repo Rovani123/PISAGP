@@ -23,13 +23,13 @@ public class ProdutoControle {
 	
 	public void alterarProduto(Produto p) throws SQLException {
 		ProdutoDAO pdal = new ProdutoDAO();
-		pdal.alteraProduto(p);
+		pdal.alterarProduto(p);
 	}
 	
 	public void deletarProduto(Produto deletarProduto) {
 		ProdutoDAO pdal = new ProdutoDAO();
 		try {
-			pdal.DeletarProduto(deletarProduto);
+			pdal.deletarProduto(deletarProduto);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -158,7 +158,7 @@ public class TelaGerenciamentoP extends JFrame {
 				Produto p = ((ProdutosTableModel) table.getModel()).getItem(table.getSelectedRow());
 				ProdutoDAO pdal = new ProdutoDAO();
 				try {
-					pdal.DeletarProduto(p);
+					pdal.deletarProduto(p);
 					JOptionPane.showMessageDialog(null, "operação realizada com sucesso");
 				} catch (SQLException e1) {
 					e1.printStackTrace();

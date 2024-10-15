@@ -9,7 +9,7 @@ import modelo.classes.Produto;
 
 public class FuncionariosTableModel extends AbstractTableModel{
 	ArrayList<Funcionario> lista;
-	String[] colunas = new String[] { "Nome do funcionario", "Usuário do Funcionário", "senha"};
+	String[] colunas = new String[] {"Usuário do Funcionário","Nome do funcionario", "senha"};
 
 	public String getColumnName(int column) {
 		return colunas[column];
@@ -36,11 +36,10 @@ public class FuncionariosTableModel extends AbstractTableModel{
 		
 		switch (columnIndex) {
 		case 0: {
-			
-			return p.getNome();
+			return p.getUsuarioFuncionario();
 		}
 		case 1:
-			return p.getUsuarioFuncionario();
+			return p.getNome();
 		case 2:
 			return p.getSenha();
 		default:

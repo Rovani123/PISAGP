@@ -133,7 +133,11 @@ public class TelaCadastroF extends JFrame {
 			
 				FuncionarioDAO adm = new FuncionarioDAO();
 				
-				adm.CadastrarFuncionario(txtNome.getText(),txtUsuario.getText(),txtSenha.getText());
+				try {
+					adm.cadastrarFuncionario(txtNome.getText(),txtUsuario.getText(),txtSenha.getText());
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
 				
 			}
 		});

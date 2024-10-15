@@ -1,11 +1,13 @@
 package visao.Administrador;
 
 import java.awt.EventQueue;
+import java.awt.JobAttributes;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import controle.FuncionarioControle;
 import controle.ProdutoControle;
 import modelo.classes.Funcionario;
 import modelo.classes.Produto;
@@ -93,6 +95,10 @@ public class TelaGerenciamentoF extends JFrame {
 		btnNewButton_2.setBackground(new Color(224, 83, 76));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Funcionario f = ((FuncionariosTableModel) table.getModel()).getItem(table.getSelectedRow());
+				TelaAlteracaoF taf = new TelaAlteracaoF(tgf, f);
+				dispose();
+				taf.setVisible(true);
 			}
 		});
 		
@@ -108,16 +114,14 @@ public class TelaGerenciamentoF extends JFrame {
 		btnNewButton_3 = new RoundButton("DELETAR");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				Funcionario f = ((FuncionarioTableModel) table.getModel()).getItem(table.getSelectedRow());
-//				FuncionarioControle fc = new FuncionarioControle();
-//				try {
-//					fc.deletarProduto(f);
-//					JOptionPane.showMessageDialog(null, "operação realizada com sucesso");
-//				} catch (SQLException e1) {
-//					e1.printStackTrace();
-//					JOptionPane.showMessageDialog(null, "Não é possivel remover esse produto");
-//				}
-//				getfuncionarios();
+				Funcionario f = ((FuncionariosTableModel) table.getModel()).getItem(table.getSelectedRow());
+				FuncionarioControle fc = new FuncionarioControle();
+				try {
+					fc.deletarFuncionario(f);
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+				getfuncionarios();
 
 			}
 		});
@@ -175,9 +179,8 @@ public class TelaGerenciamentoF extends JFrame {
 		getfuncionarios();
 	}
 	private void getfuncionarios() {
-//		FuncionarioControle pf = new FuncionarioControle();
-//		ArrayList<Funcionario> lista = pf.getFuncionarios();
-		ArrayList<Funcionario> lista = new ArrayList<Funcionario>(); //remove essa linha depois
+		FuncionarioControle pf = new FuncionarioControle();
+		ArrayList<Funcionario> lista = pf.getFuncionarios();
 		
 		FuncionariosTableModel model = new FuncionariosTableModel (lista);
 		table.setModel(model);
