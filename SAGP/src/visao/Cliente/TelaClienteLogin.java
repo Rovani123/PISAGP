@@ -44,6 +44,7 @@ public class TelaClienteLogin extends JFrame {
 	 */
 	public TelaClienteLogin() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setExtendedState(MAXIMIZED_BOTH);
 		setBounds(100, 100, 630, 407);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(230, 230, 230));
