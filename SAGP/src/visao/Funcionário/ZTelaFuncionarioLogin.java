@@ -53,18 +53,23 @@ public class ZTelaFuncionarioLogin extends JFrame {
 		
 		JLabel lblNewLabel_5 = new JLabel("");
 		lblNewLabel_5.setIcon(new ImageIcon(ZTelaFuncionarioLogin.class.getResource("/Imagem/Logo.png")));
-		contentPane.add(lblNewLabel_5, "cell 4 1,alignx center");
+		contentPane.add(lblNewLabel_5, "cell 3 1 2 1,alignx center");
 		
 		JLabel lblNewLabel_4 = new JLabel("ENTRE NA SUA CONTA:");
-		contentPane.add(lblNewLabel_4, "cell 4 3,alignx center");
+		contentPane.add(lblNewLabel_4, "cell 3 3 2 1,alignx center");
 		
 		JLabel lblNewLabel = new JLabel("Nome: *");
-		contentPane.add(lblNewLabel, "cell 4 5");
+		contentPane.add(lblNewLabel, "cell 3 5");
+		
+		JLabel lblNewLabel_6 = new JLabel("Esse campo é obrigatório");
+		lblNewLabel_6.setForeground(new Color(224, 83, 76));
+		lblNewLabel_6.setEnabled(false);
+		contentPane.add(lblNewLabel_6, "cell 4 5");
 		
 		txtEntreComSeu = new JTextField();
 		txtEntreComSeu.setForeground(new Color(130, 130, 130));
 		txtEntreComSeu.setText("Entre com seu usuário para logar no sistema");
-		contentPane.add(txtEntreComSeu, "cell 4 6,growx");
+		contentPane.add(txtEntreComSeu, "cell 3 6 2 1,growx");
 		txtEntreComSeu.setColumns(10);
 		
 		RoundButton btnNewButton = new RoundButton("Limpar");
@@ -81,12 +86,17 @@ public class ZTelaFuncionarioLogin extends JFrame {
 		contentPane.add(lblNewLabel_2, "cell 6 6");
 		
 		JLabel lblNewLabel_1 = new JLabel("Senha: *");
-		contentPane.add(lblNewLabel_1, "cell 4 7");
+		contentPane.add(lblNewLabel_1, "cell 3 7");
+		
+		JLabel lblNewLabel_7 = new JLabel("Esse campo é obrigatório");
+		lblNewLabel_7.setEnabled(false);
+		lblNewLabel_7.setForeground(new Color(224, 83, 76));
+		contentPane.add(lblNewLabel_7, "cell 4 7");
 		
 		txtEntreComUma = new JTextField();
 		txtEntreComUma.setForeground(new Color(130, 130, 130));
 		txtEntreComUma.setText("Entre com uma senha");
-		contentPane.add(txtEntreComUma, "cell 4 8,growx");
+		contentPane.add(txtEntreComUma, "cell 3 8 2 1,growx");
 		txtEntreComUma.setColumns(10);
 		
 		RoundButton btnNewButton_1 = new RoundButton("Limpar");
@@ -110,7 +120,7 @@ public class ZTelaFuncionarioLogin extends JFrame {
 		});
 		btnNewButton_2.setForeground(new Color(255, 255, 255));
 		btnNewButton_2.setBackground(new Color(224, 83, 76));
-		contentPane.add(btnNewButton_2, "cell 4 10,alignx center");
+		contentPane.add(btnNewButton_2, "cell 3 10 2 1,alignx center");
 		
 		RoundButton btnNewButton_3 = new RoundButton("Cancelar");
 		btnNewButton_3.setBackground(new Color(0, 0, 0));
