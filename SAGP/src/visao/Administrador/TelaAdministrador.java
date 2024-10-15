@@ -56,7 +56,7 @@ public class TelaAdministrador extends JFrame {
 		Painel.setForeground(new Color(245, 245, 245));
 		Painel.setBackground(new Color(230, 230, 230));
 		Painel.setBorder(new EmptyBorder(5, 5, 5, 5));
-
+		
 		setContentPane(Painel);
 		Painel.setLayout(new MigLayout("", "[grow][][][][][][][][][][grow]", "[grow][120px][150px][grow]"));
 		
