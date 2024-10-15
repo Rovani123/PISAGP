@@ -12,6 +12,7 @@ import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -118,6 +119,7 @@ public class TelaAlteracaoP extends JFrame {
 				
 				try {
 					alterarProduto(p, nome, preco, quantidade, categoria);
+					JOptionPane.showMessageDialog(null, "Não é possivel alterar esse produto");
 				} catch (SQLException e1) {
 					e1.printStackTrace();
 				}

@@ -178,9 +178,7 @@ public class TelaGerenciamentoP extends JFrame {
 					dispose();
 					tap.setVisible(true);
 				}catch (Exception e1) {
-					e1.printStackTrace();
-					JOptionPane.showMessageDialog(null, "Não é possivel alterar esse produto");
-				}
+					e1.printStackTrace();				}
 				
 			}
 		});
