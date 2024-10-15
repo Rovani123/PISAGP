@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import dal.ConexaoBD;
 import modelo.classes.Funcionario;
 import modelo.classes.Produto;
@@ -28,7 +30,7 @@ public class FuncionarioDAO extends ModeloDAO {
 			while(reslt.next())
 			{
 				Funcionario f = new Funcionario();
-					
+					f.setIdFuncionario(reslt.getInt("idFuncionario"));
 					f.setUsuarioFuncionario(reslt.getString("usuarioFuncionario"));
 					f.setNome(reslt.getString("nomeFuncionario"));
 					f.setSenha(reslt.getString("senha"));
