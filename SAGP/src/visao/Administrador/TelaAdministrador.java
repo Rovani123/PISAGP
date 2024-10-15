@@ -51,21 +51,21 @@ public class TelaAdministrador extends JFrame {
 		setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 531, 300);
 		Painel = new JPanel();
 		Painel.setForeground(new Color(245, 245, 245));
 		Painel.setBackground(new Color(230, 230, 230));
 		Painel.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(Painel);
-		Painel.setLayout(new MigLayout("", "[grow][][][][][][][][grow]", "[grow][120px][150px][grow]"));
+		Painel.setLayout(new MigLayout("", "[grow][][][][][][][][][][grow]", "[grow][120px][150px][grow]"));
 		
 		JLabel lblNewLabel = new JLabel("");
 		Painel.add(lblNewLabel, "cell 0 0 1 3,grow");
 		
 		JLabel lblLogo = new JLabel("");
 		lblLogo.setIcon(logo);
-		Painel.add(lblLogo, "cell 1 1 7 1,alignx center");
+		Painel.add(lblLogo, "cell 1 1 9 1,alignx center");
 		
 		JButton btVendas = new RoundButton("");
 		btVendas.setText("Histórico de vendas");
@@ -88,6 +88,15 @@ public class TelaAdministrador extends JFrame {
 		btFuncionarios.setForeground(new Color(245, 245, 245));
 		btFuncionarios.setBackground(new Color(224, 83, 76));
 		Painel.add(btFuncionarios, "cell 5 2,growx");
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(TelaAdministrador.class.getResource("/Imagem/volte.png")));
+		Painel.add(lblNewLabel_1, "cell 7 2,alignx right");
+		
+		JButton btnNewButton = new RoundButton("TELA FUNCIONARIO");
+		btnNewButton.setForeground(new Color(245, 245, 245));
+		btnNewButton.setBackground(new Color(0, 0, 0));
+		Painel.add(btnNewButton, "cell 8 2,growx");
 	}
 
 }
