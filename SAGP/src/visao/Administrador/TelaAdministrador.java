@@ -12,6 +12,7 @@ import visao.RoundButton;
 import visao.TelaInicial;
 import visao.TelaLogin;
 import visao.Cliente.TelaCompra;
+import visao.Funcionário.TelaFuncionario;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -93,10 +94,18 @@ public class TelaAdministrador extends JFrame {
 		lblNewLabel_1.setIcon(new ImageIcon(TelaAdministrador.class.getResource("/Imagem/volte.png")));
 		Painel.add(lblNewLabel_1, "cell 7 2,alignx right");
 		
-		JButton btnNewButton = new RoundButton("TELA FUNCIONARIO");
-		btnNewButton.setForeground(new Color(245, 245, 245));
-		btnNewButton.setBackground(new Color(0, 0, 0));
-		Painel.add(btnNewButton, "cell 8 2,growx");
+		JButton btFuncionario = new RoundButton("TELA FUNCIONARIO");
+		btFuncionario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaFuncionario tf = new TelaFuncionario();
+				dispose();
+				tf.setVisible(true);
+			}
+		});
+		btFuncionario.setText("Tela de funcionarios");
+		btFuncionario.setForeground(new Color(245, 245, 245));
+		btFuncionario.setBackground(new Color(0, 0, 0));
+		Painel.add(btFuncionario, "cell 8 2,growx");
 	}
 
 }
