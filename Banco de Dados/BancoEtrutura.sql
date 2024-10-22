@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS Produtos
     preco DECIMAL(4,2) NOT NULL,
     quantidadeEstoque INT NOT NULL,
     categoria VARCHAR(12) NOT NULL,
+    foto BLOB NOT NULL,
     PRIMARY KEY (idProduto)
 );
 

@@ -1,6 +1,9 @@
 package teste;
 
 import javax.swing.*;
+
+import com.mysql.cj.jdbc.Blob;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,6 +17,7 @@ import java.io.IOException;
 public class ImageSelector extends JFrame {
     private JLabel imageLabel;
     private BufferedImage originalImage;
+    
 
     public ImageSelector() {
         setTitle("Image Selector");

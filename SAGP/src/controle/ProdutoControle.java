@@ -1,5 +1,8 @@
 package controle;
 
+import java.awt.Image;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -35,9 +38,9 @@ public class ProdutoControle {
 		}
 	}
 	
-	public void cadastrarProduto(String nome,float preco,int quantidade,String categoria) throws SQLException {
+	public void cadastrarProduto(String nome,float preco,int quantidade,String categoria, FileInputStream foto) throws SQLException, IOException {
 		ProdutoDAO pdao = new ProdutoDAO();
-		pdao.cadastrarProduto(nome, preco, quantidade, categoria);
+		pdao.cadastrarProduto(nome, preco, quantidade, categoria, foto);
 		
 	}
 	
