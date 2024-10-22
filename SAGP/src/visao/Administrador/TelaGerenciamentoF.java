@@ -85,60 +85,25 @@ public class TelaGerenciamentoF extends JFrame {
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		mnNewMenu = new JMenu("Telas");
-		mnNewMenu.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
+		mnNewMenu = new JMenu("TELAS");
 		menuBar.add(mnNewMenu);
 		
 		mntmNewMenuItem = new JMenuItem("Administrador");
-		mntmNewMenuItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
 		mnNewMenu.add(mntmNewMenuItem);
 		
-		mntmNewMenuItem_1 = new JMenuItem("Funcionário ");
-		mntmNewMenuItem_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
+		mntmNewMenuItem_1 = new JMenuItem("Funcionario");
 		mnNewMenu.add(mntmNewMenuItem_1);
 		
-		mnNewMenu_1 = new JMenu("Opções");
-		mnNewMenu_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
+		mnNewMenu_1 = new JMenu("OPCOES");
 		menuBar.add(mnNewMenu_1);
 		
-		mntmNewMenuItem_2 = new JMenuItem("Produtos ");
-		mntmNewMenuItem_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
+		mntmNewMenuItem_2 = new JMenuItem(" Análise de vendas");
 		mnNewMenu_1.add(mntmNewMenuItem_2);
 		
-		mntmNewMenuItem_3 = new JMenuItem("Promoções ");
-		mntmNewMenuItem_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
+		mntmNewMenuItem_3 = new JMenuItem("funcionarios");
 		mnNewMenu_1.add(mntmNewMenuItem_3);
 		
-		mntmNewMenuItem_4 = new JMenuItem("Tela Inicial");
-		mntmNewMenuItem_4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
+		mntmNewMenuItem_4 = new JMenuItem("VOLTAR PARA TELA INICIAL");
 		menuBar.add(mntmNewMenuItem_4);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(230, 230, 230));
