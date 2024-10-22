@@ -2,6 +2,7 @@ package visao.Cliente;
 
 import javax.swing.JPanel;
 
+import modelo.classes.Carrinho;
 import modelo.classes.Produto;
 
 import java.awt.Color;
@@ -9,6 +10,7 @@ import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -17,11 +19,17 @@ import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 
 public class PainelProduto extends JPanel {
-
+	
+	private JLabel lblQuantidade;
 	/**
 	 * Create the panel.
 	 */
 	public PainelProduto(Produto p) {
+		Carrinho carrinho = new Carrinho();
+		carrinho.setIdCarrinho(-1);
+		carrinho.setIdProduto(p.getIdProduto());
+		carrinho.setIdVenda(-1);
+		carrinho.setQuantidade(0);
 		setBackground(new Color(230, 230, 230));
 		setLayout(new MigLayout("", "[][grow][][][][][][][][][][]", "[grow][][][][][][][][][][][]"));
 		
@@ -45,18 +53,23 @@ public class PainelProduto extends JPanel {
 		btMenos.setBackground(new Color(245, 245, 245));
 		btMenos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				if(carrinho.getQuantidade()>0) {
+					carrinho.setQuantidade(carrinho.getQuantidade()-1);
+					lblQuantidade.setText(String.valueOf(carrinho.getQuantidade()));
+				}
 			}
 		});
 		add(btMenos, "cell 4 10");
 		
-		JLabel lblQuantidade = new JLabel("1");
+		lblQuantidade = new JLabel("0");
 		add(lblQuantidade, "cell 6 10 2 1");
 		
 		RoundButton btMais = new RoundButton("+");
 		btMais.setBackground(new Color(245, 245, 245));
 		btMais.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				carrinho.setQuantidade(carrinho.getQuantidade()+1);
+				lblQuantidade.setText(String.valueOf(carrinho.getQuantidade()));
 				
 			}
 		});

@@ -142,7 +142,7 @@ public class TelaCompra extends JFrame {
 		btBebidas = new RoundButton("Bebidas");
 		btBebidas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				getProdutos();
+				getProdutosFiltro(Categoria.categoriaString("bebidas"));
 			}
 		});
 		
