@@ -59,7 +59,7 @@ public class TelaClienteCarrinho extends JFrame {
 		
 		JButton btnNewButton = new RoundButton("");
 		btnNewButton.setForeground(new Color(245, 245, 245));
-		btnNewButton.setBackground(new Color(0, 0, 0));
+		btnNewButton.setBackground(new Color(245, 245, 245));
 		btnNewButton.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/volte.png")));
 		panel.add(btnNewButton, "cell 1 0 2 1,alignx left,aligny center");
 		

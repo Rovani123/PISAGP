@@ -138,7 +138,7 @@ public class TelaGerenciamentoP extends JFrame {
 					}
 				});
 				btnNewButton.setForeground(new Color(255, 255, 255));
-				btnNewButton.setBackground(new Color(0, 0, 0));
+				btnNewButton.setBackground(new Color(245, 245, 245));
 				panel.add(btnNewButton, "cell 0 0,alignx left");
 
 		JLabel lblNewLabel_1 = new JLabel("");
@@ -281,7 +281,7 @@ public class TelaGerenciamentoP extends JFrame {
 		btnNewButton_3.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/lupa.png")));
 		btnNewButton_3.setText("");
 		btnNewButton_3.setForeground(new Color(255, 255, 255));
-		btnNewButton_3.setBackground(new Color(0, 0, 0));
+		btnNewButton_3.setBackground(new Color(245, 245, 245));
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 

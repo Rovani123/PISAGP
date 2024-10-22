@@ -115,6 +115,7 @@ public class TelaClienteLogin extends JFrame {
 		contentPane.add(btnNewButton, "cell 5 10,alignx center");
 		
 		RoundButton btnNewButton_3 = new RoundButton("Cancelar");
+		btnNewButton_3.setBackground(new Color(0, 0, 0));
 		btnNewButton_3.setForeground(new Color(255, 255, 255));
 		contentPane.add(btnNewButton_3, "cell 6 11");
 	}

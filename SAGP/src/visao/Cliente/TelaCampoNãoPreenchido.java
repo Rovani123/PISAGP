@@ -59,6 +59,7 @@ public class TelaCampoNãoPreenchido extends JFrame {
 		contentPane.add(lblNewLabel, "cell 4 7");
 		
 		JLabel lblNewLabel_6 = new JLabel("Esse campo é obrigatório");
+		lblNewLabel_6.setEnabled(false);
 		contentPane.add(lblNewLabel_6, "cell 5 7");
 		
 		textField = new JTextField();
@@ -75,6 +76,7 @@ public class TelaCampoNãoPreenchido extends JFrame {
 		contentPane.add(lblNewLabel_1, "cell 4 9");
 		
 		JLabel lblNewLabel_7 = new JLabel("Esse campo é obrigatório");
+		lblNewLabel_7.setEnabled(false);
 		contentPane.add(lblNewLabel_7, "cell 5 9");
 		
 		textField_1 = new JTextField();
@@ -91,6 +93,7 @@ public class TelaCampoNãoPreenchido extends JFrame {
 		contentPane.add(lblNewLabel_2, "cell 4 11");
 		
 		JLabel lblNewLabel_8 = new JLabel("Esse campo é obrigatório");
+		lblNewLabel_8.setEnabled(false);
 		contentPane.add(lblNewLabel_8, "cell 5 11");
 		
 		textField_2 = new JTextField();
