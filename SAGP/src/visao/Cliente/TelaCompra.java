@@ -1,26 +1,27 @@
 package visao.Cliente;
 
+import java.awt.Color;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import modelo.classes.Produto;
-import modelo.classes.Vendas;
-import modelo.dao.ProdutoDAO;
-import net.miginfocom.swing.MigLayout;
-import visao.RoundButton;
-
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import javax.swing.JScrollPane;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.awt.event.ActionEvent;
-import java.awt.Color;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+import controle.ProdutoControle;
+import modelo.classes.Produto;
+import modelo.classes.Vendas;
+import modelo.enumerador.Categoria;
+import net.miginfocom.swing.MigLayout;
+import visao.RoundButton;
 
 public class TelaCompra extends JFrame {
 
@@ -62,8 +63,7 @@ public class TelaCompra extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaCompra() {
-		ProdutoDAO pdao = new ProdutoDAO();
-		listaProdutos = pdao.getProdutos();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 985, 625);
 		painelPrincipal = new JPanel();
@@ -117,6 +117,7 @@ public class TelaCompra extends JFrame {
 		btSalgados = new RoundButton("Salgado");
 		btSalgados.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				getProdutosFiltro(Categoria.categoriaString("salgados"));
 				
 			}
 		});
@@ -129,7 +130,7 @@ public class TelaCompra extends JFrame {
 		btDoces = new RoundButton("Doce");
 		btDoces.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				getProdutosFiltro(Categoria.categoriaString("doces"));
 			}
 		});
 		
@@ -141,7 +142,7 @@ public class TelaCompra extends JFrame {
 		btBebidas = new RoundButton("Bebidas");
 		btBebidas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				getProdutos();
 			}
 		});
 		
@@ -178,6 +179,38 @@ public class TelaCompra extends JFrame {
 		painelProdutos = new JPanel();
 		scrollPane.setViewportView(painelProdutos);
 		painelProdutos.setLayout(new MigLayout("", "[]", "[]"));
+		
+		getProdutos();
+		criarVendas();
+	}
+	private void criarVendas() {
+		Vendas venda = new Vendas();
+		
+
+	}
+	
+	private void getProdutos() {
+		painelProdutos.removeAll();
+		ProdutoControle pc = new ProdutoControle();
+		listaProdutos = pc.getProdutos();
+		int c =0;
+		int l=0;
+		for (Produto produto : listaProdutos) {
+			PainelProduto pp = new PainelProduto(produto);
+			painelProdutos.add(pp,"cell "+l+" "+c);
+			l++;
+			if(l%3==0)
+			{
+				c++;
+				l=0;
+			}			
+		}
+	}
+	
+	private void getProdutosFiltro(Categoria categoria) {
+		painelProdutos.removeAll();
+		ProdutoControle pc = new ProdutoControle();
+		listaProdutos = pc.getProdutoFiltro(categoria);
 		int c =0;
 		int l=0;
 		for (Produto produto : listaProdutos) {
@@ -191,11 +224,5 @@ public class TelaCompra extends JFrame {
 			}
 								
 		}
-		criarVendas();
-	}
-	private void criarVendas() {
-		Vendas venda = new Vendas();
-		
-
 	}
 }
