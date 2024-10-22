@@ -22,6 +22,7 @@ import modelo.classes.Vendas;
 import modelo.enumerador.Categoria;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
+import visao.TelaInicial;
 
 public class TelaCompra extends JFrame {
 
@@ -102,7 +103,9 @@ public class TelaCompra extends JFrame {
 		btVoltar.setText("");
 		btVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				TelaInicial telaI = new TelaInicial();
+				dispose();
+				telaI.setVisible(true);
 			}
 		});
 		painelMenu.add(btVoltar, "cell 1 0");

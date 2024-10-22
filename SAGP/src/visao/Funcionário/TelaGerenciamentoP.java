@@ -24,6 +24,8 @@ import modelo.dao.ProdutoDAO;
 import modelo.enumerador.Categoria;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
+import visao.TelaInicial;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -111,7 +113,9 @@ public class TelaGerenciamentoP extends JFrame {
 		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Tela Inicial");
 		mntmNewMenuItem_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				TelaInicial telaI = new TelaInicial();
+				dispose();
+				telaI.setVisible(true);
 			}
 		});
 		menuBar.add(mntmNewMenuItem_4);
@@ -242,7 +246,9 @@ public class TelaGerenciamentoP extends JFrame {
 					dispose();
 					tap.setVisible(true);
 				}catch (Exception e1) {
-					e1.printStackTrace();				}
+					e1.printStackTrace();
+					JOptionPane.showMessageDialog(null, "Selecione um produto");
+					}
 				
 			}
 		});

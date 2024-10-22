@@ -1,36 +1,31 @@
 package visao.Administrador;
 
-import java.awt.EventQueue;
-import java.awt.JobAttributes;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import controle.FuncionarioControle;
-import controle.ProdutoControle;
-import modelo.classes.Funcionario;
-import modelo.classes.Produto;
-import modelo.dao.ProdutoDAO;
-import net.miginfocom.swing.MigLayout;
-import visao.RoundButton;
-import visao.Funcionário.ProdutosTableModel;
-
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import java.awt.Color;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.awt.event.ActionEvent;
-import javax.swing.JMenuBar;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+import controle.FuncionarioControle;
+import modelo.classes.Funcionario;
+import net.miginfocom.swing.MigLayout;
+import visao.RoundButton;
+import visao.TelaInicial;
+import visao.Funcionário.TelaGerenciamentoP;
 
 public class TelaGerenciamentoF extends JFrame {
 
@@ -92,18 +87,44 @@ public class TelaGerenciamentoF extends JFrame {
 		mnNewMenu.add(mntmNewMenuItem);
 		
 		mntmNewMenuItem_1 = new JMenuItem("Funcionario");
+		mntmNewMenuItem_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaGerenciamentoP telaG = new TelaGerenciamentoP();
+				dispose();
+				telaG.setVisible(true);
+			}
+		});
 		mnNewMenu.add(mntmNewMenuItem_1);
 		
 		mnNewMenu_1 = new JMenu("OPCOES");
 		menuBar.add(mnNewMenu_1);
 		
 		mntmNewMenuItem_2 = new JMenuItem(" Análise de vendas");
+		mntmNewMenuItem_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaAnáliseVendas telaAV = new TelaAnáliseVendas();
+				dispose();
+				telaAV.setVisible(true);
+			}
+		});
 		mnNewMenu_1.add(mntmNewMenuItem_2);
 		
-		mntmNewMenuItem_3 = new JMenuItem("funcionarios");
+		mntmNewMenuItem_3 = new JMenuItem(" Funcionarios");
+		mntmNewMenuItem_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		mnNewMenu_1.add(mntmNewMenuItem_3);
 		
 		mntmNewMenuItem_4 = new JMenuItem("VOLTAR PARA TELA INICIAL");
+		mntmNewMenuItem_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaInicial telaI = new TelaInicial();
+				dispose();
+				telaI.setVisible(true);
+			}
+		});
 		menuBar.add(mntmNewMenuItem_4);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(230, 230, 230));
