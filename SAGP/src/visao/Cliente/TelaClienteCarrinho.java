@@ -105,7 +105,8 @@ public class TelaClienteCarrinho extends JFrame {
 			}
 		});
 		
-		JLabel lblNewLabel_3 = new JLabel("Icone");
+		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/descontoPequena.png")));
 		panel.add(lblNewLabel_3, "cell 1 10");
 		btnNewButton_4.setBackground(new Color(245, 245, 245));
 		panel.add(btnNewButton_4, "cell 2 10,alignx left,aligny center");
