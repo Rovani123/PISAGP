@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controle.ProdutoControle;
+import modelo.classes.Funcionario;
 import modelo.classes.Produto;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
@@ -32,7 +33,7 @@ public class TelaAlteracaoP extends JFrame {
 	private JComboBox cbCategoria;
 
 
-	public TelaAlteracaoP(JFrame telaA,Produto p) {
+	public TelaAlteracaoP(JFrame telaA,Produto p, Funcionario f) {
 		setBackground(new Color(230, 230, 230));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 680, 460);
@@ -119,7 +120,7 @@ public class TelaAlteracaoP extends JFrame {
 				
 				try {
 					alterarProduto(p, nome, preco, quantidade, categoria);
-					TelaGerenciamentoP telaGerenciamentoP = new TelaGerenciamentoP();
+					TelaGerenciamentoP telaGerenciamentoP = new TelaGerenciamentoP(telaA,f);
 					dispose();
 					telaGerenciamentoP.setVisible(true);
 					JOptionPane.showMessageDialog(null, "Alteração feita com sucesso");
@@ -138,7 +139,7 @@ public class TelaAlteracaoP extends JFrame {
 		RoundButton btnNewButton_5 = new RoundButton("Cancelar");
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaGerenciamentoP telaE = new TelaGerenciamentoP();
+				TelaGerenciamentoP telaE = new TelaGerenciamentoP(telaA,f);
 				dispose();
 				telaE.setVisible(true);
 			}

@@ -22,7 +22,6 @@ public class ImageLabel extends JLabel{
         }
     }
 
-    @Override
     public void paint(Graphics g){
         g.drawImage(_myimage, 0, 0, this.getWidth(), this.getHeight(), null);
     }

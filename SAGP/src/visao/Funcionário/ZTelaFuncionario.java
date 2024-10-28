@@ -17,7 +17,7 @@ import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
 import visao.TelaInicial;
 
-public class TelaFuncionario extends JFrame {
+public class ZTelaFuncionario extends JFrame {
 
 	private JPanel Painel;
 	private ImageIcon logo;
@@ -29,7 +29,7 @@ public class TelaFuncionario extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaFuncionario frame = new TelaFuncionario();
+					ZTelaFuncionario frame = new ZTelaFuncionario();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,7 +41,7 @@ public class TelaFuncionario extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaFuncionario() {
+	public ZTelaFuncionario() {
 		logo = new ImageIcon(TelaInicial.class.getResource("/Imagem/Logo.png"));
 		setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		setResizable(false);
@@ -63,9 +63,9 @@ public class TelaFuncionario extends JFrame {
 		btEstoque.setText("Estoque");
 		btEstoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaGerenciamentoP telaE = new TelaGerenciamentoP();
-				dispose();
-				telaE.setVisible(true);
+//				TelaGerenciamentoP telaE = new TelaGerenciamentoP();
+//				dispose();
+//				telaE.setVisible(true);
 			}
 		});
 		btEstoque.setBackground(new Color(224, 83, 76));

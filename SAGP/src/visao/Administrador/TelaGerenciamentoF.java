@@ -44,88 +44,73 @@ public class TelaGerenciamentoF extends JFrame {
 	private JLabel lblNewLabel_5;
 	private JLabel lblNewLabel_6;
 	private JMenuBar menuBar;
-	private JMenu mnNewMenu;
-	private JMenuItem mntmNewMenuItem;
-	private JMenuItem mntmNewMenuItem_1;
-	private JMenu mnNewMenu_1;
-	private JMenuItem mntmNewMenuItem_2;
-	private JMenuItem mntmNewMenuItem_3;
-	private JMenuItem mntmNewMenuItem_4;
+	private JMenu mTelas;
+	private JMenuItem mAdm;
+	private JMenuItem mFuncionario;
+	private JMenu mOpcoes;
+	private JMenuItem mAnaliseVendas;
+	private JMenuItem mGFuncionarios;
+	private JMenuItem mVoltar;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaGerenciamentoF frame = new TelaGerenciamentoF();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the frame.
-	 */
-	public TelaGerenciamentoF() {
-		TelaGerenciamentoF tgf = this;
+	public TelaGerenciamentoF(JFrame telaA,Funcionario f) {
+		TelaGerenciamentoF tela = this;
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 795, 553);
+		setLocationRelativeTo(null);
 		
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		mnNewMenu = new JMenu("TELAS");
-		menuBar.add(mnNewMenu);
+		mTelas = new JMenu("Telas");
+		menuBar.add(mTelas);
 		
-		mntmNewMenuItem = new JMenuItem("Administrador");
-		mnNewMenu.add(mntmNewMenuItem);
+		mAdm = new JMenuItem("Administrador");
+		mAdm.setEnabled(false);
+		mTelas.add(mAdm);
 		
-		mntmNewMenuItem_1 = new JMenuItem("Funcionario");
-		mntmNewMenuItem_1.addActionListener(new ActionListener() {
+		mFuncionario = new JMenuItem("Funcionário");
+		mFuncionario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaGerenciamentoP telaG = new TelaGerenciamentoP();
+				TelaGerenciamentoP telaG = new TelaGerenciamentoP(tela,f);
 				dispose();
 				telaG.setVisible(true);
 			}
 		});
-		mnNewMenu.add(mntmNewMenuItem_1);
+		mTelas.add(mFuncionario);
 		
-		mnNewMenu_1 = new JMenu("OPCOES");
-		menuBar.add(mnNewMenu_1);
+		mOpcoes = new JMenu("Opções");
+		menuBar.add(mOpcoes);
 		
-		mntmNewMenuItem_2 = new JMenuItem(" Análise de vendas");
-		mntmNewMenuItem_2.addActionListener(new ActionListener() {
+		mAnaliseVendas = new JMenuItem(" Análise de vendas");
+		mAnaliseVendas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaAnáliseVendas telaAV = new TelaAnáliseVendas();
 				dispose();
 				telaAV.setVisible(true);
 			}
 		});
-		mnNewMenu_1.add(mntmNewMenuItem_2);
+		mOpcoes.add(mAnaliseVendas);
 		
-		mntmNewMenuItem_3 = new JMenuItem(" Funcionarios");
-		mntmNewMenuItem_3.addActionListener(new ActionListener() {
+		mGFuncionarios = new JMenuItem(" Funcionarios");
+		mGFuncionarios.setEnabled(false);
+		mGFuncionarios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 			}
 		});
-		mnNewMenu_1.add(mntmNewMenuItem_3);
+		mOpcoes.add(mGFuncionarios);
 		
-		mntmNewMenuItem_4 = new JMenuItem("VOLTAR PARA TELA INICIAL");
-		mntmNewMenuItem_4.addActionListener(new ActionListener() {
+		mVoltar = new JMenuItem("Voltar ao inicio");
+		mVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaInicial telaI = new TelaInicial();
 				dispose();
 				telaI.setVisible(true);
 			}
 		});
-		menuBar.add(mntmNewMenuItem_4);
+		menuBar.add(mVoltar);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(230, 230, 230));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -152,7 +137,7 @@ public class TelaGerenciamentoF extends JFrame {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Funcionario f = ((FuncionariosTableModel) table.getModel()).getItem(table.getSelectedRow());
-				TelaAlteracaoF taf = new TelaAlteracaoF(tgf, f);
+				TelaAlteracaoF taf = new TelaAlteracaoF(tela, f);
 				dispose();
 				taf.setVisible(true);
 			}
@@ -198,7 +183,7 @@ public class TelaGerenciamentoF extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				try {
-					TelaCadastroF tcf = new TelaCadastroF();
+					TelaCadastroF tcf = new TelaCadastroF(tela,f);
 					dispose();
 					tcf.setVisible(true);
 				} catch (Exception e2) {

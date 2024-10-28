@@ -12,7 +12,7 @@ import visao.RoundButton;
 import visao.TelaInicial;
 import visao.TelaLogin;
 import visao.Cliente.TelaCompra;
-import visao.Funcionário.TelaFuncionario;
+import visao.Funcionário.ZTelaFuncionario;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -21,7 +21,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
-public class TelaAdministrador extends JFrame {
+public class ZTelaAdministrador extends JFrame {
 
 	private JPanel Painel;
 	private ImageIcon logo;
@@ -33,7 +33,7 @@ public class TelaAdministrador extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaAdministrador frame = new TelaAdministrador();
+					ZTelaAdministrador frame = new ZTelaAdministrador();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,7 +45,7 @@ public class TelaAdministrador extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaAdministrador() {
+	public ZTelaAdministrador() {
 		setTitle("Tela Administrador");
 		setBackground(new Color(230, 230, 230));
 		logo = new ImageIcon(TelaInicial.class.getResource("/Imagem/Logo.png"));
@@ -91,15 +91,15 @@ public class TelaAdministrador extends JFrame {
 		Painel.add(btFuncionarios, "cell 5 2,growx");
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(TelaAdministrador.class.getResource("/Imagem/volte.png")));
+		lblNewLabel_1.setIcon(new ImageIcon(ZTelaAdministrador.class.getResource("/Imagem/volte.png")));
 		Painel.add(lblNewLabel_1, "cell 7 2,alignx right");
 		
 		JButton btFuncionario = new RoundButton("TELA FUNCIONARIO");
 		btFuncionario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaFuncionario tf = new TelaFuncionario();
-				dispose();
-				tf.setVisible(true);
+//				ZTelaFuncionario tf = new ZTelaFuncionario();
+//				dispose();
+//				tf.setVisible(true);
 			}
 		});
 		btFuncionario.setText("Tela de funcionarios");

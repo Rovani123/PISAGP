@@ -25,7 +25,7 @@ import java.awt.Font;
 
 public class TelaInicial extends JFrame {
 
-	private JPanel Painel;
+	private JPanel painel;
 	private ImageIcon logo;
 
 	
@@ -50,18 +50,18 @@ public class TelaInicial extends JFrame {
 		setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 1281, 567);
-		Painel = new JPanel();
-		Painel.setForeground(new Color(245, 245, 245));
-		Painel.setBackground(new Color(167, 208, 214));
-		Painel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		painel = new JPanel();
+		painel.setForeground(new Color(245, 245, 245));
+		painel.setBackground(new Color(167, 208, 214));
+		painel.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-		setContentPane(Painel);
-		Painel.setLayout(new MigLayout("", "[grow][][grow][][][][][][][][][][][][][][][][][][][][][][][grow][][grow]", "[grow][120px][150px][grow]"));
+		setContentPane(painel);
+		painel.setLayout(new MigLayout("", "[grow][][grow][][][][][][][][][][][][][][][][][][][][][][][grow][][grow]", "[grow][120px][150px][grow]"));
 		
 		JLabel lblLogo = new JLabel("");
 		lblLogo.setBackground(new Color(230, 230, 230));
 		lblLogo.setIcon(new ImageIcon(TelaInicial.class.getResource("/Imagem/ImagemLogoGrande.png")));
-		Painel.add(lblLogo, "cell 1 1 26 1,alignx center,aligny center");
+		painel.add(lblLogo, "cell 1 1 26 1,alignx center,aligny center");
 		
 		JButton btCliente = new RoundButton("");
 		btCliente.setFont(new Font("Tahoma", Font.PLAIN, 25));
@@ -77,10 +77,10 @@ public class TelaInicial extends JFrame {
 		JLabel lblCarrinho = new JLabel("");
 		lblCarrinho.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblCarrinho.setIcon(new ImageIcon(TelaInicial.class.getResource("/Imagem/carrinho-de-compras.png")));
-		Painel.add(lblCarrinho, "cell 3 2");
+		painel.add(lblCarrinho, "cell 3 2");
 		btCliente.setBackground(new Color(224, 83, 76));
 		btCliente.setForeground(new Color(245, 245, 245));
-		Painel.add(btCliente, "cell 4 2 9 1,alignx left,aligny center");
+		painel.add(btCliente, "cell 4 2 9 1,alignx left,aligny center");
 		
 		JButton btLogin = new RoundButton("");
 		btLogin.setFont(new Font("Tahoma", Font.PLAIN, 25));
@@ -96,10 +96,10 @@ public class TelaInicial extends JFrame {
 		JLabel lblLupa = new JLabel("");
 		lblLupa.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblLupa.setIcon(new ImageIcon(TelaInicial.class.getResource("/Imagem/lupa.png")));
-		Painel.add(lblLupa, "cell 16 2");
+		painel.add(lblLupa, "cell 16 2");
 		btLogin.setForeground(new Color(245, 245, 245));
 		btLogin.setBackground(new Color(224, 83, 76));
-		Painel.add(btLogin, "cell 17 2 8 1,alignx left,aligny center");
+		painel.add(btLogin, "cell 17 2 8 1,alignx left,aligny center");
 	}
 
 }

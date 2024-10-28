@@ -36,26 +36,8 @@ public class TelaCadastroF extends JFrame {
 	private JTextField txtSenha;
 	private JTextField txtNome;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaCadastroF frame = new TelaCadastroF();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public TelaCadastroF() {
+	
+	public TelaCadastroF(JFrame telaA,Funcionario f) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 703, 556);
 		contentPane = new JPanel();
@@ -72,8 +54,8 @@ public class TelaCadastroF extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel("CRIE UMA CONTA:");
 		contentPane.add(lblNewLabel_1, "cell 3 4 8 1,alignx center");
 		
-		JLabel lblNewLabel_2 = new JLabel("Usuário:");
-		contentPane.add(lblNewLabel_2, "cell 3 5,alignx left");
+		JLabel lblUsuario = new JLabel("Usuário:");
+		contentPane.add(lblUsuario, "cell 3 5,alignx left");
 		
 		JLabel lblNewLabel_5 = new JLabel("*");
 		lblNewLabel_5.setForeground(new Color(255, 0, 0));
@@ -97,8 +79,8 @@ public class TelaCadastroF extends JFrame {
 		});
 		contentPane.add(btnNewButton, "cell 11 6");
 		
-		JLabel lblNewLabel_4 = new JLabel("Nome:");
-		contentPane.add(lblNewLabel_4, "cell 3 7,alignx left");
+		JLabel lblNome = new JLabel("Nome:");
+		contentPane.add(lblNome, "cell 3 7,alignx left");
 		
 		JLabel lblNewLabel_6 = new JLabel("*");
 		lblNewLabel_6.setForeground(new Color(255, 0, 0));
@@ -121,8 +103,8 @@ public class TelaCadastroF extends JFrame {
 		btnNewButton_5.setForeground(new Color(245, 245, 245));
 		contentPane.add(btnNewButton_5, "cell 11 8");
 		
-		JLabel lblNewLabel_3 = new JLabel("Senha:");
-		contentPane.add(lblNewLabel_3, "cell 3 9,alignx left");
+		JLabel lblSenha = new JLabel("Senha:");
+		contentPane.add(lblSenha, "cell 3 9,alignx left");
 		
 		JLabel lblNewLabel_7 = new JLabel("*");
 		contentPane.add(lblNewLabel_7, "cell 4 9,alignx trailing");
@@ -161,19 +143,19 @@ public class TelaCadastroF extends JFrame {
 		btnNewButton_2.setForeground(new Color(245, 245, 245));
 		contentPane.add(btnNewButton_2, "cell 7 11");
 		
-		JButton btnNewButton_4 = new RoundButton("CANCELAR");
-		btnNewButton_4.addActionListener(new ActionListener() {
+		JButton btCancelar = new RoundButton("CANCELAR");
+		btCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
-				TelaInicial telaP = new TelaInicial ();
+				TelaGerenciamentoF tgf = new TelaGerenciamentoF(telaA, f);
 				dispose();
-				telaP.setVisible(true);
+				tgf.setVisible(true);
 				
 			}
 		});
-		btnNewButton_4.setBackground(new Color(0, 0, 0));
-		btnNewButton_4.setForeground(new Color(245, 245, 245));
-		contentPane.add(btnNewButton_4, "cell 10 12");
+		btCancelar.setBackground(new Color(0, 0, 0));
+		btCancelar.setForeground(new Color(245, 245, 245));
+		contentPane.add(btCancelar, "cell 10 12");
 		
 		JButton btnNewButton_3 = new RoundButton("ENTRAR");
 		btnNewButton_3.setBackground(new Color(224, 83, 76));

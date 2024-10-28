@@ -97,6 +97,9 @@ public class TelaAlteracaoF extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					alterarFuncionario(f, txtNome.getText(), txtUsuario.getText(), txtSenha.getText());
+					TelaGerenciamentoF tgf = new TelaGerenciamentoF(telaA, f);
+					dispose();
+					tgf.setVisible(true);
 				} catch (SQLException e1) {
 					e1.printStackTrace();
 					JOptionPane.showInternalMessageDialog(null, "n foi");
@@ -109,11 +112,18 @@ public class TelaAlteracaoF extends JFrame {
 	
 		contentPane.add(btSalvar, "cell 6 10,alignx right,aligny center");
 		
-		JButton btnNewButton_4 = new RoundButton("CANCELAR");
-		btnNewButton_4.setForeground(new Color(245, 245, 245));
-		btnNewButton_4.setBackground(new Color(0, 0, 0));
-		btnNewButton_4.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		contentPane.add(btnNewButton_4, "cell 8 10,alignx center,aligny center");
+		JButton btCancelar = new RoundButton("CANCELAR");
+		btCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaGerenciamentoF tgf = new TelaGerenciamentoF(telaA, f);
+				dispose();
+				tgf.setVisible(true);
+			}
+		});
+		btCancelar.setForeground(new Color(245, 245, 245));
+		btCancelar.setBackground(new Color(0, 0, 0));
+		btCancelar.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		contentPane.add(btCancelar, "cell 8 10,alignx center,aligny center");
 		
 		setText(f);
 	}

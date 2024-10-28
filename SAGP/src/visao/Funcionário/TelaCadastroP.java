@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import controle.ProdutoControle;
+import modelo.classes.Funcionario;
 import modelo.enumerador.Categoria;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
@@ -27,7 +28,8 @@ public class TelaCadastroP extends JFrame {
 	private JTextField txtQuantidade;
 
 	
-	public TelaCadastroP(JFrame telaA) {
+	public TelaCadastroP(JFrame telaA, Funcionario f) {
+		
 		setBackground(new Color(230, 230, 230));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 594, 434);
@@ -118,7 +120,7 @@ public class TelaCadastroP extends JFrame {
 				String categoria = String.valueOf(categoriaC);
 				try {
 					cadastrarProduto(nome, preco, quantidade, categoria);
-					TelaGerenciamentoP telaGerenciamentoP = new TelaGerenciamentoP();
+					TelaGerenciamentoP telaGerenciamentoP = new TelaGerenciamentoP(telaA,f);
 					dispose();
 					telaGerenciamentoP.setVisible(true);
 					JOptionPane.showMessageDialog(null, "Produto adicionado com sucesso");
@@ -136,7 +138,7 @@ public class TelaCadastroP extends JFrame {
 		RoundButton btnNewButton_5 = new RoundButton("Cancelar");
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaGerenciamentoP telaE = new TelaGerenciamentoP();
+				TelaGerenciamentoP telaE = new TelaGerenciamentoP(telaA,f);
 				dispose();
 				telaE.setVisible(true);
 			}

@@ -19,12 +19,15 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import controle.ProdutoControle;
+import modelo.classes.Funcionario;
 import modelo.classes.Produto;
 import modelo.dao.ProdutoDAO;
 import modelo.enumerador.Categoria;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
 import visao.TelaInicial;
+import visao.TelaLogin;
+import visao.Administrador.TelaGerenciamentoF;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
@@ -33,192 +36,220 @@ import javax.swing.JMenuItem;
 public class TelaGerenciamentoP extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
-	private JTextField textField;
+	private JPanel painel;
+	private JTextField txtPesquisar;
 	private JTable table;
+	private JMenuItem mAdm;
+	private JMenuItem mFuncionario;
+	private RoundButton btSalgados;
+	private RoundButton btDoces;
+	private RoundButton btBebidas;
+	private RoundButton btOfertas;
+	private int contS=0;
+	private int contD=0;
+	private int contB=0;
 
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaGerenciamentoP frame = new TelaGerenciamentoP();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	
-	public TelaGerenciamentoP() {
-		TelaGerenciamentoP tgp= this;
+	public TelaGerenciamentoP(JFrame telaA,Funcionario f) {
+		TelaGerenciamentoP tela= this;
 
 		setBackground(new Color(230, 230, 230));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 961, 638);
+		setLocationRelativeTo(null);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu mnNewMenu = new JMenu("Telas");
-		mnNewMenu.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
+		JMenu mTelas = new JMenu("Telas");
+		menuBar.add(mTelas);
+		
+		mAdm = new JMenuItem("Administrador ");
+		mAdm.setEnabled(false);
+		mAdm.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {				
+				TelaGerenciamentoF tf = new TelaGerenciamentoF(tela,f);
+				dispose();
+				tf.setVisible(true);				
 			}
 		});
-		menuBar.add(mnNewMenu);
+		mTelas.add(mAdm);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Administrador ");
-		mntmNewMenuItem.addActionListener(new ActionListener() {
+		mFuncionario = new JMenuItem("Funcionário ");
+		mFuncionario.setEnabled(false);
+		mTelas.add(mFuncionario);
+		
+		JMenu mOpcoes = new JMenu("Opções");
+		menuBar.add(mOpcoes);
+		
+		JMenuItem mGProdutos = new JMenuItem("Produtos ");
+		mGProdutos.setEnabled(false);
+		mOpcoes.add(mGProdutos);
+		
+		JMenuItem mPromocoes = new JMenuItem("Promoções  ");
+		mPromocoes.setEnabled(false);
+		mPromocoes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				//fazer telas
 			}
 		});
-		mnNewMenu.add(mntmNewMenuItem);
+		mOpcoes.add(mPromocoes);
 		
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Funcionário ");
-		mntmNewMenuItem_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		mnNewMenu.add(mntmNewMenuItem_1);
-		
-		JMenu mnNewMenu_1 = new JMenu("Opções");
-		mnNewMenu_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		menuBar.add(mnNewMenu_1);
-		
-		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Produtos ");
-		mntmNewMenuItem_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		mnNewMenu_1.add(mntmNewMenuItem_2);
-		
-		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Promoções  ");
-		mntmNewMenuItem_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		mnNewMenu_1.add(mntmNewMenuItem_3);
-		
-		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Tela Inicial");
-		mntmNewMenuItem_4.addActionListener(new ActionListener() {
+		JMenuItem mVoltar = new JMenuItem("Voltar ao início");
+		mVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaInicial telaI = new TelaInicial();
 				dispose();
 				telaI.setVisible(true);
 			}
 		});
-		menuBar.add(mntmNewMenuItem_4);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		menuBar.add(mVoltar);
+		painel = new JPanel();
+		painel.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-		setContentPane(contentPane);
-		contentPane.setLayout(
+		setContentPane(painel);
+		painel.setLayout(
 				new MigLayout("", "[grow][][][grow][][][][grow][]", "[grow][][grow][][][][][][][][][][][][][][][]"));
 
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(167, 208, 214));
-		contentPane.add(panel, "cell 0 0 1 18,alignx left,growy");
-		panel.setLayout(new MigLayout("", "[][]", "[][][][][][][][][][][][][][][][][][]"));
+		JPanel barraLateral = new JPanel();
+		barraLateral.setBackground(new Color(167, 208, 214));
+		painel.add(barraLateral, "cell 0 0 1 18,alignx left,growy");
+		barraLateral.setLayout(new MigLayout("", "[][]", "[][][][][][][][][][][][][][][][][][]"));
 		
-				RoundButton btnNewButton = new RoundButton("Sair");
-				btnNewButton.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/volte.png")));
-				btnNewButton.setText("");
-				btnNewButton.addActionListener(new ActionListener() {
+				RoundButton btVoltar = new RoundButton("Sair");
+				btVoltar.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/volte.png")));
+				btVoltar.setText("");
+				btVoltar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						TelaFuncionario tf = new TelaFuncionario();
+						TelaLogin tl = new TelaLogin(tela);
 						dispose();
-						tf.setVisible(true);
+						tl.setVisible(true);
 					}
 				});
-				btnNewButton.setForeground(new Color(255, 255, 255));
-				btnNewButton.setBackground(new Color(245, 245, 245));
-				panel.add(btnNewButton, "cell 0 0,alignx left");
+				btVoltar.setForeground(new Color(255, 255, 255));
+				btVoltar.setBackground(new Color(245, 245, 245));
+				barraLateral.add(btVoltar, "cell 0 0,alignx left");
 
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/LogoPequena.png")));
-		panel.add(lblNewLabel_1, "cell 0 2 2 1");
+		JLabel lblLogo = new JLabel("");
+		lblLogo.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/LogoPequena.png")));
+		barraLateral.add(lblLogo, "cell 0 2 2 1");
 
-		JLabel lblNewLabel_2 = new JLabel("Categorias:");
-		panel.add(lblNewLabel_2, "cell 1 4,alignx left");
+		JLabel lblCategoria = new JLabel("Categorias:");
+		barraLateral.add(lblCategoria, "cell 1 4,alignx left");
 
-		RoundButton btnSalgados = new RoundButton("Salgado");
-		btnSalgados.addActionListener(new ActionListener() {
+		btSalgados = new RoundButton("Salgado");
+		btSalgados.setText("Salgados");
+		btSalgados.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(contS==0) {
+					getProdutosFiltro(Categoria.categoriaString("salgados"));
+					contS=1;
+					contD=0;
+					contB=0;
+					btSalgados.setBackground(new Color(255, 255, 0));
+					btDoces.setBackground(new Color(255, 255, 255));
+					btBebidas.setBackground(new Color(255, 255, 255));
+				} else {
+					getProdutos();
+					contS=0;
+					contD=0;
+					contB=0;
+					btSalgados.setBackground(new Color(255, 255, 255));
+					btDoces.setBackground(new Color(255, 255, 255));
+					btBebidas.setBackground(new Color(255, 255, 255));
+				}
+			}
+		});
+		
+		JLabel lblIconSalgados = new JLabel("");
+		lblIconSalgados.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/biscoitos.png")));
+		barraLateral.add(lblIconSalgados, "cell 0 5,alignx center");
+		btSalgados.setBackground(new Color(255, 255, 255));
+		barraLateral.add(btSalgados, "cell 1 5,growx");
+
+		btDoces = new RoundButton("Doce");
+		btDoces.setText("Doces");
+		btDoces.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(contD==0) {
+					getProdutosFiltro(Categoria.categoriaString("doces"));
+					contS=0;
+					contD=1;
+					contB=0;
+					btDoces.setBackground(new Color(255, 255, 0));
+					btSalgados.setBackground(new Color(255, 255, 255));
+					btBebidas.setBackground(new Color(255, 255, 255));
+				} else {
+					getProdutos();
+					contS=0;
+					contD=0;
+					contB=0;
+					btSalgados.setBackground(new Color(255, 255, 255));
+					btDoces.setBackground(new Color(255, 255, 255));
+					btBebidas.setBackground(new Color(255, 255, 255));
+				}
+			}
+		});
+		
+		JLabel lblIconDoces = new JLabel("");
+		lblIconDoces.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/bolinho.png")));
+		barraLateral.add(lblIconDoces, "cell 0 6,alignx center");
+		btDoces.setBackground(new Color(255, 255, 255));
+		barraLateral.add(btDoces, "cell 1 6,growx");
+
+		btBebidas = new RoundButton("Bebidas");
+		btBebidas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(contB==0) {
+					getProdutosFiltro(Categoria.categoriaString("bebidas"));
+					contS=0;
+					contD=0;
+					contB=1;
+					btDoces.setBackground(new Color(255, 255, 255));
+					btSalgados.setBackground(new Color(255, 255, 255));
+					btBebidas.setBackground(new Color(255, 255, 0));
+				} else {
+					getProdutos();
+					contS=0;
+					contD=0;
+					contB=0;
+					btSalgados.setBackground(new Color(255, 255, 255));
+					btDoces.setBackground(new Color(255, 255, 255));
+					btBebidas.setBackground(new Color(255, 255, 255));
+				}
+			}
+		});
+		
+		JLabel lblIconBebidas = new JLabel("");
+		lblIconBebidas.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/garrafa-de-agua.png")));
+		barraLateral.add(lblIconBebidas, "cell 0 7,alignx center");
+		btBebidas.setBackground(new Color(255, 255, 255));
+		barraLateral.add(btBebidas, "cell 1 7,growx");
+
+		btOfertas = new RoundButton("Ofertas");
+		btOfertas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//A implementar
+			}
+		});
+		
+		JLabel lblIconOfertas = new JLabel("icone");
+		barraLateral.add(lblIconOfertas, "cell 0 8");
+		btOfertas.setBackground(new Color(167, 208, 214));
+		barraLateral.add(btOfertas, "cell 1 8,growx");
+
+		RoundButton btCadastrar = new RoundButton("Adicionar");
+		btCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				getProdutosFiltro(Categoria.categoriaString("salgados"));
-			}
-		});
-		
-		JLabel lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/biscoitos.png")));
-		panel.add(lblNewLabel_3, "cell 0 5,alignx center");
-		btnSalgados.setBackground(new Color(255, 255, 255));
-		panel.add(btnSalgados, "cell 1 5,alignx left");
-
-		RoundButton btnDoces = new RoundButton("Doce");
-		btnDoces.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				getProdutosFiltro(Categoria.categoriaString("doces"));
-
-			}
-		});
-		
-		JLabel lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/bolinho.png")));
-		panel.add(lblNewLabel_4, "cell 0 6,alignx center");
-		btnDoces.setBackground(new Color(167, 208, 214));
-		panel.add(btnDoces, "cell 1 6,alignx left");
-
-		RoundButton btnBebidas = new RoundButton("Bebidas");
-		btnBebidas.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			
-				getProdutosFiltro(Categoria.categoriaString("bebidas"));
-			}
-		});
-		
-		JLabel lblNewLabel_5 = new JLabel("");
-		lblNewLabel_5.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/garrafa-de-agua.png")));
-		panel.add(lblNewLabel_5, "cell 0 7,alignx center");
-		btnBebidas.setBackground(new Color(167, 208, 214));
-		panel.add(btnBebidas, "cell 1 7,alignx left");
-
-		RoundButton btnOfertas = new RoundButton("Ofertas");
-		btnOfertas.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
-		
-		JLabel lblNewLabel_6 = new JLabel("icone");
-		panel.add(lblNewLabel_6, "cell 0 8");
-		btnOfertas.setBackground(new Color(167, 208, 214));
-		panel.add(btnOfertas, "cell 1 8,alignx left");
-
-		RoundButton btnNewButton_4 = new RoundButton("Adicionar");
-		btnNewButton_4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				TelaCadastroP tcp = new TelaCadastroP(tgp);
+				TelaCadastroP tcp = new TelaCadastroP(tela,f);
 				dispose();
 				tcp.setVisible(true);
 			}
 		});
 
-		RoundButton btnNewButton_2 = new RoundButton("Deletar");
-		btnNewButton_2.addActionListener(new ActionListener() {
+		RoundButton btRemover = new RoundButton("Deletar");
+		btRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				Produto p = ((ProdutosTableModel) table.getModel()).getItem(table.getSelectedRow());
@@ -237,12 +268,12 @@ public class TelaGerenciamentoP extends JFrame {
 
 		});
 
-		RoundButton btnNewButton_1 = new RoundButton("Alterar");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		RoundButton btAlterar = new RoundButton("Alterar");
+		btAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					Produto p = ((ProdutosTableModel) table.getModel()).getItem(table.getSelectedRow());
-					TelaAlteracaoP tap = new TelaAlteracaoP(tgp, p);
+					TelaAlteracaoP tap = new TelaAlteracaoP(tela, p,f);
 					dispose();
 					tap.setVisible(true);
 				}catch (Exception e1) {
@@ -253,50 +284,50 @@ public class TelaGerenciamentoP extends JFrame {
 			}
 		});
 		
-		JLabel lblNewLabel_7 = new JLabel("");
-		lblNewLabel_7.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/troca.png")));
-		panel.add(lblNewLabel_7, "cell 0 15,alignx center");
-		btnNewButton_1.setForeground(new Color(255, 255, 255));
-		btnNewButton_1.setBackground(new Color(0, 0, 0));
-		panel.add(btnNewButton_1, "cell 1 15,alignx left");
+		JLabel lblIconAlterar = new JLabel("");
+		lblIconAlterar.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/troca.png")));
+		barraLateral.add(lblIconAlterar, "cell 0 15,alignx center");
+		btAlterar.setForeground(new Color(255, 255, 255));
+		btAlterar.setBackground(new Color(0, 0, 0));
+		barraLateral.add(btAlterar, "cell 1 15,alignx left");
 		
-		JLabel lblNewLabel_8 = new JLabel("");
-		lblNewLabel_8.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/lixeira.png")));
-		panel.add(lblNewLabel_8, "cell 0 16,alignx center");
-		btnNewButton_2.setForeground(new Color(255, 255, 255));
-		btnNewButton_2.setBackground(new Color(224, 83, 76));
-		panel.add(btnNewButton_2, "cell 1 16,alignx left");
+		JLabel lblIconRemover = new JLabel("");
+		lblIconRemover.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/lixeira.png")));
+		barraLateral.add(lblIconRemover, "cell 0 16,alignx center");
+		btRemover.setForeground(new Color(255, 255, 255));
+		btRemover.setBackground(new Color(224, 83, 76));
+		barraLateral.add(btRemover, "cell 1 16,alignx left");
 		
-		JLabel lblNewLabel_9 = new JLabel("Adicionar");
-		panel.add(lblNewLabel_9, "cell 0 17");
-		btnNewButton_4.setForeground(new Color(255, 255, 255));
-		btnNewButton_4.setBackground(new Color(0, 0, 0));
-		panel.add(btnNewButton_4, "cell 1 17,alignx left");
+		JLabel lblIconCadastrar = new JLabel("Adicionar");
+		barraLateral.add(lblIconCadastrar, "cell 0 17");
+		btCadastrar.setForeground(new Color(255, 255, 255));
+		btCadastrar.setBackground(new Color(0, 0, 0));
+		barraLateral.add(btCadastrar, "cell 1 17,alignx left");
 		
-		JLabel lblNewLabel_10 = new JLabel("iconeestoque");
-		contentPane.add(lblNewLabel_10, "cell 1 0");
+		JLabel lblIconEstoque = new JLabel("iconeestoque");
+		painel.add(lblIconEstoque, "cell 1 0");
 
-		JLabel lblNewLabel = new JLabel("Estoque");
-		contentPane.add(lblNewLabel, "cell 2 0,alignx trailing");
+		JLabel lblEstoque = new JLabel("Estoque");
+		painel.add(lblEstoque, "cell 2 0,alignx trailing");
 
-		textField = new JTextField();
-		contentPane.add(textField, "cell 3 0 5 1,growx");
-		textField.setColumns(10);
+		txtPesquisar = new JTextField();
+		painel.add(txtPesquisar, "cell 3 0 5 1,growx");
+		txtPesquisar.setColumns(10);
 
-		RoundButton btnNewButton_3 = new RoundButton("Pesquisar");
-		btnNewButton_3.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/lupa.png")));
-		btnNewButton_3.setText("");
-		btnNewButton_3.setForeground(new Color(255, 255, 255));
-		btnNewButton_3.setBackground(new Color(245, 245, 245));
-		btnNewButton_3.addActionListener(new ActionListener() {
+		RoundButton btPesquisar = new RoundButton("Pesquisar");
+		btPesquisar.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/lupa.png")));
+		btPesquisar.setText("");
+		btPesquisar.setForeground(new Color(255, 255, 255));
+		btPesquisar.setBackground(new Color(245, 245, 245));
+		btPesquisar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 			}
 		});
-		contentPane.add(btnNewButton_3, "cell 8 0");
+		painel.add(btPesquisar, "cell 8 0");
 
 		JScrollPane scrollPane = new JScrollPane();
-		contentPane.add(scrollPane, "cell 1 2 8 16,grow");
+		painel.add(scrollPane, "cell 1 2 8 16,grow");
 
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
@@ -306,6 +337,7 @@ public class TelaGerenciamentoP extends JFrame {
 		scrollPane.setViewportView(table);
 
 		getProdutos();
+		menuAdm(f);
 	}
 	private void getProdutos() {
 		ProdutoControle pc = new ProdutoControle();
@@ -322,5 +354,12 @@ public class TelaGerenciamentoP extends JFrame {
 	
 		ProdutosTableModel model = new ProdutosTableModel (lista);
 		table.setModel(model);		
+	}
+
+	private void menuAdm(Funcionario f) {
+		JFrame tela = this;
+		if(f.getadministrador() ==1) {
+			mAdm.setEnabled(true);
+		}
 	}
 }
