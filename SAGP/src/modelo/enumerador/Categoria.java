@@ -11,17 +11,14 @@ public enum Categoria {
 	}
 
 	public String toString() {
-		
 		return nome;
 	}
 	
 	
 	public static Categoria categoriaString(String categoria){
-		if(categoria.equals("salgados"))
-		{
+		if(categoria.equals("salgados")){
 			return SALGADOS;
-		}else if(categoria.equals("doces"))
-		{
+		}else if(categoria.equals("doces")){
 			return DOCES;
 		}else if(categoria.equals("bebidas")) {
 			return BEBIDAS;
