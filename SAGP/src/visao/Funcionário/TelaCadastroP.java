@@ -132,7 +132,7 @@ public class TelaCadastroP extends JFrame {
 						TelaGerenciamentoP telaGerenciamentoP = new TelaGerenciamentoP(telaA, f);
 						dispose();
 						telaGerenciamentoP.setVisible(true);
-						JOptionPane.showMessageDialog(null, "Produto adicionado com sucesso");
+						JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso");
 					} catch (SQLException e1) {
 						e1.printStackTrace();
 						JOptionPane.showMessageDialog(null, "Não foi possivel adicionar esse produto");
