@@ -1,0 +1,23 @@
+Talas:
+Daniela: VERIFICAR AS TELAS NOVAMENTE
+setExtendedState(MAXIMIZED_BOTH);
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TelaCadastroF frame = new TelaCadastroF(null,null);
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+-TELA INICIAL: OK
+-TELA DE LOGIN: Configurar o botão de limpar
+-TELA DE ALTERAÇÃO FUNCIONARIO: Configurar o botão de limpar
+-TELA CADASTRO F: Configurar o botão de limpar
+-TELA GERENCIAMENTO F: OK
+
+

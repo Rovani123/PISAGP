@@ -34,9 +34,11 @@ public class TelaAlteracaoF extends JFrame {
 	private JPasswordField txtSenha;
 
 	public TelaAlteracaoF(JFrame telaA, Funcionario f) {
+		setExtendedState(MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 897, 628);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(230, 230, 230));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -55,16 +57,6 @@ public class TelaAlteracaoF extends JFrame {
 		contentPane.add(txtNome, "cell 2 3 6 1,growx,aligny center");
 		txtNome.setColumns(10);
 
-		JButton btnNewButton = new RoundButton("LIMPAR");
-		btnNewButton.setForeground(new Color(245, 245, 245));
-		btnNewButton.setBackground(new Color(224, 83, 76));
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		contentPane.add(btnNewButton, "cell 8 3");
-
 		JLabel lblUsuario = new JLabel("USÚARIO:");
 		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		contentPane.add(lblUsuario, "cell 1 5,alignx right,aligny center");
@@ -73,24 +65,12 @@ public class TelaAlteracaoF extends JFrame {
 		contentPane.add(txtUsuario, "cell 2 5 6 1,growx,aligny center");
 		txtUsuario.setColumns(10);
 
-		JButton btnNewButton_1 = new RoundButton("LIMPAR");
-		btnNewButton_1.setForeground(new Color(245, 245, 245));
-		btnNewButton_1.setBackground(new Color(224, 83, 76));
-		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		contentPane.add(btnNewButton_1, "cell 8 5");
-
 		JLabel lblSenha = new JLabel("SENHA:");
 		lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		contentPane.add(lblSenha, "cell 1 7,alignx trailing,aligny center");
 
 		txtSenha = new JPasswordField();
 		contentPane.add(txtSenha, "cell 2 7 6 1,growx,aligny center");
-
-		JButton btnNewButton_2 = new RoundButton("LIMPAR");
-		btnNewButton_2.setForeground(new Color(245, 245, 245));
-		btnNewButton_2.setBackground(new Color(224, 83, 76));
-		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		contentPane.add(btnNewButton_2, "cell 8 7");
 
 		JButton btSalvar = new RoundButton("SALVAR");
 		btSalvar.addActionListener(new ActionListener() {
@@ -110,6 +90,12 @@ public class TelaAlteracaoF extends JFrame {
 				}
 			}
 		});
+		
+				JButton btnNewButton_2 = new RoundButton("LIMPAR");
+				btnNewButton_2.setForeground(new Color(245, 245, 245));
+				btnNewButton_2.setBackground(new Color(224, 83, 76));
+				btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 18));
+				contentPane.add(btnNewButton_2, "cell 2 10");
 		btSalvar.setForeground(new Color(245, 245, 245));
 		btSalvar.setBackground(new Color(224, 83, 76));
 		btSalvar.setFont(new Font("Tahoma", Font.PLAIN, 18));

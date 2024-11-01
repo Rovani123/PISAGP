@@ -29,6 +29,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
+import java.awt.Font;
 
 public class TelaCadastroF extends JFrame {
 
@@ -37,9 +38,9 @@ public class TelaCadastroF extends JFrame {
 	private JTextField txtUsuario;
 	private JTextField txtNome;
 	private JPasswordField txtSenha;
-
 	
 	public TelaCadastroF(JFrame telaA,Funcionario f) {
+		setExtendedState(MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 703, 556);
 		painel = new JPanel();
@@ -47,71 +48,59 @@ public class TelaCadastroF extends JFrame {
 		painel.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(painel);
-		painel.setLayout(new MigLayout("", "[grow][][][grow][][grow][][][][][][][grow]", "[grow][][][grow][][][][][][][][][grow]"));
+		painel.setLayout(new MigLayout("", "[grow][][][grow][][][grow][][][][][][][grow]", "[grow][][][grow][][][][][][][][][grow]"));
 		
 		ImageLabel lblLogo = new ImageLabel("");
-		lblLogo.setIcon(new ImageIcon(TelaCadastroF.class.getResource("/Imagem/Logo.png")));
-		painel.add(lblLogo, "cell 3 2 9 1,alignx center,growy");
+		lblLogo.setIcon(new ImageIcon(TelaCadastroF.class.getResource("/Imagem/ImagemLogoGrande.png")));
+		painel.add(lblLogo, "cell 3 2 10 1,alignx center,growy");
 		
 		JLabel lblCadastre = new JLabel("Cadastre um Funcionário:");
-		painel.add(lblCadastre, "cell 3 4 8 1,alignx center");
+		lblCadastre.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		painel.add(lblCadastre, "cell 3 4 9 1,alignx center");
 		
 		JLabel lblUsuario = new JLabel("Usuário:");
+		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		painel.add(lblUsuario, "cell 3 5,alignx left");
 		
-		JLabel lbla1 = new JLabel("*");
-		lbla1.setForeground(new Color(255, 0, 0));
-		painel.add(lbla1, "cell 4 5,alignx left");
-		
 		txtUsuario = new JTextField();
+		txtUsuario.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		txtUsuario.setForeground(new Color(128, 128, 128));
 		txtUsuario.setText("Coloque o seu usuario para cadastar");
-		painel.add(txtUsuario, "cell 3 6 8 1,growx");
+		painel.add(txtUsuario, "cell 3 6 9 1,growx");
 		txtUsuario.setColumns(10);
 		
-		JButton btLimpa1 = new RoundButton("LIMPAR");
-		btLimpa1.setBackground(new Color(224, 83, 76));
-		btLimpa1.setForeground(new Color(245, 245, 245));
-		btLimpa1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				txtUsuario.setText("");
-				
-			}
-		});
-		painel.add(btLimpa1, "cell 11 6");
-		
 		JLabel lblNome = new JLabel("Nome:");
+		lblNome.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		painel.add(lblNome, "cell 3 7,alignx left");
 		
-		JLabel lbla2 = new JLabel("*");
-		lbla2.setForeground(new Color(255, 0, 0));
-		painel.add(lbla2, "cell 4 7,alignx left");
-		
 		txtNome = new JTextField();
+		txtNome.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		txtNome.setForeground(new Color(128, 128, 128));
 		txtNome.setText("Entre com seu nome para cadastar");
-		painel.add(txtNome, "cell 3 8 8 1,growx");
+		painel.add(txtNome, "cell 3 8 9 1,growx");
 		txtNome.setColumns(10);
 		
-		JButton btLimpa2 = new RoundButton("New button");
-		btLimpa2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				txtNome.setText("");
-			}
-		});
-		btLimpa2.setText("LIMPAR");
-		btLimpa2.setBackground(new Color(224, 83, 76));
-		btLimpa2.setForeground(new Color(245, 245, 245));
-		painel.add(btLimpa2, "cell 11 8");
-		
 		JLabel lblSenha = new JLabel("Senha:");
+		lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		painel.add(lblSenha, "cell 3 9,alignx left");
 		
-		JLabel lbla3 = new JLabel("*");
-		painel.add(lbla3, "cell 4 9,alignx trailing");
+		txtSenha = new JPasswordField();
+		txtSenha.setToolTipText("");
+		txtSenha.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		painel.add(txtSenha, "cell 3 10 9 1,growx");
+		
+		JButton btCancelar = new RoundButton("CANCELAR");
+		btCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {			
+				TelaGerenciamentoF tgf = new TelaGerenciamentoF(telaA, f);
+				dispose();
+				tgf.setVisible(true);				
+			}
+		});
 		
 		JButton btCadastrar = new RoundButton("CADASTRAR");
+		btCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -131,39 +120,29 @@ public class TelaCadastroF extends JFrame {
 				}				
 			}
 		});
+		btCadastrar.setBackground(new Color(224, 83, 76));
+		btCadastrar.setForeground(new Color(245, 245, 245));
+		painel.add(btCadastrar, "cell 6 11");
 		
 		JButton btLimpa3 = new RoundButton("LIMPAR");
+		btLimpa3.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btLimpa3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				txtSenha.setText("");
 			}
 		});
-		
-		txtSenha = new JPasswordField();
-		painel.add(txtSenha, "cell 3 10 8 1,growx");
 		btLimpa3.setBackground(new Color(224, 83, 76));
 		btLimpa3.setForeground(new Color(245, 245, 245));
-		painel.add(btLimpa3, "cell 11 10");
-		btCadastrar.setBackground(new Color(224, 83, 76));
-		btCadastrar.setForeground(new Color(245, 245, 245));
-		painel.add(btCadastrar, "cell 7 11");
-		
-		JButton btCancelar = new RoundButton("CANCELAR");
-		btCancelar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {			
-				TelaGerenciamentoF tgf = new TelaGerenciamentoF(telaA, f);
-				dispose();
-				tgf.setVisible(true);				
-			}
-		});
+		painel.add(btLimpa3, "cell 7 11");
 		btCancelar.setBackground(new Color(0, 0, 0));
 		btCancelar.setForeground(new Color(245, 245, 245));
-		painel.add(btCancelar, "cell 10 12");
+		painel.add(btCancelar, "cell 11 12");
 		
 		JButton btnNewButton_3 = new RoundButton("ENTRAR");
+		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton_3.setBackground(new Color(224, 83, 76));
 		btnNewButton_3.setForeground(new Color(245, 245, 245));
-		painel.add(btnNewButton_3, "cell 11 12");
+		painel.add(btnNewButton_3, "cell 12 12");
 	}
 
 }

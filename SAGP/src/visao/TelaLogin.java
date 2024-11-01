@@ -54,16 +54,16 @@ public class TelaLogin extends JFrame {
 		painel.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(painel);
-		painel.setLayout(new MigLayout("", "[grow][grow][grow][grow][grow][grow][grow][][][grow][][][][][][][][grow][grow][grow]", "[grow][grow][grow][grow][grow][grow][][][][][][grow][grow][grow][][grow][grow][grow][grow]"));
+		painel.setLayout(new MigLayout("", "[grow][grow][grow][grow][grow][][grow][grow][][][grow][][][][][][][][grow][grow][grow]", "[grow][grow][grow][grow][grow][grow][][][][][][grow][grow][grow][][grow][grow][grow][grow]"));
 		
 		JLabel lblLogo = new JLabel("");
 		lblLogo.setBackground(new Color(230, 230, 230));
 		lblLogo.setIcon(new ImageIcon(TelaLogin.class.getResource("/Imagem/ImagemLogoGrande.png")));
-		painel.add(lblLogo, "cell 5 1 2 1,alignx center");
+		painel.add(lblLogo, "cell 6 1 2 1,alignx center");
 		
 		JLabel lblEntre = new JLabel("ENTRE COM SUA CONTA:");
 		lblEntre.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		painel.add(lblEntre, "cell 5 3 2 1,alignx center");
+		painel.add(lblEntre, "cell 6 3 2 1,alignx center");
 		
 		JLabel lblUsuario = new JLabel("Usuário: *");
 		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -74,20 +74,8 @@ public class TelaLogin extends JFrame {
 		txtUsuario.setHorizontalAlignment(SwingConstants.LEFT);
 		txtUsuario.setForeground(new Color(130, 130, 130));
 		txtUsuario.setText("Entre com seu usuário para logar no sistema");
-		painel.add(txtUsuario, "cell 4 6 3 1,growx");
+		painel.add(txtUsuario, "cell 4 6 4 1,growx");
 		txtUsuario.setColumns(10);
-		
-		RoundButton btnLimpa1 = new RoundButton("Limpa");
-		btnLimpa1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnLimpa1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				txtUsuario.setText("");
-				
-			}
-		});
-		btnLimpa1.setForeground(new Color(255, 255, 255));
-		btnLimpa1.setBackground(new Color(224, 83, 76));
-		painel.add(btnLimpa1, "cell 7 6");
 		
 		JLabel lblSenha = new JLabel("Senha: *");
 		lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -113,27 +101,28 @@ public class TelaLogin extends JFrame {
 			}
 		});
 		
+		txtSenha = new JPasswordField();
+		txtSenha.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		txtSenha.setToolTipText("");
+		painel.add(txtSenha, "cell 4 8 4 1,grow");
+		btVoltar.setForeground(new Color(255, 255, 255));
+		btVoltar.setBackground(new Color(0, 0, 0));
+		painel.add(btVoltar, "cell 4 9");
+		
 		RoundButton bntLimpa2 = new RoundButton("Limpa");
+		bntLimpa2.setText("Limpar");
 		bntLimpa2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		bntLimpa2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				txtSenha.setText("");
 			}
 		});
-		
-		txtSenha = new JPasswordField();
-		txtSenha.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		txtSenha.setToolTipText("");
-		painel.add(txtSenha, "cell 4 8 3 1,grow");
 		bntLimpa2.setForeground(new Color(255, 255, 255));
 		bntLimpa2.setBackground(new Color(224, 83, 76));
-		painel.add(bntLimpa2, "cell 7 8");
-		btVoltar.setForeground(new Color(255, 255, 255));
-		btVoltar.setBackground(new Color(0, 0, 0));
-		painel.add(btVoltar, "cell 4 9");
+		painel.add(bntLimpa2, "cell 5 9");
 		btEntrar.setForeground(new Color(255, 255, 255));
 		btEntrar.setBackground(new Color(224, 83, 76));
-		painel.add(btEntrar, "cell 5 9 2 1,alignx center");
+		painel.add(btEntrar, "cell 6 9 2 1,alignx center");
 	}
 	private void logar(String usuario, String senha,JFrame tela) {
 		LoginControle lc = new LoginControle();
