@@ -86,7 +86,7 @@ public class TelaGerenciamentoF extends JFrame {
 		mAnaliseVendas = new JMenuItem("Análise de vendas");
 		mAnaliseVendas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaAnáliseVendas telaAV = new TelaAnáliseVendas();
+				TelaAnáliseVendas telaAV = new TelaAnáliseVendas(tela,f);
 				dispose();
 				telaAV.setVisible(true);
 			}
