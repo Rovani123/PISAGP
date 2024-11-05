@@ -8,16 +8,21 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import controle.ProdutoControle;
+import controle.PromocaoControle;
 import modelo.classes.Funcionario;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
 
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.time.LocalDate;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Font;
@@ -88,7 +93,33 @@ public class TelaCadastroPromocao extends JFrame {
         btnNewButton_2.setBackground(new Color(224, 83, 76));
         btnNewButton_2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-               
+               String produtoPromocao = null;
+               float desconto= 0;
+               LocalDate dataInicio =  dataI.plusDays(1);
+               LocalDate dataTermino = dataT.plusDays(2);
+               try {
+            	   produtoPromocao = (txtProdutoP.getText());
+            	   desconto = (Float.parseFloat(txtDesconto.getText()));
+            	   //LocalDate =
+            	   //LocalDate =
+               }catch (Exception e1) {
+					e1.printStackTrace();
+				}
+               if (txtProdutoP.getText().isEmpty() || txtDesconto.getText().isEmpty() || txtDataInicio.getText().isEmpty() || txtDataTermino.getText().isEmpty()){
+					JOptionPane.showMessageDialog(null, "Todos os campos precisam ser preenchidos");
+				}else {
+					try {
+						cadastrarPromocao (produtoPromocao, desconto, dataInicio, dataTermino.toString());
+						TelaPromocoes telaPromocoes = new TelaPromocoes(telaC, f);
+						dispose();
+						telaPromocoes.setVisible(true);
+						JOptionPane.showMessageDialog(null, "Prmoção cadastrada com sucesso");
+					} catch (SQLException e1) {
+						e1.printStackTrace();
+						JOptionPane.showMessageDialog(null, "Não foi possivel adicionar esse produto");
+
+					}
+				}
             }
         });
         contentPane.add(btnNewButton_2, "cell 4 14,alignx right");
@@ -101,8 +132,8 @@ public class TelaCadastroPromocao extends JFrame {
             public void actionPerformed(ActionEvent e) {
             	txtProdutoP.setText("");
             	txtDesconto.setText("");
-            	txtProdutoP.setText("");
-            	txtProdutoP.setText("");
+            	txtDataInicio.setText("");
+            	txtDataTermino.setText("");
             }
         });
         contentPane.add(btnNewButton, "cell 6 14");
@@ -113,11 +144,17 @@ public class TelaCadastroPromocao extends JFrame {
         btnNewButton_1.setBackground(new Color(0, 0, 0));
         btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-               
+            	TelaPromocoes telaE = new TelaPromocoes(telaC, f);
+				dispose();
+				telaE.setVisible(true);
             }
         });
         contentPane.add(btnNewButton_1, "cell 7 14");
     }
 
+    private void cadastrarPromocoes(String produtoPromocao, float desconto) throws SQLException {//LocalDate
+		PromocaoControle promoc = new PromocaoControle();
+		promoc.cadastrarPromocoes(produtoPromocao, desconto); //LocalDate
 
+	}
 }
