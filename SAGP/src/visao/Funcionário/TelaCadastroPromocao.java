@@ -7,6 +7,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import modelo.classes.Funcionario;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
 
@@ -31,28 +33,8 @@ public class TelaCadastroPromocao extends JFrame {
     private JTextField textField_2;
     private JTextField textField_3;
 
-
-    /**
-     * Launch the application.
-     */
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    TelaCadastroPromocao frame = new TelaCadastroPromocao();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
-
-    /**
-     * Create the frame.
-     */
-    public TelaCadastroPromocao() {
+    public TelaCadastroPromocao(JFrame telaC, Funcionario f) {
+    	TelaCadastroPromocao tela= this;
         setBackground(new Color(230, 230, 230));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setExtendedState(MAXIMIZED_BOTH);

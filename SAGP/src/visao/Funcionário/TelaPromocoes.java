@@ -34,7 +34,7 @@ public class TelaPromocoes extends JFrame {
 	private JTable table;
 
 
-	public TelaPromocoes(JFrame telaA, Funcionario f) {
+	public TelaPromocoes(JFrame telaA, JFrame telaC, Funcionario f) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setExtendedState(MAXIMIZED_BOTH);
 		setBounds(100, 100, 1125, 607);
@@ -114,7 +114,7 @@ public class TelaPromocoes extends JFrame {
 				try {
 					Produto promcao = ((ProdutosTableModel) table.getModel()).getItem(table.getSelectedRow());
 
-					TelaAlteracaoPromocao tap = new TelaAlteracaoPromocao(tela, p, f);
+					TelaAlteracaoPromocao tap = new TelaAlteracaoPromocao(telaA, f);
 					dispose();
 					tap.setVisible(true);
 				} catch (Exception e1) {
@@ -160,7 +160,7 @@ public class TelaPromocoes extends JFrame {
 		btCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				TelaCadastroPromocao tcp = new TelaCadastroPromocao (tela, f);
+				TelaCadastroPromocao tcp = new TelaCadastroPromocao (telaC, f);
 				dispose();
 				tcp.setVisible(true);
 			}

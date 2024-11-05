@@ -7,6 +7,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import modelo.classes.Funcionario;
+
 import java.awt.Color;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
@@ -30,27 +33,9 @@ public class TelaAlteracaoPromocao extends JFrame {
     private JTextField textField_2;
 
 
-    /**
-     * Launch the application.
-     */
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    TelaAlteracaoPromocao frame = new TelaAlteracaoPromocao();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
-
-    /**
-     * Create the frame.
-     */
-    public TelaAlteracaoPromocao() {
+    
+    public TelaAlteracaoPromocao(JFrame telaA, Funcionario f) {
+    	TelaAlteracaoPromocao tela = this; 
         setBackground(new Color(230, 230, 230));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setExtendedState(MAXIMIZED_BOTH);
