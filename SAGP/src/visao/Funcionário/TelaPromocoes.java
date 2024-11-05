@@ -110,6 +110,18 @@ public class TelaPromocoes extends JFrame {
 		btAlterar.setBackground(new Color(224, 83, 76));
 		btAlterar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btAlterar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Produto promcao = ((ProdutosTableModel) table.getModel()).getItem(table.getSelectedRow());
+
+					TelaAlteracaoPromocao tap = new TelaAlteracaoPromocao(telaA, f);
+					dispose();
+					tap.setVisible(true);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+					JOptionPane.showMessageDialog(null, "Selecione um produto em promoção");
+				}
+			}
 			
 				
 		});
