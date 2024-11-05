@@ -49,8 +49,10 @@ public class TelaGerenciamentoP extends JFrame {
 	private int contD = 0;
 	private int contB = 0;
 
+	
 	public TelaGerenciamentoP(JFrame telaA, Funcionario f) {
 		TelaGerenciamentoP tela = this;
+		
 
 		setBackground(new Color(230, 230, 230));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
