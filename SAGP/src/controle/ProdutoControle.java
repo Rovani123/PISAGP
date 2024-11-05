@@ -39,7 +39,5 @@ public class ProdutoControle {
 		ProdutoDAO pdao = new ProdutoDAO();
 		pdao.cadastrarProduto(nome, preco, quantidade, categoria);
 		
-	}
-	
-	
+	}	
 }
