@@ -28,10 +28,10 @@ public class TelaCadastroPromocao extends JFrame {
 
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
-    private JTextField textField;
-    private JTextField textField_1;
-    private JTextField textField_2;
-    private JTextField textField_3;
+    private JTextField txtProdutoP;
+    private JTextField txtDesconto;
+    private JTextField txtDataInicio;
+    private JTextField txtDataTermino;
 
     public TelaCadastroPromocao(JFrame telaC, Funcionario f) {
     	TelaCadastroPromocao tela= this;
@@ -54,33 +54,33 @@ public class TelaCadastroPromocao extends JFrame {
         lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
         contentPane.add(lblNewLabel, "cell 4 5");
        
-        textField = new JTextField();
-        contentPane.add(textField, "cell 4 6 3 1,growx");
-        textField.setColumns(10);
+        txtProdutoP = new JTextField();
+        contentPane.add(txtProdutoP, "cell 4 6 3 1,growx");
+        txtProdutoP.setColumns(10);
        
         JLabel lblNewLabel_3 = new JLabel("Desconto:");
         lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
         contentPane.add(lblNewLabel_3, "cell 4 7");
        
-        textField_1 = new JTextField();
-        contentPane.add(textField_1, "cell 4 8 3 1,growx");
-        textField_1.setColumns(10);
+        txtDesconto = new JTextField();
+        contentPane.add(txtDesconto, "cell 4 8 3 1,growx");
+        txtDesconto.setColumns(10);
        
         JLabel lblNewLabel_4 = new JLabel("Data de Início:");
         lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 15));
         contentPane.add(lblNewLabel_4, "cell 4 9");
        
-        textField_2 = new JTextField();
-        contentPane.add(textField_2, "cell 4 10 3 1,growx");
-        textField_2.setColumns(10);
+        txtDataInicio = new JTextField();
+        contentPane.add(txtDataInicio, "cell 4 10 3 1,growx");
+        txtDataInicio.setColumns(10);
        
         JLabel lblNewLabel_5 = new JLabel("Data de término:");
         lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 15));
         contentPane.add(lblNewLabel_5, "cell 4 11");
        
-        textField_3 = new JTextField();
-        contentPane.add(textField_3, "cell 4 12 3 1,growx");
-        textField_3.setColumns(10);
+        txtDataTermino = new JTextField();
+        contentPane.add(txtDataTermino, "cell 4 12 3 1,growx");
+        txtDataTermino.setColumns(10);
        
         RoundButton btnNewButton_2 = new RoundButton("Salvar");
         btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -99,7 +99,10 @@ public class TelaCadastroPromocao extends JFrame {
         btnNewButton.setBackground(new Color(224, 83, 76));
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-               
+            	txtProdutoP.setText("");
+            	txtDesconto.setText("");
+            	txtProdutoP.setText("");
+            	txtProdutoP.setText("");
             }
         });
         contentPane.add(btnNewButton, "cell 6 14");
