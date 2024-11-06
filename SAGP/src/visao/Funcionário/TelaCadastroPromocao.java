@@ -154,7 +154,7 @@ public class TelaCadastroPromocao extends JFrame {
 
     private void cadastrarPromocoes(String produtoPromocao, float desconto) throws SQLException {//LocalDate
 		PromocaoControle promoc = new PromocaoControle();
-		promoc.cadastrarPromocoes(produtoPromocao, desconto); //LocalDate
+		promoc.cadastrarPromocao(produtoPromocao, desconto); //LocalDate
 
 	}
 }
