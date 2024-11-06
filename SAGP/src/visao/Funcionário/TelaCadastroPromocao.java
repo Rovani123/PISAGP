@@ -104,6 +104,7 @@ public class TelaCadastroPromocao extends JFrame {
             	   produtoPromocao = (txtProdutoP.getText());
             	   desconto = (Float.parseFloat(txtDesconto.getText()));
             	   //dataI = ()
+            	   //dataT = ()
                }catch (Exception e1) {
 					e1.printStackTrace();
 				}
