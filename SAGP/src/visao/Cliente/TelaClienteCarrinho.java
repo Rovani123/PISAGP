@@ -5,6 +5,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controle.ProdutoControle;
+import modelo.classes.Carrinho;
+import modelo.classes.Produto;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
 
@@ -15,35 +19,18 @@ import javax.swing.JTable;
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class TelaClienteCarrinho extends JFrame {
 
-	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTable table;
+	private JPanel painelProdutos;
+	private ArrayList<Carrinho> listaCarrinhosCompra;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaClienteCarrinho frame = new TelaClienteCarrinho();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public TelaClienteCarrinho() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocation(null);
 		setBounds(100, 100, 986, 584);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(230, 230, 230));
@@ -122,8 +109,7 @@ public class TelaClienteCarrinho extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		contentPane.add(scrollPane, "cell 1 2 6 2,grow");
 		
-		table = new JTable();
-		scrollPane.setViewportView(table);
+		
 		
 		JButton btnNewButton_6 = new RoundButton("FINALIZAR COMPRA");
 		btnNewButton_6.setText("Finalizar compra");
@@ -137,6 +123,8 @@ public class TelaClienteCarrinho extends JFrame {
 		JLabel lblNewLabel_2 = new JLabel("Total a pagar:");
 		contentPane.add(lblNewLabel_2, "cell 4 4");
 		contentPane.add(btnNewButton_6, "cell 6 4,growx,aligny center");
+		
 	}
 
+	
 }

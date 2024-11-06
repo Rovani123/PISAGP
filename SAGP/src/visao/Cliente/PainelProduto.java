@@ -21,15 +21,12 @@ import javax.swing.ImageIcon;
 public class PainelProduto extends JPanel {
 	
 	private JLabel lblQuantidade;
-	/**
-	 * Create the panel.
-	 */
-	public PainelProduto(Produto p) {
-		Carrinho carrinho = new Carrinho();
-		carrinho.setIdCarrinho(-1);
-		carrinho.setIdProduto(p.getIdProduto());
-		carrinho.setIdVenda(-1);
-		carrinho.setQuantidade(0);
+	private Carrinho carrinho;
+	private Produto produto;
+	
+	public PainelProduto(Produto p,Carrinho c) {
+		produto=p;
+		carrinho = c;
 		setBackground(new Color(230, 230, 230));
 		setLayout(new MigLayout("", "[][grow][][][][][][][][][][]", "[grow][][][][][][][][][][][]"));
 		
@@ -68,13 +65,14 @@ public class PainelProduto extends JPanel {
 		btMais.setBackground(new Color(245, 245, 245));
 		btMais.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				carrinho.setQuantidade(carrinho.getQuantidade()+1);
-				lblQuantidade.setText(String.valueOf(carrinho.getQuantidade()));
-				
+				if(carrinho.getQuantidade() < p.getQuantidadeEstoque()) {
+					carrinho.setQuantidade(carrinho.getQuantidade()+1);
+					lblQuantidade.setText(String.valueOf(carrinho.getQuantidade()));
+				}else {
+					JOptionPane.showMessageDialog(null, "Não há mais produtos no estoque");
+				}
 			}
 		});
 		add(btMais, "cell 9 10");
-
 	}
-
 }
