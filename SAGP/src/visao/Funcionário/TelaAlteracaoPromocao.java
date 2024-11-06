@@ -94,6 +94,8 @@ public class TelaAlteracaoPromocao extends JFrame {
 				LocalDate dataTermino = dataT.plusDays(2);
 				try {
 					desconto = Float.parseFloat(txtDesconto.getText());
+					//dataI
+					//dataT
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
