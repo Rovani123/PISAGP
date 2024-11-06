@@ -95,13 +95,15 @@ public class TelaCadastroPromocao extends JFrame {
             public void actionPerformed(ActionEvent e) {
                String produtoPromocao = null;
                float desconto= 0;
-               LocalDate dataInicio =  dataI.plusDays(1);
-               LocalDate dataTermino = dataT.plusDays(2);
+               LocalDate dataI = null;
+               LocalDate dataT = null;
+            
+            LocalDate dataInicio =  dataI.plusDays(1);
+			LocalDate dataTermino = dataT.plusDays(2);
                try {
             	   produtoPromocao = (txtProdutoP.getText());
             	   desconto = (Float.parseFloat(txtDesconto.getText()));
-            	   //LocalDate =
-            	   //LocalDate =
+            	   //dataI = ()
                }catch (Exception e1) {
 					e1.printStackTrace();
 				}
