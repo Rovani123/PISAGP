@@ -7,7 +7,7 @@ public class ProdutosPromocao {
 	private int idProdutosPromocao;
 	private int idProduto;
 	private int idPromocao;
-	private int desconto;
+	private float desconto;
 	
 	public int getIdProdutosPromocao() {
 		return idProdutosPromocao;
@@ -27,7 +27,7 @@ public class ProdutosPromocao {
 	public void setIdPromocao(int idPromocao) {
 		this.idPromocao = idPromocao;
 	}
-	public int getDesconto() {
+	public float getDesconto() {
 		return desconto;
 	}
 	public void setDesconto(int desconto) {
