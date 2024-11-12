@@ -66,7 +66,6 @@ public class TelaPromocoes extends JFrame {
 		mOpcoes.add(mGProdutos);
 		
 		mPromocoes = new JMenuItem("Promoções  ");
-		mPromocoes.setEnabled(false);
 		mOpcoes.add(mPromocoes);
 		
 		mVoltar = new JMenuItem("Voltar ao início");
