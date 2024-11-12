@@ -77,6 +77,7 @@ public class TelaClienteCarrinho extends JFrame {
 		panel_1.add(btnNewButton_6, "cell 1 9");
 		
 		RoundButton btnNewButton = new RoundButton("");
+		btnNewButton.setBackground(new Color(224, 83, 76));
 		btnNewButton.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/carrinho-de-compras.png")));
 		getContentPane().add(btnNewButton, "cell 7 0");
 		
