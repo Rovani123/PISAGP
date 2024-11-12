@@ -2,6 +2,7 @@ package controle;
 
 import java.sql.SQLException;
 
+import modelo.classes.ProdutosPromocao;
 import modelo.dao.ProdutoDAO;
 import modelo.dao.PromocaoDAO;
 
@@ -10,6 +11,10 @@ public class PromocaoControle {
 			PromocaoDAO pdao = new PromocaoDAO();
 			pdao.cadastrarPromocao(produtoPromocao, desconto);//LocalDate
 
+	}
+
+	public void alterarPromocao(ProdutosPromocao promo) {
+		
 	}
 
 }

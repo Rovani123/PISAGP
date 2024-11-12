@@ -111,17 +111,11 @@ public class TelaCadastroPromocao extends JFrame {
                if (txtProdutoP.getText().isEmpty() || txtDesconto.getText().isEmpty() || txtDataInicio.getText().isEmpty() || txtDataTermino.getText().isEmpty()){
 					JOptionPane.showMessageDialog(null, "Todos os campos precisam ser preenchidos");
 				}else {
-					try {
-						cadastrarPromocao (produtoPromocao, desconto, dataInicio, dataTermino.toString());
-						TelaPromocoes telaPromocoes = new TelaPromocoes(telaC, f);
-						dispose();
-						telaPromocoes.setVisible(true);
-						JOptionPane.showMessageDialog(null, "Prmoção cadastrada com sucesso");
-					} catch (SQLException e1) {
-						e1.printStackTrace();
-						JOptionPane.showMessageDialog(null, "Não foi possivel adicionar esse produto");
-
-					}
+					cadastrarPromocao (produtoPromocao, desconto, dataInicio, dataTermino.toString());
+					TelaPromocoes telaPromocoes = new TelaPromocoes(telaC, telaC, f);
+					dispose();
+					telaPromocoes.setVisible(true);
+					JOptionPane.showMessageDialog(null, "Prmoção cadastrada com sucesso");
 				}
             }
         });
@@ -147,7 +141,7 @@ public class TelaCadastroPromocao extends JFrame {
         btnNewButton_1.setBackground(new Color(0, 0, 0));
         btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            	TelaPromocoes telaE = new TelaPromocoes(telaC, f);
+            	TelaPromocoes telaE = new TelaPromocoes(telaC, telaC, f);
 				dispose();
 				telaE.setVisible(true);
             }
@@ -155,7 +149,11 @@ public class TelaCadastroPromocao extends JFrame {
         contentPane.add(btnNewButton_1, "cell 7 14");
     }
 
-    private void cadastrarPromocoes(String produtoPromocao, float desconto) throws SQLException {//LocalDate
+    protected void cadastrarPromocao(String produtoPromocao, float desconto, LocalDate dataInicio, String string) {
+		
+	}
+
+	private void cadastrarPromocoes(String produtoPromocao, float desconto) throws SQLException {//LocalDate
 		PromocaoControle promoc = new PromocaoControle();
 		promoc.cadastrarPromocao(produtoPromocao, desconto); //LocalDate
 

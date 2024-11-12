@@ -140,7 +140,7 @@ public class TelaAlteracaoPromocao extends JFrame {
     	txtDataT.setText(String.valueOf(promo.getDataT()));
 	}
 
-	private void alterarPromocao(ProdutosPromocao promo, float desconto) //LocalDate
+	private void alterarPromocao(ProdutosPromocao promo, int desconto) //LocalDate
 			throws SQLException {
 ;
 		promo.setDesconto(desconto);
