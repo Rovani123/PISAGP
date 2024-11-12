@@ -7,8 +7,10 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controle.LoginControle;
+import controle.ProdutoControle;
 import dal.ConexaoBD;
 import modelo.classes.Funcionario;
+import modelo.classes.Produto;
 import net.miginfocom.swing.MigLayout;
 import visao.Administrador.ZTelaAdministrador;
 import visao.Administrador.TelaGerenciamentoF;
@@ -25,6 +27,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import java.awt.Color;
