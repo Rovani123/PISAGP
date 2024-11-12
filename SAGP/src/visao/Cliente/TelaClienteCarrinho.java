@@ -11,6 +11,7 @@ import modelo.classes.Carrinho;
 import modelo.classes.Produto;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
+import visao.TelaInicial;
 
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
@@ -28,6 +29,19 @@ public class TelaClienteCarrinho extends JFrame {
 	private ArrayList<Carrinho> listaCarrinhosCompra;
 	private JTextField textField;
 
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TelaClienteCarrinho frame = new TelaClienteCarrinho();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
 	public TelaClienteCarrinho() {
 		setBackground(new Color(230, 230, 230));
 		getContentPane().setLayout(new MigLayout("", "[grow][][][][][][][grow][][][][][][][][][][][][][][grow][][][][]", "[grow][grow][][][][][][][][][][][][][][][][][][]"));
