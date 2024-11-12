@@ -1,11 +1,17 @@
 package visao.Funcionário;
 
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 
+import javax.swing.JFileChooser;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -13,12 +19,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-
+import javax.imageio.ImageIO;
 import controle.ProdutoControle;
 import modelo.classes.Funcionario;
 import modelo.enumerador.Categoria;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
+import javax.swing.JButton;
 
 public class TelaCadastroP extends JFrame {
 
@@ -26,6 +33,9 @@ public class TelaCadastroP extends JFrame {
 	private JTextField txtNome;
 	private JTextField txtPreco;
 	private JTextField txtQuantidade;
+	private JLabel lblFoto;
+    private Image imagemProduto;
+    FileInputStream fin;
 
 	public TelaCadastroP(JFrame telaA, Funcionario f) {
 
@@ -36,7 +46,7 @@ public class TelaCadastroP extends JFrame {
 		painel.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(painel);
-		painel.setLayout(new MigLayout("", "[][][][grow][][][][]", "[][][][][][][][][][][][][][]"));
+		painel.setLayout(new MigLayout("", "[][][][grow][][][][]", "[][][][][][][][][][][][][][][]"));
 
 		JLabel lblCadastroProduto = new JLabel("CADASTRO DE PRODUTO:");
 		painel.add(lblCadastroProduto, "cell 3 2,alignx center");
@@ -108,59 +118,80 @@ public class TelaCadastroP extends JFrame {
 		btLimpa4.setForeground(new Color(245, 245, 245));
 		btLimpa4.setBackground(new Color(224, 83, 76));
 		painel.add(btLimpa4, "cell 5 11");
+		
+				RoundButton btSalvar = new RoundButton("Salvar");
+				btSalvar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						String nome = null;
+						float preco = 0;
+						int quantidade = 0;
+						Categoria categoria = null;
+						try {
+						nome = (txtNome.getText());
+						preco = (Float.parseFloat(txtPreco.getText()));
+						quantidade = (Integer.parseInt(txtQuantidade.getText()));
+						categoria = (Categoria) cbCategoria.getSelectedItem();
+						}catch (Exception e1) {
+							e1.printStackTrace();
+						}
+						if (txtNome.getText().isEmpty() || txtPreco.getText().isEmpty() || txtQuantidade.getText().isEmpty()) {
+							JOptionPane.showMessageDialog(null, "Todos os campos precisam ser preenchidos");
+						} else {
+							try {
+								cadastrarProduto(nome, preco, quantidade, categoria.toString(),fin);
+								TelaGerenciamentoP telaGerenciamentoP = new TelaGerenciamentoP(telaA, f);
+								dispose();
+								telaGerenciamentoP.setVisible(true);
+								JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso");
+							} catch (SQLException e1) {
+								e1.printStackTrace();
+								JOptionPane.showMessageDialog(null, "Não foi possivel adicionar esse produto");
 
-		RoundButton btSalvar = new RoundButton("Salvar");
-		btSalvar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String nome = null;
-				float preco = 0;
-				int quantidade = 0;
-				Categoria categoria = null;
-				try {
-				nome = (txtNome.getText());
-				preco = (Float.parseFloat(txtPreco.getText()));
-				quantidade = (Integer.parseInt(txtQuantidade.getText()));
-				categoria = (Categoria) cbCategoria.getSelectedItem();
-				}catch (Exception e1) {
-					e1.printStackTrace();
-				}
-				if (txtNome.getText().isEmpty() || txtPreco.getText().isEmpty() || txtQuantidade.getText().isEmpty()) {
-					JOptionPane.showMessageDialog(null, "Todos os campos precisam ser preenchidos");
-				} else {
-					try {
-						cadastrarProduto(nome, preco, quantidade, categoria.toString());
-						TelaGerenciamentoP telaGerenciamentoP = new TelaGerenciamentoP(telaA, f);
-						dispose();
-						telaGerenciamentoP.setVisible(true);
-						JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso");
-					} catch (SQLException e1) {
-						e1.printStackTrace();
-						JOptionPane.showMessageDialog(null, "Não foi possivel adicionar esse produto");
-
+							}
+						}
 					}
-				}
-			}
-		});
-		btSalvar.setForeground(new Color(245, 245, 245));
-		btSalvar.setBackground(new Color(224, 83, 76));
-		painel.add(btSalvar, "cell 3 13,alignx center");
-
-		RoundButton btCancelar = new RoundButton("Cancelar");
-		btCancelar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaGerenciamentoP telaE = new TelaGerenciamentoP(telaA, f);
-				dispose();
-				telaE.setVisible(true);
-			}
-		});
-		btCancelar.setForeground(new Color(245, 245, 245));
-		btCancelar.setBackground(new Color(0, 0, 0));
-		painel.add(btCancelar, "cell 5 13");
+				});
+				
+				JButton btFile = new JButton("Selecionar Imagem");
+				btFile.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						JFileChooser fileChooser = new JFileChooser();
+		                int result = fileChooser.showOpenDialog(null);
+		                if (result == JFileChooser.APPROVE_OPTION) {
+		                    File selectedFile = fileChooser.getSelectedFile();
+		                    try {
+		                        imagemProduto = ImageIO.read(selectedFile);
+		                        fin = new FileInputStream(selectedFile);
+		                        if(fin ==null) {
+		                        	JOptionPane.showInternalMessageDialog(null,"ta nulo");
+		                        }
+		                    } catch (IOException ex) {
+		                        ex.printStackTrace();
+		                    }
+		                }
+					}
+				});
+				painel.add(btFile, "cell 3 12,alignx center,aligny center");
+				btSalvar.setForeground(new Color(245, 245, 245));
+				btSalvar.setBackground(new Color(224, 83, 76));
+				painel.add(btSalvar, "cell 3 14,alignx center");
+				
+						RoundButton btCancelar = new RoundButton("Cancelar");
+						btCancelar.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent e) {
+								TelaGerenciamentoP telaE = new TelaGerenciamentoP(telaA, f);
+								dispose();
+								telaE.setVisible(true);
+							}
+						});
+						btCancelar.setForeground(new Color(245, 245, 245));
+						btCancelar.setBackground(new Color(0, 0, 0));
+						painel.add(btCancelar, "cell 5 14");
 	}
 
-	private void cadastrarProduto(String nome, float preco, int quantidade, String categoria) throws SQLException {
+	private void cadastrarProduto(String nome, float preco, int quantidade, String categoria,FileInputStream foto) throws SQLException {
 		ProdutoControle pc = new ProdutoControle();
-		pc.cadastrarProduto(nome, preco, quantidade, categoria);
+		pc.cadastrarProduto(nome, preco, quantidade, categoria,foto);
 
 	}
 

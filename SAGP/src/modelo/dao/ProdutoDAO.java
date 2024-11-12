@@ -1,5 +1,6 @@
 package modelo.dao;
 
+import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -88,8 +89,8 @@ public class ProdutoDAO extends ModeloDAO{
 		super.update("UPDATE produtos SET nomeProduto = ?, preco = ?, quantidadeEstoque = ?, categoria = ? WHERE idProduto = ?", p.getIdProduto(), p.getNomeProduto(),p.getPreco(),p.getQuantidadeEstoque(),p.getCategoria().toString());
 	}
 
-	public void cadastrarProduto(String nome,float preco,int quantidade,String categoria) throws SQLException {
-		super.save("insert into produtos(nomeProduto,preco,quantidadeEstoque,categoria) values(?,?,?,?)", nome,preco,quantidade,categoria);
+	public void cadastrarProduto(String nome,float preco,int quantidade,String categoria,FileInputStream foto) throws SQLException {
+		super.save("insert into produtos(nomeProduto,preco,quantidadeEstoque,categoria,foto) values(?,?,?,?,?)", nome,preco,quantidade,categoria,foto);
 	}
 	
 	public void deletarProduto(Produto p) throws SQLException{

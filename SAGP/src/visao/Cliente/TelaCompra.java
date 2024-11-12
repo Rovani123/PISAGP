@@ -180,12 +180,21 @@ public class TelaCompra extends JFrame {
 						}
 					}
 				}
+<<<<<<< HEAD
 				for (Carrinho carrinhol : listaCarrinhosCompra) {
 					JOptionPane.showMessageDialog(null, carrinhol.getIdProduto());
 				}
 				TelaClienteCarrinho tcc = new TelaClienteCarrinho();
 				dispose();		
 				tcc.setVisible(true);
+=======
+//				for (Carrinho carrinhol : listaCarrinhosCompra) {
+//					JOptionPane.showMessageDialog(null, carrinhol.getIdProduto());
+//				}
+//				TelaClienteCarrinho tcc = new TelaClienteCarrinho();
+//				dispose();		
+//				tcc.setVisible(true);
+>>>>>>> a18394a1bbcb0ed67a831a9dfb34e84feee82e77
 			}
 		});
 		painelMenu.add(btnNewButton_1, "cell 1 15,alignx center");
