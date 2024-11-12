@@ -180,9 +180,9 @@ public class TelaCompra extends JFrame {
 						}
 					}
 				}
-				for (Carrinho carrinhol : listaCarrinhosCompra) {
-					JOptionPane.showMessageDialog(null, carrinhol.getIdProduto());
-				}
+//				for (Carrinho carrinhol : listaCarrinhosCompra) {
+//					JOptionPane.showMessageDialog(null, carrinhol.getIdProduto());
+//				}
 //				TelaClienteCarrinho tcc = new TelaClienteCarrinho();
 //				dispose();		
 //				tcc.setVisible(true);
