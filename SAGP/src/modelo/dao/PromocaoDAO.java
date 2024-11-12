@@ -6,7 +6,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import controle.PromocaoControle;
 import modelo.classes.Produto;
+import modelo.classes.ProdutosPromocao;
 import modelo.classes.Promocoes;
 import modelo.enumerador.Categoria;
 
@@ -26,7 +28,7 @@ public ArrayList<Promocoes> getPromocoes() {
 			{
 				Promocoes promo = new Promocoes();
 				promo.setIdPromocao(reslt.getInt("idPromocao"));
-				promo.setprodutoPromocao(reslt.getString("produtoPromocao"));
+				promo.setprodutoPromocao(reslt.getString("produtoPromocao"), null);
 				promo.setDesconto(reslt.getFloat("desconto"));
 					lista.add(promo);
 				
@@ -46,6 +48,10 @@ public ArrayList<Promocoes> getPromocoes() {
 
 	public void cadastrarPromocao(String produtoPromocao,float desconto) throws SQLException {
 		super.save("insert into promocoes(desconto,dataInicio,dataTermino) values(?,?,?)", produtoPromocao,desconto); //LocalDate
+	}
+	
+	public void alterarPromocao(ProdutosPromocao promo, int desconto) throws SQLException {
+		super.update("UPDATE produtos SET nomeProduto = ?, preco = ?, quantidadeEstoque = ?, categoria = ? WHERE idProduto = ?", promo, desconto);
 	}
 
 }
