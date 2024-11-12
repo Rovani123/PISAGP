@@ -21,34 +21,83 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
 
 public class TelaClienteCarrinho extends JFrame {
 	private JPanel painelProdutos;
 	private ArrayList<Carrinho> listaCarrinhosCompra;
+	private JTextField textField;
 
 	public TelaClienteCarrinho() {
 		setBackground(new Color(230, 230, 230));
-		getContentPane().setLayout(new MigLayout("", "[grow][][][][][][][grow][][][][][][][][][][][][][][][][][][]", "[grow][grow][][][][][][][][][][][][][][][][][][]"));
+		getContentPane().setLayout(new MigLayout("", "[grow][][][][][][][grow][][][][][][][][][][][][][][grow][][][][]", "[grow][grow][][][][][][][][][][][][][][][][][][]"));
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(167, 208, 214));
-		getContentPane().add(panel_1, "cell 0 0 7 20,grow");
-		panel_1.setLayout(new MigLayout("", "[]", "[]"));
+		getContentPane().add(panel_1, "cell 0 0 7 20,alignx left,growy");
+		panel_1.setLayout(new MigLayout("", "[][][]", "[][][][][][][][][][]"));
 		
-		JButton btnNewButton = new JButton("");
+		RoundButton btnNewButton_2 = new RoundButton("");
+		btnNewButton_2.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/volte.png")));
+		panel_1.add(btnNewButton_2, "cell 1 0");
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/LogoPequena.png")));
+		panel_1.add(lblNewLabel_2, "cell 1 2");
+		
+		JLabel lblNewLabel_3 = new JLabel("Categorias:");
+		panel_1.add(lblNewLabel_3, "cell 1 5");
+		
+		JLabel lblNewLabel_4 = new JLabel("");
+		lblNewLabel_4.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/biscoitos.png")));
+		panel_1.add(lblNewLabel_4, "cell 0 6");
+		
+		RoundButton btnNewButton_3 = new RoundButton("Salgado");
+		panel_1.add(btnNewButton_3, "cell 1 6");
+		
+		JLabel lblNewLabel_5 = new JLabel("");
+		lblNewLabel_5.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/bolinho.png")));
+		panel_1.add(lblNewLabel_5, "cell 0 7");
+		
+		RoundButton btnNewButton_4 = new RoundButton("Doce");
+		panel_1.add(btnNewButton_4, "cell 1 7");
+		
+		JLabel lblNewLabel_6 = new JLabel("");
+		lblNewLabel_6.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/garrafa-de-agua.png")));
+		panel_1.add(lblNewLabel_6, "cell 0 8");
+		
+		RoundButton btnNewButton_5 = new RoundButton("Bebidas");
+		panel_1.add(btnNewButton_5, "cell 1 8");
+		
+		JLabel lblNewLabel_7 = new JLabel("");
+		lblNewLabel_7.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/etiqueta-de-desconto.png")));
+		panel_1.add(lblNewLabel_7, "cell 0 9");
+		
+		RoundButton btnNewButton_6 = new RoundButton("Ofertas");
+		panel_1.add(btnNewButton_6, "cell 1 9");
+		
+		RoundButton btnNewButton = new RoundButton("");
 		btnNewButton.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/carrinho-de-compras.png")));
 		getContentPane().add(btnNewButton, "cell 7 0");
 		
 		JLabel lblNewLabel = new JLabel("Carrinho:");
 		getContentPane().add(lblNewLabel, "cell 8 0");
 		
+		JScrollPane scrollPane = new JScrollPane();
+		getContentPane().add(scrollPane, "cell 7 1 19 17,grow");
+		
 		JPanel panel = new JPanel();
-		getContentPane().add(panel, "cell 7 1 19 17,grow");
+		scrollPane.setViewportView(panel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Total a pagar: ");
-		getContentPane().add(lblNewLabel_1, "cell 20 18");
+		getContentPane().add(lblNewLabel_1, "cell 20 18,alignx trailing");
 		
-		JButton btnNewButton_1 = new JButton("Finalizar compra");
+		textField = new JTextField();
+		getContentPane().add(textField, "cell 21 18 4 1,growx");
+		textField.setColumns(10);
+		
+		RoundButton btnNewButton_1 = new RoundButton("Finalizar compra");
+		btnNewButton_1.setBackground(new Color(224, 83, 76));
 		getContentPane().add(btnNewButton_1, "cell 25 18");
 		
 	}
