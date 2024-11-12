@@ -30,8 +30,16 @@ import javax.swing.JOptionPane;
 public class TelaPromocoes extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
+	private JPanel painel;
 	private JTable table;
+	private JMenuBar menuBar;
+	private JMenu mTelas;
+	private JMenuItem mAdm;
+	private JMenuItem mFuncionario;
+	private JMenu mOpcoes;
+	private JMenuItem mGProdutos;
+	private JMenuItem mPromocoes;
+	private JMenuItem mVoltar;
 
 
 	public TelaPromocoes(JFrame telaA, JFrame telaC, Funcionario f) {
@@ -39,39 +47,40 @@ public class TelaPromocoes extends JFrame {
 		setExtendedState(MAXIMIZED_BOTH);
 		setBounds(100, 100, 1125, 607);
 		
-		JMenuBar menuBar = new JMenuBar();
+		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu mnNewMenu = new JMenu("Telas");
-		menuBar.add(mnNewMenu);
+		mTelas = new JMenu("Telas");
+		menuBar.add(mTelas);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Administrador ");
-		mnNewMenu.add(mntmNewMenuItem);
+		mAdm = new JMenuItem("Administrador ");
+		mTelas.add(mAdm);
 		
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Funcionário ");
-		mnNewMenu.add(mntmNewMenuItem_1);
+		mFuncionario = new JMenuItem("Funcionário ");
+		mTelas.add(mFuncionario);
 		
-		JMenu mnNewMenu_1 = new JMenu("Opções");
-		menuBar.add(mnNewMenu_1);
+		mOpcoes = new JMenu("Opções");
+		menuBar.add(mOpcoes);
 		
-		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Produtos ");
-		mnNewMenu_1.add(mntmNewMenuItem_4);
+		mGProdutos = new JMenuItem("Produtos ");
+		mOpcoes.add(mGProdutos);
 		
-		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Promoções  ");
-		mnNewMenu_1.add(mntmNewMenuItem_3);
+		mPromocoes = new JMenuItem("Promoções  ");
+		mPromocoes.setEnabled(false);
+		mOpcoes.add(mPromocoes);
 		
-		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Voltar ao início");
-		menuBar.add(mntmNewMenuItem_2);
-		contentPane = new JPanel();
-		contentPane.setBackground(new Color(230, 230, 230));
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		mVoltar = new JMenuItem("Voltar ao início");
+		menuBar.add(mVoltar);
+		painel = new JPanel();
+		painel.setBackground(new Color(230, 230, 230));
+		painel.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[grow][][][][][][][][][][][][][][][][][][][][][][grow]", "[grow][][grow][][grow][][grow]"));
+		setContentPane(painel);
+		painel.setLayout(new MigLayout("", "[grow][][][][][][][][][][][][][][][][][][][][][][grow]", "[grow][][grow][][grow][][grow]"));
 		
 		JPanel barraLateral = new JPanel();
 		barraLateral.setBackground(new Color(167, 208, 214));
-		contentPane.add(barraLateral, "cell 0 0 1 7,alignx left,growy");
+		painel.add(barraLateral, "cell 0 0 1 7,alignx left,growy");
 		barraLateral.setLayout(new MigLayout("", "[]", "[][][][grow][][grow][][][grow][][][grow][][grow][]"));
 		
 		JButton btVoltar = new RoundButton("");
@@ -170,14 +179,21 @@ public class TelaPromocoes extends JFrame {
 		
 		JLabel lblNewLabel_6 = new JLabel("PRODUTOS EM PROMOÇÃO");
 		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		contentPane.add(lblNewLabel_6, "cell 1 0 21 1");
+		painel.add(lblNewLabel_6, "cell 1 0 21 1");
 		
 		JScrollPane scrollPane = new JScrollPane();
-		contentPane.add(scrollPane, "cell 1 1 22 6,grow");
+		painel.add(scrollPane, "cell 1 1 22 6,grow");
 		
 		table = new JTable();
 		table.setBackground(new Color(230, 230, 230));
 		scrollPane.setViewportView(table);
+	}
+	
+	private void menuAdm(Funcionario f) {
+		JFrame tela = this;
+		if (f.getadministrador() == 1) {
+			mAdm.setEnabled(true);
+		}
 	}
 
 }
