@@ -192,6 +192,7 @@ public class TelaCompra extends JFrame {
 //				for (Carrinho carrinhol : listaCarrinhosCompra) {
 //					JOptionPane.showMessageDialog(null, carrinhol.getIdProduto());
 //				}
+<<<<<<< HEAD
 //				TelaClienteCarrinho tcc = new TelaClienteCarrinho();
 //				dispose();		
 //				tcc.setVisible(true);
@@ -201,6 +202,11 @@ public class TelaCompra extends JFrame {
 //				dispose();		
 //				tcc.setVisible(true);
 >>>>>>> parent of 6ae0df2 (tentei arrumar as telas de promoções)
+=======
+				TelaClienteCarrinho tcc = new TelaClienteCarrinho();
+				dispose();		
+				tcc.setVisible(true);
+>>>>>>> origin/main
 			}
 		});
 		painelMenu.add(btnNewButton_1, "cell 1 15,alignx center");
