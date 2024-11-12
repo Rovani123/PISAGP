@@ -88,10 +88,11 @@ public class TelaGerenciamentoP extends JFrame {
 		mOpcoes.add(mGProdutos);
 
 		JMenuItem mPromocoes = new JMenuItem("Promoções  ");
-		mPromocoes.setEnabled(false);
 		mPromocoes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// fazer telas
+				TelaPromocoes tp = new TelaPromocoes(telaA, tela, f);
+				tp.setVisible(true);
+				dispose();
 			}
 		});
 		mOpcoes.add(mPromocoes);
