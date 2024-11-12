@@ -195,11 +195,6 @@ public class TelaCompra extends JFrame {
 		painelProdutos.setLayout(new MigLayout("", "[]", "[]"));
 
 		getProdutos();
-//		criarVendas();
-	}
-
-	private void criarVendas() {
-		Vendas venda = new Vendas();
 	}
 
 	private void getProdutos() {

@@ -27,8 +27,6 @@ import java.awt.Frame;
 
 public class TelaClienteCarrinho extends JFrame {
 	private JPanel painelProdutos;
-	private JTextField textField;
-	private ArrayList<Produto> listaProdutos = new ArrayList<Produto>();
 	private ArrayList<Carrinho> listaCarrinhos;
 	
 	public TelaClienteCarrinho(JFrame telaA,ArrayList<Carrinho> listaCarrinhos) {
@@ -126,9 +124,9 @@ public class TelaClienteCarrinho extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel("Total a pagar: ");
 		panel_3.add(lblNewLabel_1);
 		
-		textField = new JTextField();
-		panel_3.add(textField);
-		textField.setColumns(10);
+		JLabel lblTotalPagar = new JLabel("");
+		lblTotalPagar.setText(String.valueOf(calcTotal()));
+		panel_3.add(lblTotalPagar);
 		
 		RoundButton btnNewButton_1 = new RoundButton("Finalizar compra");
 		panel_3.add(btnNewButton_1);
@@ -144,26 +142,29 @@ public class TelaClienteCarrinho extends JFrame {
 
 		painelProdutos.removeAll();
 		ProdutoControle pc = new ProdutoControle();
-		listaProdutos = pc.getProdutos();
 
 		int c = 0;
 		int l = 0;
 
-		for (Produto produto : listaProdutos) {
-
-			for(Carrinho carrinho:listaCarrinhos) {
-				PainelProduto pp = new PainelProduto(produto, carrinho);
-				painelProdutos.add(pp, "cell " + l + " " + c);
-			}
-			
-
-
+		ProdutoControle pc2 = new ProdutoControle();
+		for(Carrinho carrinho :listaCarrinhos) {
+			PainelProduto pp = new PainelProduto(pc2.getProdutoId(carrinho.getIdProduto()), carrinho);
+			painelProdutos.add(pp, "cell " + l + " " + c);
 			l++;
 			if (l % 3 == 0) {
 				c++;
 				l = 0;
 			}
 		}
+		
 	}
 	
+	private float calcTotal() {
+		float reultado=0;
+		ProdutoControle pc = new ProdutoControle();
+		for (Carrinho carrinho : listaCarrinhos) {
+			reultado += carrinho.getQuantidade()*pc.getProdutoId(carrinho.getIdProduto()).getPreco();
+		}
+		return reultado;
+	}
 }

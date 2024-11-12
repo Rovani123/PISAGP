@@ -85,6 +85,40 @@ public class ProdutoDAO extends ModeloDAO{
 		
 	}
 	
+	public Produto getProdutoId(int id) {
+		Statement stml = null;
+		Connection conn = getConnection();
+		
+		
+		try {
+			stml = (Statement) conn.createStatement();
+			ResultSet reslt = null;
+			reslt = stml.executeQuery("SELECT * FROM PRODUTOS WHERE idProduto = "+String.valueOf(id));
+			Produto p = new Produto();
+			
+			while(reslt.next())
+			{
+					p.setIdProduto(reslt.getInt("idProduto"));
+					p.setNomeProduto(reslt.getString("nomeProduto"));
+					p.setPreco(reslt.getFloat("preco"));
+					p.setQuantidadeEstoque(reslt.getInt("quantidadeEstoque"));
+					Categoria cat = Categoria.categoriaString(reslt.getString("categoria"));
+					p.setCategoria(cat);
+				
+				};
+			
+			reslt.close();
+			stml.close();
+			conn.close();
+			return p;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+	
 	public void alterarProduto(Produto p) throws SQLException {
 		super.update("UPDATE produtos SET nomeProduto = ?, preco = ?, quantidadeEstoque = ?, categoria = ? WHERE idProduto = ?", p.getIdProduto(), p.getNomeProduto(),p.getPreco(),p.getQuantidadeEstoque(),p.getCategoria().toString());
 	}
