@@ -183,9 +183,9 @@ public class TelaCompra extends JFrame {
 				for (Carrinho carrinhol : listaCarrinhosCompra) {
 					JOptionPane.showMessageDialog(null, carrinhol.getIdProduto());
 				}
-//				TelaClienteCarrinho tcc = new TelaClienteCarrinho();
-//				dispose();		
-//				tcc.setVisible(true);
+				TelaClienteCarrinho tcc = new TelaClienteCarrinho();
+				dispose();		
+				tcc.setVisible(true);
 			}
 		});
 		painelMenu.add(btnNewButton_1, "cell 1 15,alignx center");
