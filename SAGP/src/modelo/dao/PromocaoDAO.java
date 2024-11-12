@@ -60,4 +60,5 @@ public ArrayList<Promocoes> getPromocoes() {
 		
 	}
 
+
 }

@@ -51,9 +51,5 @@ public class Promocoes {
 	public void setProdutoPromocao(String produtoPromocao) {
 		this.produtoPromocao = produtoPromocao;
 	}
-	public void setprodutoPromocao(String string, Object produtoPromocao2) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 }
