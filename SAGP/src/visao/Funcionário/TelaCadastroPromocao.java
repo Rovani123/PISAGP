@@ -92,7 +92,7 @@ public class TelaCadastroPromocao extends JFrame {
         btnNewButton_2.setForeground(new Color(245, 245, 245));
         btnNewButton_2.setBackground(new Color(224, 83, 76));
         btnNewButton_2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) throws SQLException {
+            public void actionPerformed(ActionEvent e) {
                String produtoPromocao = null;
                float desconto= 0;
                LocalDate dataI = null;
@@ -111,11 +111,17 @@ public class TelaCadastroPromocao extends JFrame {
                if (txtProdutoP.getText().isEmpty() || txtDesconto.getText().isEmpty() || txtDataInicio.getText().isEmpty() || txtDataTermino.getText().isEmpty()){
 					JOptionPane.showMessageDialog(null, "Todos os campos precisam ser preenchidos");
 				}else {
-					cadastrarPromocao (produtoPromocao, desconto, dataInicio, dataTermino.toString());
-					TelaPromocoes telaPromocoes = new TelaPromocoes(telaC, telaC, f);
-					dispose();
-					telaPromocoes.setVisible(true);
-					JOptionPane.showMessageDialog(null, "Prmoção cadastrada com sucesso");
+					try {
+						cadastrarPromocao (produtoPromocao, desconto, dataInicio, dataTermino.toString());
+						TelaPromocoes telaPromocoes = new TelaPromocoes(telaC, f);
+						dispose();
+						telaPromocoes.setVisible(true);
+						JOptionPane.showMessageDialog(null, "Prmoção cadastrada com sucesso");
+					} catch (SQLException e1) {
+						e1.printStackTrace();
+						JOptionPane.showMessageDialog(null, "Não foi possivel adicionar esse produto");
+
+					}
 				}
             }
         });
@@ -141,7 +147,7 @@ public class TelaCadastroPromocao extends JFrame {
         btnNewButton_1.setBackground(new Color(0, 0, 0));
         btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            	TelaPromocoes telaE = new TelaPromocoes(telaC, telaC, f);
+            	TelaPromocoes telaE = new TelaPromocoes(telaC, f);
 				dispose();
 				telaE.setVisible(true);
             }
@@ -149,12 +155,7 @@ public class TelaCadastroPromocao extends JFrame {
         contentPane.add(btnNewButton_1, "cell 7 14");
     }
 
-    protected void cadastrarPromocao(String produtoPromocao, float desconto, LocalDate dataInicio, String string) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private void cadastrarPromocoes(String produtoPromocao, float desconto) throws SQLException {//LocalDate
+    private void cadastrarPromocoes(String produtoPromocao, float desconto) throws SQLException {//LocalDate
 		PromocaoControle promoc = new PromocaoControle();
 		promoc.cadastrarPromocao(produtoPromocao, desconto); //LocalDate
 

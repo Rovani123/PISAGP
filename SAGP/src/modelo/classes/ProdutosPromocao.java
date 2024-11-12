@@ -1,7 +1,5 @@
 package modelo.classes;
 
-import java.sql.Date;
-
 public class ProdutosPromocao {
 
 	private int idProdutosPromocao;
@@ -25,18 +23,6 @@ public class ProdutosPromocao {
 	}
 	public void setIdPromocao(int idPromocao) {
 		this.idPromocao = idPromocao;
-	}
-	public int getDesconto() {
-		return idProdutosPromocao;
-	}
-	public void setDesconto(float desconto) {
-		
-	}
-	public Date getDataI() {
-		return null;
-	}
-	public Date getDataT() {
-		return null;
 	}
 	
 }
