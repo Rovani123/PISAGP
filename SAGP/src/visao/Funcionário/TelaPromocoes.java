@@ -114,7 +114,7 @@ public class TelaPromocoes extends JFrame {
 				try {
 					Produto promcao = ((ProdutosTableModel) table.getModel()).getItem(table.getSelectedRow());
 
-					TelaAlteracaoPromocao tap = new TelaAlteracaoPromocao(telaA, f);
+					TelaAlteracaoPromocao tap = new TelaAlteracaoPromocao(telaA, f, null);
 					dispose();
 					tap.setVisible(true);
 				} catch (Exception e1) {
