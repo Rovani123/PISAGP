@@ -41,4 +41,9 @@ public class ProdutoControle {
 		pdao.cadastrarProduto(nome, preco, quantidade, categoria,foto);
 		
 	}	
+	
+	public Produto getProdutoId(int id) {
+		ProdutoDAO pdao = new ProdutoDAO();
+		return pdao.getProdutoId(id);
+		}
 }

@@ -74,5 +74,6 @@ public class PainelProduto extends JPanel {
 			}
 		});
 		add(btMais, "cell 9 10");
+		lblQuantidade.setText(String.valueOf(carrinho.getQuantidade()));
 	}
 }

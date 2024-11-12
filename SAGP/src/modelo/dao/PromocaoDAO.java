@@ -1,12 +1,15 @@
 package modelo.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import controle.PromocaoControle;
 import modelo.classes.Produto;
+import modelo.classes.ProdutosPromocao;
 import modelo.classes.Promocoes;
 import modelo.enumerador.Categoria;
 
@@ -26,7 +29,7 @@ public ArrayList<Promocoes> getPromocoes() {
 			{
 				Promocoes promo = new Promocoes();
 				promo.setIdPromocao(reslt.getInt("idPromocao"));
-				promo.setprodutoPromocao(reslt.getString("produtoPromocao"));
+				promo.setprodutoPromocao(reslt.getString("produtoPromocao"), null);
 				promo.setDesconto(reslt.getFloat("desconto"));
 					lista.add(promo);
 				
@@ -42,10 +45,20 @@ public ArrayList<Promocoes> getPromocoes() {
 			return null;
 		}
 		
+}
+		
+	
+	
+	public void cadastrarPromocao(String produtoPromocao, float desconto, Object dataI, Object dataT) throws SQLException {
+		super.save("insert into promocoes(desconto,dataInicio,dataTermino) values(?,?,?)", produtoPromocao,desconto, dataI, dataT);
+	}
+	public void alterarPromocao(ProdutosPromocao promo, int i) throws SQLException {
+		super.update("UPDATE produtos SET idPromocao = ?, idProduto = ?, desconto = ?, dataInicio = ?, dataTermino = ?, idProdutoPromocao = ? WHERE idPromocao = ?",promo.getIdPromocao(), promo.getIdProduto(), promo.getDesconto(),promo.getDataI(), promo.getDataT(), promo.getIdPromocao());
+	}
+	public void deletarPromocao(Promocoes ap) throws SQLException {
+		super.delete("DELETE FROM promocoes WHERE idPromocao = ?", ap.getIdPromocao());
+		
 	}
 
-	public void cadastrarPromocao(String produtoPromocao,float desconto) throws SQLException {
-		super.save("insert into promocoes(desconto,dataInicio,dataTermino) values(?,?,?)", produtoPromocao,desconto); //LocalDate
-	}
 
 }

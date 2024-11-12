@@ -9,6 +9,7 @@ public class Promocoes {
 	private float desconto;
 	private LocalDate dataInicio;
 	private LocalDate dataTermino;
+	private String produtoPromocao;
 	
 	public int getIdPromocao() {
 		return idPromocao;
@@ -21,6 +22,10 @@ public class Promocoes {
 	}
 	public void setIdProduto(int idProduto) {
 		this.idProduto = idProduto;
+	}
+	public void setprodutoPromocao(String string, String produtoPromocao) {
+		this.setProdutoPromocao(produtoPromocao);
+		
 	}
 	public float getDesconto() {
 		return desconto;
@@ -40,6 +45,11 @@ public class Promocoes {
 	public void setDataTermino(LocalDate dataTermino) {
 		this.dataTermino = dataTermino;
 	}
-	
+	public String getProdutoPromocao() {
+		return produtoPromocao;
+	}
+	public void setProdutoPromocao(String produtoPromocao) {
+		this.produtoPromocao = produtoPromocao;
+	}
 	
 }

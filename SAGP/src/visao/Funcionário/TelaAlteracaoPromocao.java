@@ -103,7 +103,7 @@ public class TelaAlteracaoPromocao extends JFrame {
 					JOptionPane.showMessageDialog(null, "Todos os campos precisam ser preenchidos");
 				} else {
 					try {
-						alterarPromocao(promo, desconto); //LocalDate
+						alterarPromocao(promo, (int) desconto); //LocalDate
 						TelaGerenciamentoP telaGerenciamentoP = new TelaGerenciamentoP(telaA, f);
 						dispose();
 						telaGerenciamentoP.setVisible(true);

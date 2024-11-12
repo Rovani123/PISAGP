@@ -180,33 +180,9 @@ public class TelaCompra extends JFrame {
 						}
 					}
 				}
-<<<<<<< HEAD
-				for (Carrinho carrinhol : listaCarrinhosCompra) {
-					JOptionPane.showMessageDialog(null, carrinhol.getIdProduto());
-				}
-<<<<<<< HEAD
-				TelaClienteCarrinho tcc = new TelaClienteCarrinho();
+				TelaClienteCarrinho tcc = new TelaClienteCarrinho(tela,listaCarrinhosCompra);
 				dispose();		
 				tcc.setVisible(true);
-=======
-//				for (Carrinho carrinhol : listaCarrinhosCompra) {
-//					JOptionPane.showMessageDialog(null, carrinhol.getIdProduto());
-//				}
-<<<<<<< HEAD
-//				TelaClienteCarrinho tcc = new TelaClienteCarrinho();
-//				dispose();		
-//				tcc.setVisible(true);
->>>>>>> a18394a1bbcb0ed67a831a9dfb34e84feee82e77
-=======
-//				TelaClienteCarrinho tcc = new TelaClienteCarrinho();
-//				dispose();		
-//				tcc.setVisible(true);
->>>>>>> parent of 6ae0df2 (tentei arrumar as telas de promoções)
-=======
-				TelaClienteCarrinho tcc = new TelaClienteCarrinho();
-				dispose();		
-				tcc.setVisible(true);
->>>>>>> origin/main
 			}
 		});
 		painelMenu.add(btnNewButton_1, "cell 1 15,alignx center");
@@ -219,11 +195,6 @@ public class TelaCompra extends JFrame {
 		painelProdutos.setLayout(new MigLayout("", "[]", "[]"));
 
 		getProdutos();
-//		criarVendas();
-	}
-
-	private void criarVendas() {
-		Vendas venda = new Vendas();
 	}
 
 	private void getProdutos() {
