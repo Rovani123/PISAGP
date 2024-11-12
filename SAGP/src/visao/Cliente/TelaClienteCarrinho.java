@@ -27,25 +27,16 @@ import java.awt.Frame;
 
 public class TelaClienteCarrinho extends JFrame {
 	private JPanel painelProdutos;
-	private ArrayList<Carrinho> listaCarrinhosCompra;
 	private JTextField textField;
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaClienteCarrinho frame = new TelaClienteCarrinho();
-					frame.setBounds(0, 0, 600, 480);;
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private ArrayList<Produto> listaProdutos = new ArrayList<Produto>();
+	private ArrayList<Carrinho> listaCarrinhos;
 	
-	public TelaClienteCarrinho() {
+	public TelaClienteCarrinho(JFrame telaA,ArrayList<Carrinho> listaCarrinhos) {
+		TelaClienteCarrinho tela = this;
+		
+		this.listaCarrinhos = listaCarrinhos;
 		setExtendedState(Frame.MAXIMIZED_BOTH);
+		setBounds(100, 100, 985, 625);
 		setBackground(new Color(230, 230, 230));
 		getContentPane().setLayout(new MigLayout("", "[grow][][][][][][][grow][][][][][][][][][][][][][][grow][][][][]", "[grow][grow][][][][][][][][][][][][][][][][][grow][]"));
 		
@@ -126,8 +117,8 @@ public class TelaClienteCarrinho extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		getContentPane().add(scrollPane, "cell 7 1 19 17,grow");
 		
-		JPanel panel = new JPanel();
-		scrollPane.setViewportView(panel);
+		painelProdutos = new JPanel();
+		scrollPane.setViewportView(painelProdutos);
 		
 		JPanel panel_3 = new JPanel();
 		getContentPane().add(panel_3, "cell 7 18 19 2,alignx right,growy");
@@ -147,8 +138,32 @@ public class TelaClienteCarrinho extends JFrame {
 			}
 		});
 		btnNewButton_1.setBackground(new Color(224, 83, 76));
-		
+		getProdutos();
 	}
+	private void getProdutos() {
 
+		painelProdutos.removeAll();
+		ProdutoControle pc = new ProdutoControle();
+		listaProdutos = pc.getProdutos();
+
+		int c = 0;
+		int l = 0;
+
+		for (Produto produto : listaProdutos) {
+
+			for(Carrinho carrinho:listaCarrinhos) {
+				PainelProduto pp = new PainelProduto(produto, carrinho);
+				painelProdutos.add(pp, "cell " + l + " " + c);
+			}
+			
+
+
+			l++;
+			if (l % 3 == 0) {
+				c++;
+				l = 0;
+			}
+		}
+	}
 	
 }
