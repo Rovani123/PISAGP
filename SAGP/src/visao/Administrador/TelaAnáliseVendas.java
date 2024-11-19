@@ -1,8 +1,12 @@
 package visao.Administrador;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -27,6 +31,21 @@ public class TelaAnáliseVendas extends JFrame {
 
 
 	public TelaAnáliseVendas(JFrame telaA, Funcionario f) {
+		
+		Font font = new Font("Tahoma", Font.PLAIN, 11);;
+		try {
+			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
+			
+			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
+	
+		} catch (FontFormatException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		TelaAnáliseVendas tela = this;
 		
 		setBackground(new Color(230, 230, 230));
@@ -37,12 +56,15 @@ public class TelaAnáliseVendas extends JFrame {
 		setJMenuBar(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("TELAS");
+		mnNewMenu.setFont(font);
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Adminstrador");
+		mntmNewMenuItem.setFont(font);
 		mnNewMenu.add(mntmNewMenuItem);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Funcionario");
+		mntmNewMenuItem_1.setFont(font);
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
@@ -55,12 +77,15 @@ public class TelaAnáliseVendas extends JFrame {
 		mnNewMenu.add(mntmNewMenuItem_1);
 		
 		JMenu mnNewMenu_1 = new JMenu("OPÇOES");
+		mnNewMenu_1.setFont(font);
 		menuBar.add(mnNewMenu_1);
 		
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Análise de vendas");
+		mntmNewMenuItem_2.setFont(font);
 		mnNewMenu_1.add(mntmNewMenuItem_2);
 		
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem(" funcionarios");
+		mntmNewMenuItem_3.setFont(font);
 		mntmNewMenuItem_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -73,6 +98,7 @@ public class TelaAnáliseVendas extends JFrame {
 		mnNewMenu_1.add(mntmNewMenuItem_3);
 		
 		JMenuItem mntmNewMenuItem_4 = new JMenuItem("TELA INICIAL");
+		mntmNewMenuItem_4.setFont(font);
 		mntmNewMenuItem_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
@@ -90,6 +116,7 @@ public class TelaAnáliseVendas extends JFrame {
 		contentPane.setLayout(new MigLayout("", "[][grow]", "[][][grow]"));
 		
 		RoundButton btnNewButton = new RoundButton("Sair");
+		btnNewButton.setFont(font);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -100,6 +127,7 @@ public class TelaAnáliseVendas extends JFrame {
 		contentPane.add(btnNewButton, "cell 0 0");
 		
 		JLabel lblNewLabel = new JLabel("TABELA DE VENDAS:");
+		lblNewLabel.setFont(font);
 		contentPane.add(lblNewLabel, "cell 1 0,alignx center");
 		
 		JScrollPane scrollPane = new JScrollPane();

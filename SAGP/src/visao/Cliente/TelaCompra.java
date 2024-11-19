@@ -69,7 +69,23 @@ public class TelaCompra extends JFrame {
 
 	public TelaCompra() {
 		TelaCompra tela = this;
+		
+		  Font font = new Font("Tahoma", Font.PLAIN, 11);;
+		try {
+			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
+			
+			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
+			
 
+			
+		} catch (FontFormatException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 985, 625);
 		painelPrincipal = new JPanel();
@@ -80,6 +96,7 @@ public class TelaCompra extends JFrame {
 				"[grow][][grow][][][][][][][][][][][][][][][]"));
 
 		txtPesquisa = new JTextField();
+		txtPesquisa.setFont(font);
 		txtPesquisa.setForeground(new Color(230, 230, 230));
 		txtPesquisa.setText("Pesquisar");
 		painelPrincipal.add(txtPesquisa, "cell 1 0 12 1,growx");
@@ -121,29 +138,12 @@ public class TelaCompra extends JFrame {
 		painelMenu.add(lblLogo, "cell 0 2 2 1");
 
 		lblCategorias = new JLabel("Categorias:");
-		
-		  Font font;
-		try {
-			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
-			
-			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
-			lblCategorias.setFont(font);
-
-			
-		} catch (FontFormatException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-          
-
-		
+		lblCategorias.setFont(font);
 		painelMenu.add(lblCategorias, "cell 0 5 2 1,alignx left");
 
 		btSalgados = new RoundButton("Salgado");
-		btSalgados.addActionListener(new ActionListener() {
+		btSalgados.setFont(font);
+        btSalgados.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				getProdutosFiltro(Categoria.categoriaString("salgados"));
 
@@ -156,6 +156,7 @@ public class TelaCompra extends JFrame {
 		painelMenu.add(btSalgados, "cell 1 6,alignx left");
 
 		btDoces = new RoundButton("Doce");
+		btDoces.setFont(font);
 		btDoces.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				getProdutosFiltro(Categoria.categoriaString("doces"));
@@ -168,6 +169,7 @@ public class TelaCompra extends JFrame {
 		painelMenu.add(btDoces, "cell 1 7,alignx left");
 
 		btBebidas = new RoundButton("Bebidas");
+		btBebidas.setFont(font);
 		btBebidas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				getProdutosFiltro(Categoria.categoriaString("bebidas"));
@@ -180,6 +182,7 @@ public class TelaCompra extends JFrame {
 		painelMenu.add(btBebidas, "cell 1 8,alignx left");
 
 		btOfertas = new RoundButton("Ofertas");
+		btOfertas.setFont(font);
 		btOfertas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -190,6 +193,7 @@ public class TelaCompra extends JFrame {
 		painelMenu.add(btOfertas, "cell 1 9,alignx left");
 
 		btnNewButton_1 = new RoundButton("Carrinho");
+		btnNewButton_1.setFont(font);
 		btnNewButton_1.setBackground(new Color(224, 83, 76));
 		btnNewButton_1.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/carrinho-de-compras.png")));
 		btnNewButton_1.setText("");

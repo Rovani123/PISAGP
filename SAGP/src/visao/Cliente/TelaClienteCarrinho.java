@@ -1,6 +1,8 @@
 package visao.Cliente;
 
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.FontFormatException;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -20,6 +22,8 @@ import javax.swing.JTable;
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
@@ -30,6 +34,21 @@ public class TelaClienteCarrinho extends JFrame {
 	private ArrayList<Carrinho> listaCarrinhos;
 	
 	public TelaClienteCarrinho(JFrame telaA,ArrayList<Carrinho> listaCarrinhos) {
+		
+		Font font = new Font("Tahoma", Font.PLAIN, 11);;
+		try {
+			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
+			
+			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
+				
+		} catch (FontFormatException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		TelaClienteCarrinho tela = this;
 		
 		this.listaCarrinhos = listaCarrinhos;
@@ -44,6 +63,7 @@ public class TelaClienteCarrinho extends JFrame {
 		panel_1.setLayout(new MigLayout("", "[][][]", "[][][][][][][][][][][][][]"));
 		
 		RoundButton btnNewButton_2 = new RoundButton("");
+		btnNewButton_2.setFont(font);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -57,6 +77,7 @@ public class TelaClienteCarrinho extends JFrame {
 		panel_1.add(lblNewLabel_2, "cell 1 2");
 		
 		JLabel lblNewLabel_3 = new JLabel("Categorias:");
+		lblNewLabel_3.setFont(font);
 		panel_1.add(lblNewLabel_3, "cell 1 5");
 		
 		JLabel lblNewLabel_4 = new JLabel("");
@@ -64,6 +85,7 @@ public class TelaClienteCarrinho extends JFrame {
 		panel_1.add(lblNewLabel_4, "cell 0 6");
 		
 		RoundButton btnNewButton_3 = new RoundButton("Salgado");
+		btnNewButton_3.setFont(font);
 		panel_1.add(btnNewButton_3, "cell 1 6");
 		
 		JLabel lblNewLabel_5 = new JLabel("");
@@ -71,6 +93,7 @@ public class TelaClienteCarrinho extends JFrame {
 		panel_1.add(lblNewLabel_5, "cell 0 7");
 		
 		RoundButton btnNewButton_4 = new RoundButton("Doce");
+		btnNewButton_4.setFont(font);
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -83,6 +106,7 @@ public class TelaClienteCarrinho extends JFrame {
 		panel_1.add(lblNewLabel_6, "cell 0 8");
 		
 		RoundButton btnNewButton_5 = new RoundButton("Bebidas");
+		btnNewButton_5.setFont(font);
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -95,6 +119,7 @@ public class TelaClienteCarrinho extends JFrame {
 		panel_1.add(lblNewLabel_7, "cell 0 9");
 		
 		RoundButton btnNewButton_6 = new RoundButton("Ofertas");
+		btnNewButton_6.setFont(font);
 		btnNewButton_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -110,6 +135,7 @@ public class TelaClienteCarrinho extends JFrame {
 		panel_2.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("Carrinho:");
+		lblNewLabel.setFont(font);
 		panel_2.add(lblNewLabel);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -122,6 +148,7 @@ public class TelaClienteCarrinho extends JFrame {
 		getContentPane().add(panel_3, "cell 7 18 19 2,alignx right,growy");
 		
 		JLabel lblNewLabel_1 = new JLabel("Total a pagar: ");
+		lblNewLabel_1.setFont(font);
 		panel_3.add(lblNewLabel_1);
 		
 		JLabel lblTotalPagar = new JLabel("");
@@ -129,6 +156,7 @@ public class TelaClienteCarrinho extends JFrame {
 		panel_3.add(lblTotalPagar);
 		
 		RoundButton btnNewButton_1 = new RoundButton("Finalizar compra");
+		btnNewButton_1.setFont(font);
 		panel_3.add(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
