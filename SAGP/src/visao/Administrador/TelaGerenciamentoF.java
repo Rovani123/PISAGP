@@ -230,6 +230,10 @@ public class TelaGerenciamentoF extends JFrame {
 		barraLateral.add(btAdicionar, "cell 1 11 2 1,growx,aligny center");
 		
 		btPesquisar = new RoundButton("");
+		btPesquisar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btPesquisar.setBackground(new Color(230, 230, 230));
 		btPesquisar.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/lupa.png")));
 		painel.add(btPesquisar, "cell 16 1,alignx center");
