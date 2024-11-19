@@ -107,40 +107,40 @@ public class TelaDeTes2 extends JFrame {
 		setContentPane(painel);
 		painel.setLayout(new BorderLayout(0, 0));
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(167, 208, 214));
-		painel.add(panel, BorderLayout.WEST);
-		panel.setLayout(new MigLayout("", "[]", "[][][][][][][][][][][grow][]"));
+		JPanel BarraLateral = new JPanel();
+		BarraLateral.setBackground(new Color(167, 208, 214));
+		painel.add(BarraLateral, BorderLayout.WEST);
+		BarraLateral.setLayout(new MigLayout("", "[]", "[][][][][][][][][][][grow][]"));
 		
 		JLabel lblLogo = new JLabel("");
 		lblLogo.setIcon(new ImageIcon(TelaDeTes2.class.getResource("/Imagem/LogoPequena.png")));
-		panel.add(lblLogo, "cell 0 1,alignx left,aligny center");
+		BarraLateral.add(lblLogo, "cell 0 1,alignx left,aligny center");
 		
 		JLabel lblTabelaFunc = new JLabel("TABELA DE FUNCIONÁRIO");
 		lblTabelaFunc.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		panel.add(lblTabelaFunc, "cell 0 3,alignx left,aligny center");
+		BarraLateral.add(lblTabelaFunc, "cell 0 3,alignx left,aligny center");
 		
 		JLabel lblIconAlterar = new JLabel("");
 		lblIconAlterar.setIcon(new ImageIcon(TelaDeTes2.class.getResource("/Imagem/troca.png")));
-		panel.add(lblIconAlterar, "flowx,cell 0 4,alignx left,aligny center");
+		BarraLateral.add(lblIconAlterar, "flowx,cell 0 4,alignx left,aligny center");
 		
 		JLabel lblIconRemover = new JLabel("");
 		lblIconRemover.setIcon(new ImageIcon(TelaDeTes2.class.getResource("/Imagem/lixeira.png")));
-		panel.add(lblIconRemover, "flowx,cell 0 5");
+		BarraLateral.add(lblIconRemover, "flowx,cell 0 5");
 		
 		JLabel lblIconAdicionar = new JLabel("");
 		lblIconAdicionar.setIcon(new ImageIcon(TelaDeTes2.class.getResource("/Imagem/lupa.png")));
-		panel.add(lblIconAdicionar, "flowx,cell 0 6");
+		BarraLateral.add(lblIconAdicionar, "flowx,cell 0 6");
 		
 		JButton btAdicionar = new RoundButton("ADICIONAR");
 		btAdicionar.setForeground(new Color(245, 245, 245));
 		btAdicionar.setBackground(new Color(224, 83, 76));
-		panel.add(btAdicionar, "cell 0 6,alignx left,aligny center");
+		BarraLateral.add(btAdicionar, "cell 0 6,alignx left,aligny center");
 		
 		JButton btRemover = new RoundButton("REMOVER");
 		btRemover.setForeground(new Color(245, 245, 245));
 		btRemover.setBackground(new Color(224, 83, 76));
-		panel.add(btRemover, "cell 0 5,alignx left,aligny center");
+		BarraLateral.add(btRemover, "cell 0 5,alignx left,aligny center");
 		
 		JButton btAlterar = new RoundButton("ALTERAR");
 		btAlterar.setForeground(new Color(245, 245, 245));
@@ -149,7 +149,7 @@ public class TelaDeTes2 extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		panel.add(btAlterar, "cell 0 4");
+		BarraLateral.add(btAlterar, "cell 0 4");
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(new Color(230, 230, 230));
