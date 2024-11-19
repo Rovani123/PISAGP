@@ -125,6 +125,9 @@ public class TelaGerenciamentoF extends JFrame {
 		painel.setBackground(new Color(230, 230, 230));
 		painel.setBorder(new EmptyBorder(5, 5, 5, 5));
 
+		
+		
+		//Fim do menu
 		setContentPane(painel);
 		painel.setLayout(new MigLayout("", "[][][][][][][][][][][][][][][][][][grow]", "[][][grow]"));
 		

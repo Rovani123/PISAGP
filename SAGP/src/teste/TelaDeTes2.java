@@ -29,6 +29,7 @@ import modelo.classes.Funcionario;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
 import visao.TelaInicial;
+import visao.Administrador.TelaAnáliseVendas;
 import visao.Administrador.TelaGerenciamentoF;
 import visao.Funcionário.TelaGerenciamentoP;
 import java.awt.Font;
@@ -39,7 +40,7 @@ public class TelaDeTes2 extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaDeTes2 frame = new TelaDeTes2();
+					TelaDeTes2 frame = new TelaDeTes2(null,null);//MUDARRR DEPOISSSSS
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -56,10 +57,13 @@ public class TelaDeTes2 extends JFrame {
 	private JMenuItem mAdm;
 	private JMenuItem mFuncionario;
 	private JMenu mOpcoes;
+	private JMenuItem mAnaliseVendas;
+	private JMenuItem mGFuncionarios;
+	private JMenuItem mVoltar;
 	
 
 	public TelaDeTes2(JFrame telaA,Funcionario f) {
-		TelaGerenciamentoF tela = this;
+//		TelaGerenciamentoF tela = this;
 		
 		setExtendedState(MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -79,27 +83,59 @@ public class TelaDeTes2 extends JFrame {
 		mFuncionario = new JMenuItem("Funcionário");
 		mFuncionario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaGerenciamentoP telaG = new TelaGerenciamentoP(tela,f);
+				TelaGerenciamentoP telaG = new TelaGerenciamentoP(null,f);
 				dispose();
 				telaG.setVisible(true);
 			}
 		});
 		mTelas.add(mFuncionario);
 		
-		JMenu mnNewMenu_1 = new JMenu("Opções");
-		menuBar.add(mnNewMenu_1);
+		mOpcoes = new JMenu("Opções");
+		menuBar.add(mOpcoes);
 		
-		JMenuItem mAnaliseVendas = new JMenuItem("Análise de vendas");
-		mnNewMenu_1.add(mAnaliseVendas);
+		mAnaliseVendas = new JMenuItem("Análise de vendas");
+		mAnaliseVendas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaAnáliseVendas telaAV = new TelaAnáliseVendas(null,f);
+				dispose();
+				telaAV.setVisible(true);
+			}
+		});
+		mOpcoes.add(mAnaliseVendas);
 		
-		JMenuItem mGFuncionarios = new JMenuItem("Funcionarios");
+		mGFuncionarios = new JMenuItem(" Funcionarios");
 		mGFuncionarios.setEnabled(false);
-		mnNewMenu_1.add(mGFuncionarios);
+		mOpcoes.add(mGFuncionarios);
 		
-		JMenuItem mVoltar = new JMenuItem("Voltar ao inicio");
+		mVoltar = new JMenuItem("Voltar ao inicio");
+		mVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaInicial telaI = new TelaInicial();
+				dispose();
+				telaI.setVisible(true);
+			}
+		});
 		menuBar.add(mVoltar);
+		painel = new JPanel();
+		painel.setBackground(new Color(230, 230, 230));
+		painel.setBorder(new EmptyBorder(5, 5, 5, 5));
+
 		
 		//Fim do menu
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		painel = new JPanel();
 		painel.setBackground(new Color(230, 230, 230));
 		painel.setBorder(new EmptyBorder(5, 5, 5, 5));
