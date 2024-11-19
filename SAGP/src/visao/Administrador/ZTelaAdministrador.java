@@ -1,8 +1,12 @@
 package visao.Administrador;
 
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -46,6 +50,21 @@ public class ZTelaAdministrador extends JFrame {
 	 * Create the frame.
 	 */
 	public ZTelaAdministrador() {
+		
+		Font font = new Font("Tahoma", Font.PLAIN, 11);;
+		try {
+			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
+			
+			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
+				
+		} catch (FontFormatException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		setTitle("Tela Administrador");
 		setBackground(new Color(230, 230, 230));
 		logo = new ImageIcon(TelaInicial.class.getResource("/Imagem/Logo.png"));
@@ -70,6 +89,7 @@ public class ZTelaAdministrador extends JFrame {
 		
 		JButton btVendas = new RoundButton("");
 		btVendas.setText("Histórico de vendas");
+		btVendas.setFont(font);
 		btVendas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//fazer tela
@@ -81,6 +101,7 @@ public class ZTelaAdministrador extends JFrame {
 		
 		JButton btFuncionarios = new RoundButton("");
 		btFuncionarios.setText("Funcionários");
+		btFuncionarios.setFont(font);
 		btFuncionarios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//fazer tela
@@ -95,6 +116,7 @@ public class ZTelaAdministrador extends JFrame {
 		Painel.add(lblNewLabel_1, "cell 7 2,alignx right");
 		
 		JButton btFuncionario = new RoundButton("TELA FUNCIONARIO");
+		btFuncionario.setFont(font);
 		btFuncionario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 //				ZTelaFuncionario tf = new ZTelaFuncionario();
@@ -103,6 +125,7 @@ public class ZTelaAdministrador extends JFrame {
 			}
 		});
 		btFuncionario.setText("Tela de funcionarios");
+		btFuncionario.setFont(font);
 		btFuncionario.setForeground(new Color(245, 245, 245));
 		btFuncionario.setBackground(new Color(0, 0, 0));
 		Painel.add(btFuncionario, "cell 8 2,growx");

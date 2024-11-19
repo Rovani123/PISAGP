@@ -2,8 +2,12 @@ package visao.Funcionário;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -53,6 +57,19 @@ public class TelaGerenciamentoP extends JFrame {
 	public TelaGerenciamentoP(JFrame telaA, Funcionario f) {
 		TelaGerenciamentoP tela = this;
 		
+		Font font = new Font("Tahoma", Font.PLAIN, 11);;
+		try {
+			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
+			
+			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
+				
+		} catch (FontFormatException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
 		setBackground(new Color(230, 230, 230));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -63,9 +80,11 @@ public class TelaGerenciamentoP extends JFrame {
 		setJMenuBar(menuBar);
 
 		JMenu mTelas = new JMenu("Telas");
+		mTelas.setFont(font);
 		menuBar.add(mTelas);
 
 		mAdm = new JMenuItem("Administrador ");
+		mAdm.setFont(font);
 		mAdm.setEnabled(false);
 		mAdm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -77,17 +96,21 @@ public class TelaGerenciamentoP extends JFrame {
 		mTelas.add(mAdm);
 
 		mFuncionario = new JMenuItem("Funcionário ");
+		mFuncionario.setFont(font);
 		mFuncionario.setEnabled(false);
 		mTelas.add(mFuncionario);
 
 		JMenu mOpcoes = new JMenu("Opções");
+		mOpcoes.setFont(font);
 		menuBar.add(mOpcoes);
 
 		JMenuItem mGProdutos = new JMenuItem("Produtos ");
+		mGProdutos.setFont(font);
 		mGProdutos.setEnabled(false);
 		mOpcoes.add(mGProdutos);
 
 		JMenuItem mPromocoes = new JMenuItem("Promoções  ");
+		mPromocoes.setFont(font);
 		mPromocoes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaPromocoes tp = new TelaPromocoes(telaA, tela, f);
@@ -98,6 +121,7 @@ public class TelaGerenciamentoP extends JFrame {
 		mOpcoes.add(mPromocoes);
 
 		JMenuItem mVoltar = new JMenuItem("Voltar ao início");
+		mVoltar.setFont(font);
 		mVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaInicial telaI = new TelaInicial();
@@ -137,9 +161,11 @@ public class TelaGerenciamentoP extends JFrame {
 		barraLateral.add(lblLogo, "cell 0 2 2 1");
 
 		JLabel lblCategoria = new JLabel("Categorias:");
+		lblCategoria.setFont(font);
 		barraLateral.add(lblCategoria, "cell 1 4,alignx left");
 
 		btSalgados = new RoundButton("Salgado");
+		btSalgados.setFont(font);
 		btSalgados.setText("Salgados");
 		btSalgados.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -170,6 +196,7 @@ public class TelaGerenciamentoP extends JFrame {
 		barraLateral.add(btSalgados, "cell 1 5,growx");
 
 		btDoces = new RoundButton("Doce");
+		btDoces.setFont(font);
 		btDoces.setText("Doces");
 		btDoces.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -200,6 +227,7 @@ public class TelaGerenciamentoP extends JFrame {
 		barraLateral.add(btDoces, "cell 1 6,growx");
 
 		btBebidas = new RoundButton("Bebidas");
+		btBebidas.setFont(font);
 		btBebidas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (contB == 0) {
@@ -229,6 +257,7 @@ public class TelaGerenciamentoP extends JFrame {
 		barraLateral.add(btBebidas, "cell 1 7,growx");
 
 		btOfertas = new RoundButton("Ofertas");
+		btOfertas.setFont(font);
 		btOfertas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// A implementar
@@ -236,11 +265,13 @@ public class TelaGerenciamentoP extends JFrame {
 		});
 
 		JLabel lblIconOfertas = new JLabel("icone");
+		lblIconOfertas.setFont(font);
 		barraLateral.add(lblIconOfertas, "cell 0 8");
 		btOfertas.setBackground(new Color(167, 208, 214));
 		barraLateral.add(btOfertas, "cell 1 8,growx");
 
 		RoundButton btCadastrar = new RoundButton("Adicionar");
+		btCadastrar.setFont(font);
 		btCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -251,6 +282,7 @@ public class TelaGerenciamentoP extends JFrame {
 		});
 
 		RoundButton btRemover = new RoundButton("Deletar");
+		btRemover.setFont(font);
 		btRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -279,6 +311,7 @@ public class TelaGerenciamentoP extends JFrame {
 		});
 
 		RoundButton btAlterar = new RoundButton("Alterar");
+		btAlterar.setFont(font);
 		btAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -309,6 +342,7 @@ public class TelaGerenciamentoP extends JFrame {
 		barraLateral.add(btRemover, "cell 1 16,alignx left");
 
 		JLabel lblIconCadastrar = new JLabel("Adicionar");
+		lblIconCadastrar.setFont(font);
 		barraLateral.add(lblIconCadastrar, "cell 0 17");
 		btCadastrar.setForeground(new Color(255, 255, 255));
 		btCadastrar.setBackground(new Color(0, 0, 0));
@@ -318,6 +352,7 @@ public class TelaGerenciamentoP extends JFrame {
 		painel.add(lblIconEstoque, "cell 1 0");
 
 		JLabel lblEstoque = new JLabel("Estoque");
+		lblEstoque.setFont(font);
 		painel.add(lblEstoque, "cell 2 0,alignx trailing");
 
 		txtPesquisar = new JTextField();
@@ -325,6 +360,7 @@ public class TelaGerenciamentoP extends JFrame {
 		txtPesquisar.setColumns(10);
 
 		RoundButton btPesquisar = new RoundButton("Pesquisar");
+		btPesquisar.setFont(font);
 		btPesquisar.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/lupa.png")));
 		btPesquisar.setText("");
 		btPesquisar.setForeground(new Color(255, 255, 255));

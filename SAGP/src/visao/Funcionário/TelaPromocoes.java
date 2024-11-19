@@ -19,9 +19,13 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.FontFormatException;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -43,6 +47,21 @@ public class TelaPromocoes extends JFrame {
 
 
 	public TelaPromocoes(JFrame telaA, JFrame telaC, Funcionario f) {
+		
+		Font font = new Font("Tahoma", Font.PLAIN, 11);;
+		try {
+			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
+			
+			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
+				
+		} catch (FontFormatException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setExtendedState(MAXIMIZED_BOTH);
 		setBounds(100, 100, 1125, 607);
@@ -51,24 +70,31 @@ public class TelaPromocoes extends JFrame {
 		setJMenuBar(menuBar);
 		
 		mTelas = new JMenu("Telas");
+		mTelas.setFont(font);
 		menuBar.add(mTelas);
 		
 		mAdm = new JMenuItem("Administrador ");
+		mAdm.setFont(font);
 		mTelas.add(mAdm);
 		
 		mFuncionario = new JMenuItem("Funcionário ");
+		mFuncionario.setFont(font);
 		mTelas.add(mFuncionario);
 		
 		mOpcoes = new JMenu("Opções");
+		mOpcoes.setFont(font);
 		menuBar.add(mOpcoes);
 		
 		mGProdutos = new JMenuItem("Produtos ");
+		mGProdutos.setFont(font);
 		mOpcoes.add(mGProdutos);
 		
 		mPromocoes = new JMenuItem("Promoções  ");
+		mPromocoes.setFont(font);
 		mOpcoes.add(mPromocoes);
 		
 		mVoltar = new JMenuItem("Voltar ao início");
+		mVoltar.setFont(font);
 		menuBar.add(mVoltar);
 		painel = new JPanel();
 		painel.setBackground(new Color(230, 230, 230));
@@ -109,11 +135,13 @@ public class TelaPromocoes extends JFrame {
 		barraLateral.add(lblNewLabel_3, "flowx,cell 0 7");
 		
 		JLabel lblNewLabel_1 = new JLabel("OFERTAS:");
+		lblNewLabel_1.setFont(font);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		lblNewLabel_1.setToolTipText("");
 		barraLateral.add(lblNewLabel_1, "cell 0 3,alignx center,aligny center");
 		
 		JButton btAlterar = new RoundButton("ALTERAR");
+		btAlterar.setFont(font);
 		btAlterar.setForeground(new Color(245, 245, 245));
 		btAlterar.setBackground(new Color(224, 83, 76));
 		btAlterar.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -136,6 +164,7 @@ public class TelaPromocoes extends JFrame {
 		barraLateral.add(btAlterar, "cell 0 5,alignx center,aligny center");
 		
 		JButton btRemover = new RoundButton("DELETAR");
+		btRemover.setFont(font);
 		btRemover.setForeground(new Color(245, 245, 245));
 		btRemover.setBackground(new Color(224, 83, 76));
 		btRemover.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -163,6 +192,7 @@ public class TelaPromocoes extends JFrame {
 		barraLateral.add(lblNewLabel_4, "flowx,cell 0 9");
 		
 		JButton btCadastrar = new RoundButton("ADICIONAR");
+		btCadastrar.setFont(font);
 		btCadastrar.setForeground(new Color(245, 245, 245));
 		btCadastrar.setBackground(new Color(224, 83, 76));
 		btCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -177,6 +207,7 @@ public class TelaPromocoes extends JFrame {
 		barraLateral.add(btCadastrar, "cell 0 9,alignx center,aligny center");
 		
 		JLabel lblNewLabel_6 = new JLabel("PRODUTOS EM PROMOÇÃO");
+		lblNewLabel_6.setFont(font);
 		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		painel.add(lblNewLabel_6, "cell 1 0 21 1");
 		

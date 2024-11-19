@@ -1,6 +1,8 @@
 package visao.Funcionário;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -38,6 +40,20 @@ public class TelaCadastroP extends JFrame {
     FileInputStream fin;
 
 	public TelaCadastroP(JFrame telaA, Funcionario f) {
+		
+		Font font = new Font("Tahoma", Font.PLAIN, 11);;
+		try {
+			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
+			
+			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
+				
+		} catch (FontFormatException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
 		setBackground(new Color(230, 230, 230));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -49,9 +65,11 @@ public class TelaCadastroP extends JFrame {
 		painel.setLayout(new MigLayout("", "[][][][grow][][][][]", "[][][][][][][][][][][][][][][]"));
 
 		JLabel lblCadastroProduto = new JLabel("CADASTRO DE PRODUTO:");
+		lblCadastroProduto.setFont(font);
 		painel.add(lblCadastroProduto, "cell 3 2,alignx center");
 
 		JLabel lblNome = new JLabel("Nome do Produto:");
+		lblNome.setFont(font);
 		painel.add(lblNome, "cell 3 4");
 
 		txtNome = new JTextField();
@@ -59,6 +77,7 @@ public class TelaCadastroP extends JFrame {
 		txtNome.setColumns(10);
 
 		RoundButton btLimpa1 = new RoundButton("Limpar");
+		btLimpa1.setFont(font);
 		btLimpa1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				txtNome.setText("");
@@ -69,6 +88,7 @@ public class TelaCadastroP extends JFrame {
 		painel.add(btLimpa1, "cell 5 5");
 
 		JLabel lblPreco = new JLabel("Preço:");
+		lblPreco.setFont(font);
 		painel.add(lblPreco, "cell 3 6");
 
 		txtPreco = new JTextField();
@@ -76,6 +96,7 @@ public class TelaCadastroP extends JFrame {
 		txtPreco.setColumns(10);
 
 		RoundButton btLimpa2 = new RoundButton("Limpar");
+		btLimpa2.setFont(font);
 		btLimpa2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -86,6 +107,7 @@ public class TelaCadastroP extends JFrame {
 		painel.add(btLimpa2, "cell 5 7");
 
 		JLabel lblQuantidade = new JLabel("Quantidade:");
+		lblQuantidade.setFont(font);
 		painel.add(lblQuantidade, "cell 3 8");
 
 		txtQuantidade = new JTextField();
@@ -93,6 +115,7 @@ public class TelaCadastroP extends JFrame {
 		txtQuantidade.setColumns(10);
 
 		RoundButton btLimpa3 = new RoundButton("Limpar");
+		btLimpa3.setFont(font);
 		btLimpa3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -103,6 +126,7 @@ public class TelaCadastroP extends JFrame {
 		painel.add(btLimpa3, "cell 5 9");
 
 		JLabel lblCategoria = new JLabel("Categoria:");
+		lblCategoria.setFont(font);
 		painel.add(lblCategoria, "cell 3 10");
 
 		JComboBox cbCategoria = new JComboBox();
@@ -110,6 +134,7 @@ public class TelaCadastroP extends JFrame {
 		painel.add(cbCategoria, "cell 3 11,growx");
 
 		RoundButton btLimpa4 = new RoundButton("Limpar");
+		btLimpa4.setFont(font);
 		btLimpa4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -120,6 +145,7 @@ public class TelaCadastroP extends JFrame {
 		painel.add(btLimpa4, "cell 5 11");
 		
 				RoundButton btSalvar = new RoundButton("Salvar");
+				btSalvar.setFont(font);
 				btSalvar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						String nome = null;
@@ -153,6 +179,7 @@ public class TelaCadastroP extends JFrame {
 				});
 				
 				JButton btFile = new JButton("Selecionar Imagem");
+				btFile.setFont(font);
 				btFile.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						JFileChooser fileChooser = new JFileChooser();
@@ -177,6 +204,7 @@ public class TelaCadastroP extends JFrame {
 				painel.add(btSalvar, "cell 3 14,alignx center");
 				
 						RoundButton btCancelar = new RoundButton("Cancelar");
+						btCancelar.setFont(font);
 						btCancelar.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
 								TelaGerenciamentoP telaE = new TelaGerenciamentoP(telaA, f);
