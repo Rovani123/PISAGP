@@ -138,10 +138,10 @@ public class TelaAlteracaoPromocao extends JFrame {
 				}
 			}
         });
-        btnNewButton.setBackground(new Color(224, 83, 76));
-        btnNewButton.setForeground(new Color(230, 230, 230));
-        btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        contentPane.add(btnNewButton, "cell 4 13,alignx center");
+        btnSalvarA.setBackground(new Color(224, 83, 76));
+        btnSalvarA.setForeground(new Color(230, 230, 230));
+        btnSalvarA.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        contentPane.add(btnSalvarA, "cell 4 13,alignx center");
        
         RoundButton btnNewButton_1 = new RoundButton("Cancelar");
         btnNewButton_1.setFont(font);
@@ -152,10 +152,10 @@ public class TelaAlteracaoPromocao extends JFrame {
 				telaE.setVisible(true);
             }
         });
-        btnNewButton_1.setBackground(new Color(0, 0, 0));
-        btnNewButton_1.setForeground(new Color(230, 230, 230));
-        btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        contentPane.add(btnNewButton_1, "cell 5 13");
+        btnCancelarA.setBackground(new Color(0, 0, 0));
+        btnCancelarA.setForeground(new Color(230, 230, 230));
+        btnCancelarA.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        contentPane.add(btnCancelarA, "cell 5 13");
     }
     public void setText(ProdutosPromocao promo) {
 
