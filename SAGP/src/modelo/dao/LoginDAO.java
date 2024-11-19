@@ -27,7 +27,6 @@ public class LoginDAO extends ModeloDAO {
 					f.setUsuarioFuncionario(resl.getString("usuarioFuncionario"));
 					f.setSenha(resl.getString("senha"));
 					f.setadministrador(resl.getInt("administrador"));
-
 					return f;
 				}
 			}

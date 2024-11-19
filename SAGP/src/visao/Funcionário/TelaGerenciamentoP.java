@@ -40,6 +40,7 @@ import javax.swing.JMenuItem;
 public class TelaGerenciamentoP extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+	private JMenuItem mGProdutos;
 	private JPanel painel;
 	private JTextField txtPesquisar;
 	private JTable table;
@@ -54,8 +55,7 @@ public class TelaGerenciamentoP extends JFrame {
 	private int contB = 0;
 
 	
-	public TelaGerenciamentoP(JFrame telaA, Funcionario f) {
-		TelaGerenciamentoP tela = this;
+	public TelaGerenciamentoP(Funcionario f) {
 		
 		Font font = new Font("Tahoma", Font.PLAIN, 11);;
 		try {
@@ -64,10 +64,8 @@ public class TelaGerenciamentoP extends JFrame {
 			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
 				
 		} catch (FontFormatException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
@@ -86,49 +84,54 @@ public class TelaGerenciamentoP extends JFrame {
 		mAdm = new JMenuItem("Administrador ");
 		mAdm.setFont(font);
 		mAdm.setEnabled(false);
-		mAdm.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaGerenciamentoF tf = new TelaGerenciamentoF(tela, f);
-				dispose();
-				tf.setVisible(true);
-			}
-		});
+		mAdm.setActionCommand("mAdm");
+//		mAdm.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				TelaGerenciamentoF tf = new TelaGerenciamentoF(tela, f);
+//				dispose();
+//				tf.setVisible(true);
+//			}
+//		});
 		mTelas.add(mAdm);
 
 		mFuncionario = new JMenuItem("Funcionário ");
 		mFuncionario.setFont(font);
 		mFuncionario.setEnabled(false);
+		mFuncionario.setActionCommand("mFuncionario");
 		mTelas.add(mFuncionario);
 
 		JMenu mOpcoes = new JMenu("Opções");
 		mOpcoes.setFont(font);
 		menuBar.add(mOpcoes);
 
-		JMenuItem mGProdutos = new JMenuItem("Produtos ");
+		mGProdutos = new JMenuItem("Produtos ");
 		mGProdutos.setFont(font);
 		mGProdutos.setEnabled(false);
+		mGProdutos.setActionCommand("mGProdutos");
 		mOpcoes.add(mGProdutos);
 
 		JMenuItem mPromocoes = new JMenuItem("Promoções  ");
 		mPromocoes.setFont(font);
-		mPromocoes.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaPromocoes tp = new TelaPromocoes(telaA, tela, f);
-				tp.setVisible(true);
-				dispose();
-			}
-		});
+		mPromocoes.setActionCommand("mPromocoes");
+//		mPromocoes.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				TelaPromocoes tp = new TelaPromocoes(telaA, tela, f);
+//				tp.setVisible(true);
+//				dispose();
+//			}
+//		});
 		mOpcoes.add(mPromocoes);
 
 		JMenuItem mVoltar = new JMenuItem("Voltar ao início");
 		mVoltar.setFont(font);
-		mVoltar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaInicial telaI = new TelaInicial();
-				dispose();
-				telaI.setVisible(true);
-			}
-		});
+		mVoltar.setActionCommand("mVoltar");
+//		mVoltar.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				TelaInicial telaI = new TelaInicial();
+//				dispose();
+//				telaI.setVisible(true);
+//			}
+//		});
 		menuBar.add(mVoltar);
 		painel = new JPanel();
 		painel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -167,27 +170,28 @@ public class TelaGerenciamentoP extends JFrame {
 		btSalgados = new RoundButton("Salgado");
 		btSalgados.setFont(font);
 		btSalgados.setText("Salgados");
-		btSalgados.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (contS == 0) {
-					getProdutosFiltro(Categoria.categoriaString("salgados"));
-					contS = 1;
-					contD = 0;
-					contB = 0;
-					btSalgados.setBackground(new Color(255, 255, 0));
-					btDoces.setBackground(new Color(255, 255, 255));
-					btBebidas.setBackground(new Color(255, 255, 255));
-				} else {
-					getProdutos();
-					contS = 0;
-					contD = 0;
-					contB = 0;
-					btSalgados.setBackground(new Color(255, 255, 255));
-					btDoces.setBackground(new Color(255, 255, 255));
-					btBebidas.setBackground(new Color(255, 255, 255));
-				}
-			}
-		});
+		btSalgados.setActionCommand("btSalgados");
+//		btSalgados.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				if (contS == 0) {
+//					getProdutosFiltro(Categoria.categoriaString("salgados"));
+//					contS = 1;
+//					contD = 0;
+//					contB = 0;
+//					btSalgados.setBackground(new Color(255, 255, 0));
+//					btDoces.setBackground(new Color(255, 255, 255));
+//					btBebidas.setBackground(new Color(255, 255, 255));
+//				} else {
+//					getProdutos();
+//					contS = 0;
+//					contD = 0;
+//					contB = 0;
+//					btSalgados.setBackground(new Color(255, 255, 255));
+//					btDoces.setBackground(new Color(255, 255, 255));
+//					btBebidas.setBackground(new Color(255, 255, 255));
+//				}
+//			}
+//		});
 
 		JLabel lblIconSalgados = new JLabel("");
 		lblIconSalgados.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/biscoitos.png")));
@@ -198,27 +202,28 @@ public class TelaGerenciamentoP extends JFrame {
 		btDoces = new RoundButton("Doce");
 		btDoces.setFont(font);
 		btDoces.setText("Doces");
-		btDoces.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (contD == 0) {
-					getProdutosFiltro(Categoria.categoriaString("doces"));
-					contS = 0;
-					contD = 1;
-					contB = 0;
-					btDoces.setBackground(new Color(255, 255, 0));
-					btSalgados.setBackground(new Color(255, 255, 255));
-					btBebidas.setBackground(new Color(255, 255, 255));
-				} else {
-					getProdutos();
-					contS = 0;
-					contD = 0;
-					contB = 0;
-					btSalgados.setBackground(new Color(255, 255, 255));
-					btDoces.setBackground(new Color(255, 255, 255));
-					btBebidas.setBackground(new Color(255, 255, 255));
-				}
-			}
-		});
+		btDoces.setActionCommand("btDoces");
+//		btDoces.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				if (contD == 0) {
+//					getProdutosFiltro(Categoria.categoriaString("doces"));
+//					contS = 0;
+//					contD = 1;
+//					contB = 0;
+//					btDoces.setBackground(new Color(255, 255, 0));
+//					btSalgados.setBackground(new Color(255, 255, 255));
+//					btBebidas.setBackground(new Color(255, 255, 255));
+//				} else {
+//					getProdutos();
+//					contS = 0;
+//					contD = 0;
+//					contB = 0;
+//					btSalgados.setBackground(new Color(255, 255, 255));
+//					btDoces.setBackground(new Color(255, 255, 255));
+//					btBebidas.setBackground(new Color(255, 255, 255));
+//				}
+//			}
+//		});
 
 		JLabel lblIconDoces = new JLabel("");
 		lblIconDoces.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/bolinho.png")));
@@ -228,27 +233,28 @@ public class TelaGerenciamentoP extends JFrame {
 
 		btBebidas = new RoundButton("Bebidas");
 		btBebidas.setFont(font);
-		btBebidas.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (contB == 0) {
-					getProdutosFiltro(Categoria.categoriaString("bebidas"));
-					contS = 0;
-					contD = 0;
-					contB = 1;
-					btDoces.setBackground(new Color(255, 255, 255));
-					btSalgados.setBackground(new Color(255, 255, 255));
-					btBebidas.setBackground(new Color(255, 255, 0));
-				} else {
-					getProdutos();
-					contS = 0;
-					contD = 0;
-					contB = 0;
-					btSalgados.setBackground(new Color(255, 255, 255));
-					btDoces.setBackground(new Color(255, 255, 255));
-					btBebidas.setBackground(new Color(255, 255, 255));
-				}
-			}
-		});
+		btBebidas.setActionCommand("btBebidas");
+//		btBebidas.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				if (contB == 0) {
+//					getProdutosFiltro(Categoria.categoriaString("bebidas"));
+//					contS = 0;
+//					contD = 0;
+//					contB = 1;
+//					btDoces.setBackground(new Color(255, 255, 255));
+//					btSalgados.setBackground(new Color(255, 255, 255));
+//					btBebidas.setBackground(new Color(255, 255, 0));
+//				} else {
+//					getProdutos();
+//					contS = 0;
+//					contD = 0;
+//					contB = 0;
+//					btSalgados.setBackground(new Color(255, 255, 255));
+//					btDoces.setBackground(new Color(255, 255, 255));
+//					btBebidas.setBackground(new Color(255, 255, 255));
+//				}
+//			}
+//		});
 
 		JLabel lblIconBebidas = new JLabel("");
 		lblIconBebidas.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/garrafa-de-agua.png")));
@@ -258,11 +264,12 @@ public class TelaGerenciamentoP extends JFrame {
 
 		btOfertas = new RoundButton("Ofertas");
 		btOfertas.setFont(font);
-		btOfertas.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				// A implementar
-			}
-		});
+		btOfertas.setActionCommand("btOfertas");
+//		btOfertas.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				// A implementar
+//			}
+//		});
 
 		JLabel lblIconOfertas = new JLabel("icone");
 		lblIconOfertas.setFont(font);
@@ -272,60 +279,63 @@ public class TelaGerenciamentoP extends JFrame {
 
 		RoundButton btCadastrar = new RoundButton("Adicionar");
 		btCadastrar.setFont(font);
-		btCadastrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				TelaCadastroP tcp = new TelaCadastroP(tela, f);
-				dispose();
-				tcp.setVisible(true);
-			}
-		});
+		btCadastrar.setActionCommand("btCadastrar");
+//		btCadastrar.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//
+//				TelaCadastroP tcp = new TelaCadastroP(tela, f);
+//				dispose();
+//				tcp.setVisible(true);
+//			}
+//		});
 
 		RoundButton btRemover = new RoundButton("Deletar");
 		btRemover.setFont(font);
-		btRemover.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Produto p = ((ProdutosTableModel) table.getModel()).getItem(table.getSelectedRow());
-					ProdutoDAO pdal = new ProdutoDAO();
-					try {
-						pdal.deletarProduto(p);
-						JOptionPane.showMessageDialog(null, "operação realizada com sucesso");
-					} catch (SQLException e1) {
-						e1.printStackTrace();
-						JOptionPane.showMessageDialog(null, "Não é possivel remover esse produto");
-					}
-					if (contS == 1) {
-						getProdutosFiltro(Categoria.categoriaString("salgados"));
-					} else if (contD == 1) {
-						getProdutosFiltro(Categoria.categoriaString("doces"));
-					} else if (contD == 1) {
-						getProdutosFiltro(Categoria.categoriaString("bebidas"));
-					} else {
-						getProdutos();
-					}
-				} catch (Exception e2) {
-					JOptionPane.showMessageDialog(null, "Selecione um produto");
-				}
-			}
-		});
+		btRemover.setActionCommand("btRemover");
+//		btRemover.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				try {
+//					Produto p = ((ProdutosTableModel) table.getModel()).getItem(table.getSelectedRow());
+//					ProdutoDAO pdal = new ProdutoDAO();
+//					try {
+//						pdal.deletarProduto(p);
+//						JOptionPane.showMessageDialog(null, "operação realizada com sucesso");
+//					} catch (SQLException e1) {
+//						e1.printStackTrace();
+//						JOptionPane.showMessageDialog(null, "Não é possivel remover esse produto");
+//					}
+//					if (contS == 1) {
+//						getProdutosFiltro(Categoria.categoriaString("salgados"));
+//					} else if (contD == 1) {
+//						getProdutosFiltro(Categoria.categoriaString("doces"));
+//					} else if (contD == 1) {
+//						getProdutosFiltro(Categoria.categoriaString("bebidas"));
+//					} else {
+//						getProdutos();
+//					}
+//				} catch (Exception e2) {
+//					JOptionPane.showMessageDialog(null, "Selecione um produto");
+//				}
+//			}
+//		});
 
 		RoundButton btAlterar = new RoundButton("Alterar");
 		btAlterar.setFont(font);
-		btAlterar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Produto p = ((ProdutosTableModel) table.getModel()).getItem(table.getSelectedRow());
-
-					TelaAlteracaoP tap = new TelaAlteracaoP(tela, p, f);
-					dispose();
-					tap.setVisible(true);
-				} catch (Exception e1) {
-					e1.printStackTrace();
-					JOptionPane.showMessageDialog(null, "Selecione um produto");
-				}
-			}
-		});
+		btAlterar.setActionCommand("btAlterar");
+//		btAlterar.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				try {
+//					Produto p = ((ProdutosTableModel) table.getModel()).getItem(table.getSelectedRow());
+//
+//					TelaAlteracaoP tap = new TelaAlteracaoP(tela, p, f);
+//					dispose();
+//					tap.setVisible(true);
+//				} catch (Exception e1) {
+//					e1.printStackTrace();
+//					JOptionPane.showMessageDialog(null, "Selecione um produto");
+//				}
+//			}
+//		});
 
 		JLabel lblIconAlterar = new JLabel("");
 		lblIconAlterar.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/troca.png")));
@@ -365,11 +375,12 @@ public class TelaGerenciamentoP extends JFrame {
 		btPesquisar.setText("");
 		btPesquisar.setForeground(new Color(255, 255, 255));
 		btPesquisar.setBackground(new Color(245, 245, 245));
-		btPesquisar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
+		btPesquisar.setActionCommand("btPesquisar");
+//		btPesquisar.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//
+//			}
+//		});
 		painel.add(btPesquisar, "cell 8 0");
 
 		JScrollPane scrollPane = new JScrollPane();
@@ -384,6 +395,10 @@ public class TelaGerenciamentoP extends JFrame {
 
 		getProdutos();
 		menuAdm(f);
+	}
+	
+	public void addGerenciamentoPListner(ActionListener listener) {
+		
 	}
 
 	private void getProdutos() {
