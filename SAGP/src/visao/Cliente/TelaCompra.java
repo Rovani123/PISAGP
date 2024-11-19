@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -25,6 +27,8 @@ import modelo.enumerador.Categoria;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
 import visao.TelaInicial;
+import java.awt.Font;
+import java.awt.FontFormatException;
 
 public class TelaCompra extends JFrame {
 
@@ -117,6 +121,25 @@ public class TelaCompra extends JFrame {
 		painelMenu.add(lblLogo, "cell 0 2 2 1");
 
 		lblCategorias = new JLabel("Categorias:");
+		
+		  Font font;
+		try {
+			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
+			
+			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
+			lblCategorias.setFont(font);
+
+			
+		} catch (FontFormatException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+          
+
+		
 		painelMenu.add(lblCategorias, "cell 0 5 2 1,alignx left");
 
 		btSalgados = new RoundButton("Salgado");
