@@ -42,9 +42,12 @@ public class TelaLogin extends JFrame {
 	private ImageIcon logo;
 	private JTextField txtUsuario;
 	private JPasswordField txtSenha;
+	private RoundButton btEntrar;
+	private RoundButton btVoltar;
+	private RoundButton bntLimpa;
 
 
-	public TelaLogin(JFrame telaA) {
+	public TelaLogin() {
 		TelaLogin tela= this;
 		
 		setExtendedState(Frame.MAXIMIZED_BOTH);
@@ -84,25 +87,27 @@ public class TelaLogin extends JFrame {
 		lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		painel.add(lblSenha, "cell 4 7");
 		
-		RoundButton btEntrar = new RoundButton("Entrar");
+		btEntrar = new RoundButton("Entrar");
 		btEntrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btEntrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				logar(txtUsuario.getText(),String.valueOf(txtSenha.getPassword()),tela);
-				
-			}
-		});
+		btEntrar.setActionCommand("btEntrar");
+//		btEntrar.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				logar(txtUsuario.getText(),String.valueOf(txtSenha.getPassword()),tela);
+//				
+//			}
+//		});
 		
-		RoundButton btVoltar = new RoundButton("Voltar");
+		btVoltar = new RoundButton("Voltar");
 		btVoltar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btVoltar.setText("Voltar");
-		btVoltar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaInicial telaP = new TelaInicial();
-				dispose();
-				telaP.setVisible(true);
-			}
-		});
+		btVoltar.setActionCommand("btVoltar");
+//		btVoltar.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				TelaInicial telaP = new TelaInicial();
+//				dispose();
+//				telaP.setVisible(true);
+//			}
+//		});
 		
 		txtSenha = new JPasswordField();
 		txtSenha.setFont(new Font("Tahoma", Font.PLAIN, 25));
@@ -112,48 +117,64 @@ public class TelaLogin extends JFrame {
 		btVoltar.setBackground(new Color(0, 0, 0));
 		painel.add(btVoltar, "cell 4 9");
 		
-		RoundButton bntLimpa2 = new RoundButton("Limpa");
-		bntLimpa2.setText("Limpar");
-		bntLimpa2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		bntLimpa2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				txtSenha.setText("");
-			}
-		});
-		bntLimpa2.setForeground(new Color(255, 255, 255));
-		bntLimpa2.setBackground(new Color(224, 83, 76));
-		painel.add(bntLimpa2, "cell 5 9");
+		bntLimpa = new RoundButton("Limpa");
+		bntLimpa.setText("Limpar");
+		bntLimpa.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		bntLimpa.setActionCommand("btLimpa");
+//		bntLimpa.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				txtSenha.setText("");
+//			}
+//		});
+		bntLimpa.setForeground(new Color(255, 255, 255));
+		bntLimpa.setBackground(new Color(224, 83, 76));
+		painel.add(bntLimpa, "cell 5 9");
 		btEntrar.setForeground(new Color(255, 255, 255));
 		btEntrar.setBackground(new Color(224, 83, 76));
 		painel.add(btEntrar, "cell 6 9 2 1,alignx center");
 	}
-	private void logar(String usuario, String senha,JFrame tela) {
-		LoginControle lc = new LoginControle();
-		
-		if(txtUsuario.getText().isEmpty() || txtSenha.getPassword().length ==0) {
-			JOptionPane.showMessageDialog(null, "Todos os campos precisam ser preenchidos");
-		}else {
-			Funcionario f;
-			try {
-				f = lc.validarLogin(usuario,senha);
-			} catch (SQLException e) {
-				e.printStackTrace();
-				JOptionPane.showMessageDialog(null, "Falha ao conectar com o banco de dados");
-				f = null;
-			}
-			if(f != null){
-				if(f.getadministrador() == 1){
-					TelaGerenciamentoF tgf = new TelaGerenciamentoF(tela,f);
-					dispose();
-					tgf.setVisible(true);
-				}else{
-					TelaGerenciamentoP tgp = new TelaGerenciamentoP(tela,f);
-					dispose();
-					tgp.setVisible(true);
-				}
-			}else {
-				JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos");
-			}
-		}
+	
+	public void addLoginListener(ActionListener listener) {
+		btEntrar.addActionListener(listener);
+		btVoltar.addActionListener(listener);
+		bntLimpa.addActionListener(listener);
 	}
+	
+	
+	public String getUsuario() {
+		return txtUsuario.getText();
+	}
+	public String getSenha() {
+		return String.valueOf(txtSenha.getPassword());
+	}
+	
+//	private void logar(String usuario, String senha,JFrame tela) {
+//		LoginControle lc = new LoginControle();
+//		
+//		if(txtUsuario.getText().isEmpty() || txtSenha.getPassword().length ==0) {
+//			JOptionPane.showMessageDialog(null, "Todos os campos precisam ser preenchidos");
+//		}else {
+//			Funcionario f;
+//			try {
+//				f = lc.validarLogin(usuario,senha);
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//				JOptionPane.showMessageDialog(null, "Falha ao conectar com o banco de dados");
+//				f = null;
+//			}
+//			if(f != null){
+//				if(f.getadministrador() == 1){
+//					TelaGerenciamentoF tgf = new TelaGerenciamentoF(tela,f);
+//					dispose();
+//					tgf.setVisible(true);
+//				}else{
+//					TelaGerenciamentoP tgp = new TelaGerenciamentoP(tela,f);
+//					dispose();
+//					tgp.setVisible(true);
+//				}
+//			}else {
+//				JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos");
+//			}
+//		}
+//	}
 }

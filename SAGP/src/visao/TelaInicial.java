@@ -27,20 +27,8 @@ public class TelaInicial extends JFrame {
 
 	private JPanel painel;
 	private ImageIcon logo;
-
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaInicial frame = new TelaInicial();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private JButton btCliente;
+	private JButton btLogin;
 
 	public TelaInicial() {
 		TelaInicial tI= this;
@@ -63,16 +51,17 @@ public class TelaInicial extends JFrame {
 		lblLogo.setIcon(new ImageIcon(TelaInicial.class.getResource("/Imagem/ImagemLogoGrande.png")));
 		painel.add(lblLogo, "cell 1 1 26 1,alignx center,aligny center");
 		
-		JButton btCliente = new RoundButton("");
+		btCliente = new RoundButton("");
 		btCliente.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		btCliente.setText("Entrar como cliente");
-		btCliente.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaCompra telaC = new TelaCompra();
-				dispose();
-				telaC.setVisible(true);
-			}
-		});
+		btCliente.setActionCommand("btCliente");
+//		btCliente.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				TelaCompra telaC = new TelaCompra();
+//				dispose();
+//				telaC.setVisible(true);
+//			}
+//		});
 		
 		JLabel lblCarrinho = new JLabel("");
 		lblCarrinho.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -82,16 +71,17 @@ public class TelaInicial extends JFrame {
 		btCliente.setForeground(new Color(245, 245, 245));
 		painel.add(btCliente, "cell 4 2 9 1,alignx left,aligny center");
 		
-		JButton btLogin = new RoundButton("");
+		btLogin = new RoundButton("");
 		btLogin.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		btLogin.setText("Entrar como funcionario");
-		btLogin.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaLogin TelaL = new TelaLogin(tI);
-				dispose();
-				TelaL.setVisible(true);
-			}
-		});
+		btLogin.setActionCommand("btLogin");
+//		btLogin.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				TelaLogin TelaL = new TelaLogin(tI);
+//				dispose();
+//				TelaL.setVisible(true);
+//			}
+//		});
 		
 		JLabel lblLupa = new JLabel("");
 		lblLupa.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -100,6 +90,10 @@ public class TelaInicial extends JFrame {
 		btLogin.setForeground(new Color(245, 245, 245));
 		btLogin.setBackground(new Color(224, 83, 76));
 		painel.add(btLogin, "cell 17 2 8 1,alignx left,aligny center");
+	}
+	public void addInicialListener(ActionListener listener) {		
+		btCliente.addActionListener(listener);
+		btLogin.addActionListener(listener);
 	}
 
 }
