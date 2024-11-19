@@ -49,8 +49,8 @@ public ArrayList<Promocoes> getPromocoes() {
 		
 	
 	
-	public void cadastrarPromocao(String produtoPromocao, float desconto, Object dataI, Object dataT) throws SQLException {
-		super.save("insert into promocoes(desconto,dataInicio,dataTermino) values(?,?,?)", produtoPromocao,desconto, dataI, dataT);
+	public void cadastrarPromocao(Produto produtoPromocao, float desconto, Object dataI, Object dataT) throws SQLException {
+		super.save("insert into promocoes(desconto,dataInicio,dataTermino) values(?,?,?)", produtoPromocao.getIdProduto(),desconto, dataI, dataT);
 	}
 	public void alterarPromocao(ProdutosPromocao promo, int i) throws SQLException {
 		super.update("UPDATE produtos SET idPromocao = ?, idProduto = ?, desconto = ?, dataInicio = ?, dataTermino = ?, idProdutoPromocao = ? WHERE idPromocao = ?",promo.getIdPromocao(), promo.getIdProduto(), promo.getDesconto(),promo.getDataI(), promo.getDataT(), promo.getIdPromocao());

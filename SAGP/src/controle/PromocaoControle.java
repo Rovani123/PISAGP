@@ -1,15 +1,25 @@
 package controle;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 
+import modelo.classes.Produto;
 import modelo.classes.ProdutosPromocao;
+import modelo.classes.Promocoes;
 import modelo.dao.ProdutoDAO;
 import modelo.dao.PromocaoDAO;
 
 public class PromocaoControle {
-	public void cadastrarPromocao(String produtoPromocao,float desconto) throws SQLException {//LocalDate
+	public void cadastrarPromocao(Produto produtoPromocao,float desconto,LocalDate dataInicio, LocalDate dataTermino) throws SQLException {//LocalDate
+		Promocoes p = new Promocoes();
+		p.setDataInicio(dataInicio);
+		p.setDataTermino(dataTermino);
+		p.setDesconto(desconto);
+		p.setProduto(produtoPromocao);
+		
+		
 			PromocaoDAO pdao = new PromocaoDAO();
-			pdao.cadastrarPromocao(produtoPromocao, desconto, null, null);//LocalDate
+			pdao.cadastrarPromocao(produtoPromocao, desconto, dataInicio , dataTermino);//LocalDate
 
 	}
 

@@ -21,8 +21,10 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Font;
@@ -33,7 +35,6 @@ public class TelaCadastroPromocao extends JFrame {
 
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
-    private JTextField txtProdutoP;
     private JTextField txtDesconto;
     private JTextField txtDataInicio;
     private JTextField txtDataTermino;
@@ -58,10 +59,9 @@ public class TelaCadastroPromocao extends JFrame {
         JLabel lblNewLabel = new JLabel("Produto em promoção:");
         lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
         contentPane.add(lblNewLabel, "cell 4 5");
-       
-        txtProdutoP = new JTextField();
-        contentPane.add(txtProdutoP, "cell 4 6 3 1,growx");
-        txtProdutoP.setColumns(10);
+        
+        JComboBox comboBoxProduto = new JComboBox();
+        contentPane.add(comboBoxProduto, "cell 4 6 3 1,growx");
        
         JLabel lblNewLabel_3 = new JLabel("Desconto:");
         lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -87,39 +87,54 @@ public class TelaCadastroPromocao extends JFrame {
         contentPane.add(txtDataTermino, "cell 4 12 3 1,growx");
         txtDataTermino.setColumns(10);
        
-        RoundButton btnNewButton_2 = new RoundButton("Salvar");
-        btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        btnNewButton_2.setForeground(new Color(245, 245, 245));
-        btnNewButton_2.setBackground(new Color(224, 83, 76));
-        btnNewButton_2.addActionListener(new ActionListener() {
+        RoundButton btnSalvarC = new RoundButton("Salvar");
+        btnSalvarC.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        btnSalvarC.setForeground(new Color(245, 245, 245));
+        btnSalvarC.setBackground(new Color(224, 83, 76));
+        btnSalvarC.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                String produtoPromocao = null;
                float desconto= 0;
                LocalDate dataI = null;
                LocalDate dataT = null;
             
-            LocalDate dataInicio =  dataI.plusDays(1);
-			LocalDate dataTermino = dataT.plusDays(2);
+               
+               DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+               
+               
                try {
             	   produtoPromocao = (txtProdutoP.getText());
             	   desconto = (Float.parseFloat(txtDesconto.getText()));
-            	   //dataI = ()
-            	   //dataT = ()
+            	  
+
+                   if (txtProdutoP.getText().isEmpty() || txtDesconto.getText().isEmpty() || txtDataInicio.getText().isEmpty() || txtDataTermino.getText().isEmpty()){
+    				   JOptionPane.showMessageDialog(null, "Todos os campos precisam ser preenchidos");
+                       dataI = LocalDate.parse(txtDataInicio.getText(), formatter);
+                       dataT = LocalDate.parse(txtDataTermino.getText(), formatter);
+                   }
+               
+            	   LocalDate dataInicio =  dataI.plusDays(1);
+                   LocalDate dataTermino = dataT.plusDays(2);
+                  
+
+               
+                   if (produtoPromocao.isEmpty() || txtDesconto.getText().isEmpty() || txtDataInicio.getText().isEmpty() || txtDataTermino.getText().isEmpty()) {
+                       JOptionPane.showMessageDialog(null, "Todos os campos precisam ser preenchidos");
+                   } else {
+                      
+                       cadastrarPromocao(produtoPromocao, desconto, dataInicio, dataTermino);
+                       TelaPromocoes telaPromocoes = new TelaPromocoes(telaC, telaC, f);
+                       dispose();
+                       telaPromocoes.setVisible(true);
+                       JOptionPane.showMessageDialog(null, "Promoção cadastrada com sucesso");
+                   }
+                       
                }catch (Exception e1) {
 					e1.printStackTrace();
 				}
-               if (txtProdutoP.getText().isEmpty() || txtDesconto.getText().isEmpty() || txtDataInicio.getText().isEmpty() || txtDataTermino.getText().isEmpty()){
-					JOptionPane.showMessageDialog(null, "Todos os campos precisam ser preenchidos");
-				}else {
-					cadastrarPromocao (produtoPromocao, desconto, dataInicio, dataTermino.toString());
-					TelaPromocoes telaPromocoes = new TelaPromocoes(telaC, telaC, f);
-					dispose();
-					telaPromocoes.setVisible(true);
-					JOptionPane.showMessageDialog(null, "Prmoção cadastrada com sucesso");
-				}
             }
         });
-        contentPane.add(btnNewButton_2, "cell 4 14,alignx right");
+        contentPane.add(btnSalvarC, "cell 4 14,alignx right");
        
         RoundButton btnNewButton = new RoundButton("Limpar");
         btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -135,27 +150,23 @@ public class TelaCadastroPromocao extends JFrame {
         });
         contentPane.add(btnNewButton, "cell 6 14");
        
-        RoundButton btnNewButton_1 = new RoundButton("Cancelar");
-        btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        btnNewButton_1.setForeground(new Color(245, 245, 245));
-        btnNewButton_1.setBackground(new Color(0, 0, 0));
-        btnNewButton_1.addActionListener(new ActionListener() {
+        RoundButton btnCancelarC = new RoundButton("Cancelar");
+        btnCancelarC.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        btnCancelarC.setForeground(new Color(245, 245, 245));
+        btnCancelarC.setBackground(new Color(0, 0, 0));
+        btnCancelarC.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	TelaPromocoes telaE = new TelaPromocoes(telaC, telaC, f);
 				dispose();
 				telaE.setVisible(true);
             }
         });
-        contentPane.add(btnNewButton_1, "cell 7 14");
+        contentPane.add(btnCancelarC, "cell 7 14");
     }
 
-    protected void cadastrarPromocao(String produtoPromocao, float desconto, LocalDate dataInicio, String string) {
-		
-	}
-
-	private void cadastrarPromocoes(String produtoPromocao, float desconto) throws SQLException {//LocalDate
-		PromocaoControle promoc = new PromocaoControle();
-		promoc.cadastrarPromocao(produtoPromocao, desconto); //LocalDate
+    protected void cadastrarPromocao(String produtoPromocao, float desconto,LocalDate dataInicio,LocalDate dataTermino) throws SQLException {//LocalDate
+		PromocaoControle promo = new PromocaoControle();
+		promo.cadastrarPromocao(produtoPromocao, desconto, dataInicio , dataTermino); //LocalDate
 
 	}
 }
