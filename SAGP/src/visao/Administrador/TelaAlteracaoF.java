@@ -18,9 +18,13 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import java.awt.Font;
+import java.awt.FontFormatException;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
@@ -34,6 +38,21 @@ public class TelaAlteracaoF extends JFrame {
 	private JPasswordField txtSenha;
 
 	public TelaAlteracaoF(JFrame telaA, Funcionario f) {
+		
+		Font font = new Font("Tahoma", Font.PLAIN, 11);;
+		try {
+			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
+			
+			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
+	
+		} catch (FontFormatException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		setExtendedState(MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 897, 628);
@@ -50,6 +69,7 @@ public class TelaAlteracaoF extends JFrame {
 		contentPane.add(lblLogo, "cell 6 1,growx,aligny center");
 
 		JLabel lblNome = new JLabel("NOME DO FUNCIORARIO:");
+		lblNome.setFont(font);
 		lblNome.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		contentPane.add(lblNome, "cell 1 3,alignx right,aligny center");
 
@@ -58,6 +78,7 @@ public class TelaAlteracaoF extends JFrame {
 		txtNome.setColumns(10);
 
 		JLabel lblUsuario = new JLabel("USÚARIO:");
+		lblUsuario.setFont(font);
 		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		contentPane.add(lblUsuario, "cell 1 5,alignx right,aligny center");
 
@@ -66,6 +87,7 @@ public class TelaAlteracaoF extends JFrame {
 		txtUsuario.setColumns(10);
 
 		JLabel lblSenha = new JLabel("SENHA:");
+		lblSenha.setFont(font);
 		lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		contentPane.add(lblSenha, "cell 1 7,alignx trailing,aligny center");
 
@@ -73,6 +95,7 @@ public class TelaAlteracaoF extends JFrame {
 		contentPane.add(txtSenha, "cell 2 7 6 1,growx,aligny center");
 
 		JButton btSalvar = new RoundButton("SALVAR");
+		btSalvar.setFont(font);
 		btSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (txtNome.getText().isEmpty() || txtUsuario.getText().isEmpty()|| txtSenha.getPassword().length == 0) {
@@ -92,6 +115,7 @@ public class TelaAlteracaoF extends JFrame {
 		});
 		
 				JButton btnNewButton_2 = new RoundButton("LIMPAR");
+				btnNewButton_2.setFont(font);
 				btnNewButton_2.setForeground(new Color(245, 245, 245));
 				btnNewButton_2.setBackground(new Color(224, 83, 76));
 				btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -103,6 +127,7 @@ public class TelaAlteracaoF extends JFrame {
 		contentPane.add(btSalvar, "cell 6 10,alignx right,aligny center");
 
 		JButton btCancelar = new RoundButton("CANCELAR");
+		btCancelar.setFont(font);
 		btCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaGerenciamentoF tgf = new TelaGerenciamentoF(telaA, f);
