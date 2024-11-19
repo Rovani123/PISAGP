@@ -41,6 +41,8 @@ public class TelaCadastroF extends JFrame {
 	private JTextField txtUsuario;
 	private JTextField txtNome;
 	private JPasswordField txtSenha;
+	private JButton btCancelar;
+	private JButton btCadastrar;
 	
 	public TelaCadastroF(JFrame telaA,Funcionario f) {
 		
@@ -113,39 +115,41 @@ public class TelaCadastroF extends JFrame {
 		txtSenha.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		painel.add(txtSenha, "cell 3 10 9 1,growx");
 		
-		JButton btCancelar = new RoundButton("CANCELAR");
+		btCancelar = new RoundButton("CANCELAR");
 		btCancelar.setFont(font);
 		btCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btCancelar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {			
-				TelaGerenciamentoF tgf = new TelaGerenciamentoF(telaA, f);
-				dispose();
-				tgf.setVisible(true);				
-			}
-		});
+		btCancelar.setActionCommand("btCancelar");
+//		btCancelar.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {			
+//				TelaGerenciamentoF tgf = new TelaGerenciamentoF(telaA, f);
+//				dispose();
+//				tgf.setVisible(true);				
+//			}
+//		});
 		
-		JButton btCadastrar = new RoundButton("CADASTRAR");
+		btCadastrar = new RoundButton("CADASTRAR");
 		btCadastrar.setFont(font);
 		btCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btCadastrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					if(txtNome.getText().isEmpty() || txtUsuario.getText().isEmpty() || txtSenha.getPassword().length ==0) {
-						JOptionPane.showMessageDialog(null, "Todos os campos precisam ser preenchidos");
-					}else {
-						FuncionarioControle fc = new FuncionarioControle();
-						fc.cadastrarFuncionario(txtNome.getText(),txtUsuario.getText(), String.valueOf(txtSenha.getPassword()));
-						JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso");
-						TelaGerenciamentoF tgf = new TelaGerenciamentoF(telaA, f);
-						dispose();
-						tgf.setVisible(true);
-					}
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-					JOptionPane.showMessageDialog(null, "Não foi possível cadastrar o funcionário");
-				}				
-			}
-		});
+		btCadastrar.setActionCommand("btCadastrar");
+//		btCadastrar.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				try {
+//					if(txtNome.getText().isEmpty() || txtUsuario.getText().isEmpty() || txtSenha.getPassword().length ==0) {
+//						JOptionPane.showMessageDialog(null, "Todos os campos precisam ser preenchidos");
+//					}else {
+//						FuncionarioControle fc = new FuncionarioControle();
+//						fc.cadastrarFuncionario(txtNome.getText(),txtUsuario.getText(), String.valueOf(txtSenha.getPassword()));
+//						JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso");
+//						TelaGerenciamentoF tgf = new TelaGerenciamentoF(telaA, f);
+//						dispose();
+//						tgf.setVisible(true);
+//					}
+//				} catch (SQLException e1) {
+//					e1.printStackTrace();
+//					JOptionPane.showMessageDialog(null, "Não foi possível cadastrar o funcionário");
+//				}				
+//			}
+//		});
 		btCadastrar.setBackground(new Color(224, 83, 76));
 		btCadastrar.setForeground(new Color(245, 245, 245));
 		painel.add(btCadastrar, "cell 6 11");
@@ -172,5 +176,8 @@ public class TelaCadastroF extends JFrame {
 		btnNewButton_3.setForeground(new Color(245, 245, 245));
 		painel.add(btnNewButton_3, "cell 12 12");
 	}
-
+	public void addCadastroF(ActionListener listener) {
+		btCancelar.addActionListener(listener);
+		btCadastrar.addActionListener(listener);
+	}
 }
