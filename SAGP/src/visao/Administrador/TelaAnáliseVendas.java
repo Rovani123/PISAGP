@@ -48,11 +48,11 @@ public class TelaAnáliseVendas extends JFrame {
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Adminstrador");
-		mntmNewMenuItem.setFont(font);
+		//mntmNewMenuItem.setFont(font);
 		mnNewMenu.add(mntmNewMenuItem);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Funcionario");
-		mntmNewMenuItem_1.setFont(font);
+		//mntmNewMenuItem_1.setFont(font);
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
@@ -69,11 +69,11 @@ public class TelaAnáliseVendas extends JFrame {
 		menuBar.add(mnNewMenu_1);
 		
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Análise de vendas");
-		mntmNewMenuItem_2.setFont(font);
+		//mntmNewMenuItem_2.setFont(font);
 		mnNewMenu_1.add(mntmNewMenuItem_2);
 		
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem(" funcionarios");
-		mntmNewMenuItem_3.setFont(font);
+		//mntmNewMenuItem_3.setFont(font);
 		mntmNewMenuItem_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
