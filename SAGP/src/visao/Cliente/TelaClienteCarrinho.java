@@ -1,29 +1,27 @@
 package visao.Cliente;
 
-import java.awt.EventQueue;
+import java.awt.Color;
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
+import controle.CarrinhoControle;
 import controle.ProdutoControle;
+import controle.VendaControle;
 import modelo.classes.Carrinho;
-import modelo.classes.Produto;
+import modelo.dao.VendaDAO;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
-import visao.TelaInicial;
-
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import java.awt.Color;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
-import java.awt.Frame;
 
 public class TelaClienteCarrinho extends JFrame {
 	private JPanel painelProdutos;
@@ -36,11 +34,16 @@ public class TelaClienteCarrinho extends JFrame {
 		setExtendedState(Frame.MAXIMIZED_BOTH);
 		setBounds(100, 100, 985, 625);
 		setBackground(new Color(230, 230, 230));
-		getContentPane().setLayout(new MigLayout("", "[grow][][][][][][][grow][][][][][][][][][][][][][][grow][][][][]", "[grow][grow][][][][][][][][][][][][][][][][][grow][]"));
+		
+		JPanel painelPrincipal = new JPanel();
+		painelPrincipal.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(painelPrincipal);
+		painelPrincipal.setLayout(new MigLayout("", "[grow][][][][][][][grow][][][][][][][][][][][][][][grow][][][][]", "[grow][grow][][][][][][][][][][][][][][][][][grow][]"));
+//		getContentPane().setLayout(new MigLayout("", "[grow][][][][][][][grow][][][][][][][][][][][][][][grow][][][][]", "[grow][grow][][][][][][][][][][][][][][][][][grow][]"));
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(167, 208, 214));
-		getContentPane().add(panel_1, "cell 0 0 7 20,alignx left,growy");
+		painelPrincipal.add(panel_1, "cell 0 0 7 20,alignx left,growy");
 		panel_1.setLayout(new MigLayout("", "[][][]", "[][][][][][][][][][][][][]"));
 		
 		RoundButton btnNewButton_2 = new RoundButton("");
@@ -103,7 +106,7 @@ public class TelaClienteCarrinho extends JFrame {
 		panel_1.add(btnNewButton_6, "cell 1 9");
 		
 		JPanel panel_2 = new JPanel();
-		getContentPane().add(panel_2, "cell 7 0 19 1,alignx left,growy");
+		painelPrincipal.add(panel_2, "cell 7 0 19 1,alignx left,growy");
 		
 		RoundButton btnNewButton = new RoundButton("");
 		btnNewButton.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/carrinho-de-compras.png")));
@@ -113,13 +116,13 @@ public class TelaClienteCarrinho extends JFrame {
 		panel_2.add(lblNewLabel);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		getContentPane().add(scrollPane, "cell 7 1 19 17,grow");
+		painelPrincipal.add(scrollPane, "cell 7 1 19 17,grow");
 		
 		painelProdutos = new JPanel();
 		scrollPane.setViewportView(painelProdutos);
 		
 		JPanel panel_3 = new JPanel();
-		getContentPane().add(panel_3, "cell 7 18 19 2,alignx right,growy");
+		painelPrincipal.add(panel_3, "cell 7 18 19 2,alignx right,growy");
 		
 		JLabel lblNewLabel_1 = new JLabel("Total a pagar: ");
 		panel_3.add(lblNewLabel_1);
@@ -132,7 +135,8 @@ public class TelaClienteCarrinho extends JFrame {
 		panel_3.add(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				finalizarVenda();
+				finalizarCarrinho();
 			}
 		});
 		btnNewButton_1.setBackground(new Color(224, 83, 76));
@@ -167,4 +171,34 @@ public class TelaClienteCarrinho extends JFrame {
 		}
 		return reultado;
 	}
+
+	private void finalizarVenda() {
+		VendaControle vc = new VendaControle();
+		try {
+			vc.cadastrarVenda(1,1,"DébitoA",calcTotal());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void finalizarCarrinho() {
+		CarrinhoControle cc = new CarrinhoControle();
+		try {
+			VendaControle vc = new VendaControle();
+			for(int i=0;i<listaCarrinhos.size();i++) {
+				listaCarrinhos.get(i).setIdVenda(vc.getIdVenda());
+			}
+			cc.cadastrarCarrinho(listaCarrinhos);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void test() {
+		for(int i=0;i<listaCarrinhos.size();i++) {
+			String m = "ID Carrinho: "+String.valueOf(listaCarrinhos.get(i).getIdCarrinho()+"  ID Produto: "+String.valueOf(listaCarrinhos.get(i).getIdProduto())+"  ID Venda: "+String.valueOf(listaCarrinhos.get(i).getIdVenda())+"  Quantidade: "+String.valueOf(listaCarrinhos.get(i).getQuantidade()));
+			JOptionPane.showMessageDialog(null, m);
+		}
+	}
+	
 }

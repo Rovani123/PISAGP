@@ -13,7 +13,7 @@ import modelo.enumerador.Categoria;
 public class VendaDAO extends ModeloDAO{
 	
 	public void cadastrarVenda(int idFuncionario, int idCliente, String metPagamento, float Total) throws SQLException {
-		super.save("insert into vendas(idFuncionario,idCliente,metodoPagamento,mais) values(?,?,?,?", idFuncionario,idCliente,metPagamento,Total);
+		super.save("insert into vendas(idFuncionario,idCliente,metodoPagamento,total) values(?,?,?,?)", idFuncionario,idCliente,metPagamento,Total);
 	}
 	
 	public ArrayList<Vendas> getVendas() {
@@ -45,4 +45,30 @@ public class VendaDAO extends ModeloDAO{
 		}
 	}
 
+	public int getIdVenda() {
+		Statement stml = null;
+		Connection conn = getConnection();
+		
+		ArrayList<Vendas> lista = new ArrayList<Vendas>();
+		try {
+			stml = (Statement) conn.createStatement();
+			ResultSet reslt = null;
+			reslt = stml.executeQuery("SELECT * FROM Vendas");
+			
+			int id=-1;
+			
+			while(reslt.next())
+			{
+				id=reslt.getInt("idVenda");								
+			}
+			reslt.close();
+			stml.close();
+			conn.close();
+			return id;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return -1;
+		}
+	}
 }
