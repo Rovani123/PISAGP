@@ -22,10 +22,10 @@ public class LoginControle {
 				login();
 				break;
 			case "btVoltar":
-				
+				voltar();
 				break;
 			case "btLimpa":
-				
+				limpar();
 				break;
 			default:
 				//Mensagem de erro
@@ -42,36 +42,45 @@ public class LoginControle {
 	private void login() {
 		if(tl.getUsuario().isEmpty() || tl.getSenha().isEmpty()) {
 			//Todos os Campos precisam ser preenchidos
-		}else {			
+		}else {
+			
 			LoginDAO dao = new LoginDAO();
-			Funcionario f = dao.validarLogin(tl.getUsuario(), tl.getSenha());
-
+			Funcionario f;
 			
 			try {
-				f = lc.validarLogin(usuario,senha);
+				f = dao.validarLogin(tl.getUsuario(), tl.getSenha());
 			} catch (SQLException e) {
 				e.printStackTrace();
-				JOptionPane.showMessageDialog(null, "Falha ao conectar com o banco de dados");
-				f = null;
+				f=null;
 			}
+
+			
+			
 			if(f != null){
 				if(f.getadministrador() == 1){
-					TelaGerenciamentoF tgf = new TelaGerenciamentoF(tela,f);
-					dispose();
-					tgf.setVisible(true);
+					//admControle
+					System.out.println("ADM");
 				}else{
-					TelaGerenciamentoP tgp = new TelaGerenciamentoP(tela,f);
-					dispose();
-					tgp.setVisible(true);
+					System.out.println("F");
+					//funcionarioControle
 				}
 			}else {
-				JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos");
+				//Usuário ou senha inválidos
 			}
 		}
 	}
 	
-	//mudar
+	private void voltar() {
+		new TelaInicialControle();
+	}
 	
+	private void limpar() {
+		tl.setUsuario(null);
+		tl.setSenha(null);
+	}
+	
+	
+	//não utilizado
 	public boolean verificarBanco() throws SQLException {
 		LoginDAO ldao = new LoginDAO();
 		return ldao.bancoOnline();

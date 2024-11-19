@@ -140,9 +140,14 @@ public class TelaLogin extends JFrame {
 		bntLimpa.addActionListener(listener);
 	}
 	
-	
+	public void setUsuario(String user) {
+		txtUsuario.setText(user);
+	}
 	public String getUsuario() {
 		return txtUsuario.getText();
+	}
+	public void setSenha(String senha) {
+		txtSenha.setText(senha);
 	}
 	public String getSenha() {
 		return String.valueOf(txtSenha.getPassword());

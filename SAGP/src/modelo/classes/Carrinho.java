@@ -3,8 +3,8 @@ package modelo.classes;
 public class Carrinho {
 
 	private int idCarrinho;
-	private int idProduto;
-	private int idVenda;
+	private Produto produto;
+	private Vendas venda;
 	private int quantidade;
 	
 	public int getIdCarrinho() {
@@ -12,18 +12,6 @@ public class Carrinho {
 	}
 	public void setIdCarrinho(int idCarrinho) {
 		this.idCarrinho = idCarrinho;
-	}
-	public int getIdProduto() {
-		return idProduto;
-	}
-	public void setIdProduto(int idProduto) {
-		this.idProduto = idProduto;
-	}
-	public int getIdVenda() {
-		return idVenda;
-	}
-	public void setIdVenda(int idVenda) {
-		this.idVenda = idVenda;
 	}
 	public int getQuantidade() {
 		return quantidade;
