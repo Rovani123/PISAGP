@@ -3,8 +3,11 @@ package visaoTelasDeAviso;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -41,6 +44,21 @@ public class TelaAvisoSelecioneProduto extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaAvisoSelecioneProduto() {
+		
+		Font font = new Font("Tahoma", Font.PLAIN, 11);;
+		try {
+			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
+			
+			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
+				
+		} catch (FontFormatException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		setBackground(new Color(230, 230, 230));
 		setResizable(false);
 		setTitle("Tela de aviso");
@@ -54,6 +72,7 @@ public class TelaAvisoSelecioneProduto extends JFrame {
 		contentPane.setLayout(new MigLayout("", "[grow][][][][grow]", "[grow][][][][][grow]"));
 		
 		JButton btnNewButton = new RoundButton("Clouse");
+		btnNewButton.setFont(font);
 		btnNewButton.setForeground(new Color(245, 245, 245));
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnNewButton.addActionListener(new ActionListener() {
@@ -67,6 +86,7 @@ public class TelaAvisoSelecioneProduto extends JFrame {
 		contentPane.add(lblNewLabel_1, "cell 1 2");
 		
 		JLabel lblNewLabel = new JLabel("Selecione um produto!");
+		lblNewLabel.setFont(font);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		contentPane.add(lblNewLabel, "cell 2 2 2 1,alignx center,aligny center");
 		btnNewButton.setText("OK");

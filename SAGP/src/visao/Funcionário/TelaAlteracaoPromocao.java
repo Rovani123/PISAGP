@@ -25,7 +25,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.awt.event.ActionEvent;
@@ -43,6 +46,21 @@ public class TelaAlteracaoPromocao extends JFrame {
 
     
     public TelaAlteracaoPromocao(JFrame telaA, Funcionario f, ProdutosPromocao promo) {
+    	
+    	Font font = new Font("Tahoma", Font.PLAIN, 11);;
+		try {
+			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
+			
+			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
+				
+		} catch (FontFormatException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+    	
     	TelaAlteracaoPromocao tela = this; 
         setBackground(new Color(230, 230, 230));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -56,10 +74,12 @@ public class TelaAlteracaoPromocao extends JFrame {
         contentPane.setLayout(new MigLayout("", "[][][][][grow][]", "[][][][][][][][][][][][][][]"));
        
         JLabel lblNewLabel_3 = new JLabel("ALTERAÇÃO DA PROMOÇÃO:");
+        lblNewLabel_3.setFont(font);
         lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
         contentPane.add(lblNewLabel_3, "cell 4 4,alignx center");
        
         JLabel lblNewLabel = new JLabel("Desconto:");
+        lblNewLabel.setFont(font);
         lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
         contentPane.add(lblNewLabel, "cell 4 6");
        
@@ -68,6 +88,7 @@ public class TelaAlteracaoPromocao extends JFrame {
         txtDesconto.setColumns(10);
        
         JLabel lblNewLabel_1 = new JLabel("Data de Início:");
+        lblNewLabel_1.setFont(font);
         lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
         contentPane.add(lblNewLabel_1, "cell 4 8");
        
@@ -76,6 +97,7 @@ public class TelaAlteracaoPromocao extends JFrame {
         txtDataI.setColumns(10);
        
         JLabel lblNewLabel_2 = new JLabel("Data de término:");
+        lblNewLabel_2.setFont(font);
         lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
         contentPane.add(lblNewLabel_2, "cell 4 10");
        
@@ -84,6 +106,7 @@ public class TelaAlteracaoPromocao extends JFrame {
         txtDataT.setColumns(10);
        
         RoundButton btnNewButton = new RoundButton("Salvar");
+        btnNewButton.setFont(font);
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 				float desconto = 0;
@@ -121,6 +144,7 @@ public class TelaAlteracaoPromocao extends JFrame {
         contentPane.add(btnNewButton, "cell 4 13,alignx center");
        
         RoundButton btnNewButton_1 = new RoundButton("Cancelar");
+        btnNewButton_1.setFont(font);
         btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	TelaGerenciamentoP telaE = new TelaGerenciamentoP(telaA, f);

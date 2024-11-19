@@ -3,8 +3,11 @@ package visaoTelasDeAviso;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -42,6 +45,21 @@ public class TelaAvisoFuncionarioDeltadoSucesso extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaAvisoFuncionarioDeltadoSucesso() {
+		
+		Font font = new Font("Tahoma", Font.PLAIN, 11);;
+		try {
+			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
+			
+			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
+				
+		} catch (FontFormatException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		setResizable(false);
 		setTitle("Tela de aviso");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -54,6 +72,7 @@ public class TelaAvisoFuncionarioDeltadoSucesso extends JFrame {
 		contentPane.setLayout(new MigLayout("", "[grow][][][][][grow]", "[grow][][][][grow]"));
 		
 		JLabel lblNewLabel = new JLabel("Funcionario deletado com sucesso!");
+		lblNewLabel.setFont(font);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		contentPane.add(lblNewLabel, "cell 1 1 3 1");
 		
@@ -62,6 +81,7 @@ public class TelaAvisoFuncionarioDeltadoSucesso extends JFrame {
 		contentPane.add(lblNewLabel_1, "cell 4 1");
 		
 		JButton btnNewButton = new RoundButton("OK");
+		btnNewButton.setFont(font);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);

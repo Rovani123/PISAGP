@@ -10,9 +10,13 @@ import visao.RoundButton;
 
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.FontFormatException;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 
@@ -42,6 +46,21 @@ public class TelaAvisoProdutoAlteradoSucesso extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaAvisoProdutoAlteradoSucesso() {
+		
+		Font font = new Font("Tahoma", Font.PLAIN, 11);;
+		try {
+			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
+			
+			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
+				
+		} catch (FontFormatException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		setTitle("Tela de aviso");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -54,10 +73,12 @@ public class TelaAvisoProdutoAlteradoSucesso extends JFrame {
 		contentPane.setLayout(new MigLayout("", "[grow][][][][grow]", "[grow][][][][][grow]"));
 		
 		JLabel lblNewLabel = new JLabel("Produto alterado com sucesso!");
+		lblNewLabel.setFont(font);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		contentPane.add(lblNewLabel, "cell 2 1,alignx center,aligny center");
 		
 		JButton btnNewButton = new RoundButton("New button");
+		btnNewButton.setFont(font);
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnNewButton.setBackground(new Color(245, 245, 245));
 		btnNewButton.setText("OK");

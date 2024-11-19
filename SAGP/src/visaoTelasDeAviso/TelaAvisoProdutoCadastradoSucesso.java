@@ -10,9 +10,13 @@ import visao.RoundButton;
 
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.FontFormatException;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 
@@ -42,6 +46,21 @@ public class TelaAvisoProdutoCadastradoSucesso extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaAvisoProdutoCadastradoSucesso() {
+		
+		Font font = new Font("Tahoma", Font.PLAIN, 11);;
+		try {
+			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
+			
+			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
+				
+		} catch (FontFormatException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		setBackground(new Color(230, 230, 230));
 		setResizable(false);
 		setTitle("Tela de aviso");
@@ -55,6 +74,7 @@ public class TelaAvisoProdutoCadastradoSucesso extends JFrame {
 		contentPane.setLayout(new MigLayout("", "[grow][][][][grow]", "[grow][][][][][grow]"));
 		
 		JLabel lblNewLabel = new JLabel("Produto cadastrado com sucesso!");
+		lblNewLabel.setFont(font);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		contentPane.add(lblNewLabel, "cell 1 2 2 1,alignx center,aligny center");
 		
@@ -63,6 +83,7 @@ public class TelaAvisoProdutoCadastradoSucesso extends JFrame {
 		contentPane.add(lblNewLabel_1, "cell 3 2");
 		
 		JButton btnNewButton = new RoundButton("Clouse");
+		btnNewButton.setFont(font);
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

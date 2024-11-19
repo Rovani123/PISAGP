@@ -1,6 +1,8 @@
 package visao.Funcionário;
 
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.FontFormatException;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -19,6 +21,8 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import javax.swing.DefaultComboBoxModel;
@@ -33,6 +37,21 @@ public class TelaAlteracaoP extends JFrame {
 	private JComboBox cbCategoria;
 
 	public TelaAlteracaoP(JFrame telaA, Produto p, Funcionario f) {
+		
+		Font font = new Font("Tahoma", Font.PLAIN, 11);;
+		try {
+			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
+			
+			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
+				
+		} catch (FontFormatException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		setBackground(new Color(230, 230, 230));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 680, 460);
@@ -43,9 +62,11 @@ public class TelaAlteracaoP extends JFrame {
 		painel.setLayout(new MigLayout("", "[][][][][grow][][][][]", "[][][][][][][][][][][][][][][]"));
 
 		JLabel lblAlteracao = new JLabel("ALTERAÇÃO DO PRODUTO:");
+		lblAlteracao.setFont(font);
 		painel.add(lblAlteracao, "cell 4 2,alignx center");
 
 		JLabel lblNome = new JLabel("Nome do Produto:");
+		lblNome.setFont(font);
 		painel.add(lblNome, "cell 4 4");
 
 		txtNome = new JTextField();
@@ -53,6 +74,7 @@ public class TelaAlteracaoP extends JFrame {
 		txtNome.setColumns(10);
 
 		RoundButton btLimpa1 = new RoundButton("Limpar");
+		btLimpa1.setFont(font);
 		btLimpa1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				txtNome.setText("");
@@ -63,6 +85,7 @@ public class TelaAlteracaoP extends JFrame {
 		painel.add(btLimpa1, "cell 5 5");
 
 		JLabel lblPreco = new JLabel("Preço:");
+		lblPreco.setFont(font);
 		painel.add(lblPreco, "cell 4 6");
 
 		txtPreco = new JTextField();
@@ -70,6 +93,7 @@ public class TelaAlteracaoP extends JFrame {
 		txtPreco.setColumns(10);
 
 		RoundButton btLimpa2 = new RoundButton("Limpar");
+		btLimpa2.setFont(font);
 		btLimpa2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				txtPreco.setText("");
@@ -80,6 +104,7 @@ public class TelaAlteracaoP extends JFrame {
 		painel.add(btLimpa2, "cell 5 7");
 
 		JLabel lblQuantidade = new JLabel("Quantidade:");
+		lblQuantidade.setFont(font);
 		painel.add(lblQuantidade, "cell 4 8");
 
 		txtQuantidade = new JTextField();
@@ -87,6 +112,7 @@ public class TelaAlteracaoP extends JFrame {
 		txtQuantidade.setColumns(10);
 
 		RoundButton btLimpa3 = new RoundButton("Limpar");
+		btLimpa3.setFont(font);
 		btLimpa3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				txtQuantidade.setText("");
@@ -97,6 +123,7 @@ public class TelaAlteracaoP extends JFrame {
 		painel.add(btLimpa3, "cell 5 9");
 
 		JLabel lblCategoria = new JLabel("Categoria:");
+		lblCategoria.setFont(font);
 		painel.add(lblCategoria, "cell 4 10");
 
 		cbCategoria = new JComboBox();
@@ -105,11 +132,13 @@ public class TelaAlteracaoP extends JFrame {
 		painel.add(cbCategoria, "cell 4 11,growx");
 
 		RoundButton btLimpa4 = new RoundButton("Limpar");
+		btLimpa4.setFont(font);
 		btLimpa4.setBackground(new Color(224, 83, 76));
 		btLimpa4.setForeground(new Color(245, 245, 245));
 		painel.add(btLimpa4, "cell 5 11");
 
 		RoundButton btSalvar = new RoundButton("Salvar");
+		btSalvar.setFont(font);
 		btSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String nome = null;
@@ -145,6 +174,7 @@ public class TelaAlteracaoP extends JFrame {
 		painel.add(btSalvar, "cell 4 14,alignx center");
 
 		RoundButton btCancelar = new RoundButton("Cancelar");
+		btCancelar.setFont(font);
 		btCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaGerenciamentoP telaE = new TelaGerenciamentoP(telaA, f);

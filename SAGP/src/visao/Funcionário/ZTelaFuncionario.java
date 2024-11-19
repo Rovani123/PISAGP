@@ -3,8 +3,12 @@ package visao.Funcionário;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -42,6 +46,21 @@ public class ZTelaFuncionario extends JFrame {
 	 * Create the frame.
 	 */
 	public ZTelaFuncionario() {
+		
+		Font font = new Font("Tahoma", Font.PLAIN, 11);;
+		try {
+			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
+			
+			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
+				
+		} catch (FontFormatException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		logo = new ImageIcon(TelaInicial.class.getResource("/Imagem/Logo.png"));
 		setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		setResizable(false);
@@ -61,6 +80,7 @@ public class ZTelaFuncionario extends JFrame {
 		
 		JButton btEstoque = new RoundButton("");
 		btEstoque.setText("Estoque");
+		btEstoque.setFont(font);
 		btEstoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 //				TelaGerenciamentoP telaE = new TelaGerenciamentoP();
@@ -74,6 +94,7 @@ public class ZTelaFuncionario extends JFrame {
 		
 		JButton btPromo = new RoundButton("");
 		btPromo.setText("Promoções");
+		btPromo.setFont(font);
 		btPromo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//fazer tela
