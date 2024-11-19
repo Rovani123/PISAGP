@@ -1,8 +1,7 @@
 package visao.Administrador;
 
 import java.awt.Color;
-import java.awt.Font;
-import java.awt.FontFormatException;
+import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -23,6 +22,7 @@ import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
 import visao.TelaInicial;
 import visao.Funcionário.TelaGerenciamentoP;
+import java.awt.Font;
 
 public class TelaAnáliseVendas extends JFrame {
 
@@ -31,32 +31,20 @@ public class TelaAnáliseVendas extends JFrame {
 
 
 	public TelaAnáliseVendas(JFrame telaA, Funcionario f) {
-		
-		Font font = new Font("Tahoma", Font.PLAIN, 11);;
-		try {
-			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
-			
-			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
-	
-		} catch (FontFormatException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		
+		setTitle("Tela de análise das vendas");
+		setExtendedState(MAXIMIZED_BOTH);
 		TelaAnáliseVendas tela = this;
-		
+		setResizable(false);
 		setBackground(new Color(230, 230, 230));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 846, 566);
 		
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBackground(new Color(230, 230, 230));
 		setJMenuBar(menuBar);
 		
-		JMenu mnNewMenu = new JMenu("TELAS");
-		mnNewMenu.setFont(font);
+		JMenu mnNewMenu = new JMenu("Telas");
+		mnNewMenu.setBackground(new Color(245, 245, 245));
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Adminstrador");
@@ -76,8 +64,8 @@ public class TelaAnáliseVendas extends JFrame {
 		});
 		mnNewMenu.add(mntmNewMenuItem_1);
 		
-		JMenu mnNewMenu_1 = new JMenu("OPÇOES");
-		mnNewMenu_1.setFont(font);
+		JMenu mnNewMenu_1 = new JMenu("Opções");
+		mnNewMenu_1.setBackground(new Color(245, 245, 245));
 		menuBar.add(mnNewMenu_1);
 		
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Análise de vendas");
@@ -97,8 +85,8 @@ public class TelaAnáliseVendas extends JFrame {
 		});
 		mnNewMenu_1.add(mntmNewMenuItem_3);
 		
-		JMenuItem mntmNewMenuItem_4 = new JMenuItem("TELA INICIAL");
-		mntmNewMenuItem_4.setFont(font);
+		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Voltar para a Tela Inicial");
+		mntmNewMenuItem_4.setBackground(new Color(245, 245, 245));
 		mntmNewMenuItem_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
@@ -110,28 +98,18 @@ public class TelaAnáliseVendas extends JFrame {
 		});
 		menuBar.add(mntmNewMenuItem_4);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(230, 230, 230));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(new MigLayout("", "[][grow]", "[][][grow]"));
 		
-		RoundButton btnNewButton = new RoundButton("Sair");
-		btnNewButton.setFont(font);
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		btnNewButton.setForeground(new Color(245, 245, 245));
-		btnNewButton.setBackground(new Color(0, 0, 0));
-		contentPane.add(btnNewButton, "cell 0 0");
-		
 		JLabel lblNewLabel = new JLabel("TABELA DE VENDAS:");
-		lblNewLabel.setFont(font);
-		contentPane.add(lblNewLabel, "cell 1 0,alignx center");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		contentPane.add(lblNewLabel, "cell 0 0 2 1,alignx center,aligny center");
 		
 		JScrollPane scrollPane = new JScrollPane();
-		contentPane.add(scrollPane, "cell 1 2,grow");
+		contentPane.add(scrollPane, "cell 0 1 2 2,grow");
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
