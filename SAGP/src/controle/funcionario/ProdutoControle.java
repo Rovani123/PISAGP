@@ -1,4 +1,4 @@
-package controle;
+package controle.funcionario;
 
 import java.io.FileInputStream;
 import java.sql.SQLException;

@@ -22,7 +22,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import controle.ProdutoControle;
+import controle.funcionario.ProdutoControle;
 import modelo.classes.Funcionario;
 import modelo.classes.Produto;
 import modelo.dao.ProdutoDAO;
@@ -363,4 +363,9 @@ public class TelaGerenciamentoP extends JFrame {
 			break;
 		}
 	}
+
+	public Produto getItemTabela() {
+		return ((ProdutosTableModel) table.getModel()).getItem(table.getSelectedRow());
+	}
+	
 }

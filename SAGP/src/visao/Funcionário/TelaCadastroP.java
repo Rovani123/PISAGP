@@ -21,8 +21,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import controle.funcionario.ProdutoControle;
+
 import javax.imageio.ImageIO;
-import controle.ProdutoControle;
+
 import modelo.classes.Funcionario;
 import modelo.enumerador.Categoria;
 import net.miginfocom.swing.MigLayout;

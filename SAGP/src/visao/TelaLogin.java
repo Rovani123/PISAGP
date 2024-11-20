@@ -6,8 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import controle.LoginControle;
-import controle.ProdutoControle;
+import controle.funcionario.ProdutoControle;
+import controle.inicio.LoginControle;
 import dal.ConexaoBD;
 import modelo.classes.Funcionario;
 import modelo.classes.Produto;

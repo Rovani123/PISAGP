@@ -1,4 +1,4 @@
-package controle;
+package controle.funcionario;
 
 import java.sql.SQLException;
 import java.time.LocalDate;

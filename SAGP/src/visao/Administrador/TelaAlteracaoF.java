@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controle.FuncionarioControle;
-import controle.ProdutoControle;
+import controle.funcionario.ProdutoControle;
 import modelo.classes.Funcionario;
 import modelo.classes.Produto;
 import modelo.enumerador.Categoria;

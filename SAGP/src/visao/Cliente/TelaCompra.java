@@ -19,7 +19,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import controle.ProdutoControle;
+import controle.funcionario.ProdutoControle;
 import modelo.classes.Carrinho;
 import modelo.classes.Produto;
 import modelo.classes.Vendas;

@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import controle.PromocaoControle;
+import controle.funcionario.PromocaoControle;
 import modelo.classes.Produto;
 import modelo.classes.ProdutosPromocao;
 import modelo.classes.Promocoes;

@@ -1,8 +1,10 @@
-package controle;
+package controle.inicio;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+
+import controle.funcionario.GerenciamentoPControle;
 import modelo.classes.Funcionario;
 import modelo.dao.LoginDAO;
 import visao.TelaLogin;

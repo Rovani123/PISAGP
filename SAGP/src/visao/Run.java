@@ -1,6 +1,6 @@
 package visao;
 
-import controle.TelaInicialControle;
+import controle.inicio.TelaInicialControle;
 
 public class Run {	
 	public static void main(String[] args) {

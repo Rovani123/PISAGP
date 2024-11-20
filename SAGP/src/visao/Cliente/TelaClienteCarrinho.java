@@ -16,8 +16,8 @@ import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
 import controle.CarrinhoControle;
-import controle.ProdutoControle;
 import controle.VendaControle;
+import controle.funcionario.ProdutoControle;
 import modelo.classes.Carrinho;
 import modelo.dao.VendaDAO;
 import net.miginfocom.swing.MigLayout;

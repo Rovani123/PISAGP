@@ -8,8 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import controle.ProdutoControle;
-import controle.PromocaoControle;
+import controle.funcionario.ProdutoControle;
+import controle.funcionario.PromocaoControle;
 import modelo.classes.Funcionario;
 import modelo.classes.Produto;
 import modelo.classes.ProdutosPromocao;
