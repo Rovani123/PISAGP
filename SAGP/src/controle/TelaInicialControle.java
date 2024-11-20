@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import visao.TelaInicial;
 
 public class TelaInicialControle {
-	TelaInicial ti;
+	private TelaInicial ti;
 	public TelaInicialControle() {
 		ti = new TelaInicial();
 		ti.setVisible(true);

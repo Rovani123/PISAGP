@@ -8,7 +8,7 @@ import modelo.dao.LoginDAO;
 import visao.TelaLogin;
 
 public class LoginControle {
-	TelaLogin tl;
+	private TelaLogin tl;
 	public LoginControle() {
 		tl = new TelaLogin();
 		tl.setVisible(true);
@@ -53,16 +53,14 @@ public class LoginControle {
 				e.printStackTrace();
 				f=null;
 			}
-
-			
 			
 			if(f != null){
 				if(f.getadministrador() == 1){
 					//admControle
 					System.out.println("ADM");
 				}else{
-					System.out.println("F");
-					//funcionarioControle
+					tl.dispose();
+					new GerenciamentoPControle(f);
 				}
 			}else {
 				//Usuário ou senha inválidos
