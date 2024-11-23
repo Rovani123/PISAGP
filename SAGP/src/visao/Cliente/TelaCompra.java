@@ -37,7 +37,7 @@ public class TelaCompra extends JFrame {
 	private JTextField txtPesquisa;
 	private JScrollPane scrollPane;
 	private JPanel painelMenu;
-	private JButton btnNewButton_1;
+	private JButton btCarrinho;
 	private JButton btVoltar;
 	private JButton btSalgados;
 	private JLabel lblCategorias;
@@ -54,18 +54,7 @@ public class TelaCompra extends JFrame {
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel_3;
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaCompra frame = new TelaCompra();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	public TelaCompra() {
 		TelaCompra tela = this;
@@ -107,11 +96,7 @@ public class TelaCompra extends JFrame {
 		btPesquisar.setBackground(new Color(0, 0, 0));
 		btPesquisar.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/lupa.png")));
 		btPesquisar.setText("");
-		btPesquisar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
+		btPesquisar.setActionCommand("btPesquisar");
 		painelPrincipal.add(btPesquisar, "cell 13 0");
 
 		painelMenu = new JPanel();
@@ -124,13 +109,14 @@ public class TelaCompra extends JFrame {
 		btVoltar.setForeground(new Color(245, 245, 245));
 		btVoltar.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/volte.png")));
 		btVoltar.setText("");
-		btVoltar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaInicial telaI = new TelaInicial();
-				dispose();
-				telaI.setVisible(true);
-			}
-		});
+		btVoltar.setActionCommand("btVoltar");
+//		btVoltar.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				TelaInicial telaI = new TelaInicial();
+//				dispose();
+//				telaI.setVisible(true);
+//			}
+//		});
 		painelMenu.add(btVoltar, "cell 1 0");
 
 		lblLogo = new JLabel("");
@@ -143,12 +129,13 @@ public class TelaCompra extends JFrame {
 
 		btSalgados = new RoundButton("Salgado");
 		btSalgados.setFont(font);
-        btSalgados.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				getProdutosFiltro(Categoria.categoriaString("salgados"));
-
-			}
-		});
+		btSalgados.setActionCommand("btSalgados");
+//        btSalgados.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				getProdutosFiltro(Categoria.categoriaString("salgados"));
+//
+//			}
+//		});
 
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/biscoitos.png")));
@@ -157,11 +144,12 @@ public class TelaCompra extends JFrame {
 
 		btDoces = new RoundButton("Doce");
 		btDoces.setFont(font);
-		btDoces.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				getProdutosFiltro(Categoria.categoriaString("doces"));
-			}
-		});
+		btDoces.setActionCommand("btDoces");
+//		btDoces.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				getProdutosFiltro(Categoria.categoriaString("doces"));
+//			}
+//		});
 
 		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/bolinho.png")));
@@ -170,11 +158,12 @@ public class TelaCompra extends JFrame {
 
 		btBebidas = new RoundButton("Bebidas");
 		btBebidas.setFont(font);
-		btBebidas.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				getProdutosFiltro(Categoria.categoriaString("bebidas"));
-			}
-		});
+		btBebidas.setActionCommand("btBebidas");
+//		btBebidas.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				getProdutosFiltro(Categoria.categoriaString("bebidas"));
+//			}
+//		});
 
 		lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/garrafa-de-agua.png")));
@@ -183,36 +172,38 @@ public class TelaCompra extends JFrame {
 
 		btOfertas = new RoundButton("Ofertas");
 		btOfertas.setFont(font);
-		btOfertas.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		btOfertas.setActionCommand("btOfertas");
+//		btOfertas.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//			}
+//		});
 
 		lblNewLabel_3 = new JLabel("Icone");
 		painelMenu.add(lblNewLabel_3, "cell 0 9");
 		painelMenu.add(btOfertas, "cell 1 9,alignx left");
 
-		btnNewButton_1 = new RoundButton("Carrinho");
-		btnNewButton_1.setFont(font);
-		btnNewButton_1.setBackground(new Color(224, 83, 76));
-		btnNewButton_1.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/carrinho-de-compras.png")));
-		btnNewButton_1.setText("");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (listaCarrinhosCompra.size() == 0) {
-					for (Carrinho carrinho : listaCarrinhos) {
-						if (carrinho.getQuantidade() > 0) {
-							listaCarrinhosCompra.add(carrinho);
-
-						}
-					}
-				}
-				TelaClienteCarrinho tcc = new TelaClienteCarrinho(tela,listaCarrinhosCompra);
-				dispose();		
-				tcc.setVisible(true);
-			}
-		});
-		painelMenu.add(btnNewButton_1, "cell 1 15,alignx center");
+		btCarrinho = new RoundButton("Carrinho");
+		btCarrinho.setFont(font);
+		btCarrinho.setBackground(new Color(224, 83, 76));
+		btCarrinho.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/carrinho-de-compras.png")));
+		btCarrinho.setText("");
+		btCarrinho.setActionCommand("btCarrinho");
+//		btCarrinho.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				if (listaCarrinhosCompra.size() == 0) {
+//					for (Carrinho carrinho : listaCarrinhos) {
+//						if (carrinho.getQuantidade() > 0) {
+//							listaCarrinhosCompra.add(carrinho);
+//
+//						}
+//					}
+//				}
+//				TelaClienteCarrinho tcc = new TelaClienteCarrinho(tela,listaCarrinhosCompra);
+//				dispose();		
+//				tcc.setVisible(true);
+//			}
+//		});
+		painelMenu.add(btCarrinho, "cell 1 15,alignx center");
 
 		scrollPane = new JScrollPane();
 		painelPrincipal.add(scrollPane, "cell 1 1 13 17,grow");
@@ -221,57 +212,68 @@ public class TelaCompra extends JFrame {
 		scrollPane.setRowHeaderView(painelProdutos);
 		painelProdutos.setLayout(new MigLayout("", "[]", "[]"));
 
-		getProdutos();
+//		getProdutos();
 	}
 
-	private void getProdutos() {
-
-		painelProdutos.removeAll();
-		ProdutoControle pc = new ProdutoControle();
-		listaProdutos = pc.getProdutos();
-
-		int c = 0;
-		int l = 0;
-
-		for (Produto produto : listaProdutos) {
-
-			Carrinho carrinho = new Carrinho();
-			carrinho.setIdCarrinho(listaProdutos.indexOf(produto));
-			carrinho.setIdProduto(produto.getIdProduto());
-			carrinho.setIdVenda(-1);
-			carrinho.setQuantidade(0);
-			listaCarrinhos.add(carrinho);
-
-			PainelProduto pp = new PainelProduto(produto, carrinho);
-			painelProdutos.add(pp, "cell " + l + " " + c);
-
-			l++;
-			if (l % 3 == 0) {
-				c++;
-				l = 0;
-			}
-		}
+	public void  addCompraListner(ActionListener listener) {
+		btSalgados.addActionListener(listener);
+		btDoces.addActionListener(listener);
+		btBebidas.addActionListener(listener);
+		btOfertas.addActionListener(listener);
+		btVoltar.addActionListener(listener);
+		btVoltar.addActionListener(listener);
+		btCarrinho.addActionListener(listener);
 	}
+	
+//	private void getProdutos() {
+//
+//		painelProdutos.removeAll();
+//		ProdutoControle pc = new ProdutoControle();
+//		listaProdutos = pc.getProdutos();
+//
+//		int c = 0;
+//		int l = 0;
+//
+//		for (Produto produto : listaProdutos) {
+//
+//			Carrinho carrinho = new Carrinho();
+//			carrinho.setIdCarrinho(listaProdutos.indexOf(produto));
+//			carrinho.setIdProduto(produto.getIdProduto());
+//			carrinho.setIdVenda(-1);
+//			carrinho.setQuantidade(0);
+//			listaCarrinhos.add(carrinho);
+//
+//			PainelProduto pp = new PainelProduto(produto, carrinho);
+//			painelProdutos.add(pp, "cell " + l + " " + c);
+//
+//			l++;
+//			if (l % 3 == 0) {
+//				c++;
+//				l = 0;
+//			}
+//		}
+//	}
+//
+//	private void getProdutosFiltro(Categoria categoria) {
+//		painelProdutos.removeAll();
+//		ProdutoControle pc = new ProdutoControle();
+//		listaProdutos = pc.getProdutoFiltro(categoria);
+//		int c = 0;
+//		int l = 0;
+//		for (Produto produto : listaProdutos) {
+//			Carrinho ca = new Carrinho();
+//			ca.setIdCarrinho(listaProdutos.indexOf(produto));
+//			ca.setIdProduto(produto.getIdProduto());
+//			ca.setIdVenda(-1);
+//			ca.setQuantidade(0);
+//			PainelProduto pp = new PainelProduto(produto, ca);
+//			painelProdutos.add(pp, "cell " + l + " " + c);
+//			l++;
+//			if (l % 3 == 0) {
+//				c++;
+//				l = 0;
+//			}
+//		}
+//	}
 
-	private void getProdutosFiltro(Categoria categoria) {
-		painelProdutos.removeAll();
-		ProdutoControle pc = new ProdutoControle();
-		listaProdutos = pc.getProdutoFiltro(categoria);
-		int c = 0;
-		int l = 0;
-		for (Produto produto : listaProdutos) {
-			Carrinho ca = new Carrinho();
-			ca.setIdCarrinho(listaProdutos.indexOf(produto));
-			ca.setIdProduto(produto.getIdProduto());
-			ca.setIdVenda(-1);
-			ca.setQuantidade(0);
-			PainelProduto pp = new PainelProduto(produto, ca);
-			painelProdutos.add(pp, "cell " + l + " " + c);
-			l++;
-			if (l % 3 == 0) {
-				c++;
-				l = 0;
-			}
-		}
-	}
 }

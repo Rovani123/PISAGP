@@ -21,8 +21,11 @@ import javax.swing.ImageIcon;
 public class PainelProduto extends JPanel {
 	
 	private JLabel lblQuantidade;
+	private RoundButton btMenos;
+	private RoundButton btMais;
 	private Carrinho carrinho;
 	private Produto produto;
+	
 	
 	public PainelProduto(Produto p,Carrinho c) {
 		produto=p;
@@ -46,7 +49,7 @@ public class PainelProduto extends JPanel {
 		lblPreco.setText(String.valueOf(p.getPreco()));
 		add(lblPreco, "cell 1 10,alignx center");
 		
-		RoundButton btMenos = new RoundButton("-");
+		btMenos = new RoundButton("-");
 		btMenos.setBackground(new Color(245, 245, 245));
 		btMenos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -61,7 +64,7 @@ public class PainelProduto extends JPanel {
 		lblQuantidade = new JLabel("0");
 		add(lblQuantidade, "cell 6 10 2 1");
 		
-		RoundButton btMais = new RoundButton("+");
+		btMais = new RoundButton("+");
 		btMais.setBackground(new Color(245, 245, 245));
 		btMais.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

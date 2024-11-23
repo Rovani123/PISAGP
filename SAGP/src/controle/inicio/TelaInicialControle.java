@@ -3,6 +3,7 @@ package controle.inicio;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import controle.cliente.CompraControle;
 import visao.TelaInicial;
 
 public class TelaInicialControle {
@@ -16,7 +17,8 @@ public class TelaInicialControle {
 		public void actionPerformed(ActionEvent e) {
 			switch (e.getActionCommand()) {
 			case "btCliente":
-//				CompraControle cc = new CompraControle(); //A Fazer
+				ti.dispose();
+				new CompraControle(); 
 				break;
 			case "btLogin":
 				ti.dispose();

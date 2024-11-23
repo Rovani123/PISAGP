@@ -55,14 +55,6 @@ public class TelaInicial extends JFrame {
 		btCliente.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		btCliente.setText("Entrar como cliente");
 		btCliente.setActionCommand("btCliente");
-//		btCliente.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				TelaCompra telaC = new TelaCompra();
-//				dispose();
-//				telaC.setVisible(true);
-//			}
-//		});
-		
 		JLabel lblCarrinho = new JLabel("");
 		lblCarrinho.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblCarrinho.setIcon(new ImageIcon(TelaInicial.class.getResource("/Imagem/carrinho-de-compras.png")));
@@ -75,13 +67,6 @@ public class TelaInicial extends JFrame {
 		btLogin.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		btLogin.setText("Entrar como funcionario");
 		btLogin.setActionCommand("btLogin");
-//		btLogin.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				TelaLogin TelaL = new TelaLogin(tI);
-//				dispose();
-//				TelaL.setVisible(true);
-//			}
-//		});
 		
 		JLabel lblLupa = new JLabel("");
 		lblLupa.setFont(new Font("Tahoma", Font.PLAIN, 20));
