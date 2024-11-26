@@ -11,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 import controle.funcionario.ProdutoControle;
 import controle.funcionario.PromocaoControle;
 import modelo.classes.Funcionario;
+import modelo.classes.Produto;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
 
@@ -38,6 +39,7 @@ public class TelaCadastroPromocao extends JFrame {
     private JTextField txtDesconto;
     private JTextField txtDataInicio;
     private JTextField txtDataTermino;
+    private JTextField txtProdutoP;
 
     public TelaCadastroPromocao(JFrame telaC, Funcionario f) {
     	TelaCadastroPromocao tela= this;
