@@ -8,8 +8,12 @@ import modelo.classes.Produto;
 import modelo.dao.ProdutoDAO;
 import modelo.enumerador.Categoria;
 
+
+
 public class ProdutoControle {
 	
+	
+
 	public ArrayList<Produto> getProdutos() {
 		ProdutoDAO pdal = new ProdutoDAO();
 		return pdal.getProdutos();		
