@@ -16,12 +16,15 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.Window.Type;
 import java.awt.Cursor;
 import java.awt.Point;
 import java.awt.Frame;
 import java.awt.Font;
+import java.awt.FontFormatException;
 
 public class TelaInicial extends JFrame {
 
@@ -31,6 +34,21 @@ public class TelaInicial extends JFrame {
 	private JButton btLogin;
 
 	public TelaInicial() {
+		
+		Font font = new Font("Tahoma", Font.PLAIN, 11);;
+		try {
+			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
+			
+			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
+	
+		} catch (FontFormatException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		TelaInicial tI= this;
 		setExtendedState(Frame.MAXIMIZED_BOTH);
 		setBackground(new Color(230, 230, 230));
@@ -54,6 +72,7 @@ public class TelaInicial extends JFrame {
 		btCliente = new RoundButton("");
 		btCliente.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		btCliente.setText("Entrar como cliente");
+		btCliente.setFont(font);
 		btCliente.setActionCommand("btCliente");
 		JLabel lblCarrinho = new JLabel("");
 		lblCarrinho.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -66,6 +85,7 @@ public class TelaInicial extends JFrame {
 		btLogin = new RoundButton("");
 		btLogin.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		btLogin.setText("Entrar como funcionario");
+		btLogin.setFont(font);
 		btLogin.setActionCommand("btLogin");
 		
 		JLabel lblLupa = new JLabel("");
