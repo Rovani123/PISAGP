@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import controle.funcionario.AlteracaoPControle.AlterarPListener;
 import controle.funcionario.ProdutoControle;
 import modelo.classes.Funcionario;
 import modelo.classes.Produto;
@@ -217,11 +218,13 @@ public class TelaAlteracaoP extends JFrame {
 		pc.alterarProduto(p);
 
 	}
-	public void addAlteracaoP(ActionListener listener) {
+	public void addAlteracaoPListener(ActionListener listener) {
 		btLimpa1.addActionListener(listener);
 		btLimpa2.addActionListener(listener);
 		btLimpa3.addActionListener(listener);
 		btSalvar.addActionListener(listener);
 		btCancelar.addActionListener(listener);
 	}
+
+	
 }

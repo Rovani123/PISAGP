@@ -15,21 +15,29 @@ public class AlteracaoPControle {
 	}
 
 	private void configurarListeners() {
-		viewP.addAlteracaoPListener(new LoginListener());
-		
+		viewP.addAlteracaoPListener(new  AlterarPListener());
 	}
 	
-	private class LoginListener implements ActionListener {
+	private class AlterarPListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if ("btLimpa1".equals(e.getActionCommand())) {
-				LimparCampos();
+				limparCampos();
 			}
 			else if ("btLimpa2".equals(e.getActionCommand())) {
-				LimparCampo();
+				limparCampos();
 			}
-			else if("btLimpa3".equals(e.getActionCommand())) {}
+			else if("btLimpa3".equals(e.getActionCommand())) {
+				limparCampos();
+			}
+			else if ("btSalvar".equals(e.getActionCommand())) {
+				salvarP;
+			}
+			else if ("btCancelar".equals(e.getActionCommand())) {
+				cancelarP;
+			}
 		}
+
 	}
 
 }
