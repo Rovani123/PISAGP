@@ -28,10 +28,30 @@ import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
 
 public class TelaClienteCarrinho extends JFrame {
+	private JPanel painelPrincipal;
+	private JPanel menuLateral;
 	private JPanel painelProdutos;
+	private RoundButton btVoltar;
+	private JLabel lblLogo;
+	private JLabel lblCategorias;
+	private JLabel lblIconSalgado;
+	private RoundButton btSalgado;
+	private JLabel lblIconDoce;
+	private RoundButton btDoce;
+	private JLabel lblIconBebidas;
+	private RoundButton btBebidas;
+	private JLabel lblIconOfertas;
+	private RoundButton btOfertas;
+	private JPanel painelCima;
+	private JLabel lblCarrinho;
+	private JScrollPane scrollPane;
+	private JPanel painelBaixo;
+	private JLabel lblTotalPagar;
+	private JLabel lblValorTotal;
+	private RoundButton btFinalizarCompra;
 	private ArrayList<Carrinho> listaCarrinhos;
 	
-	public TelaClienteCarrinho(JFrame telaA,ArrayList<Carrinho> listaCarrinhos) {
+	public TelaClienteCarrinho(ArrayList<Carrinho> listaCarrinhos) {
 		
 		Font font = new Font("Tahoma", Font.PLAIN, 11);;
 		try {
@@ -54,122 +74,132 @@ public class TelaClienteCarrinho extends JFrame {
 		setBounds(100, 100, 985, 625);
 		setBackground(new Color(230, 230, 230));
 		
-		JPanel painelPrincipal = new JPanel();
+		painelPrincipal = new JPanel();
 		painelPrincipal.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(painelPrincipal);
 		painelPrincipal.setLayout(new MigLayout("", "[grow][][][][][][][grow][][][][][][][][][][][][][][grow][][][][]", "[grow][grow][][][][][][][][][][][][][][][][][grow][]"));
 //		getContentPane().setLayout(new MigLayout("", "[grow][][][][][][][grow][][][][][][][][][][][][][][grow][][][][]", "[grow][grow][][][][][][][][][][][][][][][][][grow][]"));
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(167, 208, 214));
-		painelPrincipal.add(panel_1, "cell 0 0 7 20,alignx left,growy");
-		panel_1.setLayout(new MigLayout("", "[][][]", "[][][][][][][][][][][][][]"));
+		menuLateral = new JPanel();
+		menuLateral.setBackground(new Color(167, 208, 214));
+		painelPrincipal.add(menuLateral, "cell 0 0 7 20,alignx left,growy");
+		menuLateral.setLayout(new MigLayout("", "[][][]", "[][][][][][][][][][][][][]"));
 		
-		RoundButton btnNewButton_2 = new RoundButton("");
-		btnNewButton_2.setFont(font);
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		btnNewButton_2.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/volte.png")));
-		panel_1.add(btnNewButton_2, "cell 1 0");
+		btVoltar = new RoundButton("");
+		btVoltar.setFont(font);
+		btVoltar.setActionCommand("btVoltar");
+//		btnNewButton_2.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				
+//			}
+//		});
+		btVoltar.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/volte.png")));
+		menuLateral.add(btVoltar, "cell 1 0");
 		
-		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/LogoPequena.png")));
-		panel_1.add(lblNewLabel_2, "cell 1 2");
+		lblLogo = new JLabel("");
+		lblLogo.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/LogoPequena.png")));
+		menuLateral.add(lblLogo, "cell 1 2");
 		
-		JLabel lblNewLabel_3 = new JLabel("Categorias:");
-		lblNewLabel_3.setFont(font);
-		panel_1.add(lblNewLabel_3, "cell 1 5");
+		lblCategorias = new JLabel("Categorias:");
+		lblCategorias.setFont(font);
+		menuLateral.add(lblCategorias, "cell 1 5");
 		
-		JLabel lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/biscoitos.png")));
-		panel_1.add(lblNewLabel_4, "cell 0 6");
+		lblIconSalgado = new JLabel("");
+		lblIconSalgado.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/biscoitos.png")));
+		menuLateral.add(lblIconSalgado, "cell 0 6");
 		
-		RoundButton btnNewButton_3 = new RoundButton("Salgado");
-		btnNewButton_3.setFont(font);
-		panel_1.add(btnNewButton_3, "cell 1 6");
+		btSalgado = new RoundButton("Salgado");
+		btSalgado.setFont(font);
+		btSalgado.setActionCommand("btSalgado");
+		menuLateral.add(btSalgado, "cell 1 6");
 		
-		JLabel lblNewLabel_5 = new JLabel("");
-		lblNewLabel_5.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/bolinho.png")));
-		panel_1.add(lblNewLabel_5, "cell 0 7");
+		lblIconDoce = new JLabel("");
+		lblIconDoce.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/bolinho.png")));
+		menuLateral.add(lblIconDoce, "cell 0 7");
 		
-		RoundButton btnNewButton_4 = new RoundButton("Doce");
-		btnNewButton_4.setFont(font);
-		btnNewButton_4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		panel_1.add(btnNewButton_4, "cell 1 7");
+		btDoce = new RoundButton("Doce");
+		btDoce.setFont(font);
+		btDoce.setActionCommand("btDoce");
+//		btDoce.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				
+//			}
+//		});
+		menuLateral.add(btDoce, "cell 1 7");
 		
-		JLabel lblNewLabel_6 = new JLabel("");
-		lblNewLabel_6.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/garrafa-de-agua.png")));
-		panel_1.add(lblNewLabel_6, "cell 0 8");
+		lblIconBebidas = new JLabel("");
+		lblIconBebidas.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/garrafa-de-agua.png")));
+		menuLateral.add(lblIconBebidas, "cell 0 8");
 		
-		RoundButton btnNewButton_5 = new RoundButton("Bebidas");
-		btnNewButton_5.setFont(font);
-		btnNewButton_5.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		panel_1.add(btnNewButton_5, "cell 1 8");
+		btBebidas = new RoundButton("Bebidas");
+		btBebidas.setFont(font);
+		btBebidas.setActionCommand("btBebidas");
+//		btBebidas.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				
+//			}
+//		});
+		menuLateral.add(btBebidas, "cell 1 8");
 		
-		JLabel lblNewLabel_7 = new JLabel("");
-		lblNewLabel_7.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/etiqueta-de-desconto.png")));
-		panel_1.add(lblNewLabel_7, "cell 0 9");
+		lblIconOfertas = new JLabel("");
+		lblIconOfertas.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/etiqueta-de-desconto.png")));
+		menuLateral.add(lblIconOfertas, "cell 0 9");
 		
-		RoundButton btnNewButton_6 = new RoundButton("Ofertas");
-		btnNewButton_6.setFont(font);
-		btnNewButton_6.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		panel_1.add(btnNewButton_6, "cell 1 9");
+		btOfertas = new RoundButton("Ofertas");
+		btOfertas.setFont(font);
+		btOfertas.setActionCommand("btOfertas");
+		menuLateral.add(btOfertas, "cell 1 9");
 		
-		JPanel panel_2 = new JPanel();
-		painelPrincipal.add(panel_2, "cell 7 0 19 1,alignx left,growy");
+		painelCima = new JPanel();
+		painelPrincipal.add(painelCima, "cell 7 0 19 1,alignx left,growy");
 		
-		RoundButton btnNewButton = new RoundButton("");
-		btnNewButton.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/carrinho-de-compras.png")));
-		panel_2.add(btnNewButton);
+		RoundButton btNO = new RoundButton("");
+		btNO.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/carrinho-de-compras.png")));
+		painelCima.add(btNO);
 		
-		JLabel lblNewLabel = new JLabel("Carrinho:");
-		lblNewLabel.setFont(font);
-		panel_2.add(lblNewLabel);
+		lblCarrinho = new JLabel("Carrinho:");
+		lblCarrinho.setFont(font);
+		painelCima.add(lblCarrinho);
 		
-		JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
 		painelPrincipal.add(scrollPane, "cell 7 1 19 17,grow");
 		
 		painelProdutos = new JPanel();
 		scrollPane.setViewportView(painelProdutos);
 		
-		JPanel panel_3 = new JPanel();
-		painelPrincipal.add(panel_3, "cell 7 18 19 2,alignx right,growy");
+		painelBaixo = new JPanel();
+		painelPrincipal.add(painelBaixo, "cell 7 18 19 2,alignx right,growy");
 		
-		JLabel lblNewLabel_1 = new JLabel("Total a pagar: ");
-		lblNewLabel_1.setFont(font);
-		panel_3.add(lblNewLabel_1);
+		lblTotalPagar = new JLabel("Total a pagar: ");
+		lblTotalPagar.setFont(font);
+		painelBaixo.add(lblTotalPagar);
 		
-		JLabel lblTotalPagar = new JLabel("");
-		lblTotalPagar.setText(String.valueOf(calcTotal()));
-		panel_3.add(lblTotalPagar);
+		lblValorTotal = new JLabel("");
+		lblValorTotal.setText(String.valueOf(calcTotal()));
+		painelBaixo.add(lblValorTotal);
 		
-		RoundButton btnNewButton_1 = new RoundButton("Finalizar compra");
-		btnNewButton_1.setFont(font);
-		panel_3.add(btnNewButton_1);
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				finalizarVenda();
-				finalizarCarrinho();
-			}
-		});
-		btnNewButton_1.setBackground(new Color(224, 83, 76));
+		btFinalizarCompra = new RoundButton("Finalizar compra");
+		btFinalizarCompra.setFont(font);
+		btFinalizarCompra.setActionCommand("btFinalizarCompra");
+		painelBaixo.add(btFinalizarCompra);
+//		btFinalizarCompra.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				finalizarVenda();
+//				finalizarCarrinho();
+//			}
+//		});
+		btFinalizarCompra.setBackground(new Color(224, 83, 76));
 		getProdutos();
 	}
+	
+	public void addCarrinhoListeners(ActionListener listener) {
+		btVoltar.addActionListener(listener);
+		btSalgado.addActionListener(listener);
+		
+	}
+	
+	
+	
 	private void getProdutos() {
 
 		painelProdutos.removeAll();
