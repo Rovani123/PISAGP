@@ -51,14 +51,15 @@ public class PainelProduto extends JPanel {
 		
 		btMenos = new RoundButton("-");
 		btMenos.setBackground(new Color(245, 245, 245));
-		btMenos.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(carrinho.getQuantidade()>0) {
-					carrinho.setQuantidade(carrinho.getQuantidade()-1);
-					lblQuantidade.setText(String.valueOf(carrinho.getQuantidade()));
-				}
-			}
-		});
+		btMenos.setActionCommand("btMenos");
+//		btMenos.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				if(carrinho.getQuantidade()>0) {
+//					carrinho.setQuantidade(carrinho.getQuantidade()-1);
+//					lblQuantidade.setText(String.valueOf(carrinho.getQuantidade()));
+//				}
+//			}
+//		});
 		add(btMenos, "cell 4 10");
 		
 		lblQuantidade = new JLabel("0");
@@ -66,17 +67,23 @@ public class PainelProduto extends JPanel {
 		
 		btMais = new RoundButton("+");
 		btMais.setBackground(new Color(245, 245, 245));
-		btMais.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(carrinho.getQuantidade() < p.getQuantidadeEstoque()) {
-					carrinho.setQuantidade(carrinho.getQuantidade()+1);
-					lblQuantidade.setText(String.valueOf(carrinho.getQuantidade()));
-				}else {
-					JOptionPane.showMessageDialog(null, "Não há mais produtos no estoque");
-				}
-			}
-		});
+		btMais.setActionCommand("btMais");
+//		btMais.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				if(carrinho.getQuantidade() < p.getQuantidadeEstoque()) {
+//					carrinho.setQuantidade(carrinho.getQuantidade()+1);
+//					lblQuantidade.setText(String.valueOf(carrinho.getQuantidade()));
+//				}else {
+//					JOptionPane.showMessageDialog(null, "Não há mais produtos no estoque");
+//				}
+//			}
+//		});
 		add(btMais, "cell 9 10");
 		lblQuantidade.setText(String.valueOf(carrinho.getQuantidade()));
+	}
+	
+	public void addPainelProdutoListeners(ActionListener listener) {
+		btMenos.addActionListener(listener);
+		btMais.addActionListener(listener);
 	}
 }
