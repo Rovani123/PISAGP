@@ -36,6 +36,9 @@ public class TelaAlteracaoF extends JFrame {
 	private JTextField txtNome;
 	private JTextField txtUsuario;
 	private JPasswordField txtSenha;
+	private JButton btSalvar;
+	private JButton btCancelar;
+	
 
 	public TelaAlteracaoF(JFrame telaA, Funcionario f) {
 		
@@ -94,25 +97,26 @@ public class TelaAlteracaoF extends JFrame {
 		txtSenha = new JPasswordField();
 		contentPane.add(txtSenha, "cell 2 7 6 1,growx,aligny center");
 
-		JButton btSalvar = new RoundButton("SALVAR");
+		btSalvar = new RoundButton("SALVAR");
 		btSalvar.setFont(font);
-		btSalvar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (txtNome.getText().isEmpty() || txtUsuario.getText().isEmpty()|| txtSenha.getPassword().length == 0) {
-					JOptionPane.showMessageDialog(null, "Todos os campos precisam ser preenchidos");
-				} else {
-					try {
-						alterarFuncionario(f, txtNome.getText(), txtUsuario.getText(), txtSenha.getText());
-						TelaGerenciamentoF tgf = new TelaGerenciamentoF(telaA, f);
-						dispose();
-						tgf.setVisible(true);
-					} catch (SQLException e1) {
-						e1.printStackTrace();
-						JOptionPane.showInternalMessageDialog(null, "não foi possivel alterar os dados do funcionário");
-					}
-				}
-			}
-		});
+		btSalvar.setActionCommand("btSalvar");
+//		btSalvar.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				if (txtNome.getText().isEmpty() || txtUsuario.getText().isEmpty()|| txtSenha.getPassword().length == 0) {
+//					JOptionPane.showMessageDialog(null, "Todos os campos precisam ser preenchidos");
+//				} else {
+//					try {
+//						alterarFuncionario(f, txtNome.getText(), txtUsuario.getText(), txtSenha.getText());
+//						TelaGerenciamentoF tgf = new TelaGerenciamentoF(telaA, f);
+//						dispose();
+//						tgf.setVisible(true);
+//					} catch (SQLException e1) {
+//						e1.printStackTrace();
+//						JOptionPane.showInternalMessageDialog(null, "não foi possivel alterar os dados do funcionário");
+//					}
+//				}
+//			}
+//		});
 		
 				JButton btnNewButton_2 = new RoundButton("LIMPAR");
 				btnNewButton_2.setFont(font);
@@ -128,13 +132,14 @@ public class TelaAlteracaoF extends JFrame {
 
 		JButton btCancelar = new RoundButton("CANCELAR");
 		btCancelar.setFont(font);
-		btCancelar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaGerenciamentoF tgf = new TelaGerenciamentoF(telaA, f);
-				dispose();
-				tgf.setVisible(true);
-			}
-		});
+		btCancelar.setActionCommand("btCancelar");
+//		btCancelar.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				TelaGerenciamentoF tgf = new TelaGerenciamentoF(telaA, f);
+//				dispose();
+//				tgf.setVisible(true);
+//			}
+//		});
 		btCancelar.setForeground(new Color(245, 245, 245));
 		btCancelar.setBackground(new Color(0, 0, 0));
 		btCancelar.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -156,5 +161,8 @@ public class TelaAlteracaoF extends JFrame {
 		FuncionarioControle fc = new FuncionarioControle();
 		fc.alterarFuncionario(f);
 	}
-
+	public void addAlteracaoF(ActionListener listener) {
+		btSalvar.addActionListener(listener);
+		btCancelar.addActionListener(listener);
+	}
 }
