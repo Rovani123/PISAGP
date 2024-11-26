@@ -46,6 +46,7 @@ public class TelaGerenciamentoP extends JFrame {
 	private JMenuItem mGProdutos;
 	private JMenuItem mPromocoes;
 	private JMenuItem mAdm;
+    private JMenuItem mVoltar;
 	private JMenuItem mFuncionario;
 	private RoundButton btSalgados;
 	private RoundButton btDoces;
@@ -124,7 +125,7 @@ public class TelaGerenciamentoP extends JFrame {
 //		});
 		mOpcoes.add(mPromocoes);
 
-		JMenuItem mVoltar = new JMenuItem("Voltar ao início");
+		mVoltar = new JMenuItem("Voltar ao início");
 		mVoltar.setFont(font);
 		mVoltar.setActionCommand("mVoltar");
 //		mVoltar.addActionListener(new ActionListener() {

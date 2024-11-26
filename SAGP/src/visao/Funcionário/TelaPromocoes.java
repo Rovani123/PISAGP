@@ -44,6 +44,11 @@ public class TelaPromocoes extends JFrame {
 	private JMenuItem mGProdutos;
 	private JMenuItem mPromocoes;
 	private JMenuItem mVoltar;
+	private JButton btVoltar;
+	private JButton btAlterar;
+	private JButton btRemover;
+	private JButton btCadastrar;
+	
 
 
 	public TelaPromocoes(JFrame telaA, JFrame telaC, Funcionario f) {
@@ -108,12 +113,13 @@ public class TelaPromocoes extends JFrame {
 		painel.add(barraLateral, "cell 0 0 1 7,alignx left,growy");
 		barraLateral.setLayout(new MigLayout("", "[]", "[][][][grow][][grow][][][grow][][][grow][][grow][]"));
 		
-		JButton btVoltar = new RoundButton("");
+		btVoltar = new RoundButton("");
 		btVoltar.setBackground(new Color(245, 245, 245));
-		btVoltar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		btVoltar.setActionCommand("btVoltar");
+//		btVoltar.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//			}
+//		});
 		btVoltar.setIcon(new ImageIcon(TelaPromocoes.class.getResource("/Imagem/volte.png")));
 		barraLateral.add(btVoltar, "cell 0 0,alignx left,aligny center");
 		
@@ -140,70 +146,74 @@ public class TelaPromocoes extends JFrame {
 		lblNewLabel_1.setToolTipText("");
 		barraLateral.add(lblNewLabel_1, "cell 0 3,alignx center,aligny center");
 		
-		JButton btAlterar = new RoundButton("ALTERAR");
+		btAlterar = new RoundButton("ALTERAR");
 		btAlterar.setFont(font);
 		btAlterar.setForeground(new Color(245, 245, 245));
 		btAlterar.setBackground(new Color(224, 83, 76));
 		btAlterar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btAlterar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Produto promcao = ((ProdutosTableModel) table.getModel()).getItem(table.getSelectedRow());
-
-					TelaAlteracaoPromocao tap = new TelaAlteracaoPromocao(telaA, f, null);
-					dispose();
-					tap.setVisible(true);
-				} catch (Exception e1) {
-					e1.printStackTrace();
-					JOptionPane.showMessageDialog(null, "Selecione um produto em promoção");
-				}
-			}
-			
-				
-		});
+		btAlterar.setActionCommand("btAlterar");
+//		btAlterar.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				try {
+//					Produto promcao = ((ProdutosTableModel) table.getModel()).getItem(table.getSelectedRow());
+//
+//					TelaAlteracaoPromocao tap = new TelaAlteracaoPromocao(telaA, f, null);
+//					dispose();
+//					tap.setVisible(true);
+//				} catch (Exception e1) {
+//					e1.printStackTrace();
+//					JOptionPane.showMessageDialog(null, "Selecione um produto em promoção");
+//				}
+//			}
+//			
+//				
+//		});
 		barraLateral.add(btAlterar, "cell 0 5,alignx center,aligny center");
 		
-		JButton btRemover = new RoundButton("DELETAR");
+		btRemover = new RoundButton("DELETAR");
 		btRemover.setFont(font);
 		btRemover.setForeground(new Color(245, 245, 245));
 		btRemover.setBackground(new Color(224, 83, 76));
 		btRemover.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btRemover.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Produto p = ((ProdutosTableModel) table.getModel()).getItem(table.getSelectedRow());
-					ProdutoDAO pdal = new ProdutoDAO();
-					try {
-						pdal.deletarProduto(p);
-						JOptionPane.showMessageDialog(null, "operação realizada com sucesso");
-					} catch (SQLException e1) {
-						e1.printStackTrace();
-						JOptionPane.showMessageDialog(null, "Não é possivel remover esse produto");
-					}
-			} catch (Exception e2) {
-				JOptionPane.showMessageDialog(null, "Selecione um produto");
-			}
-		}
-	});
+		btRemover.setActionCommand("btRemover");
+		
+//		btRemover.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				try {
+//					Produto p = ((ProdutosTableModel) table.getModel()).getItem(table.getSelectedRow());
+//					ProdutoDAO pdal = new ProdutoDAO();
+//					try {
+//						pdal.deletarProduto(p);
+//						JOptionPane.showMessageDialog(null, "operação realizada com sucesso");
+//					} catch (SQLException e1) {
+//						e1.printStackTrace();
+//						JOptionPane.showMessageDialog(null, "Não é possivel remover esse produto");
+//					}
+//			} catch (Exception e2) {
+//				JOptionPane.showMessageDialog(null, "Selecione um produto");
+//			}
+//		}
+//	});
 		barraLateral.add(btRemover, "cell 0 7,alignx center,aligny center");
 		
 		JLabel lblNewLabel_4 = new JLabel("");
 		lblNewLabel_4.setIcon(new ImageIcon(TelaPromocoes.class.getResource("/Imagem/lupa.png")));
 		barraLateral.add(lblNewLabel_4, "flowx,cell 0 9");
 		
-		JButton btCadastrar = new RoundButton("ADICIONAR");
+		btCadastrar = new RoundButton("ADICIONAR");
 		btCadastrar.setFont(font);
 		btCadastrar.setForeground(new Color(245, 245, 245));
 		btCadastrar.setBackground(new Color(224, 83, 76));
 		btCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btCadastrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				TelaCadastroPromocao tcp = new TelaCadastroPromocao (telaC, f);
-				dispose();
-				tcp.setVisible(true);
-			}
-		});
+		btCadastrar.setActionCommand("btCadastrar");
+//		btCadastrar.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//
+//				TelaCadastroPromocao tcp = new TelaCadastroPromocao (telaC, f);
+//				dispose();
+//				tcp.setVisible(true);
+//			}
+//		});
 		barraLateral.add(btCadastrar, "cell 0 9,alignx center,aligny center");
 		
 		JLabel lblNewLabel_6 = new JLabel("PRODUTOS EM PROMOÇÃO");
@@ -225,5 +235,11 @@ public class TelaPromocoes extends JFrame {
 			mAdm.setEnabled(true);
 		}
 	}
-
+	public void addPromocoes(ActionListener listener) {
+		btVoltar.addActionListener(listener);
+		btAlterar.addActionListener(listener);
+		btRemover.addActionListener(listener);
+		btCadastrar.addActionListener(listener);
+		
+	}
 }
