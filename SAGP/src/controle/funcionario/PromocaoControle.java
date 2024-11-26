@@ -32,6 +32,7 @@ public class PromocaoControle {
 		PromocaoControle promo = new PromocaoControle();
 		promo.cadastrarPromocao(produtoPromocao, desconto, dataInicio , dataTermino);
 	}
+	
 
 	}
 
