@@ -215,8 +215,6 @@ public class TelaCompra extends JFrame {
 		painelProdutos = new JPanel();
 		scrollPane.setRowHeaderView(painelProdutos);
 		painelProdutos.setLayout(new MigLayout("", "[grow,center]", "[grow,center]"));
-
-//		getProdutos();
 	}
 
 	public void  addCompraListner(ActionListener listener) {

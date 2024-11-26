@@ -86,4 +86,19 @@ public class PainelProduto extends JPanel {
 		btMenos.addActionListener(listener);
 		btMais.addActionListener(listener);
 	}
+	
+	public Carrinho getCarrinho() {
+		return carrinho;
+	}
+	public Produto getProduto() {
+		return produto;
+	}
+	
+	public void setCarrinhoQuant(int q) {
+		carrinho.setQuantidade(q);
+	}
+	
+	public void setLblQuant(String s) {
+		lblQuantidade.setText(s);
+	}
 }

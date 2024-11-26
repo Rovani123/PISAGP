@@ -18,6 +18,7 @@ public class CompraControle {
 	private PainelProduto pp;
 	private ArrayList<Produto> listaProdutos;
 	private ArrayList<Carrinho> listaCarrinhos =new ArrayList<Carrinho>();
+	private ArrayList<Carrinho> listaCarrinhosCompra;
 	public CompraControle() {
 		ProdutoControle pc = new ProdutoControle();
 		listaProdutos = pc.getProdutos();
@@ -39,23 +40,32 @@ public class CompraControle {
 	}
 	
 	private class PainelListeners implements ActionListener{
-		public PainelListeners() {
+		private PainelProduto pp;
+		public PainelListeners(PainelProduto pp) {
+			this.pp = pp;
 		}
 		public void actionPerformed(ActionEvent e) {
 			switch (e.getActionCommand()) {
 			case "btMenos":
-				if(carrinho.getQuantidade()>0) {
-					carrinho.setQuantidade(carrinho.getQuantidade()-1);
-					lblQuantidade.setText(String.valueOf(carrinho.getQuantidade()));
+				if(pp.getProduto().getIdProduto() == 1) {
+					pp.setLblQuant("AAA");
+				}
+				if(pp.getCarrinho().getQuantidade()>0) {
+					pp.setCarrinhoQuant(pp.getCarrinho().getQuantidade()-1);
+					pp.setLblQuant(String.valueOf(pp.getCarrinho().getQuantidade()));
 				}
 				break;
 			case "btMais":
-				System.out.println("NO");
+				if(pp.getCarrinho().getQuantidade() < pp.getProduto().getQuantidadeEstoque()) {
+					pp.setCarrinhoQuant(pp.getCarrinho().getQuantidade()+1);
+					pp.setLblQuant(String.valueOf(pp.getCarrinho().getQuantidade()));
+			}else {
+				//mensagem
+			}
 				break;
 			}
 		}
 	}
-	
 	
 	private void listeners() {
 		tc.addCompraListner(new CompraListeners());
@@ -64,7 +74,7 @@ public class CompraControle {
 			int cont =0;
 			for (Produto p : listaProdutos) {
 				pp = new PainelProduto(p,listaCarrinhos.get(cont));
-				pp.addPainelProdutoListeners(new PainelListeners());
+				pp.addPainelProdutoListeners(new PainelListeners(pp));
 				tc.addPainelProdutos(pp, p.getIdProduto()-1, 0);
 				cont++;
 			}
