@@ -195,7 +195,10 @@ public class TelaClienteCarrinho extends JFrame {
 	public void addCarrinhoListeners(ActionListener listener) {
 		btVoltar.addActionListener(listener);
 		btSalgado.addActionListener(listener);
-		
+		btDoce.addActionListener(listener);
+		btBebidas.addActionListener(listener);
+		btOfertas.addActionListener(listener);
+		btFinalizarCompra.addActionListener(listener);
 	}
 	
 	
@@ -204,14 +207,16 @@ public class TelaClienteCarrinho extends JFrame {
 
 		painelProdutos.removeAll();
 		ProdutoControle pc = new ProdutoControle();
-
+		
+		int cont=0;
 		int c = 0;
 		int l = 0;
 
 		ProdutoControle pc2 = new ProdutoControle();
 		for(Carrinho carrinho :listaCarrinhos) {
-			PainelProduto pp = new PainelProduto(pc2.getProdutoId(carrinho.getIdProduto()), carrinho);
+			PainelProduto pp = new PainelProduto(listaCarrinhos.get(cont).getProduto(),listaCarrinhos.get(cont));
 			painelProdutos.add(pp, "cell " + l + " " + c);
+			cont++;
 			l++;
 			if (l % 3 == 0) {
 				c++;

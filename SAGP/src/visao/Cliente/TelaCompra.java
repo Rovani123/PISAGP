@@ -48,7 +48,7 @@ public class TelaCompra extends JFrame {
 	private JButton btOfertas;
 	private JPanel painelProdutos;
 	private JLabel lblLogo;
-	private ArrayList<Produto> listaProdutos = new ArrayList<Produto>();
+	private ArrayList<Produto> listaProdutos;
 	private ArrayList<Carrinho> listaCarrinhos = new ArrayList<Carrinho>();
 	private ArrayList<Carrinho> listaCarrinhosCompra = new ArrayList<Carrinho>();
 	private JLabel lblNewLabel;

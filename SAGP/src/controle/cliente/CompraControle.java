@@ -18,7 +18,7 @@ public class CompraControle {
 	private PainelProduto pp;
 	private ArrayList<Produto> listaProdutos;
 	private ArrayList<Carrinho> listaCarrinhos =new ArrayList<Carrinho>();
-	private ArrayList<Carrinho> listaCarrinhosCompra;
+	private ArrayList<Carrinho> listaCarrinhosCompra =new ArrayList<Carrinho>();
 	public CompraControle() {
 		ProdutoControle pc = new ProdutoControle();
 		listaProdutos = pc.getProdutos();
@@ -35,6 +35,17 @@ public class CompraControle {
 				tc.dispose();
 				new TelaInicialControle();
 				break;
+			case "btCarrinho":
+				if (listaCarrinhosCompra.size() == 0) {
+				for (Carrinho carrinho : listaCarrinhos) {
+					if (carrinho.getQuantidade() > 0) {
+						listaCarrinhosCompra.add(carrinho);
+						System.out.println(carrinho.getProduto().getNomeProduto());
+					}
+				}
+			}
+				tc.dispose();
+				new CarrinhoControle(listaCarrinhosCompra);
 			}
 		}
 	}
