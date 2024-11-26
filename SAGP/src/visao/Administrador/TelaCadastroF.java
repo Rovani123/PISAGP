@@ -43,6 +43,7 @@ public class TelaCadastroF extends JFrame {
 	private JPasswordField txtSenha;
 	private JButton btCancelar;
 	private JButton btCadastrar;
+	private JButton btLimpa3;
 	
 	public TelaCadastroF(JFrame telaA,Funcionario f) {
 		
@@ -116,6 +117,7 @@ public class TelaCadastroF extends JFrame {
 		painel.add(txtSenha, "cell 3 10 9 1,growx");
 		
 		btCancelar = new RoundButton("CANCELAR");
+		btCancelar.setText("Cancelar");
 		btCancelar.setFont(font);
 		btCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btCancelar.setActionCommand("btCancelar");
@@ -128,6 +130,7 @@ public class TelaCadastroF extends JFrame {
 //		});
 		
 		btCadastrar = new RoundButton("CADASTRAR");
+		btCadastrar.setText("Cadastrar");
 		btCadastrar.setFont(font);
 		btCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btCadastrar.setActionCommand("btCadastrar");
@@ -154,14 +157,17 @@ public class TelaCadastroF extends JFrame {
 		btCadastrar.setForeground(new Color(245, 245, 245));
 		painel.add(btCadastrar, "cell 6 11");
 		
-		JButton btLimpa3 = new RoundButton("LIMPAR");
+		btLimpa3 = new RoundButton("LIMPAR");
+		btLimpa3.setText("Limpar");
 		btLimpa3.setFont(font);
 		btLimpa3.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btLimpa3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				txtSenha.setText("");
-			}
-		});
+		btLimpa3.setActionCommand("btLimpa3");
+		
+//		btLimpa3.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				txtSenha.setText("");
+//			}
+//		});
 		btLimpa3.setBackground(new Color(224, 83, 76));
 		btLimpa3.setForeground(new Color(245, 245, 245));
 		painel.add(btLimpa3, "cell 7 11");
@@ -170,6 +176,7 @@ public class TelaCadastroF extends JFrame {
 		painel.add(btCancelar, "cell 11 12");
 		
 		JButton btnNewButton_3 = new RoundButton("ENTRAR");
+		btnNewButton_3.setText("Entrar");
 		btnNewButton_3.setFont(font);
 		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton_3.setBackground(new Color(224, 83, 76));
@@ -179,5 +186,6 @@ public class TelaCadastroF extends JFrame {
 	public void addCadastroF(ActionListener listener) {
 		btCancelar.addActionListener(listener);
 		btCadastrar.addActionListener(listener);
+		btLimpa3.addActionListener(listener);
 	}
 }

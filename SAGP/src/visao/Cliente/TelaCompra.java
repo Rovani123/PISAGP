@@ -178,7 +178,8 @@ public class TelaCompra extends JFrame {
 //			}
 //		});
 
-		lblNewLabel_3 = new JLabel("Icone");
+		lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/etiqueta-de-desconto.png")));
 		painelMenu.add(lblNewLabel_3, "cell 0 9");
 		painelMenu.add(btOfertas, "cell 1 9,alignx left");
 

@@ -98,19 +98,9 @@ public class TelaClienteLogin extends JFrame {
 		JLabel lblNewLabel_2 = new JLabel("");
 		contentPane.add(lblNewLabel_2, "cell 7 5");
 		
-		RoundButton btnNewButton_1 = new RoundButton("Limpar");
-		btnNewButton_1.setFont(font);
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		
 		textField = new JTextField();
 		contentPane.add(textField, "cell 4 6 2 1,growx");
 		textField.setColumns(10);
-		btnNewButton_1.setForeground(new Color(255, 255, 255));
-		btnNewButton_1.setBackground(new Color(224, 83, 76));
-		contentPane.add(btnNewButton_1, "cell 6 6");
 		
 		JLabel lblNewLabel_1 = new JLabel("Senha: *");
 		lblNewLabel_1.setFont(font);
@@ -129,17 +119,17 @@ public class TelaClienteLogin extends JFrame {
 		contentPane.add(textField_1, "cell 4 8 2 1,growx");
 		textField_1.setColumns(10);
 		
-		RoundButton btnNewButton_2 = new RoundButton("Limpar");
-		btnNewButton_2.setFont(font);
-		btnNewButton_2.setForeground(new Color(255, 255, 255));
-		btnNewButton_2.setBackground(new Color(224, 83, 76));
-		contentPane.add(btnNewButton_2, "cell 6 8,alignx left");
-		
 		RoundButton btnNewButton = new RoundButton("Entrar");
 		btnNewButton.setFont(font);
 		btnNewButton.setForeground(new Color(255, 255, 255));
 		btnNewButton.setBackground(new Color(224, 83, 76));
 		contentPane.add(btnNewButton, "cell 5 10,alignx center");
+		
+		RoundButton btnNewButton_2 = new RoundButton("Limpar");
+		btnNewButton_2.setFont(font);
+		btnNewButton_2.setForeground(new Color(255, 255, 255));
+		btnNewButton_2.setBackground(new Color(224, 83, 76));
+		contentPane.add(btnNewButton_2, "cell 6 10,alignx left");
 		
 		RoundButton btnNewButton_3 = new RoundButton("Cancelar");
 		btnNewButton_3.setFont(font);
