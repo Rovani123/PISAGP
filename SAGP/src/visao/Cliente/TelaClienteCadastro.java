@@ -103,18 +103,6 @@ public class TelaClienteCadastro extends JFrame {
 		txtEntreComSeu.setForeground(new Color(130, 130, 130));
 		contentPane.add(txtEntreComSeu, "cell 4 5 3 1,growx");
 		txtEntreComSeu.setColumns(10);
-
-		
-		JButton btnNewButton = new RoundButton("Limpar");
-		btnNewButton.setFont(font);
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		btnNewButton.setBackground(new Color(224, 83, 76));
-		btnNewButton.setForeground(new Color(255, 255, 255));
-		contentPane.add(btnNewButton, "cell 7 5");
 		
 		JLabel lblNewLabel_1 = new JLabel("Usuário: *");
 		lblNewLabel_1.setFont(font);
@@ -131,17 +119,6 @@ public class TelaClienteCadastro extends JFrame {
 		contentPane.add(txtEntreComSeu_1, "cell 4 7 3 1,growx");
 		txtEntreComSeu_1.setColumns(10);
 		
-		JButton btnNewButton_1 = new RoundButton("Limpar");
-		btnNewButton_1.setFont(font);
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		btnNewButton_1.setForeground(new Color(255, 255, 255));
-		btnNewButton_1.setBackground(new Color(224, 83, 76));
-		contentPane.add(btnNewButton_1, "cell 7 7");
-		
 		JLabel lblNewLabel_2 = new JLabel("Senha: *");
 		lblNewLabel_2.setFont(font);
 		contentPane.add(lblNewLabel_2, "cell 4 8");
@@ -156,17 +133,6 @@ public class TelaClienteCadastro extends JFrame {
 		txtEntreComUma.setForeground(new Color(130, 130, 130));
 		contentPane.add(txtEntreComUma, "cell 4 9 3 1,growx");
 		txtEntreComUma.setColumns(10);
-		
-		JButton btnNewButton_2 = new RoundButton("Limpar");
-		btnNewButton_2.setFont(font);
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		btnNewButton_2.setForeground(new Color(255, 255, 255));
-		btnNewButton_2.setBackground(new Color(224, 83, 76));
-		contentPane.add(btnNewButton_2, "cell 7 9");
 		
 		JButton btnNewButton_3 = new RoundButton("Cadastrar");
 		btnNewButton_3.setFont(font);
@@ -187,6 +153,17 @@ public class TelaClienteCadastro extends JFrame {
 				
 			}
 		});
+		
+		JButton btnNewButton_2 = new RoundButton("Limpar");
+		btnNewButton_2.setFont(font);
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btnNewButton_2.setForeground(new Color(255, 255, 255));
+		btnNewButton_2.setBackground(new Color(224, 83, 76));
+		contentPane.add(btnNewButton_2, "cell 7 11");
 		btnNewButton_4.setForeground(new Color(255, 255, 255));
 		btnNewButton_4.setBackground(new Color(0, 0, 0));
 		contentPane.add(btnNewButton_4, "cell 7 13");

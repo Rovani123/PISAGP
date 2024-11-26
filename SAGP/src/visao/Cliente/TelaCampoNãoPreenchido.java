@@ -88,10 +88,6 @@ public class TelaCampoNãoPreenchido extends JFrame {
 		contentPane.add(textField, "cell 4 8 2 1,growx");
 		textField.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Limpar");
-		btnNewButton.setFont(font);
-		contentPane.add(btnNewButton, "cell 6 8");
-		
 		JLabel lblNewLabel_3 = new JLabel("");
 		contentPane.add(lblNewLabel_3, "cell 7 8");
 		
@@ -107,10 +103,6 @@ public class TelaCampoNãoPreenchido extends JFrame {
 		textField_1 = new JTextField();
 		contentPane.add(textField_1, "cell 4 10 2 1,growx");
 		textField_1.setColumns(10);
-		
-		JButton btnNewButton_1 = new JButton("Limpar");
-		btnNewButton_1.setFont(font);
-		contentPane.add(btnNewButton_1, "cell 6 10");
 		
 		JLabel lblNewLabel_4 = new JLabel("");
 		contentPane.add(lblNewLabel_4, "cell 7 10");
@@ -128,16 +120,16 @@ public class TelaCampoNãoPreenchido extends JFrame {
 		contentPane.add(textField_2, "cell 4 12 2 1,growx");
 		textField_2.setColumns(10);
 		
-		JButton btnNewButton_2 = new JButton("Limpar");
-		btnNewButton_2.setFont(font);
-		contentPane.add(btnNewButton_2, "cell 6 12");
-		
 		JLabel lblNewLabel_5 = new JLabel("");
 		contentPane.add(lblNewLabel_5, "cell 7 12");
 		
 		JButton btnNewButton_3 = new JButton("Cadastrar");
 		btnNewButton_3.setFont(font);
 		contentPane.add(btnNewButton_3, "cell 5 14,alignx center");
+		
+		JButton btnNewButton_2 = new JButton("Limpar");
+		btnNewButton_2.setFont(font);
+		contentPane.add(btnNewButton_2, "cell 6 14");
 		
 		JButton btnNewButton_4 = new JButton("Cancelar");
 		btnNewButton_4.setFont(font);
