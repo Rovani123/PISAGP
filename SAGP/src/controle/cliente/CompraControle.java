@@ -40,7 +40,6 @@ public class CompraControle {
 				for (Carrinho carrinho : listaCarrinhos) {
 					if (carrinho.getQuantidade() > 0) {
 						listaCarrinhosCompra.add(carrinho);
-						System.out.println(carrinho.getProduto().getNomeProduto());
 					}
 				}
 			}
@@ -58,9 +57,6 @@ public class CompraControle {
 		public void actionPerformed(ActionEvent e) {
 			switch (e.getActionCommand()) {
 			case "btMenos":
-				if(pp.getProduto().getIdProduto() == 1) {
-					pp.setLblQuant("AAA");
-				}
 				if(pp.getCarrinho().getQuantidade()>0) {
 					pp.setCarrinhoQuant(pp.getCarrinho().getQuantidade()-1);
 					pp.setLblQuant(String.valueOf(pp.getCarrinho().getQuantidade()));
