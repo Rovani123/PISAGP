@@ -78,7 +78,6 @@ public class TelaClienteCarrinho extends JFrame {
 		painelPrincipal.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(painelPrincipal);
 		painelPrincipal.setLayout(new MigLayout("", "[grow][][][][][][][grow][][][][][][][][][][][][][][grow][][][][]", "[grow][grow][][][][][][][][][][][][][][][][][grow][]"));
-//		getContentPane().setLayout(new MigLayout("", "[grow][][][][][][][grow][][][][][][][][][][][][][][grow][][][][]", "[grow][grow][][][][][][][][][][][][][][][][][grow][]"));
 		
 		menuLateral = new JPanel();
 		menuLateral.setBackground(new Color(167, 208, 214));
@@ -175,7 +174,7 @@ public class TelaClienteCarrinho extends JFrame {
 		painelBaixo.add(lblTotalPagar);
 		
 		lblValorTotal = new JLabel("");
-		lblValorTotal.setText(String.valueOf(calcTotal()));
+		lblValorTotal.setText("");
 		painelBaixo.add(lblValorTotal);
 		
 		btFinalizarCompra = new RoundButton("Finalizar compra");
@@ -189,7 +188,7 @@ public class TelaClienteCarrinho extends JFrame {
 //			}
 //		});
 		btFinalizarCompra.setBackground(new Color(224, 83, 76));
-		getProdutos();
+		
 	}
 	
 	public void addCarrinhoListeners(ActionListener listener) {
@@ -201,7 +200,13 @@ public class TelaClienteCarrinho extends JFrame {
 		btFinalizarCompra.addActionListener(listener);
 	}
 	
+	public void addPainelProdutos(PainelProduto pp, int l, int c) {
+		painelProdutos.add(pp, "cell " + l + " " + c);
+	}
 	
+	public void setLblValorTotal(String s) {
+		lblValorTotal.setText(s);
+	}
 	
 	private void getProdutos() {
 
@@ -226,42 +231,42 @@ public class TelaClienteCarrinho extends JFrame {
 		
 	}
 	
-	private float calcTotal() {
-		float reultado=0;
-		ProdutoControle pc = new ProdutoControle();
-		for (Carrinho carrinho : listaCarrinhos) {
-			reultado += carrinho.getQuantidade()*pc.getProdutoId(carrinho.getIdProduto()).getPreco();
-		}
-		return reultado;
-	}
-
-	private void finalizarVenda() {
-		VendaControle vc = new VendaControle();
-		try {
-			vc.cadastrarVenda(1,1,"DébitoA",calcTotal());
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	private void finalizarCarrinho() {
-		CarrinhoControle cc = new CarrinhoControle();
-		try {
-			VendaControle vc = new VendaControle();
-			for(int i=0;i<listaCarrinhos.size();i++) {
-				listaCarrinhos.get(i).setIdVenda(vc.getIdVenda());
-			}
-			cc.cadastrarCarrinho(listaCarrinhos);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	private void test() {
-		for(int i=0;i<listaCarrinhos.size();i++) {
-			String m = "ID Carrinho: "+String.valueOf(listaCarrinhos.get(i).getIdCarrinho()+"  ID Produto: "+String.valueOf(listaCarrinhos.get(i).getIdProduto())+"  ID Venda: "+String.valueOf(listaCarrinhos.get(i).getIdVenda())+"  Quantidade: "+String.valueOf(listaCarrinhos.get(i).getQuantidade()));
-			JOptionPane.showMessageDialog(null, m);
-		}
-	}
+//	private float calcTotal() {
+//		float reultado=0;
+//		ProdutoControle pc = new ProdutoControle();
+//		for (Carrinho carrinho : listaCarrinhos) {
+//			reultado += carrinho.getQuantidade()*pc.getProdutoId(carrinho.getIdProduto()).getPreco();
+//		}
+//		return reultado;
+//	}
+//
+//	private void finalizarVenda() {
+//		VendaControle vc = new VendaControle();
+//		try {
+//			vc.cadastrarVenda(1,1,"DébitoA",calcTotal());
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//	}
+//	
+//	private void finalizarCarrinho() {
+//		CarrinhoControle cc = new CarrinhoControle();
+//		try {
+//			VendaControle vc = new VendaControle();
+//			for(int i=0;i<listaCarrinhos.size();i++) {
+//				listaCarrinhos.get(i).setIdVenda(vc.getIdVenda());
+//			}
+//			cc.cadastrarCarrinho(listaCarrinhos);
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//	}
+//	
+//	private void test() {
+//		for(int i=0;i<listaCarrinhos.size();i++) {
+//			String m = "ID Carrinho: "+String.valueOf(listaCarrinhos.get(i).getIdCarrinho()+"  ID Produto: "+String.valueOf(listaCarrinhos.get(i).getIdProduto())+"  ID Venda: "+String.valueOf(listaCarrinhos.get(i).getIdVenda())+"  Quantidade: "+String.valueOf(listaCarrinhos.get(i).getQuantidade()));
+//			JOptionPane.showMessageDialog(null, m);
+//		}
+//	}
 	
 }

@@ -2,7 +2,7 @@ package modelo.enumerador;
 
 public enum MetodoPagamento {
 	
-	DINHEIRO("dinheiro"),DEBITO("débito"),CREDITO("crédito"),PIX("pix");
+	DINHEIRO("Dinheiro"),DEBITO("Débito"),CREDITO("Crédito"),PIX("Pix");
 	
 	private String nome;
 	

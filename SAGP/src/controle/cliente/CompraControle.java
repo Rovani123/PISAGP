@@ -10,6 +10,7 @@ import controle.funcionario.ProdutoControle;
 import controle.inicio.TelaInicialControle;
 import modelo.classes.Carrinho;
 import modelo.classes.Produto;
+import modelo.classes.Vendas;
 import visao.Cliente.PainelProduto;
 import visao.Cliente.TelaCompra;
 
@@ -17,15 +18,21 @@ public class CompraControle {
 	private TelaCompra tc;
 	private PainelProduto pp;
 	private ArrayList<Produto> listaProdutos;
+	private ArrayList<Carrinho> listaCarrinhosRecuperado;
 	private ArrayList<Carrinho> listaCarrinhos =new ArrayList<Carrinho>();
 	private ArrayList<Carrinho> listaCarrinhosCompra =new ArrayList<Carrinho>();
-	public CompraControle() {
+	public CompraControle(ArrayList<Carrinho> listaCarrinhos) {
 		ProdutoControle pc = new ProdutoControle();
 		listaProdutos = pc.getProdutos();
+		
+		listaCarrinhosRecuperado = listaCarrinhos;
+		
 		tc = new TelaCompra();
 		tc.setVisible(true);
+		
 		construirCarrinhos();
 		listeners();
+		recuperarEstado();
 	}
 
 	private class CompraListeners implements ActionListener{
@@ -37,9 +44,9 @@ public class CompraControle {
 				break;
 			case "btCarrinho":
 				if (listaCarrinhosCompra.size() == 0) {
-				for (Carrinho carrinho : listaCarrinhos) {
-					if (carrinho.getQuantidade() > 0) {
-						listaCarrinhosCompra.add(carrinho);
+					for (Carrinho carrinho : listaCarrinhos) {
+						if (carrinho.getQuantidade() > 0) {
+							listaCarrinhosCompra.add(carrinho);
 					}
 				}
 			}
@@ -97,6 +104,14 @@ public class CompraControle {
 			c.setProduto(p);
 			c.setVenda(null);
 			listaCarrinhos.add(c);
+		}
+	}
+	
+	private void recuperarEstado() {
+		if(listaCarrinhosRecuperado != null){
+			for(Carrinho c :listaCarrinhosRecuperado) {
+				listaCarrinhos.get(c.getProduto().getIdProduto()-1) .setQuantidade(c.getQuantidade());
+			}
 		}
 	}
 }

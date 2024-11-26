@@ -6,6 +6,7 @@ public class Vendas {
 	private Cliente cliente;
 	private Funcionario funcionario;
 	private String metodoPagamento;
+	private float total;
 	
 	public int getIdVenda() {
 		return idVenda;
@@ -18,6 +19,12 @@ public class Vendas {
 	}
 	public void setMetodoPagamento(String metodoPagamento) {
 		this.metodoPagamento = metodoPagamento;
+	}
+	public float getTotal() {
+		return total;
+	}
+	public void setTotal(float total) {
+		this.total = total;
 	}
 	
 	
