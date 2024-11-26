@@ -42,8 +42,10 @@ public class TelaAlteracaoPromocao extends JFrame {
     private JTextField txtDesconto;
     private JTextField txtDataI;
     private JTextField txtDataT;
-    
-
+    private RoundButton btnNewButton;
+    private RoundButton btnNewButton_1;
+    private RoundButton btnCancelarA;
+    private RoundButton btnSalvarA;    
     
     public TelaAlteracaoPromocao(JFrame telaA, Funcionario f, ProdutosPromocao promo) {
     	
@@ -105,39 +107,41 @@ public class TelaAlteracaoPromocao extends JFrame {
         contentPane.add(txtDataT, "cell 4 11,growx");
         txtDataT.setColumns(10);
        
-        RoundButton btnNewButton = new RoundButton("Salvar");
+        btnNewButton = new RoundButton("Salvar");
         btnNewButton.setFont(font);
-        btnNewButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-				float desconto = 0;
-				 LocalDate dataI = null;
-	             LocalDate dataT = null;
-	            
-	            LocalDate dataInicio =  dataI.plusDays(1);
-				LocalDate dataTermino = dataT.plusDays(2);
-				try {
-					desconto = Float.parseFloat(txtDesconto.getText());
-					//dataI
-					//dataT
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
-				if (txtDesconto.getText().isEmpty()) { //LocalDate
-					JOptionPane.showMessageDialog(null, "Todos os campos precisam ser preenchidos");
-				} else {
-					try {
-						alterarPromocao(promo, (int) desconto); //LocalDate
-						TelaGerenciamentoP telaGerenciamentoP = new TelaGerenciamentoP(f);
-						dispose();
-						telaGerenciamentoP.setVisible(true);
-						JOptionPane.showMessageDialog(null, "Alteração feita com sucesso");
-					} catch (SQLException e1) {
-						e1.printStackTrace();
-						JOptionPane.showMessageDialog(null, "Não foi possivel alterar esse produto");
-					}
-				}
-			}
-        });
+        btnNewButton.setActionCommand("btnNewButton");
+        
+//        btnNewButton.addActionListener(new ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//				float desconto = 0;
+//				 LocalDate dataI = null;
+//	             LocalDate dataT = null;
+//	            
+//	            LocalDate dataInicio =  dataI.plusDays(1);
+//				LocalDate dataTermino = dataT.plusDays(2);
+//				try {
+//					desconto = Float.parseFloat(txtDesconto.getText());
+//					//dataI
+//					//dataT
+//				} catch (Exception e1) {
+//					e1.printStackTrace();
+//				}
+//				if (txtDesconto.getText().isEmpty()) { //LocalDate
+//					JOptionPane.showMessageDialog(null, "Todos os campos precisam ser preenchidos");
+//				} else {
+//					try {
+//						alterarPromocao(promo, (int) desconto); //LocalDate
+//						TelaGerenciamentoP telaGerenciamentoP = new TelaGerenciamentoP(f);
+//						dispose();
+//						telaGerenciamentoP.setVisible(true);
+//						JOptionPane.showMessageDialog(null, "Alteração feita com sucesso");
+//					} catch (SQLException e1) {
+//						e1.printStackTrace();
+//						JOptionPane.showMessageDialog(null, "Não foi possivel alterar esse produto");
+//					}
+//				}
+//			}
+//        });
         btnSalvarA.setBackground(new Color(224, 83, 76));
         btnSalvarA.setForeground(new Color(230, 230, 230));
         btnSalvarA.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -145,13 +149,15 @@ public class TelaAlteracaoPromocao extends JFrame {
        
         RoundButton btnNewButton_1 = new RoundButton("Cancelar");
         btnNewButton_1.setFont(font);
-        btnNewButton_1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            	TelaGerenciamentoP telaE = new TelaGerenciamentoP(f);
-				dispose();
-				telaE.setVisible(true);
-            }
-        });
+        btnNewButton_1.setActionCommand("btnNewButton_1");
+        
+//        btnNewButton_1.addActionListener(new ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//            	TelaGerenciamentoP telaE = new TelaGerenciamentoP(f);
+//				dispose();
+//				telaE.setVisible(true);
+//            }
+//        });
         btnCancelarA.setBackground(new Color(0, 0, 0));
         btnCancelarA.setForeground(new Color(230, 230, 230));
         btnCancelarA.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -172,5 +178,11 @@ public class TelaAlteracaoPromocao extends JFrame {
 		promoc.alterarPromocao(promo);
 
 	}
-
+	
+	public void addAlteracaoPromocao(ActionListener listener) {
+		btnNewButton.addActionListener(listener);	
+		btnNewButton_1.addActionListener(listener);
+		btnSalvarA.addActionListener(listener);
+		btnCancelarA.addActionListener(listener);
+	}
 }
