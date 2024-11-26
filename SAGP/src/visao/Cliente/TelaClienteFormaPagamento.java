@@ -3,6 +3,7 @@ package visao.Cliente;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.FontFormatException;
+import java.awt.Frame;
 import java.io.File;
 import java.io.IOException;
 
@@ -55,6 +56,7 @@ public class TelaClienteFormaPagamento extends JFrame {
 			e1.printStackTrace();
 		}
 		
+		setExtendedState(Frame.MAXIMIZED_BOTH);
 		setBackground(new Color(230, 230, 230));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 531, 310);
