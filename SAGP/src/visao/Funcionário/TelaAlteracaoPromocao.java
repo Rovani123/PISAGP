@@ -42,7 +42,7 @@ public class TelaAlteracaoPromocao extends JFrame {
     private JTextField txtDesconto;
     private JTextField txtDataI;
     private JTextField txtDataT;
-
+    
 
     
     public TelaAlteracaoPromocao(JFrame telaA, Funcionario f, ProdutosPromocao promo) {
@@ -127,7 +127,7 @@ public class TelaAlteracaoPromocao extends JFrame {
 				} else {
 					try {
 						alterarPromocao(promo, (int) desconto); //LocalDate
-						TelaGerenciamentoP telaGerenciamentoP = new TelaGerenciamentoP(telaA, f);
+						TelaGerenciamentoP telaGerenciamentoP = new TelaGerenciamentoP(f);
 						dispose();
 						telaGerenciamentoP.setVisible(true);
 						JOptionPane.showMessageDialog(null, "Alteração feita com sucesso");
@@ -147,7 +147,7 @@ public class TelaAlteracaoPromocao extends JFrame {
         btnNewButton_1.setFont(font);
         btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            	TelaGerenciamentoP telaE = new TelaGerenciamentoP(telaA, f);
+            	TelaGerenciamentoP telaE = new TelaGerenciamentoP(f);
 				dispose();
 				telaE.setVisible(true);
             }

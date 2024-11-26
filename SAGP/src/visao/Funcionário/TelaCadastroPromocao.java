@@ -11,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 import controle.funcionario.ProdutoControle;
 import controle.funcionario.PromocaoControle;
 import modelo.classes.Funcionario;
+import modelo.classes.Produto;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
 
@@ -38,6 +39,10 @@ public class TelaCadastroPromocao extends JFrame {
     private JTextField txtDesconto;
     private JTextField txtDataInicio;
     private JTextField txtDataTermino;
+    private JTextField txtProdutoP;
+    private RoundButton btnSalvarC;
+    private RoundButton btnNewButton;
+    private RoundButton btnCancelarC;
 
     public TelaCadastroPromocao(JFrame telaC, Funcionario f) {
     	TelaCadastroPromocao tela= this;
@@ -87,80 +92,83 @@ public class TelaCadastroPromocao extends JFrame {
         contentPane.add(txtDataTermino, "cell 4 12 3 1,growx");
         txtDataTermino.setColumns(10);
        
-        RoundButton btnSalvarC = new RoundButton("Salvar");
+        btnSalvarC = new RoundButton("Salvar");
         btnSalvarC.setFont(new Font("Tahoma", Font.PLAIN, 15));
         btnSalvarC.setForeground(new Color(245, 245, 245));
         btnSalvarC.setBackground(new Color(224, 83, 76));
-        btnSalvarC.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-               String produtoPromocao = null;
-               float desconto= 0;
-               LocalDate dataI = null;
-               LocalDate dataT = null;
-            
-               
-               DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-               
-               
-               try {
-            	   produtoPromocao = (txtProdutoP.getText());
-            	   desconto = (Float.parseFloat(txtDesconto.getText()));
-            	  
-
-                   if (txtProdutoP.getText().isEmpty() || txtDesconto.getText().isEmpty() || txtDataInicio.getText().isEmpty() || txtDataTermino.getText().isEmpty()){
-    				   JOptionPane.showMessageDialog(null, "Todos os campos precisam ser preenchidos");
-                       dataI = LocalDate.parse(txtDataInicio.getText(), formatter);
-                       dataT = LocalDate.parse(txtDataTermino.getText(), formatter);
-                   }
-               
-            	   LocalDate dataInicio =  dataI.plusDays(1);
-                   LocalDate dataTermino = dataT.plusDays(2);
-                  
-
-               
-                   if (produtoPromocao.isEmpty() || txtDesconto.getText().isEmpty() || txtDataInicio.getText().isEmpty() || txtDataTermino.getText().isEmpty()) {
-                       JOptionPane.showMessageDialog(null, "Todos os campos precisam ser preenchidos");
-                   } else {
-                      
-                       cadastrarPromocao(produtoPromocao, desconto, dataInicio, dataTermino);
-                       TelaPromocoes telaPromocoes = new TelaPromocoes(telaC, telaC, f);
-                       dispose();
-                       telaPromocoes.setVisible(true);
-                       JOptionPane.showMessageDialog(null, "Promoção cadastrada com sucesso");
-                   }
-                       
-               }catch (Exception e1) {
-					e1.printStackTrace();
-				}
-            }
-        });
+        btnSalvarC.setActionCommand("btnSalvarC");
+//        btnSalvarC.addActionListener(new ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//               String produtoPromocao = null;
+//               float desconto= 0;
+//               LocalDate dataI = null;
+//               LocalDate dataT = null;
+//            
+//               
+//               DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+//               
+//               
+//               try {
+//            	   produtoPromocao = (txtProdutoP.getText());
+//            	   desconto = (Float.parseFloat(txtDesconto.getText()));
+//            	  
+//
+//                   if (txtProdutoP.getText().isEmpty() || txtDesconto.getText().isEmpty() || txtDataInicio.getText().isEmpty() || txtDataTermino.getText().isEmpty()){
+//    				   JOptionPane.showMessageDialog(null, "Todos os campos precisam ser preenchidos");
+//                       dataI = LocalDate.parse(txtDataInicio.getText(), formatter);
+//                       dataT = LocalDate.parse(txtDataTermino.getText(), formatter);
+//                   }
+//               
+//            	   LocalDate dataInicio =  dataI.plusDays(1);
+//                   LocalDate dataTermino = dataT.plusDays(2);
+//                  
+//
+//               
+//                   if (produtoPromocao.isEmpty() || txtDesconto.getText().isEmpty() || txtDataInicio.getText().isEmpty() || txtDataTermino.getText().isEmpty()) {
+//                       JOptionPane.showMessageDialog(null, "Todos os campos precisam ser preenchidos");
+//                   } else {
+//                      
+//                       cadastrarPromocao(produtoPromocao, desconto, dataInicio, dataTermino);
+//                       TelaPromocoes telaPromocoes = new TelaPromocoes(telaC, telaC, f);
+//                       dispose();
+//                       telaPromocoes.setVisible(true);
+//                       JOptionPane.showMessageDialog(null, "Promoção cadastrada com sucesso");
+//                   }
+//                       
+//               }catch (Exception e1) {
+//					e1.printStackTrace();
+//				}
+//            }
+//        });
         contentPane.add(btnSalvarC, "cell 4 14,alignx right");
        
-        RoundButton btnNewButton = new RoundButton("Limpar");
+        btnNewButton = new RoundButton("Limpar");
         btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
         btnNewButton.setForeground(new Color(245, 245, 245));
         btnNewButton.setBackground(new Color(224, 83, 76));
-        btnNewButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            	txtProdutoP.setText("");
-            	txtDesconto.setText("");
-            	txtDataInicio.setText("");
-            	txtDataTermino.setText("");
-            }
-        });
+        btnNewButton.setActionCommand("btnNewButton");
+//        btnNewButton.addActionListener(new ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//            	txtProdutoP.setText("");
+//            	txtDesconto.setText("");
+//            	txtDataInicio.setText("");
+//            	txtDataTermino.setText("");
+//            }
+//        });
         contentPane.add(btnNewButton, "cell 6 14");
        
-        RoundButton btnCancelarC = new RoundButton("Cancelar");
+        btnCancelarC = new RoundButton("Cancelar");
         btnCancelarC.setFont(new Font("Tahoma", Font.PLAIN, 15));
         btnCancelarC.setForeground(new Color(245, 245, 245));
         btnCancelarC.setBackground(new Color(0, 0, 0));
-        btnCancelarC.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            	TelaPromocoes telaE = new TelaPromocoes(telaC, telaC, f);
-				dispose();
-				telaE.setVisible(true);
-            }
-        });
+        btnCancelarC.setActionCommand("btnCancelarC");
+//        btnCancelarC.addActionListener(new ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//            	TelaPromocoes telaE = new TelaPromocoes(telaC, telaC, f);
+//				dispose();
+//				telaE.setVisible(true);
+//            }
+//        });
         contentPane.add(btnCancelarC, "cell 7 14");
     }
 
@@ -169,4 +177,9 @@ public class TelaCadastroPromocao extends JFrame {
 		promo.cadastrarPromocao(produtoPromocao, desconto, dataInicio , dataTermino); //LocalDate
 
 	}
+    public void addCadastroPromocoes(ActionListener listener) {
+    	btnSalvarC.addActionListener(listener);
+    	btnNewButton.addActionListener(listener);
+    	btnCancelarC.addActionListener(listener);
+    }
 }

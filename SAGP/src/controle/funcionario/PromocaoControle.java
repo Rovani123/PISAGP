@@ -15,7 +15,7 @@ public class PromocaoControle {
 		p.setDataInicio(dataInicio);
 		p.setDataTermino(dataTermino);
 		p.setDesconto(desconto);
-		p.setProduto(produtoPromocao);
+		p.setProdutoP(produtoPromocao);
 		
 		
 			PromocaoDAO pdao = new PromocaoDAO();
@@ -28,4 +28,11 @@ public class PromocaoControle {
 		pdal.alterarPromocao(promo, 0);
 	}
 
-}
+	public void cadastrarPromocao(String produtoPromocao, float desconto, LocalDate dataInicio, LocalDate dataTermino) {
+		PromocaoControle promo = new PromocaoControle();
+		promo.cadastrarPromocao(produtoPromocao, desconto, dataInicio , dataTermino);
+	}
+
+	}
+
+
