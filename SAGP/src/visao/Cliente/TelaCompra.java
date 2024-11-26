@@ -29,6 +29,8 @@ import visao.RoundButton;
 import visao.TelaInicial;
 import java.awt.Font;
 import java.awt.FontFormatException;
+import javax.swing.ScrollPaneConstants;
+import java.awt.ComponentOrientation;
 
 public class TelaCompra extends JFrame {
 
@@ -207,11 +209,12 @@ public class TelaCompra extends JFrame {
 		painelMenu.add(btCarrinho, "cell 1 15,alignx center");
 
 		scrollPane = new JScrollPane();
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		painelPrincipal.add(scrollPane, "cell 1 1 13 17,grow");
 
 		painelProdutos = new JPanel();
 		scrollPane.setRowHeaderView(painelProdutos);
-		painelProdutos.setLayout(new MigLayout("", "[]", "[]"));
+		painelProdutos.setLayout(new MigLayout("", "[grow,center]", "[grow,center]"));
 
 //		getProdutos();
 	}
@@ -224,6 +227,10 @@ public class TelaCompra extends JFrame {
 		btVoltar.addActionListener(listener);
 		btVoltar.addActionListener(listener);
 		btCarrinho.addActionListener(listener);
+	}
+	
+	public void addPainelProdutos(PainelProduto pp, int l, int c) {
+		painelProdutos.add(pp, "cell " + l + " " + c);
 	}
 	
 //	private void getProdutos() {

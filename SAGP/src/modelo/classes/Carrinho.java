@@ -21,6 +21,18 @@ public class Carrinho {
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
+	public Produto getProduto() {
+		return produto;
+	}
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
+	public Vendas getVenda() {
+		return venda;
+	}
+	public void setVenda(Vendas venda) {
+		this.venda = venda;
+	}
 	
 	public Produto getProduto() {
 		return produto;
