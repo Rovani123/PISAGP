@@ -29,7 +29,7 @@ public ArrayList<Promocoes> getPromocoes() {
 			{
 				Promocoes promo = new Promocoes();
 				promo.setIdPromocao(reslt.getInt("idPromocao"));
-				promo.setprodutoPromocao(reslt.getString("produtoPromocao"), null);
+				promo.setprodutoPromocao(reslt.getString("produtoPromocao"), null, null);
 				promo.setDesconto(reslt.getFloat("desconto"));
 					lista.add(promo);
 				

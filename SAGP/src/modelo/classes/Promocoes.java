@@ -10,6 +10,7 @@ public class Promocoes {
 	private LocalDate dataInicio;
 	private LocalDate dataTermino;
 	private ProdutosPromocao produtoP;
+	private String produtoPromocao;
 	
 	public int getIdPromocao() {
 		return idPromocao;
@@ -50,10 +51,12 @@ public class Promocoes {
 	public void setProdutoP(Produto produtoPromocao) {
 		this.produtos = produtoPromocao;
 	}
-	public void setprodutoPromocao(ProdutosPromocao produtoP) {
-		this.produtoP = produtoP;
-		
+	public String getprodutoPromocao() {
+		return produtoPromocao;}
+	public void setprodutoPromocao(String string, Object object, String produtoPromocao) {
+		this.produtoPromocao = produtoPromocao;
 	}
+	
 	
 	
 }
