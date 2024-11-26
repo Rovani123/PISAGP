@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -28,6 +30,7 @@ import visao.RoundButton;
 import visao.TelaInicial;
 import visao.Funcionário.TelaGerenciamentoP;
 import java.awt.Font;
+import java.awt.FontFormatException;
 
 public class TelaGerenciamentoF extends JFrame {
 	
@@ -56,6 +59,19 @@ public class TelaGerenciamentoF extends JFrame {
 
 	public TelaGerenciamentoF(Funcionario f) {
 		
+		Font font = new Font("Tahoma", Font.PLAIN, 11);;
+		try {
+			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
+			
+			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
+	
+		} catch (FontFormatException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 		setExtendedState(MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -63,16 +79,20 @@ public class TelaGerenciamentoF extends JFrame {
 		setLocationRelativeTo(null);
 		
 		menuBar = new JMenuBar();
+		menuBar.setFont(font);
 		setJMenuBar(menuBar);
 		
 		mTelas = new JMenu("Telas");
+		mTelas.setFont(font);
 		menuBar.add(mTelas);
 		
 		mAdm = new JMenuItem("Administrador");
+		mAdm.setFont(font);
 		mAdm.setEnabled(false);
 		mTelas.add(mAdm);
 		
 		mFuncionario = new JMenuItem("Funcionário");
+		mFuncionario.setFont(font);
 		mFuncionario.setActionCommand("mFuncionario");
 //		mFuncionario.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
@@ -84,9 +104,11 @@ public class TelaGerenciamentoF extends JFrame {
 		mTelas.add(mFuncionario);
 		
 		mOpcoes = new JMenu("Opções");
+		mOpcoes.setFont(font);
 		menuBar.add(mOpcoes);
 		
 		mAnaliseVendas = new JMenuItem("Análise de vendas");
+		mAnaliseVendas.setFont(font);
 		mAnaliseVendas.setActionCommand("mAnaliseVendas");
 //		mAnaliseVendas.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
@@ -98,10 +120,12 @@ public class TelaGerenciamentoF extends JFrame {
 		mOpcoes.add(mAnaliseVendas);
 		
 		mGFuncionarios = new JMenuItem(" Funcionarios");
+		mGFuncionarios.setFont(font);
 		mGFuncionarios.setEnabled(false);
 		mOpcoes.add(mGFuncionarios);
 		
 		mVoltar = new JMenuItem("Voltar ao inicio");
+		mVoltar.setFont(font);
 		mVoltar.setActionCommand("mVoltar");
 //		mVoltar.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
@@ -122,6 +146,7 @@ public class TelaGerenciamentoF extends JFrame {
 		painel.setLayout(new MigLayout("", "[][][][][][][][][][][][][][][][][][grow]", "[][][grow]"));
 		
 		JLabel lblFuncionario = new JLabel("Funcionário");
+		lblFuncionario.setFont(font);
 		lblFuncionario.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		painel.add(lblFuncionario, "cell 1 1,alignx center,aligny center");
 		
@@ -140,6 +165,7 @@ public class TelaGerenciamentoF extends JFrame {
 		barraLateral.add(lblLogo, "cell 0 0 3 1,alignx left,aligny center");
 		
 		lblTabelaFunc = new JLabel("TABELA DE FUNCIONÁRIO");
+		lblTabelaFunc.setFont(font);
 		lblTabelaFunc.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		barraLateral.add(lblTabelaFunc, "cell 0 5 4 2,alignx left,aligny center");
 		
@@ -148,6 +174,7 @@ public class TelaGerenciamentoF extends JFrame {
 		barraLateral.add(lblIconAlterar, "cell 0 7,alignx right");
 		
 		btAlterar = new RoundButton("ALTERAR");
+		btAlterar.setFont(font);
 		btAlterar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btAlterar.setText("Alterar");
 		btAlterar.setForeground(new Color(245, 245, 245));
@@ -173,6 +200,7 @@ public class TelaGerenciamentoF extends JFrame {
 		barraLateral.add(lblIconRemover, "cell 0 9,alignx right");
 		
 		btRemover = new RoundButton("DELETAR");
+		btRemover.setFont(font);
 		btRemover.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btRemover.setText("Remover");
 		btRemover.setActionCommand("btRemover");
@@ -204,6 +232,7 @@ public class TelaGerenciamentoF extends JFrame {
 		barraLateral.add(lblIconAdicionar, "cell 0 11,alignx right");
 		
 		btAdicionar = new RoundButton("ADICIONAR");
+		btAdicionar.setFont(font);
 		btAdicionar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btAdicionar.setText("Adicionar");
 		btAdicionar.setForeground(new Color(245, 245, 245));
