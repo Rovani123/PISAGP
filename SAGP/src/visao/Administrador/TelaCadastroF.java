@@ -117,6 +117,7 @@ public class TelaCadastroF extends JFrame {
 		painel.add(txtSenha, "cell 3 10 9 1,growx");
 		
 		btCancelar = new RoundButton("CANCELAR");
+		btCancelar.setText("Cancelar");
 		btCancelar.setFont(font);
 		btCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btCancelar.setActionCommand("btCancelar");
@@ -129,6 +130,7 @@ public class TelaCadastroF extends JFrame {
 //		});
 		
 		btCadastrar = new RoundButton("CADASTRAR");
+		btCadastrar.setText("Cadastrar");
 		btCadastrar.setFont(font);
 		btCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btCadastrar.setActionCommand("btCadastrar");
@@ -156,6 +158,7 @@ public class TelaCadastroF extends JFrame {
 		painel.add(btCadastrar, "cell 6 11");
 		
 		btLimpa3 = new RoundButton("LIMPAR");
+		btLimpa3.setText("Limpar");
 		btLimpa3.setFont(font);
 		btLimpa3.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btLimpa3.setActionCommand("btLimpa3");
@@ -173,6 +176,7 @@ public class TelaCadastroF extends JFrame {
 		painel.add(btCancelar, "cell 11 12");
 		
 		JButton btnNewButton_3 = new RoundButton("ENTRAR");
+		btnNewButton_3.setText("Entrar");
 		btnNewButton_3.setFont(font);
 		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton_3.setBackground(new Color(224, 83, 76));

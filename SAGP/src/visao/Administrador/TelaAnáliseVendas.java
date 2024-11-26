@@ -23,6 +23,7 @@ import visao.RoundButton;
 import visao.TelaInicial;
 import visao.Funcionário.TelaGerenciamentoP;
 import java.awt.Font;
+import java.awt.FontFormatException;
 
 public class TelaAnáliseVendas extends JFrame {
 
@@ -33,6 +34,21 @@ public class TelaAnáliseVendas extends JFrame {
 	private JMenuItem mntmNewMenuItem_4;
 	
 	public TelaAnáliseVendas(JFrame telaA, Funcionario f) {
+		
+		Font font = new Font("Tahoma", Font.PLAIN, 11);;
+		try {
+			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
+			
+			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
+				
+		} catch (FontFormatException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		setTitle("Tela de análise das vendas");
 		setExtendedState(MAXIMIZED_BOTH);
 		TelaAnáliseVendas tela = this;
@@ -46,16 +62,17 @@ public class TelaAnáliseVendas extends JFrame {
 		setJMenuBar(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("Telas");
+		mnNewMenu.setFont(font);
 		mnNewMenu.setBackground(new Color(245, 245, 245));
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Adminstrador");
-		//mntmNewMenuItem.setFont(font);
+		mntmNewMenuItem.setFont(font);
 		mnNewMenu.add(mntmNewMenuItem);
 		
 		mntmNewMenuItem_1 = new JMenuItem("Funcionario");
 		mntmNewMenuItem_1.setActionCommand("mntmNewMenuItem_1");
-		//mntmNewMenuItem_1.setFont(font);
+		mntmNewMenuItem_1.setFont(font);
 //		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
 //			
@@ -72,13 +89,13 @@ public class TelaAnáliseVendas extends JFrame {
 		menuBar.add(mnNewMenu_1);
 		
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Análise de vendas");
-		//mntmNewMenuItem_2.setFont(font);
+		mntmNewMenuItem_2.setFont(font);
 		mnNewMenu_1.add(mntmNewMenuItem_2);
 		
 	    mntmNewMenuItem_3 = new JMenuItem(" funcionarios");
 		mntmNewMenuItem_3.setActionCommand("mntmNewMenuItem_3");
 		
-		//mntmNewMenuItem_3.setFont(font);
+		mntmNewMenuItem_3.setFont(font);
 //		mntmNewMenuItem_3.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
 //				
