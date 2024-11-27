@@ -3,7 +3,6 @@ package modelo.classes;
 public class Vendas {
 
 	private int idVenda;
-	private Cliente cliente;
 	private Funcionario funcionario;
 	private String metodoPagamento;
 	private float total;
@@ -26,6 +25,5 @@ public class Vendas {
 	public void setTotal(float total) {
 		this.total = total;
 	}
-	
 	
 }
