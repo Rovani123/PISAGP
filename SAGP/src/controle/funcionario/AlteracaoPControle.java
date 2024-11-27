@@ -19,8 +19,9 @@ public class AlteracaoPControle {
 	}
 	
 	private class AlterarPListener implements ActionListener {
-		@Override
 		public void actionPerformed(ActionEvent e) {
+			
+			// Usa Switch
 			if ("btLimpa1".equals(e.getActionCommand())) {
 				limparCampos();
 			}
