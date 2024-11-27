@@ -1,6 +1,7 @@
 package visao.Cliente;
 
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.Frame;
@@ -25,9 +26,24 @@ import controle.funcionario.ProdutoControle;
 import modelo.classes.Carrinho;
 import modelo.dao.VendaDAO;
 import net.miginfocom.swing.MigLayout;
+import teste.TelaDeTes2;
 import visao.RoundButton;
 
 public class TelaClienteCarrinho extends JFrame {
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TelaClienteCarrinho frame = new TelaClienteCarrinho(null,null);//MUDARRR DEPOISSSSS
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
 	private JPanel painelPrincipal;
 	private JPanel menuLateral;
 	private JPanel painelProdutos;
@@ -67,7 +83,7 @@ public class TelaClienteCarrinho extends JFrame {
 			e1.printStackTrace();
 		}
 		
-		TelaClienteCarrinho tela = this;
+		//TelaClienteCarrinho tela = this;
 		
 		this.listaCarrinhos = listaCarrinhos;
 		setExtendedState(Frame.MAXIMIZED_BOTH);
