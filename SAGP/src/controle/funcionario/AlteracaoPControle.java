@@ -20,6 +20,12 @@ public class AlteracaoPControle {
 	private TelaAlteracaoP viewP;
 	private Funcionario f;
 	private Produto p;
+	private JTextField txtNome;
+	private JTextField txtPreco;
+	private JTextField txtQuantidade;
+	private RoundButton btLimpa1;
+	private RoundButton btSalvar;
+	private RoundButton btCancelar;
 
 	
 	public AlteracaoPControle(Funcionario f, Produto p){
@@ -34,7 +40,6 @@ public class AlteracaoPControle {
 		viewP.addAlteracaoPListener(new  AlterarPListener());
 	}
 	
-<<<<<<< HEAD
 	public class AlterarPListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -98,23 +103,6 @@ public class AlteracaoPControle {
 			default:
 				break;
 				
-=======
-	private class AlterarPListener implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
-			
-			// Usa Switch
-			if ("btLimpa1".equals(e.getActionCommand())) {
-				limparCampos();
-			}
-			else if ("btLimpa2".equals(e.getActionCommand())) {
-				limparCampos();
-			}
-			else if("btLimpa3".equals(e.getActionCommand())) {
-				limparCampos();
-			}
-			else if ("btSalvar".equals(e.getActionCommand())) {
-				salvarP;
->>>>>>> main
 			}
 //			if ("btLimpa1".equals(e.getActionCommand())) {
 //				limparCampos();
