@@ -154,20 +154,7 @@ public class TelaDeTes2 extends JFrame {
 
 		
 		//Fim do menu
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	
 		painel = new JPanel();
 		painel.setBackground(new Color(230, 230, 230));
 		painel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -201,7 +188,7 @@ public class TelaDeTes2 extends JFrame {
 		BarraLateral.add(lblIconAdicionar, "flowx,cell 0 6");
 		
 		btAdicionar = new RoundButton("ADICIONAR");
-		//btAdicionar.setFont(font);
+		btAdicionar.setFont(font);
 		btAdicionar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btAdicionar.setText("Adicionar");
 		btAdicionar.setForeground(new Color(245, 245, 245));
@@ -224,7 +211,7 @@ public class TelaDeTes2 extends JFrame {
 		BarraLateral.add(btAdicionar, "cell 0 6,alignx left,aligny center");
 		
 		btRemover = new RoundButton("DELETAR");
-		//btRemover.setFont(font);
+		btRemover.setFont(font);
 		btRemover.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btRemover.setText("Remover");
 		btRemover.setActionCommand("btRemover");
@@ -252,7 +239,7 @@ public class TelaDeTes2 extends JFrame {
 		BarraLateral.add(btRemover, "cell 0 5,alignx left,aligny center");
 		
 		btAlterar = new RoundButton("ALTERAR");
-		//btAlterar.setFont(font);
+		btAlterar.setFont(font);
 		btAlterar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btAlterar.setText("Alterar");
 		btAlterar.setForeground(new Color(245, 245, 245));
