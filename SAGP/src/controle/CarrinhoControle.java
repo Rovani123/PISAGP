@@ -12,7 +12,7 @@ public class CarrinhoControle {
 		for(int i=0;i<listaCarrinhos.size();i++) {
 			if(listaCarrinhos.get(i).getQuantidade() != 0) {
 				CarrinhoDAO dao = new CarrinhoDAO();
-				dao.cadastrarCarrinho(listaCarrinhos.get(i).getIdProduto(), listaCarrinhos.get(i).getIdVenda(), listaCarrinhos.get(i).getQuantidade());
+//				dao.cadastrarCarrinho(listaCarrinhos.get(i).getIdProduto(), listaCarrinhos.get(i).getIdVenda(), listaCarrinhos.get(i).getQuantidade());
 			}
 		}
 	}

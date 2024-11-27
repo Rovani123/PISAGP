@@ -189,13 +189,11 @@ DROP TABLE IF EXISTS `vendas`;
 CREATE TABLE `vendas` (
   `idVenda` int(11) NOT NULL AUTO_INCREMENT,
   `idFuncionario` int(11) DEFAULT NULL,
-  `idCliente` int(11) DEFAULT NULL,
   `metodoPagamento` varchar(10) NOT NULL,
+  `Total` float NOT NULL,
   PRIMARY KEY (`idVenda`),
   KEY `idFuncionario` (`idFuncionario`),
-  KEY `idCliente` (`idCliente`),
-  CONSTRAINT `vendas_ibfk_1` FOREIGN KEY (`idFuncionario`) REFERENCES `funcionarios` (`idFuncionario`),
-  CONSTRAINT `vendas_ibfk_2` FOREIGN KEY (`idCliente`) REFERENCES `clientes` (`idCliente`)
+  CONSTRAINT `vendas_ibfk_1` FOREIGN KEY (`idFuncionario`) REFERENCES `funcionarios` (`idFuncionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -207,10 +205,6 @@ LOCK TABLES `vendas` WRITE;
 /*!40000 ALTER TABLE `vendas` DISABLE KEYS */;
 /*!40000 ALTER TABLE `vendas` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping routines for database 'bsagp'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -221,4 +215,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-12 11:49:44
+-- Dump completed on 2024-11-27  8:29:45

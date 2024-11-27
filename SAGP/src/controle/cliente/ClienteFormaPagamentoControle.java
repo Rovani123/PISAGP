@@ -4,9 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import modelo.classes.Carrinho;
 import modelo.classes.Vendas;
+import modelo.dao.CarrinhoDAO;
 import visao.Cliente.TelaClienteFormaPagamento;
 
 public class ClienteFormaPagamentoControle {
@@ -30,7 +32,19 @@ public class ClienteFormaPagamentoControle {
 				new CompraControle(null);
 				break;
 			case "btConfirmar":
-				
+				criarVenda();
+				CarrinhoDAO dao = new CarrinhoDAO();
+				try {
+					dao.cadastrarVenda(v);
+					for (Carrinho c : listaCarrinhos) {
+						CarrinhoDAO dao2 = new CarrinhoDAO();
+						dao2.cadastrarCarrinho(c);
+					}
+					
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+					//não foi posivel efetuar a compra, tente novamente
+				}
 				break;
 			}
 		}
