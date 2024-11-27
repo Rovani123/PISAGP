@@ -8,6 +8,7 @@ import controle.funcionario.GerenciamentoPControle;
 import modelo.classes.Funcionario;
 import modelo.dao.LoginDAO;
 import visao.TelaLogin;
+import visaoTelasDeAviso.MensagemView;
 
 public class LoginControle {
 	private TelaLogin tl;
@@ -31,12 +32,12 @@ public class LoginControle {
 				break;
 			default:
 				//Mensagem de erro
+				MensagemView mvErro = new MensagemView("Escolha uma das opções", 0);
 				break;
 			}
 		}
 	}
-	
-	
+		
 	private void listeners() {
 		tl.addLoginListener(new LoginListner());
 	}
@@ -44,6 +45,8 @@ public class LoginControle {
 	private void login() {
 		if(tl.getUsuario().isEmpty() || tl.getSenha().isEmpty()) {
 			//Todos os Campos precisam ser preenchidos
+			System.out.println("Erro");
+//			MensagemView mvErro = new MensagemView("Todos os Campos precisam ser preenchidos", 0);
 		}else {
 			
 			LoginDAO dao = new LoginDAO();
