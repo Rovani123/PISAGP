@@ -131,6 +131,10 @@ public class TelaLogin extends JFrame {
 		painel.add(btVoltar, "cell 4 9");
 		
 		bntLimpa = new RoundButton("Limpa");
+		bntLimpa.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		bntLimpa.setFont(font);
 		bntLimpa.setText("Limpar");
 		bntLimpa.setFont(new Font("Tahoma", Font.PLAIN, 20));

@@ -28,6 +28,7 @@ import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import javax.swing.DefaultComboBoxModel;
 import modelo.enumerador.Categoria;
+import javax.swing.ButtonGroup;
 
 public class TelaAlteracaoP extends JFrame {
 
@@ -41,6 +42,7 @@ public class TelaAlteracaoP extends JFrame {
 	private RoundButton btLimpa3;
 	private RoundButton btSalvar;
 	private RoundButton btCancelar;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 	
 	public TelaAlteracaoP(JFrame telaA, Produto p, Funcionario f) {
 		
@@ -80,6 +82,11 @@ public class TelaAlteracaoP extends JFrame {
 		txtNome.setColumns(10);
 
 		btLimpa1 = new RoundButton("Limpar");
+		buttonGroup.add(btLimpa1);
+		btLimpa1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btLimpa1.setFont(font);
 		btLimpa1.setActionCommand("btLimpa1");
 //		btLimpa1.addActionListener(new ActionListener() {
@@ -100,6 +107,7 @@ public class TelaAlteracaoP extends JFrame {
 		txtPreco.setColumns(10);
 
 		btLimpa2 = new RoundButton("Limpar");
+		buttonGroup.add(btLimpa2);
 		btLimpa2.setFont(font);
 		btLimpa2.setActionCommand("btLimpa2");
 //		btLimpa2.addActionListener(new ActionListener() {
@@ -120,6 +128,7 @@ public class TelaAlteracaoP extends JFrame {
 		txtQuantidade.setColumns(10);
 
 		btLimpa3 = new RoundButton("Limpar");
+		buttonGroup.add(btLimpa3);
 		btLimpa3.setFont(font);
 		btLimpa3.setActionCommand("btLimpa3");
 //		btLimpa3.addActionListener(new ActionListener() {
@@ -141,6 +150,7 @@ public class TelaAlteracaoP extends JFrame {
 		painel.add(cbCategoria, "cell 4 11,growx");
 
 		RoundButton btLimpa4 = new RoundButton("Limpar");
+		buttonGroup.add(btLimpa4);
 		btLimpa4.setFont(font);
 		btLimpa4.setBackground(new Color(224, 83, 76));
 		btLimpa4.setForeground(new Color(245, 245, 245));
