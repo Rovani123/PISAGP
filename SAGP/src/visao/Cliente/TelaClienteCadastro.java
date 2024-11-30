@@ -141,6 +141,17 @@ public class TelaClienteCadastro extends JFrame {
 				
 			}
 		});
+		
+		JButton btnNewButton_2 = new RoundButton("Limpar");
+		btnNewButton_2.setFont(font);
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btnNewButton_2.setForeground(new Color(255, 255, 255));
+		btnNewButton_2.setBackground(new Color(224, 83, 76));
+		contentPane.add(btnNewButton_2, "cell 4 11");
 		btnNewButton_3.setForeground(new Color(255, 255, 255));
 		btnNewButton_3.setBackground(new Color(224, 83, 76));
 		btnNewButton_3.setFont(new Font("Arial", Font.PLAIN, 11));
@@ -153,17 +164,6 @@ public class TelaClienteCadastro extends JFrame {
 				
 			}
 		});
-		
-		JButton btnNewButton_2 = new RoundButton("Limpar");
-		btnNewButton_2.setFont(font);
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		btnNewButton_2.setForeground(new Color(255, 255, 255));
-		btnNewButton_2.setBackground(new Color(224, 83, 76));
-		contentPane.add(btnNewButton_2, "cell 7 11");
 		btnNewButton_4.setForeground(new Color(255, 255, 255));
 		btnNewButton_4.setBackground(new Color(0, 0, 0));
 		contentPane.add(btnNewButton_4, "cell 7 13");

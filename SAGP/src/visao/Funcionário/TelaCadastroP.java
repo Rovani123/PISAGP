@@ -40,9 +40,6 @@ public class TelaCadastroP extends JFrame {
 	private JTextField txtQuantidade;
 	private JLabel lblFoto;
     private Image imagemProduto;
-    private RoundButton btLimpa1;
-    private RoundButton btLimpa2;
-    private RoundButton btLimpa3;
     private RoundButton btLimpa4;
     private RoundButton btSalvar;
     private RoundButton btCancelar;
@@ -88,18 +85,6 @@ public class TelaCadastroP extends JFrame {
 		painel.add(txtNome, "cell 3 5 2 1,growx");
 		txtNome.setColumns(10);
 
-		btLimpa1 = new RoundButton("Limpar");
-		btLimpa1.setFont(font);
-		btLimpa1.setActionCommand("btLimpa1");
-//		btLimpa1.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				txtNome.setText("");
-//			}
-//		});
-		btLimpa1.setForeground(new Color(245, 245, 245));
-		btLimpa1.setBackground(new Color(224, 83, 76));
-		painel.add(btLimpa1, "cell 5 5");
-
 		JLabel lblPreco = new JLabel("Preço:");
 		lblPreco.setFont(font);
 		painel.add(lblPreco, "cell 3 6");
@@ -107,18 +92,6 @@ public class TelaCadastroP extends JFrame {
 		txtPreco = new JTextField();
 		painel.add(txtPreco, "cell 3 7 2 1,growx");
 		txtPreco.setColumns(10);
-
-		btLimpa2 = new RoundButton("Limpar");
-		btLimpa2.setFont(font);
-		btLimpa2.setActionCommand("btLimpa2.");
-//		btLimpa2.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//
-//			}
-//		});
-		btLimpa2.setForeground(new Color(245, 245, 245));
-		btLimpa2.setBackground(new Color(224, 83, 76));
-		painel.add(btLimpa2, "cell 5 7");
 
 		JLabel lblQuantidade = new JLabel("Quantidade:");
 		lblQuantidade.setFont(font);
@@ -128,18 +101,6 @@ public class TelaCadastroP extends JFrame {
 		painel.add(txtQuantidade, "cell 3 9 2 1,growx");
 		txtQuantidade.setColumns(10);
 
-		btLimpa3 = new RoundButton("Limpar");
-		btLimpa3.setFont(font);
-		btLimpa3.setActionCommand("btLimpa3");
-//		btLimpa3.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//
-//			}
-//		});
-		btLimpa3.setForeground(new Color(245, 245, 245));
-		btLimpa3.setBackground(new Color(224, 83, 76));
-		painel.add(btLimpa3, "cell 5 9");
-
 		JLabel lblCategoria = new JLabel("Categoria:");
 		lblCategoria.setFont(font);
 		painel.add(lblCategoria, "cell 3 10");
@@ -147,18 +108,6 @@ public class TelaCadastroP extends JFrame {
 		JComboBox cbCategoria = new JComboBox();
 		cbCategoria.setModel(new DefaultComboBoxModel(Categoria.values()));
 		painel.add(cbCategoria, "cell 3 11,growx");
-
-		btLimpa4 = new RoundButton("Limpar");
-		btLimpa4.setFont(font);
-		btLimpa4.setActionCommand("btLimpa4");
-//		btLimpa4.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//
-//			}
-//		});
-		btLimpa4.setForeground(new Color(245, 245, 245));
-		btLimpa4.setBackground(new Color(224, 83, 76));
-		painel.add(btLimpa4, "cell 5 11");
 		
 				btSalvar = new RoundButton("Salvar");
 				btSalvar.setFont(font);
@@ -218,6 +167,18 @@ public class TelaCadastroP extends JFrame {
 //					}
 //				});
 				painel.add(btFile, "cell 3 12,alignx center,aligny center");
+				
+						btLimpa4 = new RoundButton("Limpar");
+						btLimpa4.setFont(font);
+						btLimpa4.setActionCommand("btLimpa4");
+						//		btLimpa4.addActionListener(new ActionListener() {
+						//			public void actionPerformed(ActionEvent e) {
+						//
+						//			}
+						//		});
+								btLimpa4.setForeground(new Color(245, 245, 245));
+								btLimpa4.setBackground(new Color(224, 83, 76));
+								painel.add(btLimpa4, "cell 5 12");
 				btSalvar.setForeground(new Color(245, 245, 245));
 				btSalvar.setBackground(new Color(224, 83, 76));
 				painel.add(btSalvar, "cell 3 14,alignx center");
