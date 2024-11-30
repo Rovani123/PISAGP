@@ -95,17 +95,6 @@ public class ZTelaFuncionarioLogin extends JFrame {
 		contentPane.add(txtEntreComSeu, "cell 3 6 2 1,growx");
 		txtEntreComSeu.setColumns(10);
 		
-		RoundButton btnNewButton = new RoundButton("Limpar");
-		btnNewButton.setFont(font);
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		btnNewButton.setForeground(new Color(255, 255, 255));
-		btnNewButton.setBackground(new Color(224, 83, 76));
-		contentPane.add(btnNewButton, "cell 5 6");
-		
 		JLabel lblNewLabel_2 = new JLabel("");
 		contentPane.add(lblNewLabel_2, "cell 6 6");
 		
@@ -125,17 +114,6 @@ public class ZTelaFuncionarioLogin extends JFrame {
 		txtEntreComUma.setFont(font);
 		contentPane.add(txtEntreComUma, "cell 3 8 2 1,growx");
 		txtEntreComUma.setColumns(10);
-		
-		RoundButton btnNewButton_1 = new RoundButton("Limpar");
-		btnNewButton_1.setFont(font);
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		btnNewButton_1.setForeground(new Color(255, 255, 255));
-		btnNewButton_1.setBackground(new Color(224, 83, 76));
-		contentPane.add(btnNewButton_1, "cell 5 8");
 		
 		JLabel lblNewLabel_3 = new JLabel("");
 		contentPane.add(lblNewLabel_3, "cell 6 8");
@@ -159,6 +137,17 @@ public class ZTelaFuncionarioLogin extends JFrame {
 				
 			}
 		});
+		
+		RoundButton btnNewButton_1 = new RoundButton("Limpar");
+		btnNewButton_1.setFont(font);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btnNewButton_1.setForeground(new Color(255, 255, 255));
+		btnNewButton_1.setBackground(new Color(224, 83, 76));
+		contentPane.add(btnNewButton_1, "cell 5 10");
 		btnNewButton_3.setForeground(new Color(255, 255, 255));
 		contentPane.add(btnNewButton_3, "cell 5 11");
 	}
