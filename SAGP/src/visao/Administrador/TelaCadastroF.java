@@ -121,6 +121,21 @@ public class TelaCadastroF extends JFrame {
 		btCancelar.setFont(font);
 		btCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btCancelar.setActionCommand("btCancelar");
+		
+		btLimpa3 = new RoundButton("LIMPAR");
+		btLimpa3.setText("Limpar");
+		btLimpa3.setFont(font);
+		btLimpa3.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btLimpa3.setActionCommand("btLimpa3");
+		
+//		btLimpa3.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				txtSenha.setText("");
+//			}
+//		});
+		btLimpa3.setBackground(new Color(224, 83, 76));
+		btLimpa3.setForeground(new Color(245, 245, 245));
+		painel.add(btLimpa3, "cell 3 11");
 //		btCancelar.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {			
 //				TelaGerenciamentoF tgf = new TelaGerenciamentoF(telaA, f);
@@ -156,21 +171,6 @@ public class TelaCadastroF extends JFrame {
 		btCadastrar.setBackground(new Color(224, 83, 76));
 		btCadastrar.setForeground(new Color(245, 245, 245));
 		painel.add(btCadastrar, "cell 6 11");
-		
-		btLimpa3 = new RoundButton("LIMPAR");
-		btLimpa3.setText("Limpar");
-		btLimpa3.setFont(font);
-		btLimpa3.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btLimpa3.setActionCommand("btLimpa3");
-		
-//		btLimpa3.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				txtSenha.setText("");
-//			}
-//		});
-		btLimpa3.setBackground(new Color(224, 83, 76));
-		btLimpa3.setForeground(new Color(245, 245, 245));
-		painel.add(btLimpa3, "cell 7 11");
 		btCancelar.setBackground(new Color(0, 0, 0));
 		btCancelar.setForeground(new Color(245, 245, 245));
 		painel.add(btCancelar, "cell 11 12");

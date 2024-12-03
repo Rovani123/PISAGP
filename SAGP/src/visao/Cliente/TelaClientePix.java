@@ -106,7 +106,7 @@ public class TelaClientePix extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		contentPane.add(btnNewButton, "flowx,cell 7 8");
+		contentPane.add(btnNewButton, "flowx,cell 14 8");
 	}
 
 }
