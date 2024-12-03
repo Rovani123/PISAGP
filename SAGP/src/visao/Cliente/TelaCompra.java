@@ -31,6 +31,7 @@ import modelo.classes.Carrinho;
 import modelo.classes.Funcionario;
 import modelo.classes.Produto;
 import net.miginfocom.swing.MigLayout;
+import teste.TelaDeTes2;
 import visao.RoundButton;
 import visao.TelaInicial;
 import visao.Administrador.FuncionariosTableModel;
@@ -45,6 +46,19 @@ import java.awt.FontFormatException;
 
 public class TelaCompra extends JFrame {
 	
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TelaCompra frame = new TelaCompra(null,null);//MUDARRR DEPOISSSSS
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
 	private static final long serialVersionUID = 1L;
 	private JPanel painelPrincipal;
@@ -83,7 +97,7 @@ public class TelaCompra extends JFrame {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
+		TelaCompra tela = this;	
 		
 		setExtendedState(MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -104,7 +118,6 @@ public class TelaCompra extends JFrame {
 		btVoltar = new RoundButton("Sair");
 		btVoltar.setBackground(new Color(245, 245, 245));
 		btVoltar.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/volte.png")));
-		btVoltar.setText("");
 		btVoltar.setActionCommand("btVoltar");
 		btVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -148,9 +161,17 @@ public class TelaCompra extends JFrame {
 		btBebidas.setActionCommand("btBebidas");
 //		btBebidas.addActionListener(new ActionListener() {
 //		public void actionPerformed(ActionEvent e) {
-//			getProdutosFiltro(Categoria.categoriaString("bebidas"));
-//		}
-//	});
+//			try {
+//		         TelaCadastroF tcf = new TelaCadastroF(tela,f);
+//		         dispose();
+//		         tcf.setVisible(true);
+//	             } catch (Exception e2) {
+//		         e2.printStackTrace();
+//		
+//	           }
+//	
+//          }
+//       });
 		
 		BarraLateral.add(btBebidas, "cell 0 8,growx,aligny center");
 		
@@ -214,6 +235,10 @@ public class TelaCompra extends JFrame {
 		txtPesquisa.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		panelPesquisa.add(txtPesquisa, "flowx,cell 0 0 22 1,grow");
 		txtPesquisa.setColumns(10);
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/lupa.png")));
+		panelPesquisa.add(btnNewButton, "cell 23 0");
 		
 		JButton btPesquisar = new RoundButton("");
 		btPesquisar.setBackground(new Color(230, 230, 230));

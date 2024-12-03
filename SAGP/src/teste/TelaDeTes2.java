@@ -104,72 +104,9 @@ public class TelaDeTes2 extends JFrame {
 		setExtendedState(MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 824, 519);
-<<<<<<< Updated upstream
-		
-		// inico menu
-		menuBar = new JMenuBar();
-		menuBar.setFont(font);
-		setJMenuBar(menuBar);
-		
-		mTelas = new JMenu("Telas");
-		mTelas.setFont(font);
-		menuBar.add(mTelas);
-		
-		mAdm = new JMenuItem("Administrador");
-		mAdm.setFont(font);
-		mAdm.setEnabled(false);
-		mTelas.add(mAdm);
-		
-		mFuncionario = new JMenuItem("Funcionário");
-		mFuncionario.setFont(font);
-		mFuncionario.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaGerenciamentoP telaG = new TelaGerenciamentoP(null,f);
-				dispose();
-				telaG.setVisible(true);
-			}
-		});
-		mTelas.add(mFuncionario);
-		
-		mOpcoes = new JMenu("Opções");
-		mOpcoes.setFont(font);
-		menuBar.add(mOpcoes);
-		
-		mAnaliseVendas = new JMenuItem("Análise de vendas");
-		mAnaliseVendas.setFont(font);
-		mAnaliseVendas.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaAnáliseVendas telaAV = new TelaAnáliseVendas(null,f);
-				dispose();
-				telaAV.setVisible(true);
-			}
-		});
-		mOpcoes.add(mAnaliseVendas);
-		
-		mGFuncionarios = new JMenuItem(" Funcionarios");
-		mGFuncionarios.setFont(font);
-		mGFuncionarios.setEnabled(false);
-		mOpcoes.add(mGFuncionarios);
-		
-		mVoltar = new JMenuItem("Voltar ao inicio");
-		mVoltar.setFont(font);
-		mVoltar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaInicial telaI = new TelaInicial();
-				dispose();
-				telaI.setVisible(true);
-			}
-		});
-		menuBar.add(mVoltar);
-		painel = new JPanel();
-		painel.setBackground(new Color(230, 230, 230));
-		painel.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		
-		//Fim do menu
-=======
->>>>>>> Stashed changes
-	
+		
 		painel = new JPanel();
 		painel.setBackground(new Color(230, 230, 230));
 		painel.setBorder(new EmptyBorder(5, 5, 5, 5));
