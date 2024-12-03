@@ -166,8 +166,6 @@ public class TelaCadastroP extends JFrame {
 //					}
 //				});
 			painel.add(btFile, "cell 3 12,alignx center,aligny center");
-				
-<<<<<<< Updated upstream
 			btLimpa = new RoundButton("Limpar");
 			btLimpa.setFont(font);
 			btLimpa.setForeground(new Color(245, 245, 245));
@@ -177,23 +175,6 @@ public class TelaCadastroP extends JFrame {
 			btSalvar.setForeground(new Color(245, 245, 245));
 			btSalvar.setBackground(new Color(224, 83, 76));
 			painel.add(btSalvar, "cell 3 14,alignx center");
-=======
-						btLimpa4 = new RoundButton("Limpar");
-						btLimpa4.setFont(font);
-						btLimpa4.setActionCommand("btLimpa4");
-						//		btLimpa4.addActionListener(new ActionListener() {
-						//			public void actionPerformed(ActionEvent e) {
-						//
-						//			}
-						//		});
-								btLimpa4.setForeground(new Color(245, 245, 245));
-								btLimpa4.setBackground(new Color(224, 83, 76));
-								painel.add(btLimpa4, "cell 2 14");
-				btSalvar.setForeground(new Color(245, 245, 245));
-				btSalvar.setBackground(new Color(224, 83, 76));
-				painel.add(btSalvar, "cell 3 14,alignx center");
->>>>>>> Stashed changes
-				
 			btCancelar = new RoundButton("Cancelar");
 			btCancelar.setFont(font);
 			btCancelar.setActionCommand("btCancelar");
@@ -226,5 +207,11 @@ public class TelaCadastroP extends JFrame {
 	}
 	public Categoria getCategoria(){
 		return (Categoria) cbCategoria.getSelectedItem();
+	}
+	public void limpar() {
+		txtNome.setText("");
+		txtPreco.setText("");
+		txtQuantidade.setText("");
+		cbCategoria.setSelectedIndex(0);
 	}
 }

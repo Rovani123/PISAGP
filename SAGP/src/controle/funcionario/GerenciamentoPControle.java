@@ -58,7 +58,7 @@ public class GerenciamentoPControle {
 //				btOfertas();  // A fazer
 				break;
 			case "btAlterar":
-//				btAlterar();
+				btAlterar();
 				break;
 			case "btRemover":
 				btRemover();
@@ -88,7 +88,6 @@ public class GerenciamentoPControle {
 		});
 	}
 
-	// funcoes dos botoes
 	private void mPromocoes() {
 //		tgp.dispose();
 //		new PromocoesControle();
@@ -180,6 +179,7 @@ public class GerenciamentoPControle {
 				tgp.getProdutos();
 			}
 		} catch (Exception e2) {
+			e2.printStackTrace();
 			//Selecione um produto
 		}
 		
@@ -188,5 +188,17 @@ public class GerenciamentoPControle {
 	private void btCadastrar() {
 		tgp.dispose();
 		new CadastroPControle(f);
+	}
+	
+	private void btAlterar() {
+		Produto p;
+		try {
+			p = tgp.getItemTabela();
+		} catch (Exception e) {
+			e.printStackTrace();
+			p=null;
+		}
+		tgp.dispose();
+		new AlterarPControle(f,p);
 	}
 }

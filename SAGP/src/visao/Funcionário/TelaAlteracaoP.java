@@ -1,34 +1,25 @@
 package visao.Funcionário;
 
-import java.awt.EventQueue;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontFormatException;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import controle.funcionario.AlteracaoPControle.AlterarPListener;
-import controle.funcionario.ProdutoControle;
-import modelo.classes.Funcionario;
-import modelo.classes.Produto;
-import net.miginfocom.swing.MigLayout;
-import visao.RoundButton;
-
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import java.awt.Color;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.awt.event.ActionEvent;
-import javax.swing.DefaultComboBoxModel;
-import modelo.enumerador.Categoria;
 import javax.swing.ButtonGroup;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import modelo.classes.Funcionario;
+import modelo.classes.Produto;
+import modelo.enumerador.Categoria;
+import net.miginfocom.swing.MigLayout;
+import visao.RoundButton;
 
 public class TelaAlteracaoP extends JFrame {
 
@@ -39,6 +30,7 @@ public class TelaAlteracaoP extends JFrame {
 	private JComboBox cbCategoria;
 	private RoundButton btSalvar;
 	private RoundButton btCancelar;
+	private RoundButton btLimpa;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	
 	public TelaAlteracaoP(Produto p, Funcionario f) {
@@ -103,12 +95,13 @@ public class TelaAlteracaoP extends JFrame {
 		cbCategoria.setBackground(new Color(245, 245, 245));
 		painel.add(cbCategoria, "cell 3 11 3 1,growx");
 		
-				RoundButton btLimpa4 = new RoundButton("Limpar");
-				buttonGroup.add(btLimpa4);
-				btLimpa4.setFont(font);
-				btLimpa4.setBackground(new Color(224, 83, 76));
-				btLimpa4.setForeground(new Color(245, 245, 245));
-				painel.add(btLimpa4, "cell 3 14");
+		btLimpa = new RoundButton("Limpar");
+		buttonGroup.add(btLimpa);
+		btLimpa.setFont(font);
+		btLimpa.setBackground(new Color(224, 83, 76));
+		btLimpa.setForeground(new Color(245, 245, 245));
+		btLimpa.setActionCommand("btLimpa");
+		painel.add(btLimpa, "cell 3 14");
 
 		btSalvar = new RoundButton("Salvar");
 		btSalvar.setFont(font);
@@ -137,6 +130,7 @@ public class TelaAlteracaoP extends JFrame {
 		txtNome.setText("");
 		txtQuantidade.setText("");
 		txtPreco.setText("");
+		cbCategoria.setSelectedIndex(0);
 	}
 
 	public void setText(Produto p) {
@@ -146,22 +140,27 @@ public class TelaAlteracaoP extends JFrame {
 		txtQuantidade.setText(String.valueOf(p.getQuantidadeEstoque()));
 		cbCategoria.setSelectedItem(p.getCategoria());
 	}
-
-	private void alterarProduto(Produto p, String nome, float preco, int quantidade, Categoria categoria)
-			throws SQLException {
-
-		p.setNomeProduto(nome);
-		p.setPreco(preco);
-		p.setQuantidadeEstoque(quantidade);
-		p.setCategoria(categoria);
-		ProdutoControle pc = new ProdutoControle();
-		pc.alterarProduto(p);
-
+	
+	public void setCampos(Produto p) {
+		txtNome.setText(p.getNomeProduto());
+		txtPreco.setText(String.valueOf(p.getPreco()));
+		txtQuantidade.setText(String.valueOf(p.getQuantidadeEstoque()));
+		cbCategoria.setSelectedItem(p);
 	}
+
+//	private void alterarProduto(Produto p, String nome, float preco, int quantidade, Categoria categoria)
+//			throws SQLException {
+//
+//		p.setNomeProduto(nome);
+//		p.setPreco(preco);
+//		p.setQuantidadeEstoque(quantidade);
+//		p.setCategoria(categoria);
+//		ProdutoControle pc = new ProdutoControle();
+//		pc.alterarProduto(p);
+//
+//	}
 	public void addAlteracaoPListener(ActionListener listener) {
-		btLimpa1.addActionListener(listener);
-		btLimpa2.addActionListener(listener);
-		btLimpa3.addActionListener(listener);
+		btLimpa.addActionListener(listener);
 		btSalvar.addActionListener(listener);
 		btCancelar.addActionListener(listener);
 	}
@@ -169,16 +168,13 @@ public class TelaAlteracaoP extends JFrame {
 	public String getNome() {
 		return txtNome.getText();
 	}
-	
-	public void salvar () {
-		
-		txtNome.getText();
-		Float.parseFloat(txtPreco.getText());
-		Integer.parseInt(txtQuantidade.getText());
-		(Categoria) cbCategoria.getSelectedItem();
-		
-		
+	public String getPreco() {
+		return txtPreco.getText();
 	}
-
-	
+	public String getQuantidade() {
+		return txtQuantidade.getText();
+	}
+	public Categoria getCategoria() {
+		return (Categoria) cbCategoria.getSelectedItem();
+	}	
 }

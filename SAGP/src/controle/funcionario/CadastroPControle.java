@@ -7,12 +7,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.SQLException;
-
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-
 import modelo.classes.Funcionario;
+import modelo.dao.ProdutoDAO;
 import modelo.enumerador.Categoria;
 import visao.Funcionário.TelaCadastroP;
 
@@ -23,7 +21,6 @@ public class CadastroPControle {
 	private float preco;
 	private int quantidade;
 	private Categoria categoria;
-	private Image imagemProduto;
 	private FileInputStream fin;
 	
 	public CadastroPControle(Funcionario f) {
@@ -38,6 +35,16 @@ public class CadastroPControle {
 			switch(e.getActionCommand()) {
 			case "btSalvar":
 				salvar();
+				break;
+			case "btFile":
+				imagem();
+				break;
+			case "btLimpa":
+				tcp.limpar();
+				break;
+			case"btCancelar":
+				new GerenciamentoPControle(f);
+				tcp.dispose();
 				break;
 			}
 		}
@@ -61,10 +68,10 @@ public class CadastroPControle {
 			//Todos os campos precisam ser preenchidos
 	} else {
 		try {
-			
-			cadastrarProduto(nome, preco, quantidade, categoria.toString(),fin);
+			ProdutoDAO dao = new ProdutoDAO();
+			dao.cadastrarProduto(nome, preco, quantidade, categoria.toString(), fin);
 			tcp.dispose();
-			telaGerenciamentoP.setVisible(true);
+			new GerenciamentoPControle(f);
 			//Produto cadastrado com sucesso
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -80,7 +87,6 @@ public class CadastroPControle {
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
             try {
-                imagemProduto = ImageIO.read(selectedFile);
                 fin = new FileInputStream(selectedFile);
                 if(fin ==null) {
                 	//Não foi possivel colocar a imagem
