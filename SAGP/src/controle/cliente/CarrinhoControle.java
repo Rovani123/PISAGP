@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import modelo.classes.Carrinho;
 import visao.Cliente.PainelProduto;
 import visao.Cliente.TelaClienteCarrinho;
+import visaoTelasDeAviso.MensagemView;
 
 public class CarrinhoControle {
 	TelaClienteCarrinho tcc;
@@ -65,6 +66,7 @@ public class CarrinhoControle {
 					pp.setLblQuant(String.valueOf(pp.getCarrinho().getQuantidade()));
 			}else {
 				//mensagem
+				new MensagemView("Estoque insuficiente",2);
 			}
 				break;
 			}

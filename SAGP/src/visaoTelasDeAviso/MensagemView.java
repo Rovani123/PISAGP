@@ -38,19 +38,21 @@ public class MensagemView extends JDialog {
 		String iconPath;
 		switch (tipo) {
 		case 0: // Erro
-			iconPath = "/src/imagem/errado.png";
+			iconPath = "/imagem/errado.png";
 			lblMensagem.setIcon(new ImageIcon(getClass().getResource(iconPath)));
 			break;
 		case 1: // Informação
-			iconPath = "/src/imagem/erro.png";
+			iconPath = "/imagem/erro.png";
+				
 			lblMensagem.setIcon(new ImageIcon(getClass().getResource(iconPath)));
 			break;
 		case 2: // Atenção
-			iconPath = "/src/Imagem/erro.png";
+			iconPath = "/imagem/erro.png";
+			
 			lblMensagem.setIcon(new ImageIcon(getClass().getResource(iconPath)));
 			break;
 		case 3: // Sucesso
-			iconPath = "/src/imagem/certo.png";
+			iconPath = "/imagem/certo.png";
 			lblMensagem.setIcon(new ImageIcon(getClass().getResource(iconPath)));
 			break;
 		}

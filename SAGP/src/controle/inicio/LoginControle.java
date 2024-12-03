@@ -32,8 +32,7 @@ public class LoginControle {
 				limpar();
 				break;
 			default:
-				//Mensagem de erro
-				MensagemView mvErro = new MensagemView("Escolha uma das opções", 0);
+				new MensagemView("Escolha uma das opções", 0);
 				break;
 			}
 		}
@@ -45,9 +44,7 @@ public class LoginControle {
 	
 	private void login() {
 		if(tl.getUsuario().isEmpty() || tl.getSenha().isEmpty()) {
-			MensagemView t=new MensagemView("Todos os Campos precisam ser preenchidos",2);
-			System.out.println("Erro");
-//			MensagemView mvErro = new MensagemView("Todos os Campos precisam ser preenchidos", 0);
+			new MensagemView("Todos os Campos precisam ser preenchidos",2);
 		}else {
 			
 			LoginDAO dao = new LoginDAO();
@@ -70,6 +67,7 @@ public class LoginControle {
 				}
 			}else {
 				//Usuário ou senha inválidos
+				new MensagemView("Usuário ou senha inválidos",2);
 			}
 		}
 	}

@@ -13,6 +13,7 @@ import modelo.classes.Produto;
 import modelo.classes.Vendas;
 import visao.Cliente.PainelProduto;
 import visao.Cliente.TelaCompra;
+import visaoTelasDeAviso.MensagemView;
 
 public class CompraControle {
 	private TelaCompra tc;
@@ -74,7 +75,7 @@ public class CompraControle {
 					pp.setCarrinhoQuant(pp.getCarrinho().getQuantidade()+1);
 					pp.setLblQuant(String.valueOf(pp.getCarrinho().getQuantidade()));
 			}else {
-				//mensagem
+				new MensagemView("Estoque insuficiente",2);
 			}
 				break;
 			}

@@ -10,6 +10,7 @@ import modelo.classes.Carrinho;
 import modelo.classes.Vendas;
 import modelo.dao.CarrinhoDAO;
 import visao.Cliente.TelaClienteFormaPagamento;
+import visaoTelasDeAviso.MensagemView;
 
 public class ClienteFormaPagamentoControle {
 	TelaClienteFormaPagamento tcfp;
@@ -43,6 +44,7 @@ public class ClienteFormaPagamentoControle {
 					
 				} catch (SQLException e1) {
 					e1.printStackTrace();
+					new MensagemView("Compra nao efetuada, tente novamente",0);
 					//não foi posivel efetuar a compra, tente novamente
 				}
 				break;
