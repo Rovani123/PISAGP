@@ -8,6 +8,7 @@ import controle.funcionario.GerenciamentoPControle;
 import modelo.classes.Funcionario;
 import modelo.dao.LoginDAO;
 import visao.TelaLogin;
+import visao.Administrador.TelaGerenciamentoF;
 import visaoTelasDeAviso.MensagemView;
 
 public class LoginControle {
@@ -44,7 +45,7 @@ public class LoginControle {
 	
 	private void login() {
 		if(tl.getUsuario().isEmpty() || tl.getSenha().isEmpty()) {
-			//Todos os Campos precisam ser preenchidos
+			MensagemView t=new MensagemView("Todos os Campos precisam ser preenchidos",2);
 			System.out.println("Erro");
 //			MensagemView mvErro = new MensagemView("Todos os Campos precisam ser preenchidos", 0);
 		}else {
@@ -62,7 +63,7 @@ public class LoginControle {
 			if(f != null){
 				if(f.getadministrador() == 1){
 					//admControle
-					System.out.println("ADM");
+					
 				}else{
 					tl.dispose();
 					new GerenciamentoPControle(f);
