@@ -34,9 +34,6 @@ public class GerenciamentoPControle {
 			case "mGProdutos":
 				//
 				break;
-			case "mPromocoes":
-				mPromocoes();
-				break;
 			case "mAdm":
 				
 				break;
@@ -51,9 +48,6 @@ public class GerenciamentoPControle {
 				break;
 			case "btBebidas":
 				btBebidas();
-				break;
-			case "btOfertas":
-//				btOfertas();  // A fazer
 				break;
 			case "btAlterar":
 				btAlterar();
@@ -87,10 +81,6 @@ public class GerenciamentoPControle {
 		});
 	}
 
-	private void mPromocoes() {
-//		tgp.dispose();
-//		new PromocoesControle();
-	}
 
 	private void mAdm() {
 //		tgp.dispose();
@@ -206,6 +196,7 @@ public class GerenciamentoPControle {
 		ProdutosTableModel model = new ProdutosTableModel(dao.getProdutos());
 		tgp.setTabela(model);
 	}
+	
 	private void carregarProdutosFiltro(Categoria filtro) {
 		ProdutoDAO dao = new ProdutoDAO();
 		ProdutosTableModel model = new ProdutosTableModel(dao.getProdutosFiltro(filtro));

@@ -26,7 +26,7 @@ public class ProdutosTableModel extends AbstractTableModel{
 		return colunas.length;
 	}
 	
-	protected Produto getItem(int i) {
+	public Produto getItem(int i) {
 		return lista.get(i);
 	}
 

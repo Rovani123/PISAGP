@@ -20,8 +20,11 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import modelo.classes.Funcionario;
+import modelo.classes.Produto;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
+import visao.Funcionário.ProdutosTableModel;
+
 import java.awt.Font;
 import java.awt.FontFormatException;
 
@@ -66,10 +69,8 @@ public class TelaGerenciamentoF extends JFrame {
 			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
 	
 		} catch (FontFormatException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
@@ -294,6 +295,14 @@ public class TelaGerenciamentoF extends JFrame {
 		btRemover.addActionListener(listener);
 		btAdicionar.addActionListener(listener);
 		btPesquisar.addActionListener(listener);
+	}
+	
+	public void setTabela(FuncionariosTableModel tm) {
+		table.setModel(tm);
+	}
+	
+	public Funcionario getItemTabela() {
+		return ((FuncionariosTableModel) table.getModel()).getItem(table.getSelectedRow());
 	}
 
 }

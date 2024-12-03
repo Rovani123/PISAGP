@@ -5,7 +5,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import controle.inicio.TelaInicialControle;
 import modelo.classes.Funcionario;
+import modelo.dao.FuncionarioDAO;
 import visao.Administrador.TelaGerenciamentoF;
 
 public class GerenciamentoFControle {
@@ -23,7 +25,12 @@ public class GerenciamentoFControle {
 	private class GerenciamentoFListeners implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			switch(e.getActionCommand()) {
-			
+			case "mVoltar":
+				new TelaInicialControle();
+				break;
+			case "btRemover":
+				remover();
+				break;
 			}
 		}
 	}
@@ -34,5 +41,11 @@ public class GerenciamentoFControle {
 				
 			}
 		});
+	}
+	
+	private void remover() {
+		Funcionario f =tgf.getItemTabela();
+		FuncionarioDAO dao = new FuncionarioDAO();
+		
 	}
 }

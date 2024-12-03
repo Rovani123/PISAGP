@@ -53,13 +53,9 @@ public class AlterarPControle {
 				break;
 			case "btCancelar":
 				cancelar();
-
-			default:
-				break;
-				
-			}
 			}
 		}
+	}
 	private void salvar() {
 		p.setNomeProduto(tap.getNome());
 		p.setPreco(Float.parseFloat(tap.getPreco()));
