@@ -194,20 +194,20 @@ public class TelaGerenciamentoF extends JFrame {
 		btAdicionar.setForeground(new Color(245, 245, 245));
 		btAdicionar.setBackground(new Color(224, 83, 76));
 		btAdicionar.setActionCommand("btAdicionar");
-//		btAdicionar.addActionListener(new ActionListener() {
-//		public void actionPerformed(ActionEvent e) {
-//				
-//				try {
-//					TelaCadastroF tcf = new TelaCadastroF(tela,f);
-//					dispose();
-//					tcf.setVisible(true);
-//				} catch (Exception e2) {
-//					e2.printStackTrace();
-//					
-//				}
-//				
-//			}
-//		});
+		btAdicionar.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+				
+				try {
+					TelaCadastroF tcf = new TelaCadastroF(tela,f);
+					dispose();
+					tcf.setVisible(true);
+				} catch (Exception e2) {
+					e2.printStackTrace();
+					
+				}
+				
+			}
+		});
 		BarraLateral.add(btAdicionar, "cell 0 6,alignx left,aligny center");
 		
 		btRemover = new RoundButton("DELETAR");
