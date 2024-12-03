@@ -45,50 +45,13 @@ public class AlteracaoPControle {
 		public void actionPerformed(ActionEvent e) {
 			switch(e.getActionCommand()) {
 			case "btLimpa1":
-				limpar();
 
-//				btLimpa1.addActionListener(new ActionListener() {
-//					public void actionPerformed(ActionEvent e) {
-//						txtNome.setText("");
-//						txtQuantidade.setText("");
-//						txtPreco.setText("");
-//					}
-//				});
-//				metodoLimpar();
+
+				viewP.limpa();
+
 				break;
 			case "btSalvar":
 				salvar();
-//				btSalvar.addActionListener(new ActionListener() {
-//					public void actionPerformed(ActionEvent e) {
-//						String nome = null;
-//						float preco = 0;
-//						int quantidade = 0;
-//						Categoria categoria = null;
-//						try {
-//							nome = txtNome.getText();
-//							preco = Float.parseFloat(txtPreco.getText());
-//							quantidade = Integer.parseInt(txtQuantidade.getText());
-//							categoria = (Categoria) cbCategoria.getSelectedItem();
-//						} catch (Exception e1) {
-//							e1.printStackTrace();
-//						}
-//						if (txtNome.getText().isEmpty() || txtPreco.getText().isEmpty() || txtQuantidade.getText().isEmpty()) {
-//							JOptionPane.showMessageDialog(null, "Todos os campos precisam ser preenchidos");
-//						} else {
-//							try {
-//								alterarProduto(p, nome, preco, quantidade, categoria);
-//								TelaGerenciamentoP telaGerenciamentoP = new TelaGerenciamentoP(telaA, f);
-//								dispose();
-//								telaGerenciamentoP.setVisible(true);
-//								JOptionPane.showMessageDialog(null, "Alteração feita com sucesso");
-//							} catch (SQLException e1) {
-//								e1.printStackTrace();
-//								JOptionPane.showMessageDialog(null, "Não foi possivel alterar esse produto");
-//							}
-//						}
-//					}
-//				});
-//				metodoSalvarr();
 				break;
 			case "btCancelar":
 				cancelar();
@@ -120,9 +83,35 @@ public class AlteracaoPControle {
 //				cancelarP;
 			}
 
-		private void limpar() {
-		}
-		private void salvar() {			
+
+		private void salvar() {
+			String nome = null;
+			float preco = 0;
+			int quantidade = 0;
+			Categoria categoria = null;
+			try {
+				nome = viewP.getNome()N
+//				preco = 
+//				quantidade = 
+//				categoria = 
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+//			if (txtNome.getText().isEmpty() || txtPreco.getText().isEmpty() || txtQuantidade.getText().isEmpty()) {
+//				JOptionPane.showMessageDialog(null, "Todos os campos precisam ser preenchidos");
+//			} else {
+//				try {
+//					alterarProduto(p, nome, preco, quantidade, categoria);
+//					TelaGerenciamentoP telaGerenciamentoP = new TelaGerenciamentoP(telaA, f);
+//					dispose();
+//					telaGerenciamentoP.setVisible(true);
+//					JOptionPane.showMessageDialog(null, "Alteração feita com sucesso");
+//				} catch (SQLException e1) {
+//					e1.printStackTrace();
+//					JOptionPane.showMessageDialog(null, "Não foi possivel alterar esse produto");
+//				}
+//	
+//	metodoSalvarr();
 		}
 		private void cancelar() {			
 		}

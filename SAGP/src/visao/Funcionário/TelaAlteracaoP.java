@@ -159,36 +159,6 @@ public class TelaAlteracaoP extends JFrame {
 		btSalvar = new RoundButton("Salvar");
 		btSalvar.setFont(font);
 		btSalvar.setActionCommand("btSalvar");
-//		btSalvar.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				String nome = null;
-//				float preco = 0;
-//				int quantidade = 0;
-//				Categoria categoria = null;
-//				try {
-//					nome = txtNome.getText();
-//					preco = Float.parseFloat(txtPreco.getText());
-//					quantidade = Integer.parseInt(txtQuantidade.getText());
-//					categoria = (Categoria) cbCategoria.getSelectedItem();
-//				} catch (Exception e1) {
-//					e1.printStackTrace();
-//				}
-//				if (txtNome.getText().isEmpty() || txtPreco.getText().isEmpty() || txtQuantidade.getText().isEmpty()) {
-//					JOptionPane.showMessageDialog(null, "Todos os campos precisam ser preenchidos");
-//				} else {
-//					try {
-//						alterarProduto(p, nome, preco, quantidade, categoria);
-//						TelaGerenciamentoP telaGerenciamentoP = new TelaGerenciamentoP(telaA, f);
-//						dispose();
-//						telaGerenciamentoP.setVisible(true);
-//						JOptionPane.showMessageDialog(null, "Alteração feita com sucesso");
-//					} catch (SQLException e1) {
-//						e1.printStackTrace();
-//						JOptionPane.showMessageDialog(null, "Não foi possivel alterar esse produto");
-//					}
-//				}
-//			}
-//		});
 		btSalvar.setBackground(new Color(224, 83, 76));
 		btSalvar.setForeground(new Color(245, 245, 245));
 		painel.add(btSalvar, "cell 4 14,alignx center");
@@ -207,6 +177,12 @@ public class TelaAlteracaoP extends JFrame {
 		btCancelar.setForeground(new Color(245, 245, 245));
 		painel.add(btCancelar, "cell 5 14");
 		setText(p);
+	}
+	
+	public void limpa () {
+		txtNome.setText("");
+		txtQuantidade.setText("");
+		txtPreco.setText("");
 	}
 
 	public void setText(Produto p) {
@@ -234,6 +210,20 @@ public class TelaAlteracaoP extends JFrame {
 		btLimpa3.addActionListener(listener);
 		btSalvar.addActionListener(listener);
 		btCancelar.addActionListener(listener);
+	}
+	
+	public String getNome() {
+		return txtNome.getText();
+	}
+	
+	public void salvar () {
+		
+		txtNome.getText();
+		Float.parseFloat(txtPreco.getText());
+		Integer.parseInt(txtQuantidade.getText());
+		(Categoria) cbCategoria.getSelectedItem();
+		
+		
 	}
 
 	
