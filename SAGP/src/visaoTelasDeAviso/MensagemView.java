@@ -1,10 +1,10 @@
 package visaoTelasDeAviso;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -18,6 +18,9 @@ public class MensagemView extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private int resposta;
 
+	/**
+	 * @wbp.parser.constructor
+	 */
 	public MensagemView(String mensagem, int tipo) {
 		setTitle("Mensagem");
 		setModal(true);
@@ -25,7 +28,7 @@ public class MensagemView extends JDialog {
 		// Criar Panel
 		JPanel panel = new JPanel();
 		panel.setLayout(new BorderLayout());
-		add(panel);
+		getContentPane().add(panel);
 
 		// Rótulo para mensagem
 		JLabel lblMensagem = new JLabel(mensagem, SwingConstants.CENTER);
@@ -43,11 +46,11 @@ public class MensagemView extends JDialog {
 			lblMensagem.setIcon(new ImageIcon(getClass().getResource(iconPath)));
 			break;
 		case 2: // Atenção
-			iconPath = "/src/imagem/erro.png";
+			iconPath = "/src/Imagem/erro.png";
 			lblMensagem.setIcon(new ImageIcon(getClass().getResource(iconPath)));
 			break;
 		case 3: // Sucesso
-			iconPath ="/src/imagem/certo.png";
+			iconPath = "/src/imagem/certo.png";
 			lblMensagem.setIcon(new ImageIcon(getClass().getResource(iconPath)));
 			break;
 		}
@@ -87,7 +90,7 @@ public class MensagemView extends JDialog {
 		// Criar Panel
 		JPanel panel = new JPanel();
 		panel.setLayout(new BorderLayout());
-		add(panel);
+		getContentPane().add(panel);
 
 		JLabel labelPergunta = new JLabel(pergunta, SwingConstants.CENTER);
 		String iconPath;
