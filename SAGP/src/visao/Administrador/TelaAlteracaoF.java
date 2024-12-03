@@ -70,29 +70,29 @@ public class TelaAlteracaoF extends JFrame {
 		JLabel lblLogo = new JLabel("");
 		lblLogo.setIcon(new ImageIcon(TelaAlteracaoF.class.getResource("/Imagem/logoGrande.png")));
 		contentPane.add(lblLogo, "cell 6 1,growx,aligny center");
-
-		JLabel lblNome = new JLabel("Nome do funcionário:");
-		lblNome.setFont(font);
-		lblNome.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		contentPane.add(lblNome, "cell 1 3,alignx right,aligny center");
+		
+				JLabel lblNome = new JLabel("Nome do funcionário:");
+				lblNome.setFont(font);
+				lblNome.setFont(new Font("Tahoma", Font.PLAIN, 18));
+				contentPane.add(lblNome, "cell 2 2,alignx left,aligny center");
 
 		txtNome = new JTextField();
 		contentPane.add(txtNome, "cell 2 3 6 1,growx,aligny center");
 		txtNome.setColumns(10);
-
-		JLabel lblUsuario = new JLabel("Usuário:");
-		lblUsuario.setFont(font);
-		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		contentPane.add(lblUsuario, "cell 1 5,alignx right,aligny center");
+		
+				JLabel lblUsuario = new JLabel("Usuário:");
+				lblUsuario.setFont(font);
+				lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 18));
+				contentPane.add(lblUsuario, "cell 2 4,alignx left,aligny center");
 
 		txtUsuario = new JTextField();
 		contentPane.add(txtUsuario, "cell 2 5 6 1,growx,aligny center");
 		txtUsuario.setColumns(10);
-
-		JLabel lblSenha = new JLabel("Senha:");
-		lblSenha.setFont(font);
-		lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		contentPane.add(lblSenha, "cell 1 7,alignx trailing,aligny center");
+		
+				JLabel lblSenha = new JLabel("Senha:");
+				lblSenha.setFont(font);
+				lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 18));
+				contentPane.add(lblSenha, "cell 2 6,alignx left,aligny center");
 
 		txtSenha = new JPasswordField();
 		contentPane.add(txtSenha, "cell 2 7 6 1,growx,aligny center");

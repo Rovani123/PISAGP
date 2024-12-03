@@ -69,6 +69,7 @@ public class TelaGerenciamentoF extends JFrame {
 	private JButton btAlterar;
 	private JButton btRemover;
 	private JButton btAdicionar;
+	private JButton btPesquisar;
 	
 
 	public TelaGerenciamentoF(JFrame telaA,Funcionario f) {
@@ -87,7 +88,7 @@ public class TelaGerenciamentoF extends JFrame {
 			e1.printStackTrace();
 		}
 		
-//		TelaGerenciamentoF tela = this;
+		TelaGerenciamentoF tela = this;
 		
 		setExtendedState(MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -109,13 +110,14 @@ public class TelaGerenciamentoF extends JFrame {
 		
 		mFuncionario = new JMenuItem("Funcionário");
 		mFuncionario.setFont(font);
-		mFuncionario.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaGerenciamentoF telaG = new TelaGerenciamentoF(null,f);
-				dispose();
-				telaG.setVisible(true);
-			}
-		});
+		mFuncionario.setActionCommand("mFuncionario");
+//		mFuncionario.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				TelaGerenciamentoF telaG = new TelaGerenciamentoF(tela,f);
+//				dispose();
+//				telaG.setVisible(true);
+//			}
+//		});
 		mTelas.add(mFuncionario);
 		
 		mOpcoes = new JMenu("Opções");
@@ -124,13 +126,14 @@ public class TelaGerenciamentoF extends JFrame {
 		
 		mAnaliseVendas = new JMenuItem("Análise de vendas");
 		mAnaliseVendas.setFont(font);
-		mAnaliseVendas.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaAnáliseVendas telaAV = new TelaAnáliseVendas(null,f);
-				dispose();
-				telaAV.setVisible(true);
-			}
-		});
+		mAnaliseVendas.setActionCommand("mAnaliseVendas");
+	//	mAnaliseVendas.addActionListener(new ActionListener() {
+	//		public void actionPerformed(ActionEvent e) {
+	//			TelaAnáliseVendas telaAV = new TelaAnáliseVendas(tela,f);
+	//			dispose();
+	//			telaAV.setVisible(true);
+	//		}
+	//	});
 		mOpcoes.add(mAnaliseVendas);
 		
 		mGFuncionarios = new JMenuItem(" Funcionarios");
@@ -140,13 +143,14 @@ public class TelaGerenciamentoF extends JFrame {
 		
 		mVoltar = new JMenuItem("Voltar ao inicio");
 		mVoltar.setFont(font);
-		mVoltar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaInicial telaI = new TelaInicial();
-				dispose();
-				telaI.setVisible(true);
-			}
-		});
+		mVoltar.setActionCommand("mVoltar");
+//		mVoltar.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				TelaInicial telaI = new TelaInicial();
+//				dispose();
+//				telaI.setVisible(true);
+//			}
+//		});
 		menuBar.add(mVoltar);
 		painel = new JPanel();
 		painel.setBackground(new Color(230, 230, 230));
@@ -201,13 +205,10 @@ public class TelaGerenciamentoF extends JFrame {
 //					TelaCadastroF tcf = new TelaCadastroF(tela,f);
 //					dispose();
 //					tcf.setVisible(true);
-//				} catch (Exception e2) {
-//					e2.printStackTrace();
-//					
-//				}
-//				
+//		            } catch (Exception e2) {
+//		            e2.printStackTrace();
 //			}
-//		});
+//		}});
 		BarraLateral.add(btAdicionar, "cell 0 6,alignx left,aligny center");
 		
 		btRemover = new RoundButton("DELETAR");
@@ -245,19 +246,16 @@ public class TelaGerenciamentoF extends JFrame {
 		btAlterar.setForeground(new Color(245, 245, 245));
 		btAlterar.setBackground(new Color(224, 83, 76));
 		btAlterar.setActionCommand("btAlterar");
-//		btAlterar.addActionListener(new ActionListener() {
+	//	btAlterar.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
 //				try {
-//					Funcionario f = ((FuncionariosTableModel) table.getModel()).getItem(table.getSelectedRow());
-//					TelaAlteracaoF taf = new TelaAlteracaoF(tela, f);
+//		            TelaCadastroF tcf = new TelaCadastroF(tela,f);
 //					dispose();
-//					taf.setVisible(true);
-//				}catch (Exception e1) {
-//					e1.printStackTrace();
-//					JOptionPane.showMessageDialog(null, "Selecione um produto");
-//				}
+//					tcf.setVisible(true);
+//		            } catch (Exception e2) {
+//		            e2.printStackTrace();
 //			}
-//		});
+//		}});
 		BarraLateral.add(btAlterar, "cell 0 4");
 		
 		JPanel panel_2 = new JPanel();
@@ -279,8 +277,8 @@ public class TelaGerenciamentoF extends JFrame {
 		panelPesquisa.add(txtPesquisa, "cell 3 0 16 1,growx");
 		txtPesquisa.setColumns(10);
 		
-		JButton btPesquisar = new RoundButton("");
-		btPesquisar.setBackground(new Color(230, 230, 230));
+		btPesquisar = new RoundButton("");
+		btPesquisar.setActionCommand("btPesquisar");
 		btPesquisar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -291,9 +289,27 @@ public class TelaGerenciamentoF extends JFrame {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		panel_2.add(scrollPane, BorderLayout.CENTER);
-		
+			
 		table = new JTable();
 		scrollPane.setViewportView(table);
+		getfuncionarios();
+		
+	}
+	private void getfuncionarios() {
+		FuncionarioControle pf = new FuncionarioControle();
+		ArrayList<Funcionario> lista = pf.getFuncionarios();
+		
+		FuncionariosTableModel model = new FuncionariosTableModel (lista);
+		table.setModel(model);
+	}
+	public void addGrenciamentoFListener(ActionListener listener) {
+		mFuncionario.addActionListener(listener);
+		mAnaliseVendas.addActionListener(listener);
+		mVoltar.addActionListener(listener);
+		btAlterar.addActionListener(listener);
+		btRemover.addActionListener(listener);
+		btAdicionar.addActionListener(listener);
+		btPesquisar.addActionListener(listener);
 	}
 
 	private static void addPopup(Component component, final JPopupMenu popup) {

@@ -40,15 +40,14 @@ public class TelaCadastroP extends JFrame {
 	private JTextField txtQuantidade;
 	private JLabel lblFoto;
     private Image imagemProduto;
-    private RoundButton btLimpa4;
+    private RoundButton btLimpa;
     private RoundButton btSalvar;
     private RoundButton btCancelar;
+    private JComboBox cbCategoria;
     private JButton btFile;
-    
-    
-    FileInputStream fin;
+    private FileInputStream fin;
 
-	public TelaCadastroP(JFrame telaA, Funcionario f) {
+	public TelaCadastroP(Funcionario f) {
 		
 		Font font = new Font("Tahoma", Font.PLAIN, 11);;
 		try {
@@ -76,42 +75,42 @@ public class TelaCadastroP extends JFrame {
 		JLabel lblCadastroProduto = new JLabel("CADASTRO DE PRODUTO:");
 		lblCadastroProduto.setFont(font);
 		painel.add(lblCadastroProduto, "cell 3 2,alignx center");
-
-		JLabel lblNome = new JLabel("Nome do Produto:");
-		lblNome.setFont(font);
-		painel.add(lblNome, "cell 3 4");
+		
+				JLabel lblNome = new JLabel("Nome do Produto:");
+				lblNome.setFont(font);
+				painel.add(lblNome, "cell 2 4");
 
 		txtNome = new JTextField();
-		painel.add(txtNome, "cell 3 5 2 1,growx");
+		painel.add(txtNome, "cell 2 5 4 1,growx");
 		txtNome.setColumns(10);
-
-		JLabel lblPreco = new JLabel("Preço:");
-		lblPreco.setFont(font);
-		painel.add(lblPreco, "cell 3 6");
+		
+				JLabel lblPreco = new JLabel("Preço:");
+				lblPreco.setFont(font);
+				painel.add(lblPreco, "cell 2 6");
 
 		txtPreco = new JTextField();
-		painel.add(txtPreco, "cell 3 7 2 1,growx");
+		painel.add(txtPreco, "cell 2 7 4 1,growx");
 		txtPreco.setColumns(10);
-
-		JLabel lblQuantidade = new JLabel("Quantidade:");
-		lblQuantidade.setFont(font);
-		painel.add(lblQuantidade, "cell 3 8");
+		
+				JLabel lblQuantidade = new JLabel("Quantidade:");
+				lblQuantidade.setFont(font);
+				painel.add(lblQuantidade, "cell 2 8");
 
 		txtQuantidade = new JTextField();
-		painel.add(txtQuantidade, "cell 3 9 2 1,growx");
+		painel.add(txtQuantidade, "cell 2 9 4 1,growx");
 		txtQuantidade.setColumns(10);
-
-		JLabel lblCategoria = new JLabel("Categoria:");
-		lblCategoria.setFont(font);
-		painel.add(lblCategoria, "cell 3 10");
-
-		JComboBox cbCategoria = new JComboBox();
-		cbCategoria.setModel(new DefaultComboBoxModel(Categoria.values()));
-		painel.add(cbCategoria, "cell 3 11,growx");
 		
-				btSalvar = new RoundButton("Salvar");
-				btSalvar.setFont(font);
-				btSalvar.setActionCommand("btSalvar");
+				JLabel lblCategoria = new JLabel("Categoria:");
+				lblCategoria.setFont(font);
+				painel.add(lblCategoria, "cell 2 10");
+
+		cbCategoria = new JComboBox();
+		cbCategoria.setModel(new DefaultComboBoxModel(Categoria.values()));
+		painel.add(cbCategoria, "cell 2 11 4 1,growx");
+		
+		btSalvar = new RoundButton("Salvar");
+		btSalvar.setFont(font);
+		btSalvar.setActionCommand("btSalvar");
 //				btSalvar.addActionListener(new ActionListener() {
 //					public void actionPerformed(ActionEvent e) {
 //						String nome = null;
@@ -144,10 +143,10 @@ public class TelaCadastroP extends JFrame {
 //					}
 //				});
 				
-				btFile = new JButton("Selecionar Imagem");
-				btFile.setFont(font);
-				btFile.setActionCommand("btFile");
-				
+			btFile = new JButton("Selecionar Imagem");
+			btFile.setFont(font);
+			btFile.setActionCommand("btFile");
+			
 //				btFile.addActionListener(new ActionListener() {
 //					public void actionPerformed(ActionEvent e) {
 //						JFileChooser fileChooser = new JFileChooser();
@@ -166,8 +165,19 @@ public class TelaCadastroP extends JFrame {
 //		                }
 //					}
 //				});
-				painel.add(btFile, "cell 3 12,alignx center,aligny center");
+			painel.add(btFile, "cell 3 12,alignx center,aligny center");
 				
+<<<<<<< Updated upstream
+			btLimpa = new RoundButton("Limpar");
+			btLimpa.setFont(font);
+			btLimpa.setForeground(new Color(245, 245, 245));
+			btLimpa.setBackground(new Color(224, 83, 76));
+			btLimpa.setActionCommand("btLimpa");
+			painel.add(btLimpa, "cell 5 12");
+			btSalvar.setForeground(new Color(245, 245, 245));
+			btSalvar.setBackground(new Color(224, 83, 76));
+			painel.add(btSalvar, "cell 3 14,alignx center");
+=======
 						btLimpa4 = new RoundButton("Limpar");
 						btLimpa4.setFont(font);
 						btLimpa4.setActionCommand("btLimpa4");
@@ -178,14 +188,15 @@ public class TelaCadastroP extends JFrame {
 						//		});
 								btLimpa4.setForeground(new Color(245, 245, 245));
 								btLimpa4.setBackground(new Color(224, 83, 76));
-								painel.add(btLimpa4, "cell 5 12");
+								painel.add(btLimpa4, "cell 2 14");
 				btSalvar.setForeground(new Color(245, 245, 245));
 				btSalvar.setBackground(new Color(224, 83, 76));
 				painel.add(btSalvar, "cell 3 14,alignx center");
+>>>>>>> Stashed changes
 				
-						btCancelar = new RoundButton("Cancelar");
-						btCancelar.setFont(font);
-						btCancelar.setActionCommand("btCancelar");
+			btCancelar = new RoundButton("Cancelar");
+			btCancelar.setFont(font);
+			btCancelar.setActionCommand("btCancelar");
 //						btCancelar.addActionListener(new ActionListener() {
 //							public void actionPerformed(ActionEvent e) {
 //								TelaGerenciamentoP telaE = new TelaGerenciamentoP(telaA, f);
@@ -193,23 +204,27 @@ public class TelaCadastroP extends JFrame {
 //								telaE.setVisible(true);
 //							}
 //						});
-						btCancelar.setForeground(new Color(245, 245, 245));
-						btCancelar.setBackground(new Color(0, 0, 0));
-						painel.add(btCancelar, "cell 5 14");
-	}
-
-	private void cadastrarProduto(String nome, float preco, int quantidade, String categoria,FileInputStream foto) throws SQLException {
-		ProdutoControle pc = new ProdutoControle();
-		pc.cadastrarProduto(nome, preco, quantidade, categoria,foto);
-
+			btCancelar.setForeground(new Color(245, 245, 245));
+			btCancelar.setBackground(new Color(0, 0, 0));
+			painel.add(btCancelar, "cell 5 14");
 	}
 	public void addCadastroP(ActionListener listener) {
-		btLimpa1.addActionListener(listener);
-		btLimpa2.addActionListener(listener);
-		btLimpa3.addActionListener(listener);
-		btLimpa4.addActionListener(listener);
+		btLimpa.addActionListener(listener);
 		btSalvar.addActionListener(listener);
 		btCancelar.addActionListener(listener);
 		btFile.addActionListener(listener);
+	}
+	
+	public String getNome() {
+		return txtNome.getText();
+	}
+	public String getPreco() {
+		return txtPreco.getText();
+	}
+	public String getQuantidade() {
+		return txtQuantidade.getText();
+	}
+	public Categoria getCategoria(){
+		return (Categoria) cbCategoria.getSelectedItem();
 	}
 }

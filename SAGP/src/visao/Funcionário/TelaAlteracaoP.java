@@ -37,14 +37,11 @@ public class TelaAlteracaoP extends JFrame {
 	private JTextField txtPreco;
 	private JTextField txtQuantidade;
 	private JComboBox cbCategoria;
-	private RoundButton btLimpa1;
-	private RoundButton btLimpa2;
-	private RoundButton btLimpa3;
 	private RoundButton btSalvar;
 	private RoundButton btCancelar;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	
-	public TelaAlteracaoP(JFrame telaA, Produto p, Funcionario f) {
+	public TelaAlteracaoP(Produto p, Funcionario f) {
 		
 		Font font = new Font("Tahoma", Font.PLAIN, 11);;
 		try {
@@ -72,89 +69,46 @@ public class TelaAlteracaoP extends JFrame {
 		JLabel lblAlteracao = new JLabel("ALTERAÇÃO DO PRODUTO:");
 		lblAlteracao.setFont(font);
 		painel.add(lblAlteracao, "cell 4 2,alignx center");
-
-		JLabel lblNome = new JLabel("Nome do Produto:");
-		lblNome.setFont(font);
-		painel.add(lblNome, "cell 4 4");
+		
+				JLabel lblNome = new JLabel("Nome do Produto:");
+				lblNome.setFont(font);
+				painel.add(lblNome, "cell 3 4");
 
 		txtNome = new JTextField();
-		painel.add(txtNome, "cell 4 5,growx");
+		painel.add(txtNome, "cell 3 5 3 1,growx");
 		txtNome.setColumns(10);
-
-		btLimpa1 = new RoundButton("Limpar");
-		buttonGroup.add(btLimpa1);
-		btLimpa1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btLimpa1.setFont(font);
-		btLimpa1.setActionCommand("btLimpa1");
-//		btLimpa1.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				txtNome.setText("");
-//			}
-//		});
-		btLimpa1.setForeground(new Color(245, 245, 245));
-		btLimpa1.setBackground(new Color(224, 83, 76));
-		painel.add(btLimpa1, "cell 5 5");
-
-		JLabel lblPreco = new JLabel("Preço:");
-		lblPreco.setFont(font);
-		painel.add(lblPreco, "cell 4 6");
+		
+				JLabel lblPreco = new JLabel("Preço:");
+				lblPreco.setFont(font);
+				painel.add(lblPreco, "cell 3 6");
 
 		txtPreco = new JTextField();
-		painel.add(txtPreco, "cell 4 7,growx");
+		painel.add(txtPreco, "cell 3 7 3 1,growx");
 		txtPreco.setColumns(10);
-
-		btLimpa2 = new RoundButton("Limpar");
-		buttonGroup.add(btLimpa2);
-		btLimpa2.setFont(font);
-		btLimpa2.setActionCommand("btLimpa2");
-//		btLimpa2.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				txtPreco.setText("");
-//			}
-//		});
-		btLimpa2.setForeground(new Color(245, 245, 245));
-		btLimpa2.setBackground(new Color(224, 83, 76));
-		painel.add(btLimpa2, "cell 5 7");
-
-		JLabel lblQuantidade = new JLabel("Quantidade:");
-		lblQuantidade.setFont(font);
-		painel.add(lblQuantidade, "cell 4 8");
+		
+				JLabel lblQuantidade = new JLabel("Quantidade:");
+				lblQuantidade.setFont(font);
+				painel.add(lblQuantidade, "cell 3 8");
 
 		txtQuantidade = new JTextField();
-		painel.add(txtQuantidade, "cell 4 9,growx");
+		painel.add(txtQuantidade, "cell 3 9 3 1,growx");
 		txtQuantidade.setColumns(10);
-
-		btLimpa3 = new RoundButton("Limpar");
-		buttonGroup.add(btLimpa3);
-		btLimpa3.setFont(font);
-		btLimpa3.setActionCommand("btLimpa3");
-//		btLimpa3.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				txtQuantidade.setText("");
-//			}
-//		});
-		btLimpa3.setBackground(new Color(224, 83, 76));
-		btLimpa3.setForeground(new Color(245, 245, 245));
-		painel.add(btLimpa3, "cell 5 9");
-
-		JLabel lblCategoria = new JLabel("Categoria:");
-		lblCategoria.setFont(font);
-		painel.add(lblCategoria, "cell 4 10");
+		
+				JLabel lblCategoria = new JLabel("Categoria:");
+				lblCategoria.setFont(font);
+				painel.add(lblCategoria, "cell 3 10");
 
 		cbCategoria = new JComboBox();
 		cbCategoria.setModel(new DefaultComboBoxModel(Categoria.values()));
 		cbCategoria.setBackground(new Color(245, 245, 245));
-		painel.add(cbCategoria, "cell 4 11,growx");
-
-		RoundButton btLimpa4 = new RoundButton("Limpar");
-		buttonGroup.add(btLimpa4);
-		btLimpa4.setFont(font);
-		btLimpa4.setBackground(new Color(224, 83, 76));
-		btLimpa4.setForeground(new Color(245, 245, 245));
-		painel.add(btLimpa4, "cell 5 11");
+		painel.add(cbCategoria, "cell 3 11 3 1,growx");
+		
+				RoundButton btLimpa4 = new RoundButton("Limpar");
+				buttonGroup.add(btLimpa4);
+				btLimpa4.setFont(font);
+				btLimpa4.setBackground(new Color(224, 83, 76));
+				btLimpa4.setForeground(new Color(245, 245, 245));
+				painel.add(btLimpa4, "cell 3 14");
 
 		btSalvar = new RoundButton("Salvar");
 		btSalvar.setFont(font);

@@ -111,9 +111,9 @@ public class TelaDeTes2 extends JFrame {
 		mFuncionario.setFont(font);
 		mFuncionario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//TelaGerenciamentoP telaG = new TelaGerenciamentoP(null,f);
+				TelaGerenciamentoP telaG = new TelaGerenciamentoP(null,f);
 				dispose();
-				//telaG.setVisible(true);
+				telaG.setVisible(true);
 			}
 		});
 		mTelas.add(mFuncionario);
