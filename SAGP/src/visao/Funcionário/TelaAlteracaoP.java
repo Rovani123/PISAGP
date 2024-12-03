@@ -44,7 +44,7 @@ public class TelaAlteracaoP extends JFrame {
 	private RoundButton btCancelar;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	
-	public TelaAlteracaoP(JFrame telaA, Produto p, Funcionario f) {
+	public TelaAlteracaoP(Produto p, Funcionario f) {
 		
 		Font font = new Font("Tahoma", Font.PLAIN, 11);;
 		try {

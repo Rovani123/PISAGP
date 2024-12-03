@@ -186,7 +186,7 @@ public class GerenciamentoPControle {
 	}
        	
 	private void btCadastrar() {
-//		tgp.dispose();
-//		new CadastroPControle(f);
+		tgp.dispose();
+		new CadastroPControle(f);
 	}
 }
