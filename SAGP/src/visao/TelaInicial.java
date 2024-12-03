@@ -8,9 +8,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import net.miginfocom.swing.MigLayout;
 import visao.Administrador.TelaCadastroF;
-import visao.Cliente.TelaClienteCadastro;
 import visao.Cliente.TelaCompra;
-import visao.Funcionário.ZTelaFuncionarioLogin;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;

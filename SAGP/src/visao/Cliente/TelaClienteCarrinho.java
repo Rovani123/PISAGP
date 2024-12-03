@@ -31,18 +31,6 @@ import visao.RoundButton;
 
 public class TelaClienteCarrinho extends JFrame {
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaClienteCarrinho frame = new TelaClienteCarrinho(null,null);//MUDARRR DEPOISSSSS
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 	
 	private JPanel painelPrincipal;
 	private JPanel menuLateral;
