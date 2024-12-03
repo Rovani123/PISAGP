@@ -86,6 +86,7 @@ public class TelaClienteCarrinho extends JFrame {
 		menuLateral.setLayout(new MigLayout("", "[][][]", "[][][][][][][][][][][][][]"));
 		
 		btVoltar = new RoundButton("");
+		btVoltar.setText("Sair");
 		btVoltar.setFont(font);
 		btVoltar.setActionCommand("btVoltar");
 //		btnNewButton_2.addActionListener(new ActionListener() {
@@ -179,6 +180,7 @@ public class TelaClienteCarrinho extends JFrame {
 		painelBaixo.add(lblValorTotal);
 		
 		btFinalizarCompra = new RoundButton("Finalizar compra");
+		btFinalizarCompra.setForeground(new Color(245, 245, 245));
 		btFinalizarCompra.setFont(font);
 		btFinalizarCompra.setActionCommand("btFinalizarCompra");
 		painelBaixo.add(btFinalizarCompra);
