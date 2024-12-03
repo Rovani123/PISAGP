@@ -1,6 +1,8 @@
 package visao.Administrador;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,6 +20,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -28,25 +31,33 @@ import modelo.classes.Funcionario;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
 import visao.TelaInicial;
+import visao.Administrador.FuncionariosTableModel;
+import visao.Administrador.TelaAlteracaoF;
+import visao.Administrador.TelaAnáliseVendas;
+import visao.Administrador.TelaCadastroF;
+//import visao.Administrador.TelaGerenciamentoF;
 import visao.Funcionário.TelaGerenciamentoP;
 import java.awt.Font;
 import java.awt.FontFormatException;
 
 public class TelaGerenciamentoF extends JFrame {
 	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TelaGerenciamentoF frame = new TelaGerenciamentoF(null,null);//MUDARRR DEPOISSSSS
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
 	private JPanel painel;
-	private JTable table;
 	private JTextField txtPesquisa;
-	private JPanel barraLateral;
-	private JLabel lblLogo;
-	private JLabel lblTabelaFunc;
-	private JButton btPesquisar;
-	private JButton btAlterar;
-	private JButton btRemover;
-	private JButton btAdicionar;
-	private JLabel lblIconRemover;
-	private JLabel lblIconAlterar;
-	private JLabel lblIconAdicionar;
+	private JTable table;
 	private JMenuBar menuBar;
 	private JMenu mTelas;
 	private JMenuItem mAdm;
@@ -55,9 +66,12 @@ public class TelaGerenciamentoF extends JFrame {
 	private JMenuItem mAnaliseVendas;
 	private JMenuItem mGFuncionarios;
 	private JMenuItem mVoltar;
+	private JButton btAlterar;
+	private JButton btRemover;
+	private JButton btAdicionar;
+	
 
-
-	public TelaGerenciamentoF(Funcionario f) {
+	public TelaGerenciamentoF(JFrame telaA,Funcionario f) {
 		
 		Font font = new Font("Tahoma", Font.PLAIN, 11);;
 		try {
@@ -73,11 +87,13 @@ public class TelaGerenciamentoF extends JFrame {
 			e1.printStackTrace();
 		}
 		
+//		TelaGerenciamentoF tela = this;
+		
 		setExtendedState(MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 795, 553);
-		setLocationRelativeTo(null);
+		setBounds(100, 100, 824, 519);
 		
+		// inico menu
 		menuBar = new JMenuBar();
 		menuBar.setFont(font);
 		setJMenuBar(menuBar);
@@ -93,14 +109,13 @@ public class TelaGerenciamentoF extends JFrame {
 		
 		mFuncionario = new JMenuItem("Funcionário");
 		mFuncionario.setFont(font);
-		mFuncionario.setActionCommand("mFuncionario");
-//		mFuncionario.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				TelaGerenciamentoP telaG = new TelaGerenciamentoP(tela,f);
-//				dispose();
-//				telaG.setVisible(true);
-//			}
-//		});
+		mFuncionario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaGerenciamentoF telaG = new TelaGerenciamentoF(null,f);
+				dispose();
+				telaG.setVisible(true);
+			}
+		});
 		mTelas.add(mFuncionario);
 		
 		mOpcoes = new JMenu("Opções");
@@ -109,14 +124,13 @@ public class TelaGerenciamentoF extends JFrame {
 		
 		mAnaliseVendas = new JMenuItem("Análise de vendas");
 		mAnaliseVendas.setFont(font);
-		mAnaliseVendas.setActionCommand("mAnaliseVendas");
-//		mAnaliseVendas.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				TelaAnáliseVendas telaAV = new TelaAnáliseVendas(tela,f);
-//				dispose();
-//				telaAV.setVisible(true);
-//			}
-//		});
+		mAnaliseVendas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaAnáliseVendas telaAV = new TelaAnáliseVendas(null,f);
+				dispose();
+				telaAV.setVisible(true);
+			}
+		});
 		mOpcoes.add(mAnaliseVendas);
 		
 		mGFuncionarios = new JMenuItem(" Funcionarios");
@@ -126,78 +140,75 @@ public class TelaGerenciamentoF extends JFrame {
 		
 		mVoltar = new JMenuItem("Voltar ao inicio");
 		mVoltar.setFont(font);
-		mVoltar.setActionCommand("mVoltar");
-//		mVoltar.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				TelaInicial telaI = new TelaInicial();
-//				dispose();
-//				telaI.setVisible(true);
-//			}
-//		});
+		mVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaInicial telaI = new TelaInicial();
+				dispose();
+				telaI.setVisible(true);
+			}
+		});
 		menuBar.add(mVoltar);
 		painel = new JPanel();
 		painel.setBackground(new Color(230, 230, 230));
 		painel.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		
-		
 		//Fim do menu
+	
+		painel = new JPanel();
+		painel.setBackground(new Color(230, 230, 230));
+		painel.setBorder(new EmptyBorder(5, 5, 5, 5));
+
 		setContentPane(painel);
-		painel.setLayout(new MigLayout("", "[][][][][][][][][][][][][][][][][][grow]", "[][][grow]"));
+		painel.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblFuncionario = new JLabel("Funcionário");
-		lblFuncionario.setFont(font);
-		lblFuncionario.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		painel.add(lblFuncionario, "cell 1 1,alignx center,aligny center");
+		JPanel BarraLateral = new JPanel();
+		BarraLateral.setBackground(new Color(167, 208, 214));
+		painel.add(BarraLateral, BorderLayout.WEST);
+		BarraLateral.setLayout(new MigLayout("", "[]", "[][][][][][][][][][][grow][]"));
 		
-		txtPesquisa = new JTextField();
-		txtPesquisa.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		painel.add(txtPesquisa, "cell 2 1 14 1,growx,aligny center");
-		txtPesquisa.setColumns(10);
+		JLabel lblLogo = new JLabel("");
+		lblLogo.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/LogoPequena.png")));
+		BarraLateral.add(lblLogo, "cell 0 1,alignx left,aligny center");
 		
-		barraLateral = new JPanel();
-		barraLateral.setBackground(new Color(167, 208, 214));
-		painel.add(barraLateral, "cell 0 0 1 3,alignx left,growy");
-		barraLateral.setLayout(new MigLayout("", "[][][][]", "[grow][][][grow][][][grow][][][][][][grow][][][grow]"));
+		JLabel lblTabelaFunc = new JLabel("TABELA DE FUNCIONÁRIO");
+		lblTabelaFunc.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		BarraLateral.add(lblTabelaFunc, "cell 0 3,alignx left,aligny center");
 		
-		lblLogo = new JLabel("");
-		lblLogo.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/Logo.png")));
-		barraLateral.add(lblLogo, "cell 0 0 3 1,alignx left,aligny center");
-		
-		lblTabelaFunc = new JLabel("TABELA DE FUNCIONÁRIO");
-		lblTabelaFunc.setFont(font);
-		lblTabelaFunc.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		barraLateral.add(lblTabelaFunc, "cell 0 5 4 2,alignx left,aligny center");
-		
-		lblIconAlterar = new JLabel("");
+		JLabel lblIconAlterar = new JLabel("");
 		lblIconAlterar.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/troca.png")));
-		barraLateral.add(lblIconAlterar, "cell 0 7,alignx right");
+		BarraLateral.add(lblIconAlterar, "flowx,cell 0 4,alignx left,aligny center");
 		
-		btAlterar = new RoundButton("ALTERAR");
-		btAlterar.setFont(font);
-		btAlterar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btAlterar.setText("Alterar");
-		btAlterar.setForeground(new Color(245, 245, 245));
-		btAlterar.setBackground(new Color(224, 83, 76));
-		btAlterar.setActionCommand("btAlterar");
-//		btAlterar.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
+		JLabel lblIconRemover = new JLabel("");
+		lblIconRemover.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/lixeira.png")));
+		BarraLateral.add(lblIconRemover, "flowx,cell 0 5");
+		
+		JLabel lblIconAdicionar = new JLabel("");
+		lblIconAdicionar.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/lupa.png")));
+		BarraLateral.add(lblIconAdicionar, "flowx,cell 0 6");
+		
+		btAdicionar = new RoundButton("ADICIONAR");
+		btAdicionar.setFont(font);
+		btAdicionar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btAdicionar.setText("Adicionar");
+		btAdicionar.setForeground(new Color(245, 245, 245));
+		btAdicionar.setBackground(new Color(224, 83, 76));
+		btAdicionar.setActionCommand("btAdicionar");
+//		btAdicionar.addActionListener(new ActionListener() {
+//		public void actionPerformed(ActionEvent e) {
+//				
 //				try {
-//					Funcionario f = ((FuncionariosTableModel) table.getModel()).getItem(table.getSelectedRow());
-//					TelaAlteracaoF taf = new TelaAlteracaoF(tela, f);
+//					TelaCadastroF tcf = new TelaCadastroF(tela,f);
 //					dispose();
-//					taf.setVisible(true);
-//				}catch (Exception e1) {
-//					e1.printStackTrace();
-//					JOptionPane.showMessageDialog(null, "Selecione um produto");
+//					tcf.setVisible(true);
+//				} catch (Exception e2) {
+//					e2.printStackTrace();
+//					
 //				}
+//				
 //			}
 //		});
-		barraLateral.add(btAlterar, "cell 1 7 2 1,growx,aligny center");
-		
-		lblIconRemover = new JLabel("");
-		lblIconRemover.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/lixeira.png")));
-		barraLateral.add(lblIconRemover, "cell 0 9,alignx right");
+		BarraLateral.add(btAdicionar, "cell 0 6,alignx left,aligny center");
 		
 		btRemover = new RoundButton("DELETAR");
 		btRemover.setFont(font);
@@ -225,67 +236,66 @@ public class TelaGerenciamentoF extends JFrame {
 //		});
 		btRemover.setForeground(new Color(245, 245, 245));
 		btRemover.setBackground(new Color(224, 83, 76));
-		barraLateral.add(btRemover, "cell 1 9 2 1,growx,aligny center");
+		BarraLateral.add(btRemover, "cell 0 5,alignx left,aligny center");
 		
-		lblIconAdicionar = new JLabel("");
-		lblIconAdicionar.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/lupa.png")));
-		barraLateral.add(lblIconAdicionar, "cell 0 11,alignx right");
-		
-		btAdicionar = new RoundButton("ADICIONAR");
-		btAdicionar.setFont(font);
-		btAdicionar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btAdicionar.setText("Adicionar");
-		btAdicionar.setForeground(new Color(245, 245, 245));
-		btAdicionar.setBackground(new Color(224, 83, 76));
-		btAdicionar.setActionCommand("btAdicionar");
-//		btAdicionar.addActionListener(new ActionListener() {
+		btAlterar = new RoundButton("ALTERAR");
+		btAlterar.setFont(font);
+		btAlterar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btAlterar.setText("Alterar");
+		btAlterar.setForeground(new Color(245, 245, 245));
+		btAlterar.setBackground(new Color(224, 83, 76));
+		btAlterar.setActionCommand("btAlterar");
+//		btAlterar.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
-//				
 //				try {
-//					TelaCadastroF tcf = new TelaCadastroF(tela,f);
+//					Funcionario f = ((FuncionariosTableModel) table.getModel()).getItem(table.getSelectedRow());
+//					TelaAlteracaoF taf = new TelaAlteracaoF(tela, f);
 //					dispose();
-//					tcf.setVisible(true);
-//				} catch (Exception e2) {
-//					e2.printStackTrace();
-//					
+//					taf.setVisible(true);
+//				}catch (Exception e1) {
+//					e1.printStackTrace();
+//					JOptionPane.showMessageDialog(null, "Selecione um produto");
 //				}
-//				
 //			}
 //		});
-		barraLateral.add(btAdicionar, "cell 1 11 2 1,growx,aligny center");
+		BarraLateral.add(btAlterar, "cell 0 4");
 		
-		btPesquisar = new RoundButton("");
-		btPesquisar.setActionCommand("btPesquisar");
-//		btPesquisar.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//			}
-//		});
+		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(new Color(230, 230, 230));
+		painel.add(panel_2, BorderLayout.CENTER);
+		panel_2.setLayout(new BorderLayout(0, 0));
+		
+		JPanel panelPesquisa = new JPanel();
+		panelPesquisa.setBackground(new Color(230, 230, 230));
+		panel_2.add(panelPesquisa, BorderLayout.NORTH);
+		panelPesquisa.setLayout(new MigLayout("", "[][][][grow][][][][][][][][][][][][][][][][][][][1px][]", "[][1px]"));
+		
+		JLabel lblFuncionario = new JLabel("Funcionário");
+		lblFuncionario.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		panelPesquisa.add(lblFuncionario, "cell 1 0");
+		
+		txtPesquisa = new JTextField();
+		txtPesquisa.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		panelPesquisa.add(txtPesquisa, "cell 3 0 16 1,growx");
+		txtPesquisa.setColumns(10);
+		
+		JButton btPesquisar = new RoundButton("");
 		btPesquisar.setBackground(new Color(230, 230, 230));
+		btPesquisar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btPesquisar.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/lupa.png")));
-		painel.add(btPesquisar, "cell 16 1,alignx center");
+		panelPesquisa.add(btPesquisar, "cell 19 0");
 		
 		JScrollPane scrollPane = new JScrollPane();
-		painel.add(scrollPane, "cell 1 2 17 1,grow");
+		panel_2.add(scrollPane, BorderLayout.CENTER);
 		
 		table = new JTable();
-		table.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		scrollPane.setViewportView(table);
-		getfuncionarios();
 	}
-	private void getfuncionarios() {
-		FuncionarioControle pf = new FuncionarioControle();
-		ArrayList<Funcionario> lista = pf.getFuncionarios();
-		
-		FuncionariosTableModel model = new FuncionariosTableModel (lista);
-		table.setModel(model);
-	}
-	public void addGrenciamentoFListener(ActionListener listener) {
-		mFuncionario.addActionListener(listener);
-		mAnaliseVendas.addActionListener(listener);
-		mVoltar.addActionListener(listener);
-		btAlterar.addActionListener(listener);
-		btRemover.addActionListener(listener);
-		btAdicionar.addActionListener(listener);
-		btPesquisar.addActionListener(listener);
+
+	private static void addPopup(Component component, final JPopupMenu popup) {
 	}
 }
