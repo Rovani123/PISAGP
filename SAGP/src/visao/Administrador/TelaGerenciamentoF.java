@@ -2,15 +2,11 @@ package visao.Administrador;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.ArrayList;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -18,25 +14,14 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-
-import controle.FuncionarioControle;
 import modelo.classes.Funcionario;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
-import visao.TelaInicial;
-import visao.Administrador.FuncionariosTableModel;
-import visao.Administrador.TelaAlteracaoF;
-import visao.Administrador.TelaAnáliseVendas;
-import visao.Administrador.TelaCadastroF;
-//import visao.Administrador.TelaGerenciamentoF;
-import visao.Funcionário.TelaGerenciamentoP;
 import java.awt.Font;
 import java.awt.FontFormatException;
 
@@ -46,7 +31,7 @@ public class TelaGerenciamentoF extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaGerenciamentoF frame = new TelaGerenciamentoF(null,null);//MUDARRR DEPOISSSSS
+					TelaGerenciamentoF frame = new TelaGerenciamentoF(null);//MUDARRR DEPOISSSSS
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -72,7 +57,7 @@ public class TelaGerenciamentoF extends JFrame {
 	private JButton btPesquisar;
 	
 
-	public TelaGerenciamentoF(JFrame telaA,Funcionario f) {
+	public TelaGerenciamentoF(Funcionario f) {
 		
 		Font font = new Font("Tahoma", Font.PLAIN, 11);;
 		try {
@@ -292,17 +277,16 @@ public class TelaGerenciamentoF extends JFrame {
 			
 		table = new JTable();
 		scrollPane.setViewportView(table);
-		getfuncionarios();
 		
 	}
-	private void getfuncionarios() {
-		FuncionarioControle pf = new FuncionarioControle();
-		ArrayList<Funcionario> lista = pf.getFuncionarios();
-		
-		FuncionariosTableModel model = new FuncionariosTableModel (lista);
-		table.setModel(model);
-	}
-	public void addGrenciamentoFListener(ActionListener listener) {
+//	private void getfuncionarios() {
+//		FuncionarioControle pf = new FuncionarioControle();
+//		ArrayList<Funcionario> lista = pf.getFuncionarios();
+//		
+//		FuncionariosTableModel model = new FuncionariosTableModel (lista);
+//		table.setModel(model);
+//	}
+	public void addGerenciamentoFListener(ActionListener listener) {
 		mFuncionario.addActionListener(listener);
 		mAnaliseVendas.addActionListener(listener);
 		mVoltar.addActionListener(listener);
@@ -312,6 +296,4 @@ public class TelaGerenciamentoF extends JFrame {
 		btPesquisar.addActionListener(listener);
 	}
 
-	private static void addPopup(Component component, final JPopupMenu popup) {
-	}
 }

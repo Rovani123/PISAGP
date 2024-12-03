@@ -1,41 +1,29 @@
 package visao.Funcionário;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.FontFormatException;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-import javax.swing.table.DefaultTableModel;
 
-import controle.funcionario.ProdutoControle;
 import modelo.classes.Funcionario;
 import modelo.classes.Produto;
-import modelo.dao.ProdutoDAO;
-import modelo.enumerador.Categoria;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
-import visao.TelaInicial;
-import visao.TelaLogin;
-import visao.Administrador.TelaGerenciamentoF;
-
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
 
 public class TelaGerenciamentoP extends JFrame {
 
@@ -311,8 +299,6 @@ public class TelaGerenciamentoP extends JFrame {
 
 		table = new JTable();
 		scrollPane.setViewportView(table);
-
-		getProdutos();
 	}
 	
 	public void addGerenciamentoPListner(ActionListener listener) {
@@ -330,22 +316,10 @@ public class TelaGerenciamentoP extends JFrame {
 		btPesquisar.addActionListener(listener);
 	}
 
-	public void getProdutos() {
-		ProdutoControle pc = new ProdutoControle();
-		ArrayList<Produto> lista = pc.getProdutos();
-
-		ProdutosTableModel model = new ProdutosTableModel(lista);
-		table.setModel(model);
-
+	public void setTabela(ProdutosTableModel tm) {
+		table.setModel(tm);
 	}
 
-	public void getProdutosFiltro(Categoria categoria) {
-		ProdutoControle pc = new ProdutoControle();
-		ArrayList<Produto> lista = pc.getProdutoFiltro(categoria);
-
-		ProdutosTableModel model = new ProdutosTableModel(lista);
-		table.setModel(model);
-	}
 
 	public void setmenuAdm(boolean b) {
 		mAdm.setEnabled(b);		

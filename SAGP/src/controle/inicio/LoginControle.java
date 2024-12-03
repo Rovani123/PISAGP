@@ -4,11 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
+import controle.administrador.GerenciamentoFControle;
 import controle.funcionario.GerenciamentoPControle;
 import modelo.classes.Funcionario;
 import modelo.dao.LoginDAO;
 import visao.TelaLogin;
-import visao.Administrador.TelaGerenciamentoF;
 import visaoTelasDeAviso.MensagemView;
 
 public class LoginControle {
@@ -59,8 +59,8 @@ public class LoginControle {
 			
 			if(f != null){
 				if(f.getadministrador() == 1){
-					//admControle
-					
+					tl.dispose();
+					new GerenciamentoFControle(f);
 				}else{
 					tl.dispose();
 					new GerenciamentoPControle(f);

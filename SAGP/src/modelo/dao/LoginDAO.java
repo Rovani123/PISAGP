@@ -4,10 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import modelo.classes.Funcionario;
-import visao.Administrador.ZTelaAdministrador;
-import visao.Funcionário.ZTelaFuncionario;
 
 public class LoginDAO extends ModeloDAO {
 

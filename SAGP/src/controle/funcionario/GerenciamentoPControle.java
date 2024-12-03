@@ -7,8 +7,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
 
-import javax.swing.JOptionPane;
-
 import modelo.classes.Funcionario;
 import modelo.classes.Produto;
 import modelo.dao.ProdutoDAO;
@@ -81,6 +79,7 @@ public class GerenciamentoPControle {
 		
 		tgp.addWindowListener(new WindowAdapter() {
 			public void windowOpened(WindowEvent e) {
+				carregarProdutos();
 				if(f.getadministrador() == 1) {
 					tgp.setmenuAdm(true);
 				}
@@ -100,7 +99,7 @@ public class GerenciamentoPControle {
 	
 	private void btSalgados() {
 		if (contS == 0) {
-			tgp.getProdutosFiltro(Categoria.categoriaString("salgados"));
+			carregarProdutosFiltro(Categoria.categoriaString("salgados"));
 			contS = 1;
 			contD = 0;
 			contB = 0;
@@ -108,7 +107,7 @@ public class GerenciamentoPControle {
 			tgp.setBackgroundcolor("btDoces", new Color(255, 255, 255));
 			tgp.setBackgroundcolor("btBebidas", new Color(255, 255, 255));
 		} else {
-			tgp.getProdutos();
+			carregarProdutos();
 			contS = 0;
 			contD = 0;
 			contB = 0;
@@ -120,7 +119,7 @@ public class GerenciamentoPControle {
 	
 	private void btDoces() {
 		if (contD == 0) {
-			tgp.getProdutosFiltro(Categoria.categoriaString("doces"));
+			carregarProdutosFiltro(Categoria.categoriaString("doces"));
 			contS = 0;
 			contD = 1;
 			contB = 0;
@@ -128,7 +127,7 @@ public class GerenciamentoPControle {
 			tgp.setBackgroundcolor("btDoces", new Color(255, 255, 0));
 			tgp.setBackgroundcolor("btBebidas", new Color(255, 255, 255));
 		} else {
-			tgp.getProdutos();
+			carregarProdutos();
 			contS = 0;
 			contD = 0;
 			contB = 0;
@@ -140,7 +139,7 @@ public class GerenciamentoPControle {
 	
 	private void btBebidas() {
 		if (contB == 0) {
-			tgp.getProdutosFiltro(Categoria.categoriaString("bebidas"));
+			carregarProdutosFiltro(Categoria.categoriaString("bebidas"));
 			contS = 0;
 			contD = 0;
 			contB = 1;
@@ -148,7 +147,7 @@ public class GerenciamentoPControle {
 			tgp.setBackgroundcolor("btDoces", new Color(255, 255, 255));
 			tgp.setBackgroundcolor("btBebidas", new Color(255, 255, 0));
 		} else {
-			tgp.getProdutos();
+			carregarProdutos();
 			contS = 0;
 			contD = 0;
 			contB = 0;
@@ -170,13 +169,13 @@ public class GerenciamentoPControle {
 				//Não é possivel remover esse produto
 			}
 			if (contS == 1) {
-				tgp.getProdutosFiltro(Categoria.categoriaString("salgados"));
+				carregarProdutosFiltro(Categoria.categoriaString("salgados"));
 			} else if (contD == 1) {
-				tgp.getProdutosFiltro(Categoria.categoriaString("doces"));
+				carregarProdutosFiltro(Categoria.categoriaString("doces"));
 			} else if (contD == 1) {
-				tgp.getProdutosFiltro(Categoria.categoriaString("bebidas"));
+				carregarProdutosFiltro(Categoria.categoriaString("bebidas"));
 			} else {
-				tgp.getProdutos();
+				carregarProdutos();
 			}
 		} catch (Exception e2) {
 			e2.printStackTrace();
@@ -201,4 +200,16 @@ public class GerenciamentoPControle {
 		tgp.dispose();
 		new AlterarPControle(f,p);
 	}
+
+	private void carregarProdutos() {
+		ProdutoDAO dao = new ProdutoDAO();
+		ProdutosTableModel model = new ProdutosTableModel(dao.getProdutos());
+		tgp.setTabela(model);
+	}
+	private void carregarProdutosFiltro(Categoria filtro) {
+		ProdutoDAO dao = new ProdutoDAO();
+		ProdutosTableModel model = new ProdutosTableModel(dao.getProdutosFiltro(filtro));
+		tgp.setTabela(model);
+	}
+	
 }

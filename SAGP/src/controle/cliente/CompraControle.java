@@ -28,7 +28,7 @@ public class CompraControle {
 		
 		listaCarrinhosRecuperado = listaCarrinhos;
 		
-		tc = new TelaCompra();
+		tc = new TelaCompra(null);
 		tc.setVisible(true);
 		
 		construirCarrinhos();

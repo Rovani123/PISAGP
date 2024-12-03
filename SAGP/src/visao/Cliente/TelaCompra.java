@@ -63,16 +63,12 @@ public class TelaCompra extends JFrame {
 	private ArrayList<Produto> listaProdutos;
 	private ArrayList<Carrinho> listaCarrinhos = new ArrayList<Carrinho>();
 	private ArrayList<Carrinho> listaCarrinhosCompra = new ArrayList<Carrinho>();
-	private JLabel lblNewLabel;
-	private JLabel lblNewLabel_1;
-	private JLabel lblNewLabel_2;
-	private JLabel lblNewLabel_3;
 	private JPanel painel;
 	private JTable table;
 	private JMenuItem mVoltar;
 	
 
-	public TelaCompra(JFrame telaA,Funcionario f) {
+	public TelaCompra(Funcionario f) {
 		
 		Font font = new Font("Tahoma", Font.PLAIN, 11);;
 		try {
@@ -105,7 +101,7 @@ public class TelaCompra extends JFrame {
 		painel.add(BarraLateral, BorderLayout.WEST);
 		BarraLateral.setLayout(new MigLayout("", "[]", "[][grow 50][][][grow 50][][][][][grow 50][grow][][grow][]"));
 		
-		JButton btVoltar = new RoundButton("Sair");
+		btVoltar = new RoundButton("Sair");
 		btVoltar.setBackground(new Color(245, 245, 245));
 		btVoltar.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/volte.png")));
 		btVoltar.setText("");
@@ -123,7 +119,7 @@ public class TelaCompra extends JFrame {
 		});
 		BarraLateral.add(btVoltar, "cell 0 0");
 		
-		JLabel lblLogo = new JLabel("");
+		lblLogo = new JLabel("");
 		lblLogo.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/Logo.png")));
 		BarraLateral.add(lblLogo, "cell 0 3,alignx left,aligny center");
 		
@@ -181,10 +177,6 @@ public class TelaCompra extends JFrame {
 		btSalgados.setText("Salgados");
 		btSalgados.setForeground(new Color(245, 245, 245));
 		btSalgados.setBackground(new Color(224, 83, 76));
-		btSalgados.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btSalgados.setFont(new Font("Dialog", Font.PLAIN, 20));
 		btSalgados.setActionCommand("btSalgados");
 //        btSalgados.addActionListener(new ActionListener() {
@@ -195,7 +187,7 @@ public class TelaCompra extends JFrame {
 //		});
 		BarraLateral.add(btSalgados, "cell 0 6,growx,aligny center");
 		
-		JButton btCarrinho = new RoundButton("Carrinho");
+		btCarrinho = new RoundButton("Carrinho");
 		btCarrinho.setForeground(new Color(0, 0, 0));
 		btCarrinho.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btCarrinho.setBackground(new Color(245, 245, 245));

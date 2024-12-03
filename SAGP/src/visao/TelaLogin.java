@@ -1,35 +1,15 @@
 package visao;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import controle.funcionario.ProdutoControle;
-import controle.inicio.LoginControle;
-import dal.ConexaoBD;
-import modelo.classes.Funcionario;
-import modelo.classes.Produto;
 import net.miginfocom.swing.MigLayout;
-import visao.Administrador.ZTelaAdministrador;
-import visao.Administrador.TelaGerenciamentoF;
-import visao.Funcionário.ZTelaFuncionario;
-import visao.Funcionário.TelaGerenciamentoP;
-
 import javax.swing.JTextField;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
-import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import java.awt.Color;
