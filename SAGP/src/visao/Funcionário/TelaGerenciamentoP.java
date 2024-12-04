@@ -1,6 +1,7 @@
 package visao.Funcionário;
 
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.event.ActionListener;
@@ -24,6 +25,7 @@ import modelo.classes.Funcionario;
 import modelo.classes.Produto;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
+import java.awt.event.ActionEvent;
 
 public class TelaGerenciamentoP extends JFrame {
 
@@ -45,6 +47,19 @@ public class TelaGerenciamentoP extends JFrame {
 	private RoundButton btCadastrar;
 	private RoundButton btPesquisar;
 
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TelaGerenciamentoP frame = new TelaGerenciamentoP(null);
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 	
 	public TelaGerenciamentoP(Funcionario f) {
 		
@@ -136,6 +151,11 @@ public class TelaGerenciamentoP extends JFrame {
 		barraLateral.setLayout(new MigLayout("", "[][]", "[][][][][][][][][][][][][][][][][][]"));
 
 		RoundButton btVoltar = new RoundButton("Sair");
+		btVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//COLOCAR O BOTÃO DE VOLTAR
+			}
+		});
 		btVoltar.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/volte.png")));
 		btVoltar.setText("");
 		
@@ -152,6 +172,10 @@ public class TelaGerenciamentoP extends JFrame {
 		barraLateral.add(lblCategoria, "cell 1 4,alignx left");
 
 		btSalgados = new RoundButton("Salgado");
+		btSalgados.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btSalgados.setFont(font);
 		btSalgados.setText("Salgados");
 		btSalgados.setActionCommand("btSalgados");
@@ -163,6 +187,10 @@ public class TelaGerenciamentoP extends JFrame {
 		barraLateral.add(btSalgados, "cell 1 5,growx");
 
 		btDoces = new RoundButton("Doce");
+		btDoces.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btDoces.setFont(font);
 		btDoces.setText("Doces");
 		btDoces.setActionCommand("btDoces");
@@ -174,6 +202,10 @@ public class TelaGerenciamentoP extends JFrame {
 		barraLateral.add(btDoces, "cell 1 6,growx");
 
 		btBebidas = new RoundButton("Bebidas");
+		btBebidas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btBebidas.setFont(font);
 		btBebidas.setActionCommand("btBebidas");
 
@@ -194,6 +226,10 @@ public class TelaGerenciamentoP extends JFrame {
 		barraLateral.add(btOfertas, "cell 1 8,growx");
 
 		btCadastrar = new RoundButton("Adicionar");
+		btCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btCadastrar.setFont(font);
 		btCadastrar.setActionCommand("btCadastrar");
 //		btCadastrar.addActionListener(new ActionListener() {
@@ -206,6 +242,10 @@ public class TelaGerenciamentoP extends JFrame {
 //		});
 
 		btRemover = new RoundButton("Deletar");
+		btRemover.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btRemover.setFont(font);
 		btRemover.setActionCommand("btRemover");
 //		btRemover.addActionListener(new ActionListener() {
@@ -236,6 +276,10 @@ public class TelaGerenciamentoP extends JFrame {
 //		});
 
 		btAlterar = new RoundButton("Alterar");
+		btAlterar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btAlterar.setFont(font);
 		btAlterar.setActionCommand("btAlterar");
 //		btAlterar.addActionListener(new ActionListener() {
