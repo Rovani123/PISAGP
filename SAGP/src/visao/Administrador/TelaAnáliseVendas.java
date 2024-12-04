@@ -127,9 +127,9 @@ public class TelaAnáliseVendas extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new MigLayout("", "[][grow]", "[][][grow]"));
 		
-		JLabel lblNewLabel = new JLabel("TABELA DE VENDAS:");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		contentPane.add(lblNewLabel, "cell 0 0 2 1,alignx center,aligny center");
+		JLabel lblTabelaVendas = new JLabel("TABELA DE VENDAS:");
+		lblTabelaVendas.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		contentPane.add(lblTabelaVendas, "cell 0 0 2 1,alignx center,aligny center");
 		
 		JScrollPane scrollPane = new JScrollPane();
 		contentPane.add(scrollPane, "cell 0 1 2 2,grow");

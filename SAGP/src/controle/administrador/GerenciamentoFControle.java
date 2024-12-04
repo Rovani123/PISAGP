@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.SQLException;
 
 import controle.funcionario.GerenciamentoPControle;
 import controle.inicio.TelaInicialControle;
@@ -38,6 +39,21 @@ public class GerenciamentoFControle {
 				tgf.dispose();
 				new GerenciamentoPControle(f);
 				break;
+			case "btAdicionar":
+				tgf.dispose();
+				System.out.println("btAdicionar");
+				break;
+			case "btAlterar":
+				tgf.dispose();
+				System.out.println("btAlterar");
+				break;
+			case "mAnaliseVendas":
+				tgf.dispose();
+				System.out.println("mAnaliseVendas");
+				break;
+			case "btPesquisar":
+				System.out.println("btPesquisar");
+				break;
 			}
 		}
 	}
@@ -52,7 +68,13 @@ public class GerenciamentoFControle {
 	
 	private void remover() {
 		Funcionario f =tgf.getItemTabela();
-		FuncionarioDAO dao = new FuncionarioDAO();
+		try {
+			new FuncionarioDAO().deletarFuncionario(f);
+			carregarProdutos();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			// não foi possivel remover
+		};
 		
 	}
 	
