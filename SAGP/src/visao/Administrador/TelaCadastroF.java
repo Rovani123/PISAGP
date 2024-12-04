@@ -30,7 +30,7 @@ public class TelaCadastroF extends JFrame {
 	private JButton btCadastrar;
 	private JButton btLimpa3;
 	
-	public TelaCadastroF(JFrame telaA,Funcionario f) {
+	public TelaCadastroF(Funcionario f) {
 		
 		Font font = new Font("Tahoma", Font.PLAIN, 11);;
 		try {

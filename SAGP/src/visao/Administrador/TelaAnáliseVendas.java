@@ -33,7 +33,7 @@ public class TelaAnáliseVendas extends JFrame {
 	private JMenuItem mntmNewMenuItem_3;
 	private JMenuItem mntmNewMenuItem_4;
 	
-	public TelaAnáliseVendas(JFrame telaA, Funcionario f) {
+	public TelaAnáliseVendas(Funcionario f) {
 		
 		Font font = new Font("Tahoma", Font.PLAIN, 11);;
 		try {
