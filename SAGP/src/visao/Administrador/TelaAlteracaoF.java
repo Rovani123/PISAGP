@@ -28,7 +28,7 @@ public class TelaAlteracaoF extends JFrame {
 	private JButton btCancelar;
 	
 
-	public TelaAlteracaoF(JFrame telaA, Funcionario f) {
+	public TelaAlteracaoF(Funcionario f) {
 		
 		Font font = new Font("Tahoma", Font.PLAIN, 11);;
 		try {
