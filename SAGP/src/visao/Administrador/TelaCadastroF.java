@@ -28,7 +28,7 @@ public class TelaCadastroF extends JFrame {
 	private JPasswordField txtSenha;
 	private JButton btCancelar;
 	private JButton btCadastrar;
-	private JButton btLimpa3;
+	private JButton btLimpar;
 	
 	public TelaCadastroF(Funcionario f) {
 		
@@ -107,20 +107,20 @@ public class TelaCadastroF extends JFrame {
 		btCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btCancelar.setActionCommand("btCancelar");
 		
-		btLimpa3 = new RoundButton("LIMPAR");
-		btLimpa3.setText("Limpar");
-		btLimpa3.setFont(font);
-		btLimpa3.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btLimpa3.setActionCommand("btLimpa3");
+		btLimpar = new RoundButton("LIMPAR");
+		btLimpar.setText("Limpar");
+		btLimpar.setFont(font);
+		btLimpar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btLimpar.setActionCommand("btLimpa3");
 		
 //		btLimpa3.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
 //				txtSenha.setText("");
 //			}
 //		});
-		btLimpa3.setBackground(new Color(224, 83, 76));
-		btLimpa3.setForeground(new Color(245, 245, 245));
-		painel.add(btLimpa3, "cell 3 11");
+		btLimpar.setBackground(new Color(224, 83, 76));
+		btLimpar.setForeground(new Color(245, 245, 245));
+		painel.add(btLimpar, "cell 3 11");
 //		btCancelar.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {			
 //				TelaGerenciamentoF tgf = new TelaGerenciamentoF(telaA, f);
@@ -160,17 +160,17 @@ public class TelaCadastroF extends JFrame {
 		btCancelar.setForeground(new Color(245, 245, 245));
 		painel.add(btCancelar, "cell 11 12");
 		
-		JButton btnNewButton_3 = new RoundButton("ENTRAR");
-		btnNewButton_3.setText("Entrar");
-		btnNewButton_3.setFont(font);
-		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton_3.setBackground(new Color(224, 83, 76));
-		btnNewButton_3.setForeground(new Color(245, 245, 245));
-		painel.add(btnNewButton_3, "cell 12 12");
+		JButton btEntrar = new RoundButton("ENTRAR");
+		btEntrar.setText("Entrar");
+		btEntrar.setFont(font);
+		btEntrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btEntrar.setBackground(new Color(224, 83, 76));
+		btEntrar.setForeground(new Color(245, 245, 245));
+		painel.add(btEntrar, "cell 12 12,aligny bottom");
 	}
 	public void addCadastroF(ActionListener listener) {
 		btCancelar.addActionListener(listener);
 		btCadastrar.addActionListener(listener);
-		btLimpa3.addActionListener(listener);
+		btLimpar.addActionListener(listener);
 	}
 }

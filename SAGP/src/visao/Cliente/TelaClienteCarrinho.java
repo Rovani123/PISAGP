@@ -24,7 +24,7 @@ public class TelaClienteCarrinho extends JFrame {
 	private JPanel painelPrincipal;
 	private JPanel menuLateral;
 	private JPanel painelProdutos;
-	private RoundButton btVoltar;
+	private RoundButton btSair;
 	private JLabel lblLogo;
 	private JLabel lblCategorias;
 	private JLabel lblIconSalgado;
@@ -77,17 +77,17 @@ public class TelaClienteCarrinho extends JFrame {
 		painelPrincipal.add(menuLateral, "cell 0 0 7 20,alignx left,growy");
 		menuLateral.setLayout(new MigLayout("", "[][][]", "[][][][][][][][][][][][][]"));
 		
-		btVoltar = new RoundButton("");
-		btVoltar.setText("Sair");
-		btVoltar.setFont(font);
-		btVoltar.setActionCommand("btVoltar");
+		btSair = new RoundButton("");
+		btSair.setText("Sair");
+		btSair.setFont(font);
+		btSair.setActionCommand("btVoltar");
 //		btnNewButton_2.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
 //				
 //			}
 //		});
-		btVoltar.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/volte.png")));
-		menuLateral.add(btVoltar, "cell 1 0");
+		btSair.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/volte.png")));
+		menuLateral.add(btSair, "cell 1 0");
 		
 		lblLogo = new JLabel("");
 		lblLogo.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/LogoPequena.png")));
@@ -187,7 +187,7 @@ public class TelaClienteCarrinho extends JFrame {
 	}
 	
 	public void addCarrinhoListeners(ActionListener listener) {
-		btVoltar.addActionListener(listener);
+		btSair.addActionListener(listener);
 		btSalgado.addActionListener(listener);
 		btDoce.addActionListener(listener);
 		btBebidas.addActionListener(listener);

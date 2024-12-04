@@ -27,7 +27,7 @@ public class TelaLogin extends JFrame {
 	private JPasswordField txtSenha;
 	private RoundButton btEntrar;
 	private RoundButton btVoltar;
-	private RoundButton bntLimpa;
+	private RoundButton btLimpar;
 
 
 	public TelaLogin() {
@@ -110,18 +110,18 @@ public class TelaLogin extends JFrame {
 		btVoltar.setBackground(new Color(0, 0, 0));
 		painel.add(btVoltar, "cell 4 9");
 		
-		bntLimpa = new RoundButton("Limpa");
-		bntLimpa.addActionListener(new ActionListener() {
+		btLimpar = new RoundButton("Limpa");
+		btLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		bntLimpa.setFont(font);
-		bntLimpa.setText("Limpar");
-		bntLimpa.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		bntLimpa.setActionCommand("btLimpa");
-		bntLimpa.setForeground(new Color(255, 255, 255));
-		bntLimpa.setBackground(new Color(224, 83, 76));
-		painel.add(bntLimpa, "cell 5 9");
+		btLimpar.setFont(font);
+		btLimpar.setText("Limpar");
+		btLimpar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btLimpar.setActionCommand("btLimpa");
+		btLimpar.setForeground(new Color(255, 255, 255));
+		btLimpar.setBackground(new Color(224, 83, 76));
+		painel.add(btLimpar, "cell 5 9");
 		
 		btEntrar.setForeground(new Color(255, 255, 255));
 		btEntrar.setBackground(new Color(224, 83, 76));
@@ -131,7 +131,7 @@ public class TelaLogin extends JFrame {
 	public void addLoginListener(ActionListener listener) {
 		btEntrar.addActionListener(listener);
 		btVoltar.addActionListener(listener);
-		bntLimpa.addActionListener(listener);
+		btLimpar.addActionListener(listener);
 	}
 	
 	public void setUsuario(String user) {

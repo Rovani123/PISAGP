@@ -55,15 +55,15 @@ public class TelaClientePix extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new MigLayout("", "[grow][][][][][][][][][][][][][][grow]", "[][][][][][][][][]"));
 		
-		JButton btnNewButton_1 = new RoundButton("Voltar");
-		btnNewButton_1.setForeground(new Color(245, 245, 245));
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton btVoltar = new RoundButton("Voltar");
+		btVoltar.setForeground(new Color(245, 245, 245));
+		btVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_1.setBackground(new Color(224, 83, 76));
-		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		contentPane.add(btnNewButton_1, "cell 0 0,alignx left,aligny top");
+		btVoltar.setBackground(new Color(224, 83, 76));
+		btVoltar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		contentPane.add(btVoltar, "cell 0 0,alignx left,aligny top");
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(TelaClientePix.class.getResource("/Imagem/ImagemLogoGrande.png")));
@@ -78,16 +78,16 @@ public class TelaClientePix extends JFrame {
 		lblNewLabel_2.setIcon(new ImageIcon(TelaClientePix.class.getResource("/Imagem/pixPagamento.jpg")));
 		contentPane.add(lblNewLabel_2, "cell 6 5,alignx center,aligny center");
 		
-		JButton btnNewButton = new RoundButton("Cancelar");
-		btnNewButton.setBackground(new Color(224, 83, 76));
-		btnNewButton.setForeground(new Color(230, 230, 230));
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btCancelar = new RoundButton("Cancelar");
+		btCancelar.setBackground(new Color(224, 83, 76));
+		btCancelar.setForeground(new Color(230, 230, 230));
+		btCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 			}
 		});
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		contentPane.add(btnNewButton, "flowx,cell 14 8");
+		btCancelar.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		contentPane.add(btCancelar, "flowx,cell 14 8");
 	}
 
 }

@@ -107,13 +107,13 @@ public class TelaAlteracaoF extends JFrame {
 //			}
 //		});
 		
-				JButton btnNewButton_2 = new RoundButton("LIMPAR");
-				btnNewButton_2.setText("Limpar");
-				btnNewButton_2.setFont(font);
-				btnNewButton_2.setForeground(new Color(245, 245, 245));
-				btnNewButton_2.setBackground(new Color(224, 83, 76));
-				btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 18));
-				contentPane.add(btnNewButton_2, "cell 2 10");
+				JButton btLimpar = new RoundButton("LIMPAR");
+				btLimpar.setText("Limpar");
+				btLimpar.setFont(font);
+				btLimpar.setForeground(new Color(245, 245, 245));
+				btLimpar.setBackground(new Color(224, 83, 76));
+				btLimpar.setFont(new Font("Tahoma", Font.PLAIN, 18));
+				contentPane.add(btLimpar, "cell 2 10");
 		btSalvar.setForeground(new Color(245, 245, 245));
 		btSalvar.setBackground(new Color(224, 83, 76));
 		btSalvar.setFont(new Font("Tahoma", Font.PLAIN, 18));

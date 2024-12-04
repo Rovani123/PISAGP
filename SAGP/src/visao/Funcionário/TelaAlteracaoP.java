@@ -30,7 +30,7 @@ public class TelaAlteracaoP extends JFrame {
 	private JComboBox cbCategoria;
 	private RoundButton btSalvar;
 	private RoundButton btCancelar;
-	private RoundButton btLimpa;
+	private RoundButton btLimpar;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	
 	public TelaAlteracaoP(Produto p, Funcionario f) {
@@ -95,13 +95,13 @@ public class TelaAlteracaoP extends JFrame {
 		cbCategoria.setBackground(new Color(245, 245, 245));
 		painel.add(cbCategoria, "cell 3 11 3 1,growx");
 		
-		btLimpa = new RoundButton("Limpar");
-		buttonGroup.add(btLimpa);
-		btLimpa.setFont(font);
-		btLimpa.setBackground(new Color(224, 83, 76));
-		btLimpa.setForeground(new Color(245, 245, 245));
-		btLimpa.setActionCommand("btLimpa");
-		painel.add(btLimpa, "cell 3 14");
+		btLimpar = new RoundButton("Limpar");
+		buttonGroup.add(btLimpar);
+		btLimpar.setFont(font);
+		btLimpar.setBackground(new Color(224, 83, 76));
+		btLimpar.setForeground(new Color(245, 245, 245));
+		btLimpar.setActionCommand("btLimpa");
+		painel.add(btLimpar, "cell 3 14");
 
 		btSalvar = new RoundButton("Salvar");
 		btSalvar.setFont(font);
@@ -160,7 +160,7 @@ public class TelaAlteracaoP extends JFrame {
 //
 //	}
 	public void addAlteracaoPListener(ActionListener listener) {
-		btLimpa.addActionListener(listener);
+		btLimpar.addActionListener(listener);
 		btSalvar.addActionListener(listener);
 		btCancelar.addActionListener(listener);
 	}

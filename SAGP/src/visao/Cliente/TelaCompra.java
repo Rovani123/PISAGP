@@ -105,17 +105,16 @@ public class TelaCompra extends JFrame {
 		painel.add(BarraLateral, BorderLayout.WEST);
 		BarraLateral.setLayout(new MigLayout("", "[]", "[][grow 50][][][grow 50][][][][][grow 50][grow][][grow][]"));
 		
-		JButton btVoltar = new RoundButton("Sair");
-		btVoltar.setBackground(new Color(245, 245, 245));
-		btVoltar.setIcon(new ImageIcon(TelaDeTes2.class.getResource("/Imagem/volte.png")));
-		btVoltar.setText("");
-		btVoltar.setActionCommand("btVoltar");
-		btVoltar.addActionListener(new ActionListener() {
+		JButton btSair = new RoundButton("Sair");
+		btSair.setBackground(new Color(245, 245, 245));
+		btSair.setIcon(new ImageIcon(TelaDeTes2.class.getResource("/Imagem/volte.png")));
+		btSair.setActionCommand("btVoltar");
+		btSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 //				
 			}
 		});
-		BarraLateral.add(btVoltar, "cell 0 0");
+		BarraLateral.add(btSair, "cell 0 0");
 		
 		JLabel lblLogo = new JLabel("");
 		lblLogo.setIcon(new ImageIcon(TelaDeTes2.class.getResource("/Imagem/Logo.png")));
@@ -216,7 +215,11 @@ public class TelaCompra extends JFrame {
 		panelPesquisa.add(txtPesquisa, "flowx,cell 0 0 22 1,grow");
 		txtPesquisa.setColumns(10);
 		
-		JButton btnPesquisar = new JButton("");
+		RoundButton btnPesquisar = new RoundButton("");
+		btnPesquisar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnPesquisar.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/lupa.png")));
 		panelPesquisa.add(btnPesquisar, "cell 23 0");
 		

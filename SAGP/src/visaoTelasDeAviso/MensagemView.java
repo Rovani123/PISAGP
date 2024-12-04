@@ -60,23 +60,23 @@ public class MensagemView extends JDialog {
 		JPanel painelSul = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
 		// Cria um esaço vazio
 		painelSul.add(new JPanel());
-		JButton btnOK = new JButton("OK");
+		JButton btOK = new JButton("OK");
 		// Tamanho do botao
-		btnOK.setPreferredSize(new Dimension(100, 30));
-		btnOK.addActionListener(new ActionListener() {
+		btOK.setPreferredSize(new Dimension(100, 30));
+		btOK.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 			}
 		});
-		painelSul.add(btnOK);
+		painelSul.add(btOK);
 		painelSul.add(new JPanel());
 
 		painelSul.setBorder(new EmptyBorder(10, 10, 10, 10));
 
 		panel.add(painelSul, BorderLayout.SOUTH);
 
-		getRootPane().setDefaultButton(btnOK);
+		getRootPane().setDefaultButton(btOK);
 		setSize(350, 200);
 		setResizable(false);
 		setLocationRelativeTo(null);

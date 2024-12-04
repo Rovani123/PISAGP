@@ -29,11 +29,11 @@ public class TelaCadastroP extends JFrame {
 	private JTextField txtQuantidade;
 	private JLabel lblFoto;
     private Image imagemProduto;
-    private RoundButton btLimpa;
+    private RoundButton btLimpar;
     private RoundButton btSalvar;
     private RoundButton btCancelar;
     private JComboBox cbCategoria;
-    private JButton btFile;
+    private JButton btSelecionarImagem;
     private FileInputStream fin;
 
 	public TelaCadastroP(Funcionario f) {
@@ -132,9 +132,9 @@ public class TelaCadastroP extends JFrame {
 //					}
 //				});
 				
-			btFile = new JButton("Selecionar Imagem");
-			btFile.setFont(font);
-			btFile.setActionCommand("btFile");
+			btSelecionarImagem = new JButton("Selecionar Imagem");
+			btSelecionarImagem.setFont(font);
+			btSelecionarImagem.setActionCommand("btFile");
 			
 //				btFile.addActionListener(new ActionListener() {
 //					public void actionPerformed(ActionEvent e) {
@@ -154,13 +154,13 @@ public class TelaCadastroP extends JFrame {
 //		                }
 //					}
 //				});
-			painel.add(btFile, "cell 3 12,alignx center,aligny center");
-			btLimpa = new RoundButton("Limpar");
-			btLimpa.setFont(font);
-			btLimpa.setForeground(new Color(245, 245, 245));
-			btLimpa.setBackground(new Color(224, 83, 76));
-			btLimpa.setActionCommand("btLimpa");
-			painel.add(btLimpa, "cell 5 12");
+			painel.add(btSelecionarImagem, "cell 3 12,alignx center,aligny center");
+			btLimpar = new RoundButton("Limpar");
+			btLimpar.setFont(font);
+			btLimpar.setForeground(new Color(245, 245, 245));
+			btLimpar.setBackground(new Color(224, 83, 76));
+			btLimpar.setActionCommand("btLimpa");
+			painel.add(btLimpar, "cell 5 12");
 			btSalvar.setForeground(new Color(245, 245, 245));
 			btSalvar.setBackground(new Color(224, 83, 76));
 			painel.add(btSalvar, "cell 3 14,alignx center");
@@ -179,10 +179,10 @@ public class TelaCadastroP extends JFrame {
 			painel.add(btCancelar, "cell 5 14");
 	}
 	public void addCadastroP(ActionListener listener) {
-		btLimpa.addActionListener(listener);
+		btLimpar.addActionListener(listener);
 		btSalvar.addActionListener(listener);
 		btCancelar.addActionListener(listener);
-		btFile.addActionListener(listener);
+		btSelecionarImagem.addActionListener(listener);
 	}
 	
 	public String getNome() {

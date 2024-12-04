@@ -157,7 +157,6 @@ public class TelaGerenciamentoP extends JFrame {
 			}
 		});
 		btVoltar.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/volte.png")));
-		btVoltar.setText("");
 		
 		btVoltar.setForeground(new Color(255, 255, 255));
 		btVoltar.setBackground(new Color(245, 245, 245));
