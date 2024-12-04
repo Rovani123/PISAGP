@@ -13,6 +13,7 @@ import modelo.classes.Funcionario;
 import modelo.dao.ProdutoDAO;
 import modelo.enumerador.Categoria;
 import visao.Funcionário.TelaCadastroP;
+import visaoTelasDeAviso.MensagemView;
 
 public class CadastroPControle {
 	private TelaCadastroP tcp;
@@ -34,10 +35,10 @@ public class CadastroPControle {
 		public void actionPerformed(ActionEvent e) {
 			switch(e.getActionCommand()) {
 			case "btSalvar":
-				salvar();
+				Salvar();
 				break;
 			case "btFile":
-				imagem();
+				Imagem();
 				break;
 			case "btLimpa":
 				tcp.limpar();
@@ -55,15 +56,15 @@ public class CadastroPControle {
 		tcp.addCadastroP(new CadastroPListeners());
 	}
 	
-	private void salvar() {
-		try {
-		nome = tcp.getNome();
-		preco = Float.parseFloat(tcp.getPreco());
-		quantidade = Integer.parseInt(tcp.getQuantidade());
-		categoria = tcp.getCategoria();
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
+	private void Salvar() {
+//		try {
+//		nome = tcp.getNome();
+//		preco = Float.parseFloat(tcp.getPreco());
+//		quantidade = Integer.parseInt(tcp.getQuantidade());
+//		categoria = tcp.getCategoria();
+//		}catch (Exception e) {
+//			e.printStackTrace();
+//		}
 		if (nome.isEmpty() || preco ==0 || quantidade ==0) {
 			//Todos os campos precisam ser preenchidos
 	} else {
@@ -72,16 +73,16 @@ public class CadastroPControle {
 			dao.cadastrarProduto(nome, preco, quantidade, categoria.toString(), fin);
 			tcp.dispose();
 			new GerenciamentoPControle(f);
-			//Produto cadastrado com sucesso
+			new MensagemView("Produto cadastrado com sucesso!");
 		} catch (SQLException e) {
 			e.printStackTrace();
-			//Não foi possivel adicionar esse produto
+			new MensagemView("Não foi possivel adicionar esse produto");
 
 		}
 	}
 	}
 	
-	private void imagem() {
+	private void Imagem() {
 		JFileChooser fileChooser = new JFileChooser();
         int result = fileChooser.showOpenDialog(null);
         if (result == JFileChooser.APPROVE_OPTION) {

@@ -18,6 +18,7 @@ import modelo.enumerador.Categoria;
 import visao.RoundButton;
 import visao.Funcionário.TelaAlteracaoP;
 import visao.Funcionário.TelaGerenciamentoP;
+import visaoTelasDeAviso.MensagemView;
 
 public class AlterarPControle {
 	private TelaAlteracaoP tap;
@@ -66,10 +67,10 @@ public class AlterarPControle {
 			dao.alterarProduto(p);
 			tap.dispose();
 			new GerenciamentoPControle(f);
-			//Produto Alterado com sucesso
+			new MensagemView("Produto alterado com sucesso!");
 		} catch (SQLException e) {
 			e.printStackTrace();
-			//não foi possível alterar o produto
+			new MensagemView("não foi possível alterar esse produto!");
 		}
 	}
 	private void cancelar() {

@@ -13,6 +13,7 @@ import modelo.dao.ProdutoDAO;
 import modelo.enumerador.Categoria;
 import visao.Funcionário.ProdutosTableModel;
 import visao.Funcionário.TelaGerenciamentoP;
+import visaoTelasDeAviso.MensagemView;
 
 public class GerenciamentoPControle {
 	private TelaGerenciamentoP tgp;
@@ -177,15 +178,19 @@ public class GerenciamentoPControle {
 	private void btCadastrar() {
 		tgp.dispose();
 		new CadastroPControle(f);
+	} try {
+		
 	}
 	
 	private void btAlterar() {
 		Produto p;
 		try {
 			p = tgp.getItemTabela();
+			new MensagemView("Produto alterado com sucesso!");
 		} catch (Exception e) {
 			e.printStackTrace();
 			p=null;
+			new MensagemView("Erro ao alterar esse produto!");
 		}
 		tgp.dispose();
 		new AlterarPControle(f,p);
