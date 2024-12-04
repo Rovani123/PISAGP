@@ -178,8 +178,6 @@ public class GerenciamentoPControle {
 	private void btCadastrar() {
 		tgp.dispose();
 		new CadastroPControle(f);
-	} try {
-		
 	}
 	
 	private void btAlterar() {
