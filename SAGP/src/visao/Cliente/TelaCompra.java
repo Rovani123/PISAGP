@@ -64,7 +64,7 @@ public class TelaCompra extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaCompra frame = new TelaCompra(null, null);
+					TelaCompra frame = new TelaCompra(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -73,7 +73,7 @@ public class TelaCompra extends JFrame {
 		});
 	}
 
-	public TelaCompra(JFrame telaA,Funcionario f) {
+	public TelaCompra(Funcionario f) {
 		
 		Font font = new Font("Tahoma", Font.PLAIN, 11);;
 		try {
@@ -224,7 +224,7 @@ public class TelaCompra extends JFrame {
 		btPesquisar.setBackground(new Color(230, 230, 230));
 		btPesquisar.setText("");
 		btPesquisar.setActionCommand("btPesquisar");
-		painelPrincipal.add(btPesquisar, "cell 13 0");
+		panelPesquisa.add(btPesquisar, "cell 13 0");
 		btPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btPesquisar.setIcon(new ImageIcon(TelaDeTes2.class.getResource("/Imagem/lupa.png")));
 		
