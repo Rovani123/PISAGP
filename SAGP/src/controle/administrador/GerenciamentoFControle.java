@@ -5,9 +5,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import controle.funcionario.GerenciamentoPControle;
 import controle.inicio.TelaInicialControle;
 import modelo.classes.Funcionario;
 import modelo.dao.FuncionarioDAO;
+import visao.Administrador.FuncionariosTableModel;
 import visao.Administrador.TelaGerenciamentoF;
 
 public class GerenciamentoFControle {
@@ -26,10 +28,15 @@ public class GerenciamentoFControle {
 		public void actionPerformed(ActionEvent e) {
 			switch(e.getActionCommand()) {
 			case "mVoltar":
+				tgf.dispose();
 				new TelaInicialControle();
 				break;
 			case "btRemover":
 				remover();
+				break;
+			case "mFuncionario":
+				tgf.dispose();
+				new GerenciamentoPControle(f);
 				break;
 			}
 		}
@@ -38,7 +45,7 @@ public class GerenciamentoFControle {
 		tgf.addGerenciamentoFListener(new GerenciamentoFListeners());
 		tgf.addWindowListener(new WindowAdapter() {
 			public void windowOpened(WindowEvent e) {
-				
+				carregarProdutos();
 			}
 		});
 	}
@@ -47,5 +54,10 @@ public class GerenciamentoFControle {
 		Funcionario f =tgf.getItemTabela();
 		FuncionarioDAO dao = new FuncionarioDAO();
 		
+	}
+	
+	private void carregarProdutos() {
+		FuncionariosTableModel model = new FuncionariosTableModel(new FuncionarioDAO().getFuncionarios());
+		tgf.setTabela(model);
 	}
 }

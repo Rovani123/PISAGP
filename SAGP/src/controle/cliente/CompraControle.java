@@ -22,7 +22,6 @@ public class CompraControle {
 	private ArrayList<Carrinho> listaCarrinhosCompra =new ArrayList<Carrinho>();
 	public CompraControle(ArrayList<Carrinho> listaCarrinhos) {
 		listaProdutos = new ProdutoDAO().getProdutos();
-		
 		listaCarrinhosRecuperado = listaCarrinhos;
 		
 		tc = new TelaCompra(null);
