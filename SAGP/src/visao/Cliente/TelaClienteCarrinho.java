@@ -1,29 +1,21 @@
 package visao.Cliente;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.Frame;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
-import controle.funcionario.ProdutoControle;
 import modelo.classes.Carrinho;
-import modelo.dao.VendaDAO;
 import net.miginfocom.swing.MigLayout;
-import teste.TelaDeTes2;
 import visao.RoundButton;
 
 public class TelaClienteCarrinho extends JFrame {
@@ -211,28 +203,28 @@ public class TelaClienteCarrinho extends JFrame {
 		lblValorTotal.setText(s);
 	}
 	
-	private void getProdutos() {
-
-		painelProdutos.removeAll();
-		ProdutoControle pc = new ProdutoControle();
-		
-		int cont=0;
-		int c = 0;
-		int l = 0;
-
-		ProdutoControle pc2 = new ProdutoControle();
-		for(Carrinho carrinho :listaCarrinhos) {
-			PainelProduto pp = new PainelProduto(listaCarrinhos.get(cont).getProduto(),listaCarrinhos.get(cont));
-			painelProdutos.add(pp, "cell " + l + " " + c);
-			cont++;
-			l++;
-			if (l % 3 == 0) {
-				c++;
-				l = 0;
-			}
-		}
-		
-	}
+//	private void getProdutos() {
+//
+//		painelProdutos.removeAll();
+//		ProdutoControle pc = new ProdutoControle();
+//		
+//		int cont=0;
+//		int c = 0;
+//		int l = 0;
+//
+//		ProdutoControle pc2 = new ProdutoControle();
+//		for(Carrinho carrinho :listaCarrinhos) {
+//			PainelProduto pp = new PainelProduto(listaCarrinhos.get(cont).getProduto(),listaCarrinhos.get(cont));
+//			painelProdutos.add(pp, "cell " + l + " " + c);
+//			cont++;
+//			l++;
+//			if (l % 3 == 0) {
+//				c++;
+//				l = 0;
+//			}
+//		}
+//		
+//	}
 	
 //	private float calcTotal() {
 //		float reultado=0;

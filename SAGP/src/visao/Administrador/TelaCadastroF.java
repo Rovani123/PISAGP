@@ -1,23 +1,13 @@
 package visao.Administrador;
 
-import java.awt.EventQueue;
-import java.awt.Image;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import controle.FuncionarioControle;
-import dal.ConexaoBD;
 import modelo.classes.Funcionario;
-import modelo.dao.FuncionarioDAO;
 import net.miginfocom.swing.MigLayout;
 import visao.ImageLabel;
 import visao.RoundButton;
-import visao.TelaInicial;
-
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 import javax.swing.JTextField;
@@ -25,11 +15,6 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 import java.awt.Font;
 import java.awt.FontFormatException;

@@ -5,12 +5,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
-
-import controle.funcionario.ProdutoControle;
 import controle.inicio.TelaInicialControle;
 import modelo.classes.Carrinho;
 import modelo.classes.Produto;
-import modelo.classes.Vendas;
+import modelo.dao.ProdutoDAO;
 import visao.Cliente.PainelProduto;
 import visao.Cliente.TelaCompra;
 import visaoTelasDeAviso.MensagemView;
@@ -23,8 +21,7 @@ public class CompraControle {
 	private ArrayList<Carrinho> listaCarrinhos =new ArrayList<Carrinho>();
 	private ArrayList<Carrinho> listaCarrinhosCompra =new ArrayList<Carrinho>();
 	public CompraControle(ArrayList<Carrinho> listaCarrinhos) {
-		ProdutoControle pc = new ProdutoControle();
-		listaProdutos = pc.getProdutos();
+		listaProdutos = new ProdutoDAO().getProdutos();
 		
 		listaCarrinhosRecuperado = listaCarrinhos;
 		

@@ -8,39 +8,23 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-
-import controle.FuncionarioControle;
 import modelo.classes.Carrinho;
 import modelo.classes.Funcionario;
 import modelo.classes.Produto;
 import net.miginfocom.swing.MigLayout;
-import teste.TelaDeTes2;
 import visao.RoundButton;
-import visao.TelaInicial;
-import visao.Administrador.FuncionariosTableModel;
-import visao.Administrador.TelaAlteracaoF;
-import visao.Administrador.TelaAnáliseVendas;
-import visao.Administrador.TelaCadastroF;
-import visao.Administrador.TelaGerenciamentoF;
-import visao.Cliente.PainelProduto;
-import visao.Funcionário.TelaGerenciamentoP;
 import java.awt.Font;
 import java.awt.FontFormatException;
 
@@ -51,7 +35,7 @@ public class TelaCompra extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaCompra frame = new TelaCompra(null,null);//MUDARRR DEPOISSSSS
+					TelaCompra frame = new TelaCompra(null);//MUDARRR DEPOISSSSS
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
