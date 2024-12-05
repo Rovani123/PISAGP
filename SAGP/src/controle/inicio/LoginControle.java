@@ -12,10 +12,11 @@ import visao.TelaLogin;
 import visaoTelasDeAviso.MensagemView;
 
 public class LoginControle {
-	private TelaLogin tl;
+	private TelaLogin view;
+	private boolean oculto =true;
 	public LoginControle() {
-		tl = new TelaLogin();
-		tl.setVisible(true);
+		view = new TelaLogin();
+		view.setVisible(true);
 		listeners();
 	}
 	
@@ -26,10 +27,13 @@ public class LoginControle {
 				login();
 				break;
 			case "btVoltar":
-				voltar();
+				fechar();
 				break;
 			case "btLimpa":
 				limpar();
+				break;
+			case "btMostar":
+				mostrarSenha();
 				break;
 			default:
 				new MensagemView("Escolha uma das opções", 0);
@@ -39,11 +43,11 @@ public class LoginControle {
 	}
 		
 	private void listeners() {
-		tl.addLoginListener(new LoginListner());
+		view.addLoginListener(new LoginListner());
 	}
 	
 	private void login() {
-		if(tl.getUsuario().isEmpty() || tl.getSenha().isEmpty()) {
+		if(view.getUsuario().isEmpty() || view.getSenha().isEmpty()) {
 			new MensagemView("Todos os Campos precisam ser preenchidos",2);
 		}else {
 			
@@ -51,36 +55,38 @@ public class LoginControle {
 			Funcionario f;
 			
 			try {
-				f = dao.validarLogin(tl.getUsuario(), tl.getSenha());
+				f = dao.validarLogin(view.getUsuario(), view.getSenha());
+				if(f != null){
+					view.dispose();
+					new TelaInicialControle(f);
+				}else {
+					new MensagemView("Usuário ou senha inválidos",2);
+				}
 			} catch (SQLException e) {
 				e.printStackTrace();
 				f=null;
 			}
-			
-			if(f != null){
-				if(f.getadministrador() == 1){
-					tl.dispose();
-					new GerenciamentoFControle(f);
-				}else{
-					tl.dispose();
-					new GerenciamentoPControle(f);
-				}
-			}else {
-				//Usuário ou senha inválidos
-				new MensagemView("Usuário ou senha inválidos",2);
-			}
 		}
 	}
 	
-	private void voltar() {
-		new TelaInicialControle();
+	private void fechar() {
+		view.dispose();
 	}
 	
 	private void limpar() {
-		tl.setUsuario(null);
-		tl.setSenha(null);
+		view.setUsuario(null);
+		view.setSenha(null);
 	}
 	
+	private void mostrarSenha() {
+		if(oculto) {
+			view.MostrarSenha((char) 0);
+			oculto =false;
+		}else {
+			view.MostrarSenha('•');
+			oculto=true;
+		}
+	}
 	
 	//não utilizado
 	public boolean verificarBanco() throws SQLException {

@@ -1,22 +1,23 @@
 package visao;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import net.miginfocom.swing.MigLayout;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
-import java.awt.event.ActionEvent;
-import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.Frame;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+
+import net.miginfocom.swing.MigLayout;
 
 public class TelaLogin extends JFrame {
 
@@ -26,8 +27,9 @@ public class TelaLogin extends JFrame {
 	private JTextField txtUsuario;
 	private JPasswordField txtSenha;
 	private RoundButton btEntrar;
-	private RoundButton btVoltar;
+	private RoundButton btfechar;
 	private RoundButton btLimpar;
+	private RoundButton btMostar;
 
 
 	public TelaLogin() {
@@ -45,8 +47,6 @@ public class TelaLogin extends JFrame {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
-		TelaLogin tela= this;
 		
 		setExtendedState(Frame.MAXIMIZED_BOTH);
 		logo = new ImageIcon(TelaInicial.class.getResource("/Imagem/Logo.png"));
@@ -95,26 +95,22 @@ public class TelaLogin extends JFrame {
 		btEntrar.setActionCommand("btEntrar");
 
 		
-		btVoltar = new RoundButton("Voltar");
-		btVoltar.setFont(font);
-		btVoltar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btVoltar.setText("Voltar");
-		btVoltar.setActionCommand("btVoltar");
+		btfechar = new RoundButton("Voltar");
+		btfechar.setFont(font);
+		btfechar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btfechar.setText("Fechar");
+		btfechar.setActionCommand("btVoltar");
 
 		
 		txtSenha = new JPasswordField();
 		txtSenha.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		txtSenha.setToolTipText("");
 		painel.add(txtSenha, "cell 4 8 4 1,grow");
-		btVoltar.setForeground(new Color(255, 255, 255));
-		btVoltar.setBackground(new Color(0, 0, 0));
-		painel.add(btVoltar, "cell 4 9");
+		btfechar.setForeground(new Color(255, 255, 255));
+		btfechar.setBackground(new Color(0, 0, 0));
+		painel.add(btfechar, "cell 4 9");
 		
 		btLimpar = new RoundButton("Limpa");
-		btLimpar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btLimpar.setFont(font);
 		btLimpar.setText("Limpar");
 		btLimpar.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -126,25 +122,41 @@ public class TelaLogin extends JFrame {
 		btEntrar.setForeground(new Color(255, 255, 255));
 		btEntrar.setBackground(new Color(224, 83, 76));
 		painel.add(btEntrar, "cell 6 9 2 1,alignx center");
+		
+		btMostar = new RoundButton("Voltar");
+		btMostar.setText("Colocar Icone");
+		btMostar.setForeground(Color.WHITE);
+		btMostar.setFont(null);
+		btMostar.setBackground(Color.BLACK);
+		btMostar.setActionCommand("btMostar");
+		painel.add(btMostar, "cell 4 10");
 	}
 	
 	public void addLoginListener(ActionListener listener) {
 		btEntrar.addActionListener(listener);
-		btVoltar.addActionListener(listener);
+		btfechar.addActionListener(listener);
 		btLimpar.addActionListener(listener);
+		btMostar.addActionListener(listener);
 	}
 	
 	public void setUsuario(String user) {
 		txtUsuario.setText(user);
 	}
+	
 	public String getUsuario() {
 		return txtUsuario.getText();
 	}
+	
 	public void setSenha(String senha) {
 		txtSenha.setText(senha);
 	}
+	
 	public String getSenha() {
 		return String.valueOf(txtSenha.getPassword());
+	}
+
+	public void MostrarSenha(char c) {
+		txtSenha.setEchoChar(c);
 	}
 	
 }

@@ -1,10 +1,10 @@
 package visao;
 
-import controle.inicio.TelaInicialControle;
+import controle.inicio.LoginControle;
 
 public class Run {	
 	public static void main(String[] args) {
-		new TelaInicialControle();
+		new LoginControle();
 	}
 
 }

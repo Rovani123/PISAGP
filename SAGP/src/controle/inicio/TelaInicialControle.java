@@ -3,26 +3,39 @@ package controle.inicio;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import controle.administrador.GerenciamentoFControle;
 import controle.cliente.CompraControle;
+import controle.funcionario.GerenciamentoPControle;
+import modelo.classes.Funcionario;
 import visao.TelaInicial;
+import visaoTelasDeAviso.MensagemView;
 
 public class TelaInicialControle {
-	private TelaInicial ti;
-	public TelaInicialControle() {
-		ti = new TelaInicial();
-		ti.setVisible(true);
+	private TelaInicial view;
+	private Funcionario f;
+	public TelaInicialControle(Funcionario f) {
+		this.f = f;
+		view = new TelaInicial(f);
+		view.setVisible(true);
 		listeners();
 	}
 	private class InicialListner implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			switch (e.getActionCommand()) {
 			case "btCliente":
-				ti.dispose();
+				view.dispose();
 				new CompraControle(null); 
 				break;
 			case "btLogin":
-				ti.dispose();
-				new LoginControle();
+				view.dispose();
+					if(f.getadministrador() == 1){
+						view.dispose();
+						new GerenciamentoFControle(f);
+					}else{
+						view.dispose();
+						new GerenciamentoPControle(f);
+					}
+
 				break;
 			default:
 				//Mensagem de erro
@@ -32,6 +45,6 @@ public class TelaInicialControle {
 	}
 	
 	private void listeners() {
-		ti.addInicialListener(new InicialListner());
+		view.addInicialListener(new InicialListner());
 	}
 }

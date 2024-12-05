@@ -1,28 +1,21 @@
 package visao;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.Color;
-import net.miginfocom.swing.MigLayout;
-import visao.Administrador.TelaCadastroF;
-import visao.Cliente.TelaCompra;
-
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
+import java.awt.Cursor;
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.awt.Frame;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import java.awt.event.ActionEvent;
-import java.awt.Window.Type;
-import java.awt.Cursor;
-import java.awt.Point;
-import java.awt.Frame;
-import java.awt.Font;
-import java.awt.FontFormatException;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import modelo.classes.Funcionario;
+import net.miginfocom.swing.MigLayout;
 
 public class TelaInicial extends JFrame {
 
@@ -31,7 +24,7 @@ public class TelaInicial extends JFrame {
 	private JButton btCliente;
 	private JButton btLogin;
 
-	public TelaInicial() {
+	public TelaInicial(Funcionario f) {
 		
 		Font font = new Font("Tahoma", Font.PLAIN, 11);;
 		try {
@@ -47,7 +40,6 @@ public class TelaInicial extends JFrame {
 			e1.printStackTrace();
 		}
 		
-		TelaInicial tI= this;
 		setExtendedState(Frame.MAXIMIZED_BOTH);
 		setBackground(new Color(230, 230, 230));
 		logo = new ImageIcon(TelaInicial.class.getResource("/Imagem/Logo.png"));
