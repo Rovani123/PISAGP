@@ -28,27 +28,25 @@ public class TelaCadastroP extends JFrame {
 	private JTextField txtPreco;
 	private JTextField txtQuantidade;
 	private JLabel lblFoto;
-    private Image imagemProduto;
-    private RoundButton btLimpar;
-    private RoundButton btSalvar;
-    private RoundButton btCancelar;
-    private JComboBox cbCategoria;
-    private JButton btSelecionarImagem;
-    private FileInputStream fin;
+	private Image imagemProduto;
+	private RoundButton btLimpar;
+	private RoundButton btSalvar;
+	private RoundButton btCancelar;
+	private JComboBox cbCategoria;
+	private JButton btSelecionarImagem;
 
 	public TelaCadastroP(Funcionario f) {
-		
-		Font font = new Font("Tahoma", Font.PLAIN, 11);;
+
+		Font font = new Font("Tahoma", Font.PLAIN, 11);
+		;
 		try {
 			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
-			
+
 			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
-				
+
 		} catch (FontFormatException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
@@ -64,139 +62,86 @@ public class TelaCadastroP extends JFrame {
 		JLabel lblCadastroProduto = new JLabel("CADASTRO DE PRODUTO:");
 		lblCadastroProduto.setFont(font);
 		painel.add(lblCadastroProduto, "cell 3 2,alignx center");
-		
-				JLabel lblNome = new JLabel("Nome do Produto:");
-				lblNome.setFont(font);
-				painel.add(lblNome, "cell 2 4");
+
+		JLabel lblNome = new JLabel("Nome do Produto:");
+		lblNome.setFont(font);
+		painel.add(lblNome, "cell 2 4");
 
 		txtNome = new JTextField();
 		painel.add(txtNome, "cell 2 5 4 1,growx");
 		txtNome.setColumns(10);
-		
-				JLabel lblPreco = new JLabel("Preço:");
-				lblPreco.setFont(font);
-				painel.add(lblPreco, "cell 2 6");
+
+		JLabel lblPreco = new JLabel("Preço:");
+		lblPreco.setFont(font);
+		painel.add(lblPreco, "cell 2 6");
 
 		txtPreco = new JTextField();
 		painel.add(txtPreco, "cell 2 7 4 1,growx");
 		txtPreco.setColumns(10);
-		
-				JLabel lblQuantidade = new JLabel("Quantidade:");
-				lblQuantidade.setFont(font);
-				painel.add(lblQuantidade, "cell 2 8");
+
+		JLabel lblQuantidade = new JLabel("Quantidade:");
+		lblQuantidade.setFont(font);
+		painel.add(lblQuantidade, "cell 2 8");
 
 		txtQuantidade = new JTextField();
 		painel.add(txtQuantidade, "cell 2 9 4 1,growx");
 		txtQuantidade.setColumns(10);
-		
-				JLabel lblCategoria = new JLabel("Categoria:");
-				lblCategoria.setFont(font);
-				painel.add(lblCategoria, "cell 2 10");
+
+		JLabel lblCategoria = new JLabel("Categoria:");
+		lblCategoria.setFont(font);
+		painel.add(lblCategoria, "cell 2 10");
 
 		cbCategoria = new JComboBox();
 		cbCategoria.setModel(new DefaultComboBoxModel(Categoria.values()));
 		painel.add(cbCategoria, "cell 2 11 4 1,growx");
-		
+
 		btSalvar = new RoundButton("Salvar");
 		btSalvar.setFont(font);
 		btSalvar.setActionCommand("btSalvar");
-//				btSalvar.addActionListener(new ActionListener() {
-//					public void actionPerformed(ActionEvent e) {
-//						String nome = null;
-//						float preco = 0;
-//						int quantidade = 0;
-//						Categoria categoria = null;
-//						try {
-//						nome = (txtNome.getText());
-//						preco = (Float.parseFloat(txtPreco.getText()));
-//						quantidade = (Integer.parseInt(txtQuantidade.getText()));
-//						categoria = (Categoria) cbCategoria.getSelectedItem();
-//						}catch (Exception e1) {
-//							e1.printStackTrace();
-//						}
-//						if (txtNome.getText().isEmpty() || txtPreco.getText().isEmpty() || txtQuantidade.getText().isEmpty()) {
-//							JOptionPane.showMessageDialog(null, "Todos os campos precisam ser preenchidos");
-//						} else {
-//							try {
-//								cadastrarProduto(nome, preco, quantidade, categoria.toString(),fin);
-//								TelaGerenciamentoP telaGerenciamentoP = new TelaGerenciamentoP(telaA, f);
-//								dispose();
-//								telaGerenciamentoP.setVisible(true);
-//								JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso");
-//							} catch (SQLException e1) {
-//								e1.printStackTrace();
-//								JOptionPane.showMessageDialog(null, "Não foi possivel adicionar esse produto");
-//
-//							}
-//						}
-//					}
-//				});
-				
-			btSelecionarImagem = new JButton("Selecionar Imagem");
-			btSelecionarImagem.setFont(font);
-			btSelecionarImagem.setActionCommand("btFile");
-			
-//				btFile.addActionListener(new ActionListener() {
-//					public void actionPerformed(ActionEvent e) {
-//						JFileChooser fileChooser = new JFileChooser();
-//		                int result = fileChooser.showOpenDialog(null);
-//		                if (result == JFileChooser.APPROVE_OPTION) {
-//		                    File selectedFile = fileChooser.getSelectedFile();
-//		                    try {
-//		                        imagemProduto = ImageIO.read(selectedFile);
-//		                        fin = new FileInputStream(selectedFile);
-//		                        if(fin ==null) {
-//		                        	JOptionPane.showInternalMessageDialog(null,"ta nulo");
-//		                        }
-//		                    } catch (IOException ex) {
-//		                        ex.printStackTrace();
-//		                    }
-//		                }
-//					}
-//				});
-			painel.add(btSelecionarImagem, "cell 3 12,alignx center,aligny center");
-			btLimpar = new RoundButton("Limpar");
-			btLimpar.setFont(font);
-			btLimpar.setForeground(new Color(245, 245, 245));
-			btLimpar.setBackground(new Color(224, 83, 76));
-			btLimpar.setActionCommand("btLimpa");
-			painel.add(btLimpar, "cell 5 12");
-			btSalvar.setForeground(new Color(245, 245, 245));
-			btSalvar.setBackground(new Color(224, 83, 76));
-			painel.add(btSalvar, "cell 3 14,alignx center");
-			btCancelar = new RoundButton("Cancelar");
-			btCancelar.setFont(font);
-			btCancelar.setActionCommand("btCancelar");
-//						btCancelar.addActionListener(new ActionListener() {
-//							public void actionPerformed(ActionEvent e) {
-//								TelaGerenciamentoP telaE = new TelaGerenciamentoP(telaA, f);
-//								dispose();
-//								telaE.setVisible(true);
-//							}
-//						});
-			btCancelar.setForeground(new Color(245, 245, 245));
-			btCancelar.setBackground(new Color(0, 0, 0));
-			painel.add(btCancelar, "cell 5 14");
+		btSelecionarImagem = new JButton("Selecionar Imagem");
+		btSelecionarImagem.setFont(font);
+		btSelecionarImagem.setActionCommand("btFile");
+		painel.add(btSelecionarImagem, "cell 3 12,alignx center,aligny center");
+		btLimpar = new RoundButton("Limpar");
+		btLimpar.setFont(font);
+		btLimpar.setForeground(new Color(245, 245, 245));
+		btLimpar.setBackground(new Color(224, 83, 76));
+		btLimpar.setActionCommand("btLimpa");
+		painel.add(btLimpar, "cell 5 12");
+		btSalvar.setForeground(new Color(245, 245, 245));
+		btSalvar.setBackground(new Color(224, 83, 76));
+		painel.add(btSalvar, "cell 3 14,alignx center");
+		btCancelar = new RoundButton("Cancelar");
+		btCancelar.setFont(font);
+		btCancelar.setActionCommand("btCancelar");
+		btCancelar.setForeground(new Color(245, 245, 245));
+		btCancelar.setBackground(new Color(0, 0, 0));
+		painel.add(btCancelar, "cell 5 14");
 	}
+
 	public void addCadastroP(ActionListener listener) {
 		btLimpar.addActionListener(listener);
 		btSalvar.addActionListener(listener);
 		btCancelar.addActionListener(listener);
 		btSelecionarImagem.addActionListener(listener);
 	}
-	
+
 	public String getNome() {
 		return txtNome.getText();
 	}
+
 	public String getPreco() {
 		return txtPreco.getText();
 	}
+
 	public String getQuantidade() {
 		return txtQuantidade.getText();
 	}
-	public Categoria getCategoria(){
+
+	public Categoria getCategoria() {
 		return (Categoria) cbCategoria.getSelectedItem();
 	}
+
 	public void limpar() {
 		txtNome.setText("");
 		txtPreco.setText("");

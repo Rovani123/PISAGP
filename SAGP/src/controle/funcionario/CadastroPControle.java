@@ -1,13 +1,11 @@
 package controle.funcionario;
 
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.SQLException;
-import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import modelo.classes.Funcionario;
 import modelo.dao.ProdutoDAO;
@@ -57,14 +55,14 @@ public class CadastroPControle {
 	}
 	
 	private void Salvar() {
-//		try {
-//		nome = tcp.getNome();
-//		preco = Float.parseFloat(tcp.getPreco());
-//		quantidade = Integer.parseInt(tcp.getQuantidade());
-//		categoria = tcp.getCategoria();
-//		}catch (Exception e) {
-//			e.printStackTrace();
-//		}
+		try {
+		nome = tcp.getNome();
+		preco = Float.parseFloat(tcp.getPreco());
+		quantidade = Integer.parseInt(tcp.getQuantidade());
+		categoria = tcp.getCategoria();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 		if (nome.isEmpty() || preco ==0 || quantidade ==0) {
 			//Todos os campos precisam ser preenchidos
 	} else {

@@ -184,7 +184,6 @@ public class GerenciamentoPControle {
 		Produto p;
 		try {
 			p = tgp.getItemTabela();
-			new MensagemView("Produto alterado com sucesso!");
 		} catch (Exception e) {
 			e.printStackTrace();
 			p=null;

@@ -67,10 +67,10 @@ public class AlterarPControle {
 			dao.alterarProduto(p);
 			tap.dispose();
 			new GerenciamentoPControle(f);
-			new MensagemView("Produto alterado com sucesso!");
+			new MensagemView("Produto alterado com sucesso!",0);
 		} catch (SQLException e) {
 			e.printStackTrace();
-			new MensagemView("não foi possível alterar esse produto!");
+			new MensagemView("não foi possível alterar esse produto!",0);
 		}
 	}
 	private void cancelar() {
