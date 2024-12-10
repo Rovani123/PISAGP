@@ -9,7 +9,7 @@ import modelo.classes.Produto;
 
 public class FuncionariosTableModel extends AbstractTableModel{
 	ArrayList<Funcionario> lista;
-	String[] colunas = new String[] {"Usuário do Funcionário","Nome do funcionario", "senha"};
+	String[] colunas = new String[] {"Usuário do Funcionário","Nome do funcionario", };
 
 	public String getColumnName(int column) {
 		return colunas[column];
@@ -40,8 +40,6 @@ public class FuncionariosTableModel extends AbstractTableModel{
 		}
 		case 1:
 			return p.getNome();
-		case 2:
-			return p.getSenha();
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + columnIndex);
 		}
