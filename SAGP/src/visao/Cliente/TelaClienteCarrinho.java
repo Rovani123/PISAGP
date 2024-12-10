@@ -1,6 +1,7 @@
 package visao.Cliente;
 
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.Frame;
@@ -16,6 +17,7 @@ import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import modelo.classes.Carrinho;
 import net.miginfocom.swing.MigLayout;
+import teste.TesteDaniela;
 import visao.RoundButton;
 
 public class TelaClienteCarrinho extends JFrame {
@@ -43,6 +45,19 @@ public class TelaClienteCarrinho extends JFrame {
 	private JLabel lblValorTotal;
 	private RoundButton btFinalizarCompra;
 	private ArrayList<Carrinho> listaCarrinhos;
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TesteDaniela frame = new TesteDaniela(null);
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 	
 	public TelaClienteCarrinho(ArrayList<Carrinho> listaCarrinhos) {
 		
@@ -191,7 +206,7 @@ public class TelaClienteCarrinho extends JFrame {
 		btSalgado.addActionListener(listener);
 		btDoce.addActionListener(listener);
 		btBebidas.addActionListener(listener);
-		btOfertas.addActionListener(listener);
+
 		btFinalizarCompra.addActionListener(listener);
 	}
 	
