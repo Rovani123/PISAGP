@@ -56,7 +56,7 @@ public class TelaInicial extends JFrame {
 		setContentPane(painel);
 		painel.setLayout(new MigLayout("", "[grow][][grow][][][][][][][][][][][][][][][][][][][][][][][grow][][grow]", "[grow][120px][150px][grow]"));
 		
-		RoundButton btSair = new RoundButton("Sair");
+		btSair = new RoundButton("Sair");
 		btSair.setFont(font);
 		btSair.setActionCommand("btSair");
 		

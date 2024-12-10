@@ -7,12 +7,14 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import modelo.classes.Funcionario;
+import modelo.classes.Produto;
 
 import javax.swing.BoxLayout;
 import java.awt.Color;
 import java.awt.BorderLayout;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
+import visao.Administrador.FuncionariosTableModel;
 import visao.Funcionário.ProdutosTableModel;
 
 import javax.swing.JButton;
@@ -281,5 +283,9 @@ public class TelaGerenciamentoP extends JFrame {
 			btBebidas.setBackground(color);
 			break;
 		}
+	}
+
+	public Produto getItemTabela() {
+		return ((ProdutosTableModel) table.getModel()).getItem(table.getSelectedRow());
 	}
 }

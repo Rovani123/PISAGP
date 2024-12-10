@@ -7,6 +7,9 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
 
+import controle.administrador.GerenciamentoFControle;
+import controle.cliente.CompraControle;
+import controle.inicio.TelaInicialControle;
 import modelo.classes.Funcionario;
 import modelo.classes.Produto;
 import modelo.dao.ProdutoDAO;
@@ -16,7 +19,7 @@ import visao.Funcionário.TelaGerenciamentoP;
 import visaoTelasDeAviso.MensagemView;
 
 public class GerenciamentoPControle {
-	private TelaGerenciamentoP tgp;
+	private TelaGerenciamentoP view;
 	private Funcionario f;
 	private int contS = 0;
 	private int contD = 0;
@@ -24,22 +27,16 @@ public class GerenciamentoPControle {
 	
 	public GerenciamentoPControle(Funcionario f) {
 		this.f = f;
-		tgp = new TelaGerenciamentoP(f);
-		tgp.setVisible(true);
+		view = new TelaGerenciamentoP(f);
+		view.setVisible(true);
 		listeners();
 	}
 	
 	private class GerenciamentoPListeners implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			switch (e.getActionCommand()) {
-			case "mGProdutos":
-				//
-				break;
 			case "mAdm":
-				
-				break;
-			case "mFuncionario":
-				//
+				mAdm();
 				break;
 			case "btSalgados":
 				btSalgados();
@@ -62,21 +59,25 @@ public class GerenciamentoPControle {
 			case "btPesquisar":
 //				btPesquisar();
 				break;
-			
-			default:
-				//Mensagem de erro
+			case "mVoltar":
+				view.dispose();
+				new TelaInicialControle(f);
+				break;
+			case "mCliente":
+				view.dispose();
+				new CompraControle(null);
 				break;
 			}
 		}
 	}
 	private void listeners() {
-		tgp.addGerenciamentoPListner(new GerenciamentoPListeners());
+		view.addGerenciamentoPListner(new GerenciamentoPListeners());
 		
-		tgp.addWindowListener(new WindowAdapter() {
+		view.addWindowListener(new WindowAdapter() {
 			public void windowOpened(WindowEvent e) {
 				carregarProdutos();
 				if(f.getadministrador() == 1) {
-					tgp.setmenuAdm(true);
+					view.setmenuAdm(true);
 				}
 			}
 		});
@@ -84,8 +85,8 @@ public class GerenciamentoPControle {
 
 
 	private void mAdm() {
-//		tgp.dispose();
-//		new GerenciamentoFControle();
+		view.dispose();
+		new GerenciamentoFControle(f);
 	}
 	
 	private void btSalgados() {
@@ -94,17 +95,17 @@ public class GerenciamentoPControle {
 			contS = 1;
 			contD = 0;
 			contB = 0;
-			tgp.setBackgroundcolor("btSalgados", new Color(255, 255, 0));
-			tgp.setBackgroundcolor("btDoces", new Color(255, 255, 255));
-			tgp.setBackgroundcolor("btBebidas", new Color(255, 255, 255));
+			view.setBackgroundcolor("btSalgados", new Color(255, 255, 0));
+			view.setBackgroundcolor("btDoces", new Color(255, 255, 255));
+			view.setBackgroundcolor("btBebidas", new Color(255, 255, 255));
 		} else {
 			carregarProdutos();
 			contS = 0;
 			contD = 0;
 			contB = 0;
-			tgp.setBackgroundcolor("btSalgados", new Color(255, 255, 255));
-			tgp.setBackgroundcolor("btDoces", new Color(255, 255, 255));
-			tgp.setBackgroundcolor("btBebidas", new Color(255, 255, 255));
+			view.setBackgroundcolor("btSalgados", new Color(255, 255, 255));
+			view.setBackgroundcolor("btDoces", new Color(255, 255, 255));
+			view.setBackgroundcolor("btBebidas", new Color(255, 255, 255));
 		}
 	}
 	
@@ -114,17 +115,17 @@ public class GerenciamentoPControle {
 			contS = 0;
 			contD = 1;
 			contB = 0;
-			tgp.setBackgroundcolor("btSalgados", new Color(255, 255, 255));
-			tgp.setBackgroundcolor("btDoces", new Color(255, 255, 0));
-			tgp.setBackgroundcolor("btBebidas", new Color(255, 255, 255));
+			view.setBackgroundcolor("btSalgados", new Color(255, 255, 255));
+			view.setBackgroundcolor("btDoces", new Color(255, 255, 0));
+			view.setBackgroundcolor("btBebidas", new Color(255, 255, 255));
 		} else {
 			carregarProdutos();
 			contS = 0;
 			contD = 0;
 			contB = 0;
-			tgp.setBackgroundcolor("btSalgados", new Color(255, 255, 255));
-			tgp.setBackgroundcolor("btDoces", new Color(255, 255, 255));
-			tgp.setBackgroundcolor("btBebidas", new Color(255, 255, 255));
+			view.setBackgroundcolor("btSalgados", new Color(255, 255, 255));
+			view.setBackgroundcolor("btDoces", new Color(255, 255, 255));
+			view.setBackgroundcolor("btBebidas", new Color(255, 255, 255));
 		}
 	}
 	
@@ -134,23 +135,23 @@ public class GerenciamentoPControle {
 			contS = 0;
 			contD = 0;
 			contB = 1;
-			tgp.setBackgroundcolor("btSalgados", new Color(255, 255, 255));
-			tgp.setBackgroundcolor("btDoces", new Color(255, 255, 255));
-			tgp.setBackgroundcolor("btBebidas", new Color(255, 255, 0));
+			view.setBackgroundcolor("btSalgados", new Color(255, 255, 255));
+			view.setBackgroundcolor("btDoces", new Color(255, 255, 255));
+			view.setBackgroundcolor("btBebidas", new Color(255, 255, 0));
 		} else {
 			carregarProdutos();
 			contS = 0;
 			contD = 0;
 			contB = 0;
-			tgp.setBackgroundcolor("btSalgados", new Color(255, 255, 255));
-			tgp.setBackgroundcolor("btDoces", new Color(255, 255, 255));
-			tgp.setBackgroundcolor("btBebidas", new Color(255, 255, 255));
+			view.setBackgroundcolor("btSalgados", new Color(255, 255, 255));
+			view.setBackgroundcolor("btDoces", new Color(255, 255, 255));
+			view.setBackgroundcolor("btBebidas", new Color(255, 255, 255));
 		}
 	}
 
 	private void  btRemover() {
 		try {
-			Produto p = tgp.getItemTabela();
+			Produto p = view.getItemTabela();
 			ProdutoDAO dao = new ProdutoDAO();
 			try {
 				dao.deletarProduto(p);
@@ -176,33 +177,33 @@ public class GerenciamentoPControle {
 	}
        	
 	private void btCadastrar() {
-		tgp.dispose();
+		view.dispose();
 		new CadastroPControle(f);
 	}
 	
 	private void btAlterar() {
 		Produto p;
 		try {
-			p = tgp.getItemTabela();
+			p = view.getItemTabela();
 		} catch (Exception e) {
 			e.printStackTrace();
 			p=null;
 			new MensagemView("Erro ao alterar esse produto!");
 		}
-		tgp.dispose();
+		view.dispose();
 		new AlterarPControle(f,p);
 	}
 
 	private void carregarProdutos() {
 		ProdutoDAO dao = new ProdutoDAO();
 		ProdutosTableModel model = new ProdutosTableModel(dao.getProdutos());
-		tgp.setTabela(model);
+		view.setTabela(model);
 	}
 	
 	private void carregarProdutosFiltro(Categoria filtro) {
 		ProdutoDAO dao = new ProdutoDAO();
 		ProdutosTableModel model = new ProdutosTableModel(dao.getProdutosFiltro(filtro));
-		tgp.setTabela(model);
+		view.setTabela(model);
 	}
 	
 }
