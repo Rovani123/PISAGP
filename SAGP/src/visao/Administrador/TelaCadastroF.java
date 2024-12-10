@@ -176,4 +176,10 @@ public class TelaCadastroF extends JFrame {
 		btLimpar.addActionListener(listener);
 		btEntrar.addActionListener(listener);
 	}
+	public void limpar() {
+		txtNome.setText("");
+		txtUsuario.setText("");
+		txtSenha.setText("");
+		
+	}
 }

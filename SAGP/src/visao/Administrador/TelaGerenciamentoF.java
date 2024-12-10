@@ -214,6 +214,10 @@ public class TelaGerenciamentoF extends JFrame {
 		BarraLateral.add(btRemover, "cell 0 5,alignx left,aligny center");
 		
 		btAlterar = new RoundButton("ALTERAR");
+		btAlterar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btAlterar.setFont(font);
 		//btAlterar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btAlterar.setText("Alterar");

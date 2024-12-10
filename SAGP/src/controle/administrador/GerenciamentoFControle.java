@@ -30,7 +30,7 @@ public class GerenciamentoFControle {
 			switch(e.getActionCommand()) {
 			case "mVoltar":
 				tgf.dispose();
-				new TelaInicialControle();
+				new TelaInicialControle(f);
 				break;
 			case "btRemover":
 				remover();

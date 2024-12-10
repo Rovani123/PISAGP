@@ -17,6 +17,7 @@ import java.io.File;
 import java.io.IOException;
 import java.awt.Color;
 import javax.swing.JPasswordField;
+import java.awt.event.ActionEvent;
 
 public class TelaAlteracaoF extends JFrame {
 
@@ -87,6 +88,10 @@ public class TelaAlteracaoF extends JFrame {
 		contentPane.add(txtSenha, "cell 2 7 6 1,growx,aligny center");
 
 		btSalvar = new RoundButton("SALVAR");
+		btSalvar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btSalvar.setText("Salvar");
 		btSalvar.setFont(font);
 		btSalvar.setActionCommand("btSalvar");
@@ -108,7 +113,11 @@ public class TelaAlteracaoF extends JFrame {
 //			}
 //		});
 		
-		RoundButton btLimpar = new RoundButton("LIMPAR");
+				JButton btLimpar = new RoundButton("LIMPAR");
+				btLimpar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+					}
+				});
 				btLimpar.setText("Limpar");
 				btLimpar.setFont(font);
 				btLimpar.setActionCommand("btLimpar");
@@ -122,7 +131,11 @@ public class TelaAlteracaoF extends JFrame {
 
 		contentPane.add(btSalvar, "cell 6 10,alignx right,aligny center");
 
-		RoundButton btCancelar = new RoundButton("CANCELAR");
+		JButton btCancelar = new RoundButton("CANCELAR");
+		btCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btCancelar.setText("Cancelar");
 		btCancelar.setFont(font);
 		btCancelar.setActionCommand("btCancelar");
@@ -158,5 +171,11 @@ public class TelaAlteracaoF extends JFrame {
 		btSalvar.addActionListener(listener);
 		btCancelar.addActionListener(listener);
 		btLimpar.addActionListener(listener);
+	}
+
+	public void limpa() {
+		txtNome.setText("");
+		txtUsuario.setText("");
+		txtSenha.setText("");
 	}
 }
