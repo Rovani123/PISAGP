@@ -131,11 +131,11 @@ public class TelaAnáliseVendas extends JFrame {
 		lblTabelaVendas.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		contentPane.add(lblTabelaVendas, "cell 0 0 2 1,alignx center,aligny center");
 		
-		JScrollPane scrollPane = new JScrollPane();
-		contentPane.add(scrollPane, "cell 0 1 2 2,grow");
+		JScrollPane panelTabelaVendas = new JScrollPane();
+		contentPane.add(panelTabelaVendas, "cell 0 1 2 2,grow");
 		
 		table = new JTable();
-		scrollPane.setViewportView(table);
+		panelTabelaVendas.setViewportView(table);
 	}
 	public void addAnaliseVendas(ActionListener listener) {
 		mntmNewMenuItem_1.addActionListener(listener);

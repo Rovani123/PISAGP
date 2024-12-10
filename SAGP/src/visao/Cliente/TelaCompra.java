@@ -231,11 +231,11 @@ public class TelaCompra extends JFrame {
 		btPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btPesquisar.setIcon(new ImageIcon(TelaDeTes2.class.getResource("/Imagem/lupa.png")));
 		
-		JScrollPane scrollPane = new JScrollPane();
-		panel_2.add(scrollPane, BorderLayout.CENTER);
+		JScrollPane painelCompra = new JScrollPane();
+		panel_2.add(painelCompra, BorderLayout.CENTER);
 		
 		table = new JTable();
-		scrollPane.setViewportView(table);
+		painelCompra.setViewportView(table);
 	
 	}
 	public void  addCompraListner(ActionListener listener) {
