@@ -8,6 +8,7 @@ import controle.cliente.CompraControle;
 import controle.funcionario.GerenciamentoPControle;
 import modelo.classes.Funcionario;
 import visao.TelaInicial;
+import visao.TelaLogin;
 import visaoTelasDeAviso.MensagemView;
 
 public class TelaInicialControle {
@@ -28,17 +29,11 @@ public class TelaInicialControle {
 				break;
 			case "btLogin":
 				view.dispose();
-					if(f.getadministrador() == 1){
-						view.dispose();
-						new GerenciamentoFControle(f);
-					}else{
-						view.dispose();
-						new GerenciamentoPControle(f);
-					}
-
+				login();
 				break;
-			default:
-				//Mensagem de erro
+			case "btSair":
+				view.dispose();
+				new LoginControle();
 				break;
 			}
 		}
@@ -46,5 +41,15 @@ public class TelaInicialControle {
 	
 	private void listeners() {
 		view.addInicialListener(new InicialListner());
+	}
+	
+	private void login() {
+		if(f.getadministrador() == 1){
+			view.dispose();
+			new GerenciamentoFControle(f);
+		}else{
+			view.dispose();
+			new GerenciamentoPControle(f);
+		}
 	}
 }
