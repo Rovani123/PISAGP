@@ -1,42 +1,49 @@
 package visao.Funcionário;
 
-import java.awt.Color;
 import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.FontFormatException;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import modelo.classes.Funcionario;
-import modelo.classes.Produto;
+
+import javax.swing.BoxLayout;
+import java.awt.Color;
+import java.awt.BorderLayout;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
+import visao.Funcionário.ProdutosTableModel;
+
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JTextField;
+import java.awt.Font;
+import java.awt.FontFormatException;
+
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 public class TelaGerenciamentoP extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	private JPanel painel;
-	private JTextField txtPesquisar;
-	private JTable table;
+	private JPanel panel;
+	private JMenuItem mAdm;
+	private JMenuItem mFuncionario;
 	private JMenuItem mGProdutos;
 	private JMenuItem mCliente;
-	private JMenuItem mAdm;
-    private JMenuItem mVoltar;
-	private JMenuItem mFuncionario;
+	private JTextField txtPesquisar;
+	private JTable table;
+	private JMenuItem mVoltar;
+	private RoundButton btVoltar;
 	private RoundButton btSalgados;
 	private RoundButton btDoces;
 	private RoundButton btBebidas;
@@ -45,21 +52,10 @@ public class TelaGerenciamentoP extends JFrame {
 	private RoundButton btCadastrar;
 	private RoundButton btPesquisar;
 
+
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaGerenciamentoP frame = new TelaGerenciamentoP(null);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	
-	public TelaGerenciamentoP(Funcionario f) {
+	public TelaGerenciamentoP (Funcionario f) {
+		setTitle("TelaGerenciamentoP");
 		
 		Font font = new Font("Tahoma", Font.PLAIN, 11);;
 		try {
@@ -72,171 +68,184 @@ public class TelaGerenciamentoP extends JFrame {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-
-		setBackground(new Color(230, 230, 230));
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 961, 638);
-		setLocationRelativeTo(null);
-
+		setExtendedState(MAXIMIZED_BOTH);
+		setBounds(100, 100, 955, 544);
+		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
-
+		
 		JMenu mTelas = new JMenu("Telas");
 		mTelas.setFont(font);
 		menuBar.add(mTelas);
-
+		
 		mAdm = new JMenuItem("Administrador ");
 		mAdm.setFont(font);
 		mAdm.setEnabled(false);
-		mAdm.setActionCommand("mAdm");
 		mTelas.add(mAdm);
-
+		mAdm.setActionCommand("mAdm");
+		
 		mFuncionario = new JMenuItem("Funcionário ");
 		mFuncionario.setFont(font);
 		mFuncionario.setEnabled(false);
 		mFuncionario.setActionCommand("mFuncionario");
 		mTelas.add(mFuncionario);
-
+		
 		JMenu mOpcoes = new JMenu("Opções");
 		mOpcoes.setFont(font);
 		menuBar.add(mOpcoes);
-
-		mGProdutos = new JMenuItem("Produtos ");
-		mGProdutos.setFont(font);
+		
+	    mGProdutos = new JMenuItem("Produtos ");
+	    mGProdutos.setFont(font);
 		mGProdutos.setEnabled(false);
-		mGProdutos.setActionCommand("mGProdutos");
 		mOpcoes.add(mGProdutos);
-
-		mCliente = new JMenuItem("Cliente");
-		mCliente.setFont(font);
-		mCliente.setActionCommand("mCliente");
+		mGProdutos.setActionCommand("mGProdutos");
+		
+	    mCliente = new JMenuItem("Cliente");
+	    mCliente.setFont(font);
 		mOpcoes.add(mCliente);
-
-		mVoltar = new JMenuItem("Voltar ao início");
+		mCliente.setActionCommand("mCliente");
+		
+		
+	    mVoltar = new JMenuItem("Voltar ao início");
+		menuBar.add(mVoltar);
 		mVoltar.setFont(font);
 		mVoltar.setActionCommand("mVoltar");
-		menuBar.add(mVoltar);
-		painel = new JPanel();
-		painel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
+		panel = new JPanel();
+		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
+		
 
-		setContentPane(painel);
-		painel.setLayout(new MigLayout("", "[grow][][][grow][][][][grow][]", "[grow][][grow][][][][][][][][][][][][][][][]"));
-
+		setContentPane(panel);
+		panel.setLayout(new BorderLayout(0, 0));
+		
 		JPanel barraLateral = new JPanel();
 		barraLateral.setBackground(new Color(167, 208, 214));
-		painel.add(barraLateral, "cell 0 0 1 18,alignx left,growy");
-		barraLateral.setLayout(new MigLayout("", "[][]", "[][][][][][][][][][][][][][][][][][]"));
-
-		RoundButton btVoltar = new RoundButton("Sair");
-		btVoltar.setText("Deleta");
-		btVoltar.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/volte.png")));
+		panel.add(barraLateral, BorderLayout.WEST);
+		barraLateral.setLayout(new MigLayout("", "[]", "[][][][][][][][][][][][][][][][]"));
 		
-		btVoltar.setForeground(new Color(255, 255, 255));
+	    btVoltar = new RoundButton("Voltar");
 		btVoltar.setBackground(new Color(245, 245, 245));
-		barraLateral.add(btVoltar, "cell 0 0,alignx left");
+		btVoltar.setText("");
+		btVoltar.setActionCommand("btVoltar");
 
+		btVoltar.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/volte.png")));
+		barraLateral.add(btVoltar, "cell 0 0,alignx left,aligny top");
+		
 		JLabel lblLogo = new JLabel("");
 		lblLogo.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/LogoPequena.png")));
-		barraLateral.add(lblLogo, "cell 0 2 2 1");
-
-		JLabel lblCategoria = new JLabel("Categorias:");
-		lblCategoria.setFont(font);
-		barraLateral.add(lblCategoria, "cell 1 4,alignx left");
-
-		btSalgados = new RoundButton("Salgado");
-		btSalgados.setFont(font);
-		btSalgados.setText("Salgados");
-		btSalgados.setActionCommand("btSalgados");
-
+		barraLateral.add(lblLogo, "cell 0 2,alignx center,aligny center");
+		
 		JLabel lblIconSalgados = new JLabel("");
 		lblIconSalgados.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/biscoitos.png")));
-		barraLateral.add(lblIconSalgados, "cell 0 5,alignx center");
-		btSalgados.setBackground(new Color(255, 255, 255));
-		barraLateral.add(btSalgados, "cell 1 5,growx");
-
-		btDoces = new RoundButton("Doce");
-		btDoces.setFont(font);
-		btDoces.setText("Doces");
-		btDoces.setActionCommand("btDoces");
-
+		barraLateral.add(lblIconSalgados, "flowx,cell 0 5");
+		
+		btSalgados = new RoundButton("Salgados");
+		btSalgados.setForeground(new Color(245, 245, 245));
+		btSalgados.setFont(font);
+		btSalgados.setBackground(new Color(224, 83, 76));
+		barraLateral.add(btSalgados, "cell 0 5,growx,aligny center");
+		btSalgados.setActionCommand("btSalgados");
+		
+		
 		JLabel lblIconDoces = new JLabel("");
 		lblIconDoces.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/bolinho.png")));
-		barraLateral.add(lblIconDoces, "cell 0 6,alignx center");
-		btDoces.setBackground(new Color(255, 255, 255));
-		barraLateral.add(btDoces, "cell 1 6,growx");
-
-		btBebidas = new RoundButton("Bebidas");
-		btBebidas.setFont(font);
-		btBebidas.setActionCommand("btBebidas");
-
+		barraLateral.add(lblIconDoces, "flowx,cell 0 6");
+		
+		btDoces = new RoundButton("Doces");
+		btDoces.setForeground(new Color(245, 245, 245));
+		btDoces.setFont(font);
+		btDoces.setBackground(new Color(224, 83, 76));
+		barraLateral.add(btDoces, "cell 0 6,growx,aligny center");
+		btDoces.setActionCommand("btDoces");
+		
 		JLabel lblIconBebidas = new JLabel("");
 		lblIconBebidas.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/garrafa-de-agua.png")));
-		barraLateral.add(lblIconBebidas, "cell 0 7,alignx center");
-		btBebidas.setBackground(new Color(255, 255, 255));
-		barraLateral.add(btBebidas, "cell 1 7,growx");
-
-		btCadastrar = new RoundButton("Adicionar");
-		btCadastrar.setFont(font);
-		btCadastrar.setActionCommand("btCadastrar");
-
-		btRemover = new RoundButton("Deletar");
-		btRemover.setFont(font);
-		btRemover.setActionCommand("btRemover");
-
-		btAlterar = new RoundButton("Alterar");
-		btAlterar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btAlterar.setFont(font);
-		btAlterar.setActionCommand("btAlterar");
-
+		barraLateral.add(lblIconBebidas, "flowx,cell 0 7");
+		
+	    btBebidas = new RoundButton("Bebidas");
+	    btBebidas.setForeground(new Color(245, 245, 245));
+		btBebidas.setFont(font);
+		btBebidas.setBackground(new Color(224, 83, 76));
+		barraLateral.add(btBebidas, "cell 0 7,growx,aligny center");
+		btBebidas.setActionCommand("btBebidas");
+		
 		JLabel lblIconAlterar = new JLabel("");
 		lblIconAlterar.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/troca.png")));
-		barraLateral.add(lblIconAlterar, "cell 0 15,alignx center");
-		btAlterar.setForeground(new Color(255, 255, 255));
-		btAlterar.setBackground(new Color(0, 0, 0));
-		barraLateral.add(btAlterar, "cell 1 15,alignx left");
-
-		JLabel lblIconRemover = new JLabel("");
-		lblIconRemover.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/lixeira.png")));
-		barraLateral.add(lblIconRemover, "cell 0 16,alignx center");
-		btRemover.setForeground(new Color(255, 255, 255));
-		btRemover.setBackground(new Color(224, 83, 76));
-		barraLateral.add(btRemover, "cell 1 16,alignx left");
-
-		JLabel lblIconCadastrar = new JLabel("Adicionar");
-		lblIconCadastrar.setFont(font);
-		barraLateral.add(lblIconCadastrar, "cell 0 17");
-		btCadastrar.setForeground(new Color(255, 255, 255));
-		btCadastrar.setBackground(new Color(0, 0, 0));
-		barraLateral.add(btCadastrar, "cell 1 17,alignx left");
-
-		JLabel lblIconEstoque = new JLabel("iconeestoque");
-		painel.add(lblIconEstoque, "cell 1 0");
-
-		JLabel lblEstoque = new JLabel("Estoque");
-		lblEstoque.setFont(font);
-		painel.add(lblEstoque, "cell 2 0,alignx trailing");
-
-		txtPesquisar = new JTextField();
-		painel.add(txtPesquisar, "cell 3 0 5 1,growx");
-		txtPesquisar.setColumns(10);
-
-		btPesquisar = new RoundButton("Pesquisar");
-		btPesquisar.setFont(font);
-		btPesquisar.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/lupa.png")));
-		btPesquisar.setText("");
-		btPesquisar.setForeground(new Color(255, 255, 255));
-		btPesquisar.setBackground(new Color(245, 245, 245));
+		barraLateral.add(lblIconAlterar, "flowx,cell 0 13");
+		
+		btAlterar = new RoundButton("Alterar");
+		btAlterar.setFont(font);
+		btAlterar.setActionCommand("btAlterar");
+		
+		btAlterar.setBackground(new Color(245, 245, 245));	
+		
+		barraLateral.add(btAlterar, "cell 0 13,growx,aligny center");
+		
+		JLabel lblIconExcluir = new JLabel("");
+		lblIconExcluir.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/lixeira.png")));
+		barraLateral.add(lblIconExcluir, "flowx,cell 0 14");
+		
+		btRemover = new RoundButton("Remover");
+		btRemover.setBackground(new Color(245, 245, 245));
+		btRemover.setFont(font);
+		btRemover.setActionCommand("btRemover");
+		
+		
+		btRemover.setFont(font);
+		
+		barraLateral.add(btRemover, "cell 0 14,growx,aligny center");
+		
+		JLabel lblIconCadastrar = new JLabel("");
+		lblIconCadastrar.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/lupa.png")));
+		barraLateral.add(lblIconCadastrar, "flowx,cell 0 15");
+		
+		btCadastrar = new RoundButton("Adicionar");
+		btCadastrar.setBackground(new Color(245, 245, 245));
+		btCadastrar.setFont(font);
+		btCadastrar.setActionCommand("btCadastrar");
+		
+		btCadastrar.setFont(font);
+		barraLateral.add(btCadastrar, "cell 0 15,growx,aligny center");
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(230, 230, 230));
+		panel.add(panel_1, BorderLayout.CENTER);
+		panel_1.setLayout(new MigLayout("", "[grow]", "[][][grow]"));
+		
+		JPanel panelPesquisa = new JPanel();
+		panelPesquisa.setBackground(new Color(230, 230, 230));
+		panel_1.add(panelPesquisa, "cell 0 0,grow");
+		panelPesquisa.setLayout(new MigLayout("", "[][][][grow]", "[]"));
+		
+		JLabel lblIconEstoque = new JLabel("Estoque");
+		lblIconEstoque.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		panelPesquisa.add(lblIconEstoque, "cell 0 0 3 1,alignx right,aligny center");
+		
+		btPesquisar = new RoundButton("");
 		btPesquisar.setActionCommand("btPesquisar");
-		painel.add(btPesquisar, "cell 8 0");
-
+		btPesquisar.setText("");
+		btPesquisar.setFont(font);
+		
+		btPesquisar.setBackground(new Color(245, 245, 245));
+		btPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		
+		txtPesquisar = new JTextField();
+		txtPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		panelPesquisa.add(txtPesquisar, "flowx,cell 3 0 2 1,growx");
+		txtPesquisar.setColumns(10);
+		btPesquisar.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/lupa.png")));
+		panelPesquisa.add(btPesquisar, "cell 3 0 2 1,alignx right,aligny center");
+		
 		JScrollPane scrollPane = new JScrollPane();
-		painel.add(scrollPane, "cell 1 2 8 16,grow");
-
+		panel_1.add(scrollPane, "cell 0 1 1 2,grow");
+		
 		table = new JTable();
 		scrollPane.setViewportView(table);
+
+		
 	}
 	
 	public void addGerenciamentoPListner(ActionListener listener) {
@@ -252,16 +261,14 @@ public class TelaGerenciamentoP extends JFrame {
 		btCadastrar.addActionListener(listener);
 		btPesquisar.addActionListener(listener);
 	}
-
+	
 	public void setTabela(ProdutosTableModel tm) {
 		table.setModel(tm);
 	}
-
-
+	
 	public void setmenuAdm(boolean b) {
 		mAdm.setEnabled(b);		
 	}
-
 	public void setBackgroundcolor(String botao, Color color) {
 		switch (botao) {
 		case "btSalgados":
@@ -275,9 +282,4 @@ public class TelaGerenciamentoP extends JFrame {
 			break;
 		}
 	}
-
-	public Produto getItemTabela() {
-		return ((ProdutosTableModel) table.getModel()).getItem(table.getSelectedRow());
-	}
-	
 }

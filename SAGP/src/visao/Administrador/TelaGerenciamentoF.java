@@ -30,18 +30,6 @@ import java.awt.FontFormatException;
 
 public class TelaGerenciamentoF extends JFrame {
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaGerenciamentoF frame = new TelaGerenciamentoF(null);//MUDARRR DEPOISSSSS
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	private JPanel painel;
 	private JTextField txtPesquisa;
