@@ -2,6 +2,8 @@ package controle.administrador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import modelo.classes.Funcionario;
 import visao.Administrador.TelaAlteracaoF;
@@ -46,7 +48,12 @@ public class AlterarFControle {
 	
 	
 	private void listeners() {
-		
+		taf.addAlteracaoF(new AlterarFListener());
+		taf.addWindowListener(new WindowAdapter() {
+			public void windowOpened(WindowEvent e) {
+				
+			}
+		});
 		
 	}
 }

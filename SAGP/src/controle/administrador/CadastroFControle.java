@@ -60,8 +60,7 @@ public class CadastroFControle {
 	
 	
 	private void listeners() {
-		
-			
+		tcf.addCadastroF(new CadastroF());
 	}
 
 
