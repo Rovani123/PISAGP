@@ -38,13 +38,13 @@ public class TelaCompra extends JFrame {
 	private JTextField txtPesquisa;
 	private JScrollPane scrollPane;
 	private JPanel painelMenu;
-	private JButton btCarrinho;
-	private JButton btVoltar;
-	private JButton btSalgados;
+	private RoundButton btCarrinho;
+	private RoundButton btVoltar;
+	private RoundButton btSalgados;
 	private JLabel lblCategorias;
-	private JButton btDoces;
-	private JButton btBebidas;
-	private JButton btOfertas;
+	private RoundButton btDoces;
+	private RoundButton btBebidas;
+	private RoundButton btOfertas;
 	private JPanel painelProdutos;
 	private JLabel lblLogo;
 	private ArrayList<Produto> listaProdutos;
@@ -105,15 +105,16 @@ public class TelaCompra extends JFrame {
 		painel.add(BarraLateral, BorderLayout.WEST);
 		BarraLateral.setLayout(new MigLayout("", "[]", "[][grow 50][][][grow 50][][][][][grow 50][grow][][grow][]"));
 		
-		JButton btSair = new RoundButton("Sair");
+		RoundButton btSair = new RoundButton("Sair");
+		btSair.setFont(font);
 		btSair.setBackground(new Color(245, 245, 245));
 		btSair.setIcon(new ImageIcon(TelaDeTes2.class.getResource("/Imagem/volte.png")));
 		btSair.setActionCommand("btVoltar");
-		btSair.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		//btSair.addActionListener(new ActionListener() {
+		//	public void actionPerformed(ActionEvent e) {
 //				
-			}
-		});
+		//	}
+		//});
 		BarraLateral.add(btSair, "cell 0 0");
 		
 		JLabel lblLogo = new JLabel("");
@@ -133,68 +134,73 @@ public class TelaCompra extends JFrame {
 		BarraLateral.add(lblIconAdicionar, "flowx,cell 0 8");
 		
 		btBebidas = new RoundButton("Bebidas");
-		btBebidas.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		btBebidas.setFont(font);
+		btBebidas.setActionCommand("btBebidas");
+		//btBebidas.addActionListener(new ActionListener() {
+		//	public void actionPerformed(ActionEvent e) {
+		//	}
+		//});
 		btBebidas.setFont(new Font("Dialog", Font.PLAIN, 20));
 		btBebidas.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btBebidas.setText("Bebidas");
 		btBebidas.setForeground(new Color(245, 245, 245));
 		btBebidas.setBackground(new Color(224, 83, 76));
-		btBebidas.setActionCommand("btBebidas");
-		btBebidas.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent e) {
+		//btBebidas.addActionListener(new ActionListener() {
+		//public void actionPerformed(ActionEvent e) {
 			
-		}
-      });
+		//}
+      //});
 		BarraLateral.add(btBebidas, "cell 0 8,growx,aligny center");
 		
 		btDoces = new RoundButton("Doce");
-		btDoces.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btDoces.setFont(font);
+		btDoces.setActionCommand("btDoces");
+		//btDoces.addActionListener(new ActionListener() {
+		//	public void actionPerformed(ActionEvent e) {
 				
-			}
-		});
+		//	}
+		//});
 		btDoces.setFont(new Font("Dialog", Font.PLAIN, 20));
 		btDoces.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btDoces.setText("Doces");
-		btDoces.setActionCommand("btDoces");
-		btDoces.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent e) {
+		//btDoces.addActionListener(new ActionListener() {
+		//public void actionPerformed(ActionEvent e) {
 			
-		}
-	});
+		//}
+	//});
 		btDoces.setForeground(new Color(245, 245, 245));
 		btDoces.setBackground(new Color(224, 83, 76));
 		BarraLateral.add(btDoces, "cell 0 7,growx,aligny center");
 		
 		btSalgados = new RoundButton("Salgado");
+		btDoces.setFont(font);
+		btSalgados.setActionCommand("btSalgados");
 		btSalgados.setText("Salgados");
 		btSalgados.setForeground(new Color(245, 245, 245));
 		btSalgados.setBackground(new Color(224, 83, 76));
-		btSalgados.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		//btSalgados.addActionListener(new ActionListener() {
+		//	public void actionPerformed(ActionEvent e) {
+		//	}
+		//});
 		btSalgados.setFont(new Font("Dialog", Font.PLAIN, 20));
-		btSalgados.setActionCommand("btSalgados");
-        btSalgados.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+        //btSalgados.addActionListener(new ActionListener() {
+		//	public void actionPerformed(ActionEvent e) {
                 
-			}
-		});
+		//	}
+		//});
 		BarraLateral.add(btSalgados, "cell 0 6,growx,aligny center");
 		
-		JButton btCarrinho = new RoundButton("Carrinho");
+		RoundButton btCarrinho = new RoundButton("Carrinho");
+		btCarrinho.setFont(font);
+		btCarrinho.setActionCommand("btCarrinho");
 		btCarrinho.setForeground(new Color(0, 0, 0));
 		btCarrinho.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btCarrinho.setBackground(new Color(245, 245, 245));
-		btCarrinho.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		//btCarrinho.addActionListener(new ActionListener() {
+		//	public void actionPerformed(ActionEvent e) {
 				
-			}
-		});
+		//	}
+		//});
 		btCarrinho.setIcon(new ImageIcon(TelaDeTes2.class.getResource("/Imagem/carrinho-de-compras.png")));
 		BarraLateral.add(btCarrinho, "cell 0 10,growx,aligny center");
 		
@@ -216,14 +222,14 @@ public class TelaCompra extends JFrame {
 		txtPesquisa.setColumns(10);
 		
 		RoundButton btnPesquisar = new RoundButton("");
-		btnPesquisar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		//btnPesquisar.addActionListener(new ActionListener() {
+		//	public void actionPerformed(ActionEvent e) {
+		//	}
+		//});
 		btnPesquisar.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/lupa.png")));
 		panelPesquisa.add(btnPesquisar, "cell 23 0");
 		
-		JButton btPesquisar = new RoundButton("");
+		RoundButton btPesquisar = new RoundButton("");
 		btPesquisar.setBackground(new Color(230, 230, 230));
 		btPesquisar.setText("");
 		btPesquisar.setActionCommand("btPesquisar");
@@ -243,7 +249,6 @@ public class TelaCompra extends JFrame {
 		btDoces.addActionListener(listener);
 		btBebidas.addActionListener(listener);
 		btOfertas.addActionListener(listener);
-		btVoltar.addActionListener(listener);
 		btVoltar.addActionListener(listener);
 		btCarrinho.addActionListener(listener);
 	}

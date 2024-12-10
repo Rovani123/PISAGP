@@ -25,7 +25,6 @@ public class TelaClienteFormaPagamento extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel painelPrincipal;
-	private RoundButton btCancelar;
 	private JLabel lblFormaPagamento;
 	private JPanel painelFormaPagamento;
 	private JLabel lblTotalPagar;
@@ -34,6 +33,7 @@ public class TelaClienteFormaPagamento extends JFrame {
 	private JLabel lblEscolhaMetodoPagamento;
 	private RoundButton btLimpar;
 	private RoundButton btConfirmar;
+	private RoundButton btCancelar;
 
 	
 	public static void main(String[] args) {

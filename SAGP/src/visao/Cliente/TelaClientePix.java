@@ -23,6 +23,8 @@ public class TelaClientePix extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private RoundButton btVoltar;
+	private RoundButton btCancelar;
 
 	public TelaClientePix() {
 		
@@ -55,12 +57,14 @@ public class TelaClientePix extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new MigLayout("", "[grow][][][][][][][][][][][][][][grow]", "[][][][][][][][][]"));
 		
-		JButton btVoltar = new RoundButton("Voltar");
+		RoundButton btVoltar = new RoundButton("Voltar");
+		btVoltar.setFont(font);
+		btVoltar.setActionCommand("btVoltar");
 		btVoltar.setForeground(new Color(245, 245, 245));
-		btVoltar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		//btVoltar.addActionListener(new ActionListener() {
+		//	public void actionPerformed(ActionEvent e) {
+		//	}
+		//});
 		btVoltar.setBackground(new Color(224, 83, 76));
 		btVoltar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		contentPane.add(btVoltar, "cell 0 0,alignx left,aligny top");
@@ -78,16 +82,23 @@ public class TelaClientePix extends JFrame {
 		lblNewLabel_2.setIcon(new ImageIcon(TelaClientePix.class.getResource("/Imagem/pixPagamento.jpg")));
 		contentPane.add(lblNewLabel_2, "cell 6 5,alignx center,aligny center");
 		
-		JButton btCancelar = new RoundButton("Cancelar");
+		RoundButton btCancelar = new RoundButton("Cancelar");
+		btCancelar.setFont(font);
+		btCancelar.setActionCommand("btCancelar");
 		btCancelar.setBackground(new Color(224, 83, 76));
 		btCancelar.setForeground(new Color(230, 230, 230));
-		btCancelar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		//btCancelar.addActionListener(new ActionListener() {
+		//	public void actionPerformed(ActionEvent e) {
 				
-			}
-		});
+		//	}
+		//});
 		btCancelar.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		contentPane.add(btCancelar, "flowx,cell 14 8");
+	}
+	
+	public void addLoginListener(ActionListener listener) {
+		btCancelar.addActionListener(listener);
+		btVoltar.addActionListener(listener);
 	}
 
 }

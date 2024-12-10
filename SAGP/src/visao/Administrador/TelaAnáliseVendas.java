@@ -29,9 +29,10 @@ public class TelaAnáliseVendas extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
-	private JMenuItem mntmNewMenuItem_1;
-	private JMenuItem mntmNewMenuItem_3;
-	private JMenuItem mntmNewMenuItem_4;
+	private JMenuItem mFuncionario;
+	private JMenuItem mAnaliseVendas;
+	private JMenuItem mFuncionarios;
+	private JMenuItem mVoltarTelaInicial;
 	
 	public TelaAnáliseVendas(Funcionario f) {
 		
@@ -61,18 +62,18 @@ public class TelaAnáliseVendas extends JFrame {
 		menuBar.setBackground(new Color(230, 230, 230));
 		setJMenuBar(menuBar);
 		
-		JMenu mnNewMenu = new JMenu("Telas");
-		mnNewMenu.setFont(font);
-		mnNewMenu.setBackground(new Color(245, 245, 245));
-		menuBar.add(mnNewMenu);
+		JMenu mTelas = new JMenu("Telas");
+		mTelas.setFont(font);
+		mTelas.setBackground(new Color(245, 245, 245));
+		menuBar.add(mTelas);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Adminstrador");
-		mntmNewMenuItem.setFont(font);
-		mnNewMenu.add(mntmNewMenuItem);
+		JMenuItem mAdm = new JMenuItem("Adminstrador");
+		mAdm.setFont(font);
+		mTelas.add(mAdm);
 		
-		mntmNewMenuItem_1 = new JMenuItem("Funcionario");
-		mntmNewMenuItem_1.setActionCommand("mntmNewMenuItem_1");
-		mntmNewMenuItem_1.setFont(font);
+		mFuncionario = new JMenuItem("Funcionario");
+		mFuncionario.setActionCommand("mFuncionario");
+		mFuncionario.setFont(font);
 //		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
 //			
@@ -82,20 +83,20 @@ public class TelaAnáliseVendas extends JFrame {
 //			
 //			}
 //		});
-		mnNewMenu.add(mntmNewMenuItem_1);
+		mTelas.add(mFuncionario);
 		
-		JMenu mnNewMenu_1 = new JMenu("Opções");
-		mnNewMenu_1.setBackground(new Color(245, 245, 245));
-		menuBar.add(mnNewMenu_1);
+		JMenu mOpcoes = new JMenu("Opções");
+		mTelas.setBackground(new Color(245, 245, 245));
+		menuBar.add(mTelas);
 		
-		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Análise de vendas");
-		mntmNewMenuItem_2.setFont(font);
-		mnNewMenu_1.add(mntmNewMenuItem_2);
+		JMenuItem mAnaliseVendas = new JMenuItem("Análise de vendas");
+		mTelas.setFont(font);
+		mTelas.add(mAnaliseVendas);
 		
-	    mntmNewMenuItem_3 = new JMenuItem(" funcionarios");
-		mntmNewMenuItem_3.setActionCommand("mntmNewMenuItem_3");
+	    mFuncionarios = new JMenuItem(" funcionarios");
+	    mFuncionarios.setActionCommand("mFuncionarios");
 		
-		mntmNewMenuItem_3.setFont(font);
+	    mFuncionarios.setFont(font);
 //		mntmNewMenuItem_3.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
 //				
@@ -105,11 +106,11 @@ public class TelaAnáliseVendas extends JFrame {
 //				
 //			}
 //		});
-		mnNewMenu_1.add(mntmNewMenuItem_3);
+		mTelas.add(mFuncionarios);
 		
-		mntmNewMenuItem_4 = new JMenuItem("Voltar para a Tela Inicial");
-		mntmNewMenuItem_4.setBackground(new Color(245, 245, 245));
-		mntmNewMenuItem_4.setActionCommand("mntmNewMenuItem_4");
+		mVoltarTelaInicial = new JMenuItem("Voltar para a Tela Inicial");
+		mVoltarTelaInicial.setBackground(new Color(245, 245, 245));
+		mVoltarTelaInicial.setActionCommand("mVoltarTelaInicial");
 //		mntmNewMenuItem_4.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
 //			
@@ -119,7 +120,8 @@ public class TelaAnáliseVendas extends JFrame {
 //			
 //			}
 //		});
-		menuBar.add(mntmNewMenuItem_4);
+		menuBar.add(mVoltarTelaInicial);
+		
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(230, 230, 230));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -138,8 +140,8 @@ public class TelaAnáliseVendas extends JFrame {
 		panelTabelaVendas.setViewportView(table);
 	}
 	public void addAnaliseVendas(ActionListener listener) {
-		mntmNewMenuItem_1.addActionListener(listener);
-		mntmNewMenuItem_3.addActionListener(listener);
-		mntmNewMenuItem_4.addActionListener(listener);
+		mFuncionario.addActionListener(listener);
+		mFuncionarios.addActionListener(listener);
+		mVoltarTelaInicial.addActionListener(listener);
 	}
 }

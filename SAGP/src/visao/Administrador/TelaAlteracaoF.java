@@ -24,8 +24,9 @@ public class TelaAlteracaoF extends JFrame {
 	private JTextField txtNome;
 	private JTextField txtUsuario;
 	private JPasswordField txtSenha;
-	private JButton btSalvar;
-	private JButton btCancelar;
+	private RoundButton btSalvar;
+	private RoundButton btCancelar;
+	private RoundButton btLimpar;
 	
 
 	public TelaAlteracaoF(Funcionario f) {
@@ -107,9 +108,10 @@ public class TelaAlteracaoF extends JFrame {
 //			}
 //		});
 		
-				JButton btLimpar = new RoundButton("LIMPAR");
+		RoundButton btLimpar = new RoundButton("LIMPAR");
 				btLimpar.setText("Limpar");
 				btLimpar.setFont(font);
+				btLimpar.setActionCommand("btLimpar");
 				btLimpar.setForeground(new Color(245, 245, 245));
 				btLimpar.setBackground(new Color(224, 83, 76));
 				btLimpar.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -120,7 +122,7 @@ public class TelaAlteracaoF extends JFrame {
 
 		contentPane.add(btSalvar, "cell 6 10,alignx right,aligny center");
 
-		JButton btCancelar = new RoundButton("CANCELAR");
+		RoundButton btCancelar = new RoundButton("CANCELAR");
 		btCancelar.setText("Cancelar");
 		btCancelar.setFont(font);
 		btCancelar.setActionCommand("btCancelar");
@@ -155,5 +157,6 @@ public class TelaAlteracaoF extends JFrame {
 	public void addAlteracaoF(ActionListener listener) {
 		btSalvar.addActionListener(listener);
 		btCancelar.addActionListener(listener);
+		btLimpar.addActionListener(listener);
 	}
 }

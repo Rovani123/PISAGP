@@ -22,8 +22,9 @@ public class TelaInicial extends JFrame {
 
 	private JPanel painel;
 	private ImageIcon logo;
-	private JButton btCliente;
-	private JButton btLogin;
+	private RoundButton btCliente;
+	private RoundButton btLogin;
+	private RoundButton btSair;
 
 	public TelaInicial(Funcionario f) {
 		
@@ -55,12 +56,10 @@ public class TelaInicial extends JFrame {
 		setContentPane(painel);
 		painel.setLayout(new MigLayout("", "[grow][][grow][][][][][][][][][][][][][][][][][][][][][][][grow][][grow]", "[grow][120px][150px][grow]"));
 		
-		JButton btSair = new JButton("Sair");
+		RoundButton btSair = new RoundButton("Sair");
 		btSair.setFont(font);
-		btSair.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		btSair.setActionCommand("btSair");
+		
 		btSair.setIcon(new ImageIcon(TelaInicial.class.getResource("/Imagem/volte.png")));
 		painel.add(btSair, "cell 0 0");
 		
@@ -99,6 +98,7 @@ public class TelaInicial extends JFrame {
 	public void addInicialListener(ActionListener listener) {		
 		btCliente.addActionListener(listener);
 		btLogin.addActionListener(listener);
+		btSair.addActionListener(listener);
 	}
 
 }

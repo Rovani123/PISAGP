@@ -54,10 +54,10 @@ public class TelaGerenciamentoF extends JFrame {
 	private JMenuItem mAnaliseVendas;
 	private JMenuItem mGFuncionarios;
 	private JMenuItem mVoltar;
-	private JButton btAlterar;
-	private JButton btRemover;
-	private JButton btAdicionar;
-	private JButton btPesquisar;
+	private RoundButton btAlterar;
+	private RoundButton btRemover;
+	private RoundButton btAdicionar;
+	private RoundButton btPesquisar;
 	
 
 	public TelaGerenciamentoF(Funcionario f) {
@@ -264,11 +264,12 @@ public class TelaGerenciamentoF extends JFrame {
 		txtPesquisa.setColumns(10);
 		
 		btPesquisar = new RoundButton("");
+		btPesquisar.setFont(font);
 		btPesquisar.setActionCommand("btPesquisar");
-		btPesquisar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		//btPesquisar.addActionListener(new ActionListener() {
+			//public void actionPerformed(ActionEvent e) {
+			//}
+		//});
 		btPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btPesquisar.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/lupa.png")));
 		panelPesquisa.add(btPesquisar, "cell 19 0");
