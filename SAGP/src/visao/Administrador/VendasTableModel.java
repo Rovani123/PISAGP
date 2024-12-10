@@ -36,7 +36,7 @@ public class VendasTableModel extends AbstractTableModel{
 		case 0: 
 			return v.getIdVenda();
 		case 1:
-			return v.getFuncionario();
+			return v.getFuncionario().getNome();
 		case 2:
 			return v.getMetodoPagamento();
 		case 3:

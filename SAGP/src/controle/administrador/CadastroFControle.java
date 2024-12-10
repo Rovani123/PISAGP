@@ -6,11 +6,12 @@ import java.sql.SQLException;
 
 import modelo.classes.Funcionario;
 import modelo.dao.FuncionarioDAO;
+import visao.TelaInicial;
 import visao.Administrador.TelaAlteracaoF;
 import visao.Administrador.TelaCadastroF;
 
 public class CadastroFControle {
-	private TelaCadastroF tcf;
+	private TelaCadastroF view;
 	private Funcionario f;
 	private String nome;
 	private String usuario;
@@ -18,8 +19,8 @@ public class CadastroFControle {
 	
 	public CadastroFControle (Funcionario f) {
 		this.f =f;
-		tcf = new TelaCadastroF(f);
-		tcf.setVisible(true);
+		view = new TelaCadastroF(f);
+		view.setVisible(true);
 		listeners();
 	}
 
@@ -28,29 +29,21 @@ public class CadastroFControle {
 		public void actionPerformed(ActionEvent e) {
 			switch (e.getActionCommand()) {
 			case "btCadastrar":
-				tcf.dispose();
-				try {
-					cadastrarFuncionario();
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				new GerenciamentoFControle(f);
-				//mensagem
+				cadastrarFuncionario();
 				break;
 				
 			case "btLimpar":
-			     tcf.limpar();
+			     view.limpar();
 				break;
 				
 				
 			case "btCancelar":
-				tcf.dispose();
+				view.dispose();
 				new GerenciamentoFControle(f);
 				break;
 				
 			case "btEntrar":
-//				 Jesus vai fazer
+				 entrar();
 				break;
 			}
 			
@@ -60,16 +53,46 @@ public class CadastroFControle {
 	
 	
 	private void listeners() {
-		tcf.addCadastroF(new CadastroF());
+		view.addCadastroF(new CadastroF());
 	}
 
 
-	public void cadastrarFuncionario() throws SQLException {
-//		nome =tcf.getNome();
-//		usuario =tcf.getUsuario();
-//		senha =tcf.getSenha();
+	private void entrar() {
+		nome =view.getNome();
+		usuario =view.getUsuario();
+		senha =view.getSenha();
 		
-		new FuncionarioDAO().cadastrarFuncionario(nome, usuario, senha);
+		if(nome.isEmpty() && usuario.isEmpty() && senha.isEmpty()) {
+			//mensagem
+		}else {
+			try {
+				new FuncionarioDAO().cadastrarFuncionario(nome, usuario, senha);
+				view.dispose();
+				new GerenciamentoFControle(f);
+				//mensagem
+			} catch (SQLException e) {
+				// Mensagem
+			}
+		}
+//		Funcionario novoFuncionario = new FuncionarioDAO().get
+//		new TelaInicial(novoFuncionario);
+	}
+
+
+	private void cadastrarFuncionario()  {
+		nome =view.getNome();
+		usuario =view.getUsuario();
+		senha =view.getSenha();
+		
+		if(nome.isEmpty() && usuario.isEmpty() && senha.isEmpty()) {
+			//mensagem
+		}else {
+			try {
+				new FuncionarioDAO().cadastrarFuncionario(nome, usuario, senha);
+			} catch (SQLException e) {
+				// Mensagem
+			}
+		}
 		
 	}
 	

@@ -18,6 +18,7 @@ import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
 import modelo.classes.Funcionario;
+import modelo.dao.VendaDAO;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
 import visao.TelaInicial;
@@ -29,10 +30,16 @@ public class TelaAnáliseVendas extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
-	private JMenuItem mFuncionario;
-	private JMenuItem mAnaliseVendas;
 	private JMenuItem mFuncionarios;
 	private JMenuItem mVoltarTelaInicial;
+	private JMenuBar menuBar;
+	private JMenu mTelas;
+	private JMenuItem mAdm;
+	private JMenuItem mFuncionario;
+	private JMenu mOpcoes;
+	private JMenuItem mAnaliseVendas;
+	private JMenuItem mGFuncionarios;
+	private JMenuItem mVoltar;
 	
 	public TelaAnáliseVendas(Funcionario f) {
 		
@@ -52,75 +59,48 @@ public class TelaAnáliseVendas extends JFrame {
 		
 		setTitle("Tela de análise das vendas");
 		setExtendedState(MAXIMIZED_BOTH);
-		TelaAnáliseVendas tela = this;
 		setResizable(false);
 		setBackground(new Color(230, 230, 230));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 846, 566);
 		
-		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBackground(new Color(230, 230, 230));
+		menuBar = new JMenuBar();
+		menuBar.setFont(font);
 		setJMenuBar(menuBar);
 		
-		JMenu mTelas = new JMenu("Telas");
+		mTelas = new JMenu("Telas");
 		mTelas.setFont(font);
-		mTelas.setBackground(new Color(245, 245, 245));
 		menuBar.add(mTelas);
 		
-		JMenuItem mAdm = new JMenuItem("Adminstrador");
+		mAdm = new JMenuItem("Administrador");
 		mAdm.setFont(font);
+		mAdm.setEnabled(false);
 		mTelas.add(mAdm);
 		
-		mFuncionario = new JMenuItem("Funcionario");
-		mFuncionario.setActionCommand("mFuncionario");
+		mFuncionario = new JMenuItem("Funcionário");
 		mFuncionario.setFont(font);
-//		mntmNewMenuItem_1.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//			
-//				TelaGerenciamentoP TelaP = new TelaGerenciamentoP(tela, f);
-//				dispose();
-//				TelaP.setVisible(true);
-//			
-//			}
-//		});
+		mFuncionario.setActionCommand("mFuncionario");
 		mTelas.add(mFuncionario);
 		
-		JMenu mOpcoes = new JMenu("Opções");
-		mTelas.setBackground(new Color(245, 245, 245));
-		menuBar.add(mTelas);
+		mOpcoes = new JMenu("Opções");
+		mOpcoes.setFont(font);
+		menuBar.add(mOpcoes);
 		
-		JMenuItem mAnaliseVendas = new JMenuItem("Análise de vendas");
-		mTelas.setFont(font);
-		mTelas.add(mAnaliseVendas);
+		mAnaliseVendas = new JMenuItem("Análise de vendas");
+		mAnaliseVendas.setEnabled(false);
+		mAnaliseVendas.setFont(font);
+		mAnaliseVendas.setActionCommand("mAnaliseVendas");
+		mOpcoes.add(mAnaliseVendas);
 		
-	    mFuncionarios = new JMenuItem(" funcionarios");
-	    mFuncionarios.setActionCommand("mFuncionarios");
+		mGFuncionarios = new JMenuItem(" Funcionarios");
+		mGFuncionarios.setFont(font);
+		mGFuncionarios.setActionCommand("mGFuncionarios");
+		mOpcoes.add(mGFuncionarios);
 		
-	    mFuncionarios.setFont(font);
-//		mntmNewMenuItem_3.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				
-//				TelaGerenciamentoF TelaG = new TelaGerenciamentoF(tela, f);
-//				dispose();
-//				TelaG.setVisible(true);
-//				
-//			}
-//		});
-		mTelas.add(mFuncionarios);
-		
-		mVoltarTelaInicial = new JMenuItem("Voltar para a Tela Inicial");
-		mVoltarTelaInicial.setBackground(new Color(245, 245, 245));
-		mVoltarTelaInicial.setActionCommand("mVoltarTelaInicial");
-//		mntmNewMenuItem_4.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//			
-//				TelaInicial telaI = new TelaInicial();
-//				dispose();
-//				telaI.setVisible(true);
-//			
-//			}
-//		});
-		menuBar.add(mVoltarTelaInicial);
+		mVoltar = new JMenuItem("Voltar ao inicio");
+		mVoltar.setFont(font);
+		mVoltar.setActionCommand("mVoltar");
+		menuBar.add(mVoltar);;
 		
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(230, 230, 230));
@@ -141,7 +121,11 @@ public class TelaAnáliseVendas extends JFrame {
 	}
 	public void addAnaliseVendas(ActionListener listener) {
 		mFuncionario.addActionListener(listener);
-		mFuncionarios.addActionListener(listener);
-		mVoltarTelaInicial.addActionListener(listener);
+		mVoltar.addActionListener(listener);
+		mGFuncionarios.addActionListener(listener);
+	}
+	
+	public void setTabela(VendasTableModel model) {
+		table.setModel(model);
 	}
 }

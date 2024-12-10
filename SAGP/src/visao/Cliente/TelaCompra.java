@@ -2,61 +2,34 @@ package visao.Cliente;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.FontFormatException;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-
-import modelo.classes.Carrinho;
 import modelo.classes.Funcionario;
-import modelo.classes.Produto;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
 
 public class TelaCompra extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	private JPanel painelPrincipal;
 	private JTextField txtPesquisa;
-	private JScrollPane scrollPane;
-	private JPanel painelMenu;
 	private RoundButton btCarrinho;
-	private RoundButton btVoltar;
+	private RoundButton btSair;
 	private RoundButton btSalgados;
-	private JLabel lblCategorias;
 	private RoundButton btDoces;
 	private RoundButton btBebidas;
-	private RoundButton btOfertas;
 	private JPanel painelProdutos;
-	private JLabel lblLogo;
-	private ArrayList<Produto> listaProdutos;
-	private ArrayList<Carrinho> listaCarrinhos = new ArrayList<Carrinho>();
-	private ArrayList<Carrinho> listaCarrinhosCompra = new ArrayList<Carrinho>();
-	private JLabel lblNewLabel;
-	private JLabel lblNewLabel_1;
-	private JLabel lblNewLabel_2;
-	private JLabel lblNewLabel_3;
 	private JPanel painel;
-	private JTable table;
-	private JMenuItem mVoltar;
-	private JPanel contentPane;
+	private RoundButton btPesquisar;
 
 	public TelaCompra(Funcionario f) {
 		
@@ -90,16 +63,11 @@ public class TelaCompra extends JFrame {
 		painel.add(BarraLateral, BorderLayout.WEST);
 		BarraLateral.setLayout(new MigLayout("", "[]", "[][grow 50][][][grow 50][][][][][grow 50][grow][][grow][]"));
 		
-		RoundButton btSair = new RoundButton("Sair");
+		btSair = new RoundButton("Sair");
 		btSair.setFont(font);
 		btSair.setBackground(new Color(245, 245, 245));
 		btSair.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/volte.png")));
-		btSair.setActionCommand("btVoltar");
-		//btSair.addActionListener(new ActionListener() {
-		//	public void actionPerformed(ActionEvent e) {
-//				
-		//	}
-		//});
+		btSair.setActionCommand("btSair");
 		BarraLateral.add(btSair, "cell 0 0");
 		
 		JLabel lblLogo = new JLabel("");
@@ -121,38 +89,17 @@ public class TelaCompra extends JFrame {
 		btBebidas = new RoundButton("Bebidas");
 		btBebidas.setFont(font);
 		btBebidas.setActionCommand("btBebidas");
-		//btBebidas.addActionListener(new ActionListener() {
-		//	public void actionPerformed(ActionEvent e) {
-		//	}
-		//});
 		btBebidas.setFont(new Font("Dialog", Font.PLAIN, 20));
-		//btBebidas.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btBebidas.setText("Bebidas");
 		btBebidas.setForeground(new Color(245, 245, 245));
 		btBebidas.setBackground(new Color(224, 83, 76));
-		//btBebidas.addActionListener(new ActionListener() {
-		//public void actionPerformed(ActionEvent e) {
-			
-		//}
-      //});
 		BarraLateral.add(btBebidas, "cell 0 8,growx,aligny center");
 		
 		btDoces = new RoundButton("Doce");
 		btDoces.setFont(font);
 		btDoces.setActionCommand("btDoces");
-		//btDoces.addActionListener(new ActionListener() {
-		//	public void actionPerformed(ActionEvent e) {
-				
-		//	}
-		//});
 		btDoces.setFont(new Font("Dialog", Font.PLAIN, 20));
-		//btDoces.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btDoces.setText("Doces");
-		//btDoces.addActionListener(new ActionListener() {
-		//public void actionPerformed(ActionEvent e) {
-			
-		//}
-	//});
 		btDoces.setForeground(new Color(245, 245, 245));
 		btDoces.setBackground(new Color(224, 83, 76));
 		BarraLateral.add(btDoces, "cell 0 7,growx,aligny center");
@@ -163,29 +110,14 @@ public class TelaCompra extends JFrame {
 		btSalgados.setText("Salgados");
 		btSalgados.setForeground(new Color(245, 245, 245));
 		btSalgados.setBackground(new Color(224, 83, 76));
-		//btSalgados.addActionListener(new ActionListener() {
-		//	public void actionPerformed(ActionEvent e) {
-		//	}
-		//});
 		btSalgados.setFont(new Font("Dialog", Font.PLAIN, 20));
-        //btSalgados.addActionListener(new ActionListener() {
-		//	public void actionPerformed(ActionEvent e) {
-                
-		//	}
-		//});
 		BarraLateral.add(btSalgados, "cell 0 6,growx,aligny center");
 		
-		RoundButton btCarrinho = new RoundButton("Carrinho");
+		btCarrinho = new RoundButton("Carrinho");
 		btCarrinho.setFont(font);
 		btCarrinho.setActionCommand("btCarrinho");
 		btCarrinho.setForeground(new Color(0, 0, 0));
-		//btCarrinho.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btCarrinho.setBackground(new Color(245, 245, 245));
-		//btCarrinho.addActionListener(new ActionListener() {
-		//	public void actionPerformed(ActionEvent e) {
-				
-		//	}
-		//});
 		btCarrinho.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/carrinho-de-compras.png")));
 		BarraLateral.add(btCarrinho, "cell 0 10,growx,aligny center");
 		
@@ -206,40 +138,47 @@ public class TelaCompra extends JFrame {
 		panelPesquisa.add(txtPesquisa, "flowx,cell 0 0 22 1,grow");
 		txtPesquisa.setColumns(10);
 		
-		RoundButton btnPesquisar = new RoundButton("");
-		//btnPesquisar.addActionListener(new ActionListener() {
-		//	public void actionPerformed(ActionEvent e) {
-		//	}
-		//});
-		btnPesquisar.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/lupa.png")));
-		panelPesquisa.add(btnPesquisar, "cell 23 0");
-		
-		RoundButton btPesquisar = new RoundButton("");
-		btPesquisar.setBackground(new Color(230, 230, 230));
-		btPesquisar.setText("");
-		btPesquisar.setActionCommand("btPesquisar");
-		panelPesquisa.add(btPesquisar, "cell 13 0");
-		//btPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btPesquisar = new RoundButton("");
 		btPesquisar.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/lupa.png")));
+		btPesquisar.setActionCommand("btPesquisar");
+		panelPesquisa.add(btPesquisar, "cell 23 0");
 		
 		JScrollPane painelCompra = new JScrollPane();
 		panel_2.add(painelCompra, BorderLayout.CENTER);
 		
-		table = new JTable();
-		painelCompra.setViewportView(table);
+		painelProdutos = new JPanel();
+		painelCompra.setViewportView(painelProdutos);
+		painelProdutos.setLayout(new MigLayout("", "[center]", "[]"));
 	
 	}
 	public void  addCompraListner(ActionListener listener) {
 		btSalgados.addActionListener(listener);
 		btDoces.addActionListener(listener);
 		btBebidas.addActionListener(listener);
-		btOfertas.addActionListener(listener);
-		btVoltar.addActionListener(listener);
+		btSair.addActionListener(listener);
 		btCarrinho.addActionListener(listener);
 	}
 	
 	public void addPainelProdutos(PainelProduto pp, int l, int c) {
-		painelProdutos.add(pp, "cell " + l + " " + c);
+		painelProdutos.add(pp, "cell "+l+" "+c+" ");
+	}
+	
+	public void setBackgroundcolor(String botao, Color color) {
+		switch (botao) {
+		case "btSalgados":
+			btSalgados.setBackground(color);
+			break;
+		case "btDoces":
+			btDoces.setBackground(color);
+			break;
+		case "btBebidas":
+			btBebidas.setBackground(color);
+			break;
+		}
+	}
+	
+	public void resetPainel() {
+		painelProdutos.removeAll();
 	}
 	
 //	private void getProdutos() {
@@ -292,11 +231,4 @@ public class TelaCompra extends JFrame {
 //			}
 //		}
 //	}
-
-
-
-	//private static void addPopup(Component component, final JPopupMenu popup) {
-	//}
-//}
-
 }

@@ -14,7 +14,7 @@ import visao.Funcionário.TelaCadastroP;
 import visaoTelasDeAviso.MensagemView;
 
 public class CadastroPControle {
-	private TelaCadastroP tcp;
+	private TelaCadastroP view;
 	private Funcionario f;
 	private String nome;
 	private float preco;
@@ -24,8 +24,8 @@ public class CadastroPControle {
 	
 	public CadastroPControle(Funcionario f) {
 		this.f = f;
-		tcp = new TelaCadastroP(f);
-		tcp.setVisible(true);
+		view = new TelaCadastroP(f);
+		view.setVisible(true);
 		listeners();
 	}
 	
@@ -39,11 +39,11 @@ public class CadastroPControle {
 				Imagem();
 				break;
 			case "btLimpa":
-				tcp.limpar();
+				view.limpar();
 				break;
 			case"btCancelar":
 				new GerenciamentoPControle(f);
-				tcp.dispose();
+				view.dispose();
 				break;
 			}
 		}
@@ -51,15 +51,15 @@ public class CadastroPControle {
 	}
 	
 	private void listeners() {
-		tcp.addCadastroP(new CadastroPListeners());
+		view.addCadastroP(new CadastroPListeners());
 	}
 	
 	private void Salvar() {
 		try {
-		nome = tcp.getNome();
-		preco = Float.parseFloat(tcp.getPreco());
-		quantidade = Integer.parseInt(tcp.getQuantidade());
-		categoria = tcp.getCategoria();
+		nome = view.getNome();
+		preco = Float.parseFloat(view.getPreco());
+		quantidade = Integer.parseInt(view.getQuantidade());
+		categoria = view.getCategoria();
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -67,9 +67,8 @@ public class CadastroPControle {
 			//Todos os campos precisam ser preenchidos
 	} else {
 		try {
-			ProdutoDAO dao = new ProdutoDAO();
-			dao.cadastrarProduto(nome, preco, quantidade, categoria.toString(), fin);
-			tcp.dispose();
+			new ProdutoDAO().cadastrarProduto(nome, preco, quantidade, categoria.toString(), fin);
+			view.dispose();
 			new GerenciamentoPControle(f);
 			new MensagemView("Produto cadastrado com sucesso!",0);
 		} catch (SQLException e) {

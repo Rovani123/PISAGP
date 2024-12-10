@@ -7,6 +7,7 @@ import java.awt.event.WindowEvent;
 
 import javax.swing.JOptionPane;
 
+import controle.inicio.TelaInicialControle;
 import modelo.classes.Funcionario;
 import modelo.dao.VendaDAO;
 import visao.Administrador.TelaAnáliseVendas;
@@ -22,20 +23,21 @@ public class AnaliseVendasControle {
 		view = new TelaAnáliseVendas(f);
 		view.setVisible(true);
 		listeners();
-		teste();
 	}
-
-	private void teste() {
-		System.out.println(new VendaDAO().getVendas());
-	}
+	
 
 	private class AnaliseVendas implements ActionListener{
-		
 		public void actionPerformed(ActionEvent e) {
+			switch (e.getActionCommand()) {
+				case"mVoltar":
+					view.dispose();
+					new TelaInicialControle(f);
+					break;
+				
 			
+			}
 			
 		}
-		
 	}
 	
 	
@@ -50,6 +52,6 @@ public class AnaliseVendasControle {
 	
 	private void carregarDados() {
 		VendasTableModel model = new VendasTableModel(new VendaDAO().getVendas());
-//		view.setTabela(model);
+		view.setTabela(model);
 	}
 }

@@ -23,28 +23,24 @@ public class VendaDAO extends ModeloDAO{
 		try {
 			stml = (Statement) conn.createStatement();
 			ResultSet reslt = null;
-			ResultSet funcionario=null;
-			reslt = stml.executeQuery("SELECT * FROM Vendas");
+			reslt = stml.executeQuery("select * from Vendas v Inner join Funcionarios f on v.idFuncionario = f.idFuncionario;");
 			
 			while(reslt.next())
 			{
 				Vendas v = new Vendas();
 				v.setIdVenda(reslt.getInt("idVenda"));
-				funcionario = stml.executeQuery("SELECT * FROM Funcionarios where idFuncionario = '"+reslt.getInt("idFuncionario")+"'");
-				while(funcionario.next()) {
-					Funcionario f = new Funcionario();
-					f.setIdFuncionario(funcionario.getInt("idFuncionario"));
-					f.setNome(funcionario.getString("nomeFuncionario"));
-					f.setUsuarioFuncionario(funcionario.getString("usuarioFuncionario"));
-					f.setSenha(funcionario.getString("senha"));
-					f.setadministrador(funcionario.getInt("administrador"));
-					v.setFuncionario(f);
-				}
+				Funcionario f = new Funcionario();
+				f.setIdFuncionario(reslt.getInt("idFuncionario"));
+				f.setNome(reslt.getString("nomeFuncionario"));
+				f.setUsuarioFuncionario(reslt.getString("usuarioFuncionario"));
+				f.setSenha(reslt.getString("senha"));
+				f.setadministrador(reslt.getInt("administrador"));
+				v.setFuncionario(f);
+				
 				v.setMetodoPagamento(reslt.getString("metodoPagamento"));
 				v.setTotal(reslt.getFloat("Total"));
 				lista.add(v);
 			}
-			funcionario.close();
 			reslt.close();
 			stml.close();
 			conn.close();

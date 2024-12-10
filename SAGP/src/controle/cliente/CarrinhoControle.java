@@ -7,31 +7,34 @@ import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 import modelo.classes.Carrinho;
+import modelo.classes.Funcionario;
 import visao.Cliente.PainelProduto;
 import visao.Cliente.TelaClienteCarrinho;
 import visaoTelasDeAviso.MensagemView;
 
 public class CarrinhoControle {
-	TelaClienteCarrinho tcc;
+	private TelaClienteCarrinho view;
 	private PainelProduto pp;
+	private Funcionario f;
 	private ArrayList<Carrinho> listaCarrinhos;
 	private ArrayList<Carrinho> listaCarrinhosFinal = new ArrayList<Carrinho>();
 	
-	public CarrinhoControle(ArrayList<Carrinho> listaCarrinhosCompra) {
+	public CarrinhoControle(Funcionario f,ArrayList<Carrinho> listaCarrinhosCompra) {
+		this.f =f;
 		this.listaCarrinhos = listaCarrinhosCompra;
-		tcc = new TelaClienteCarrinho(listaCarrinhosCompra);
-		tcc.setVisible(true);
+		view = new TelaClienteCarrinho(listaCarrinhosCompra);
+		view.setVisible(true);
 		listeners();
 	}
 	private class CarrinhoListeners implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			switch (e.getActionCommand()) {
 			case "btVoltar":
-				tcc.dispose();
-				new CompraControle(listaCarrinhos);
+				view.dispose();
+				new CompraControle(null, listaCarrinhos);
 				break;
 			case "btFinalizarCompra":
-				tcc.dispose();
+				view.dispose();
 				if (listaCarrinhosFinal.size() == 0) {
 					for (Carrinho carrinho : listaCarrinhos) {
 						if (carrinho.getQuantidade() > 0) {
@@ -39,7 +42,7 @@ public class CarrinhoControle {
 					}
 				}
 				}
-				new ClienteFormaPagamentoControle(listaCarrinhosFinal);
+				new ClienteFormaPagamentoControle(f,listaCarrinhosFinal);
 				break;
 			
 			}
@@ -74,15 +77,15 @@ public class CarrinhoControle {
 	}
 	
 	private void listeners() {
-		tcc.addCarrinhoListeners(new CarrinhoListeners());
-		tcc.addWindowListener(new WindowAdapter() {
+		view.addCarrinhoListeners(new CarrinhoListeners());
+		view.addWindowListener(new WindowAdapter() {
 			public void windowOpened(WindowEvent e) {
-				tcc.setLblValorTotal(String.valueOf(calcTotal()));
+				view.setLblValorTotal(String.valueOf(calcTotal()));
 				int cont =0;
 				for (Carrinho c : listaCarrinhos) {
 					pp = new PainelProduto(c.getProduto(),c);
 					pp.addPainelProdutoListeners(new PainelListeners(pp));
-					tcc.addPainelProdutos(pp, c.getProduto().getIdProduto()-1, 0);
+					view.addPainelProdutos(pp, c.getProduto().getIdProduto()-1, 0);
 					cont++;
 				}
 			}

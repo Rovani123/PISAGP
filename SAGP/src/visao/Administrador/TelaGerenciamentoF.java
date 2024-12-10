@@ -85,13 +85,6 @@ public class TelaGerenciamentoF extends JFrame {
 		mFuncionario = new JMenuItem("Funcionário");
 		mFuncionario.setFont(font);
 		mFuncionario.setActionCommand("mFuncionario");
-//		mFuncionario.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				TelaGerenciamentoF telaG = new TelaGerenciamentoF(tela,f);
-//				dispose();
-//				telaG.setVisible(true);
-//			}
-//		});
 		mTelas.add(mFuncionario);
 		
 		mOpcoes = new JMenu("Opções");
@@ -101,13 +94,6 @@ public class TelaGerenciamentoF extends JFrame {
 		mAnaliseVendas = new JMenuItem("Análise de vendas");
 		mAnaliseVendas.setFont(font);
 		mAnaliseVendas.setActionCommand("mAnaliseVendas");
-	//	mAnaliseVendas.addActionListener(new ActionListener() {
-	//		public void actionPerformed(ActionEvent e) {
-	//			TelaAnáliseVendas telaAV = new TelaAnáliseVendas(tela,f);
-	//			dispose();
-	//			telaAV.setVisible(true);
-	//		}
-	//	});
 		mOpcoes.add(mAnaliseVendas);
 		
 		mGFuncionarios = new JMenuItem(" Funcionarios");
@@ -118,13 +104,6 @@ public class TelaGerenciamentoF extends JFrame {
 		mVoltar = new JMenuItem("Voltar ao inicio");
 		mVoltar.setFont(font);
 		mVoltar.setActionCommand("mVoltar");
-//		mVoltar.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				TelaInicial telaI = new TelaInicial();
-//				dispose();
-//				telaI.setVisible(true);
-//			}
-//		});
 		menuBar.add(mVoltar);
 		painel = new JPanel();
 		painel.setBackground(new Color(230, 230, 230));

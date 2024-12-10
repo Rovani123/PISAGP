@@ -14,13 +14,13 @@ import visao.Administrador.FuncionariosTableModel;
 import visao.Administrador.TelaGerenciamentoF;
 
 public class GerenciamentoFControle {
-	private TelaGerenciamentoF tgf;
+	private TelaGerenciamentoF view;
 	private Funcionario f;
 	
 	public GerenciamentoFControle(Funcionario f) {
 		this.f =f;
-		tgf = new TelaGerenciamentoF(f);
-		tgf.setVisible(true);
+		view = new TelaGerenciamentoF(f);
+		view.setVisible(true);
 		listeners();
 		
 	}
@@ -29,27 +29,27 @@ public class GerenciamentoFControle {
 		public void actionPerformed(ActionEvent e) {
 			switch(e.getActionCommand()) {
 			case "mVoltar":
-				tgf.dispose();
+				view.dispose();
 				new TelaInicialControle(f);
 				break;
 			case "btRemover":
 				remover();
 				break;
 			case "mFuncionario":
-				tgf.dispose();
+				view.dispose();
 				new GerenciamentoPControle(f);
 				break;
 			case "btAdicionar":
-				tgf.dispose();
-				System.out.println("btAdicionar");
+				view.dispose();
+				new CadastroFControle(f);
 				break;
 			case "btAlterar":
-				tgf.dispose();
-				System.out.println("btAlterar");
+				view.dispose();
+				alterar();
 				break;
 			case "mAnaliseVendas":
-				tgf.dispose();
-				System.out.println("mAnaliseVendas");
+				view.dispose();
+				new AnaliseVendasControle(f);
 				break;
 			case "btPesquisar":
 				System.out.println("btPesquisar");
@@ -57,17 +57,23 @@ public class GerenciamentoFControle {
 			}
 		}
 	}
+	
 	private void listeners() {
-		tgf.addGerenciamentoFListener(new GerenciamentoFListeners());
-		tgf.addWindowListener(new WindowAdapter() {
+		view.addGerenciamentoFListener(new GerenciamentoFListeners());
+		view.addWindowListener(new WindowAdapter() {
 			public void windowOpened(WindowEvent e) {
 				carregarProdutos();
 			}
 		});
 	}
 	
+	private void alterar() {
+		Funcionario fselecionado =view.getItemTabela();
+		new AlterarFControle(f, fselecionado);
+	}
+
 	private void remover() {
-		Funcionario f =tgf.getItemTabela();
+		Funcionario f =view.getItemTabela();
 		try {
 			new FuncionarioDAO().deletarFuncionario(f);
 			carregarProdutos();
@@ -80,6 +86,6 @@ public class GerenciamentoFControle {
 	
 	private void carregarProdutos() {
 		FuncionariosTableModel model = new FuncionariosTableModel(new FuncionarioDAO().getFuncionarios());
-		tgf.setTabela(model);
+		view.setTabela(model);
 	}
 }

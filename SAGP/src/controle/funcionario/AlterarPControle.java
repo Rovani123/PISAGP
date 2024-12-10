@@ -21,33 +21,33 @@ import visao.Funcionário.TelaGerenciamentoP;
 import visaoTelasDeAviso.MensagemView;
 
 public class AlterarPControle {
-	private TelaAlteracaoP tap;
+	private TelaAlteracaoP view;
 	private Funcionario f;
 	private Produto p;
 	
 	public AlterarPControle(Funcionario f, Produto p){
 		this.f = f;
 		this.p =p;
-		tap = new TelaAlteracaoP(p,f);
-		tap.setVisible(true);
+		view = new TelaAlteracaoP(p,f);
+		view.setVisible(true);
 		listerners();
 		
 	}
 
 	private void listerners() {
-		tap.addAlteracaoPListener(new  AlterarPListener());
-		tap.addWindowListener(new WindowAdapter() {
+		view.addAlteracaoPListener(new  AlterarPListener());
+		view.addWindowListener(new WindowAdapter() {
 			public void windowOpened(WindowEvent e) {
-				tap.setCampos(p);
+				view.setCampos(p);
 			}
 		});
 	}
 	
-	public class AlterarPListener implements ActionListener {
+	private class AlterarPListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			switch(e.getActionCommand()) {
 			case "btLimpa":
-				tap.limpa();
+				view.limpa();
 				break;
 			case "btSalvar":
 				salvar();
@@ -57,15 +57,15 @@ public class AlterarPControle {
 			}
 		}
 	}
+	
 	private void salvar() {
-		p.setNomeProduto(tap.getNome());
-		p.setPreco(Float.parseFloat(tap.getPreco()));
-		p.setQuantidadeEstoque(Integer.parseInt(tap.getQuantidade()));
-		p.setCategoria(tap.getCategoria());
-		ProdutoDAO dao = new ProdutoDAO();
+		p.setNomeProduto(view.getNome());
+		p.setPreco(Float.parseFloat(view.getPreco()));
+		p.setQuantidadeEstoque(Integer.parseInt(view.getQuantidade()));
+		p.setCategoria(view.getCategoria());
 		try {
-			dao.alterarProduto(p);
-			tap.dispose();
+			new ProdutoDAO().alterarProduto(p);;
+			view.dispose();
 			new GerenciamentoPControle(f);
 			new MensagemView("Produto alterado com sucesso!",0);
 		} catch (SQLException e) {
@@ -73,11 +73,12 @@ public class AlterarPControle {
 			new MensagemView("não foi possível alterar esse produto!",0);
 		}
 	}
+	
 	private void cancelar() {
-		tap.dispose();
+		view.dispose();
 		new GerenciamentoPControle(f);
 	}
 
-	}
+}
 
 

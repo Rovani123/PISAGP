@@ -7,20 +7,23 @@ import java.awt.event.WindowEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import modelo.classes.Carrinho;
+import modelo.classes.Funcionario;
 import modelo.classes.Vendas;
 import modelo.dao.CarrinhoDAO;
 import visao.Cliente.TelaClienteFormaPagamento;
 import visaoTelasDeAviso.MensagemView;
 
 public class ClienteFormaPagamentoControle {
-	TelaClienteFormaPagamento tcfp;
+	private TelaClienteFormaPagamento view;
+	private Funcionario f;
 	private Vendas v;
 	private ArrayList<Carrinho> listaCarrinhos;
 	
-	public ClienteFormaPagamentoControle(ArrayList<Carrinho> listaCarrinhos) {
+	public ClienteFormaPagamentoControle(Funcionario f,ArrayList<Carrinho> listaCarrinhos) {
+		this.f=f;
 		this.listaCarrinhos = listaCarrinhos;
-		tcfp = new TelaClienteFormaPagamento();
-		tcfp.setVisible(true);
+		view = new TelaClienteFormaPagamento();
+		view.setVisible(true);
 		listeners();
 	}
 	
@@ -29,23 +32,20 @@ public class ClienteFormaPagamentoControle {
 			switch (e.getActionCommand()) {
 			case "btCancelar":
 				//Confirmação
-				tcfp.dispose();
-				new CompraControle(null);
+				view.dispose();
+				new CompraControle(f, listaCarrinhos);
 				break;
 			case "btConfirmar":
 				criarVenda();
-				CarrinhoDAO dao = new CarrinhoDAO();
 				try {
-					dao.cadastrarVenda(v);
+					new CarrinhoDAO().cadastrarVenda(v,f);
 					for (Carrinho c : listaCarrinhos) {
-						CarrinhoDAO dao2 = new CarrinhoDAO();
-						dao2.cadastrarCarrinho(c);
+						new CarrinhoDAO().cadastrarCarrinho(c);
 					}
 					
 				} catch (SQLException e1) {
 					e1.printStackTrace();
 					new MensagemView("Compra nao efetuada, tente novamente",0);
-					//não foi posivel efetuar a compra, tente novamente
 				}
 				break;
 			}
@@ -55,10 +55,10 @@ public class ClienteFormaPagamentoControle {
 	
 	
 	private void listeners() {
-		tcfp.addFormaPagamentoListeners(new FormaPagamentoListeners());
-		tcfp.addWindowListener(new WindowAdapter() {
+		view.addFormaPagamentoListeners(new FormaPagamentoListeners());
+		view.addWindowListener(new WindowAdapter() {
 			public void windowOpened(WindowEvent e) {
-				tcfp.setLblTotal(String.valueOf(calcTotal()));
+				view.setLblTotal(String.valueOf(calcTotal()));
 			}
 		});
 	}
@@ -73,7 +73,7 @@ public class ClienteFormaPagamentoControle {
 	
 	private void criarVenda() {
 		v= new Vendas();
-		v.setMetodoPagamento(tcfp.getCbMetodoPagamento());
+		v.setMetodoPagamento(view.getCbMetodoPagamento());
 		v.setTotal(calcTotal());
 	}
 }

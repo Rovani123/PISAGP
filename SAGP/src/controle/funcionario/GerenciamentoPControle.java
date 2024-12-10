@@ -65,7 +65,7 @@ public class GerenciamentoPControle {
 				break;
 			case "mCliente":
 				view.dispose();
-				new CompraControle(null);
+				new CompraControle(f,null);
 				break;
 			}
 		}
@@ -152,9 +152,8 @@ public class GerenciamentoPControle {
 	private void  btRemover() {
 		try {
 			Produto p = view.getItemTabela();
-			ProdutoDAO dao = new ProdutoDAO();
 			try {
-				dao.deletarProduto(p);
+				new ProdutoDAO().deletarProduto(p);
 				// operação realizada com sucesso
 			} catch (SQLException e1) {
 				e1.printStackTrace();

@@ -63,16 +63,13 @@ public class TelaCadastroF extends JFrame {
 		
 		JLabel lblCadastre = new JLabel("Cadastre um Funcionário:");
 		lblCadastre.setFont(font);
-		//lblCadastre.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		painel.add(lblCadastre, "cell 3 4 9 1,alignx center");
 		
 		JLabel lblUsuario = new JLabel("Usuário:");
 		lblUsuario.setFont(font);
-		//lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		painel.add(lblUsuario, "cell 3 5,alignx left");
 		
 		txtUsuario = new JTextField();
-		//txtUsuario.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		txtUsuario.setForeground(new Color(128, 128, 128));
 		txtUsuario.setText("Coloque o seu usuario para cadastar");
 		txtUsuario.setFont(font);
@@ -81,11 +78,9 @@ public class TelaCadastroF extends JFrame {
 		
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setFont(font);
-		//lblNome.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		painel.add(lblNome, "cell 3 7,alignx left");
 		
 		txtNome = new JTextField();
-		//txtNome.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		txtNome.setForeground(new Color(128, 128, 128));
 		txtNome.setText("Entre com seu nome para cadastar");
 		txtNome.setFont(font);
@@ -94,66 +89,27 @@ public class TelaCadastroF extends JFrame {
 		
 		JLabel lblSenha = new JLabel("Senha:");
 		lblSenha.setFont(font);
-		//lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		painel.add(lblSenha, "cell 3 9,alignx left");
 		
 		txtSenha = new JPasswordField();
 		txtSenha.setToolTipText("");
-		//txtSenha.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		painel.add(txtSenha, "cell 3 10 9 1,growx");
 		
 		btCancelar = new RoundButton("CANCELAR");
 		btCancelar.setText("Cancelar");
 		btCancelar.setFont(font);
-		//btCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btCancelar.setActionCommand("btCancelar");
 		
 		btLimpar = new RoundButton("LIMPAR");
 		btLimpar.setText("Limpar");
 		btLimpar.setFont(font);
-		//btLimpar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btLimpar.setActionCommand("btLimpa3");
-		
-//		btLimpa3.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				txtSenha.setText("");
-//			}
-//		});
 		btLimpar.setBackground(new Color(224, 83, 76));
 		btLimpar.setForeground(new Color(245, 245, 245));
-		painel.add(btLimpar, "cell 3 11");
-//		btCancelar.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {			
-//				TelaGerenciamentoF tgf = new TelaGerenciamentoF(telaA, f);
-//				dispose();
-//				tgf.setVisible(true);				
-//			}
-//		});
-		
 		btCadastrar = new RoundButton("CADASTRAR");
 		btCadastrar.setText("Cadastrar");
 		btCadastrar.setFont(font);
-		//btCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btCadastrar.setActionCommand("btCadastrar");
-//		btCadastrar.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				try {
-//					if(txtNome.getText().isEmpty() || txtUsuario.getText().isEmpty() || txtSenha.getPassword().length ==0) {
-//						JOptionPane.showMessageDialog(null, "Todos os campos precisam ser preenchidos");
-//					}else {
-//						FuncionarioControle fc = new FuncionarioControle();
-//						fc.cadastrarFuncionario(txtNome.getText(),txtUsuario.getText(), String.valueOf(txtSenha.getPassword()));
-//						JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso");
-//						TelaGerenciamentoF tgf = new TelaGerenciamentoF(telaA, f);
-//						dispose();
-//						tgf.setVisible(true);
-//					}
-//				} catch (SQLException e1) {
-//					e1.printStackTrace();
-//					JOptionPane.showMessageDialog(null, "Não foi possível cadastrar o funcionário");
-//				}				
-//			}
-//		});
 		btCadastrar.setBackground(new Color(224, 83, 76));
 		btCadastrar.setForeground(new Color(245, 245, 245));
 		painel.add(btCadastrar, "cell 6 11");
@@ -161,11 +117,10 @@ public class TelaCadastroF extends JFrame {
 		btCancelar.setForeground(new Color(245, 245, 245));
 		painel.add(btCancelar, "cell 11 12");
 		
-		RoundButton btEntrar = new RoundButton("ENTRAR");
+		btEntrar = new RoundButton("ENTRAR");
 		btEntrar.setText("Entrar");
 		btEntrar.setFont(font);
 		btEntrar.setActionCommand("btEntrar");
-		//btEntrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btEntrar.setBackground(new Color(224, 83, 76));
 		btEntrar.setForeground(new Color(245, 245, 245));
 		painel.add(btEntrar, "cell 12 12,aligny bottom");
@@ -181,5 +136,14 @@ public class TelaCadastroF extends JFrame {
 		txtUsuario.setText("");
 		txtSenha.setText("");
 		
+	}
+	public String getNome() {
+		return txtNome.getText();
+	}
+	public String getUsuario() {
+		return txtUsuario.getText();
+	}
+	public String getSenha() {
+		return String.valueOf(txtSenha.getPassword());
 	}
 }
