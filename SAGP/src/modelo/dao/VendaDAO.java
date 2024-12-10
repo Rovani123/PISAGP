@@ -6,9 +6,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import modelo.classes.Produto;
+import modelo.classes.Funcionario;
 import modelo.classes.Vendas;
-import modelo.enumerador.Categoria;
 
 public class VendaDAO extends ModeloDAO{
 	
@@ -24,16 +23,28 @@ public class VendaDAO extends ModeloDAO{
 		try {
 			stml = (Statement) conn.createStatement();
 			ResultSet reslt = null;
+			ResultSet funcionario=null;
 			reslt = stml.executeQuery("SELECT * FROM Vendas");
 			
 			while(reslt.next())
 			{
 				Vendas v = new Vendas();
-					// A fazer
-					lista.add(v);
-				
-				
+				v.setIdVenda(reslt.getInt("idVenda"));
+				funcionario = stml.executeQuery("SELECT * FROM Funcionarios where idFuncionario = '"+reslt.getInt("idFuncionario")+"'");
+				while(funcionario.next()) {
+					Funcionario f = new Funcionario();
+					f.setIdFuncionario(funcionario.getInt("idFuncionario"));
+					f.setNome(funcionario.getString("nomeFuncionario"));
+					f.setUsuarioFuncionario(funcionario.getString("usuarioFuncionario"));
+					f.setSenha(funcionario.getString("senha"));
+					f.setadministrador(funcionario.getInt("administrador"));
+					v.setFuncionario(f);
 				}
+				v.setMetodoPagamento(reslt.getString("metodoPagamento"));
+				v.setTotal(reslt.getFloat("Total"));
+				lista.add(v);
+			}
+			funcionario.close();
 			reslt.close();
 			stml.close();
 			conn.close();
@@ -49,7 +60,6 @@ public class VendaDAO extends ModeloDAO{
 		Statement stml = null;
 		Connection conn = getConnection();
 		
-		ArrayList<Vendas> lista = new ArrayList<Vendas>();
 		try {
 			stml = (Statement) conn.createStatement();
 			ResultSet reslt = null;
