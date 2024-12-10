@@ -104,7 +104,7 @@ public class TelaLogin extends JFrame {
 		
 		txtSenha = new JPasswordField();
 		txtSenha.setHorizontalAlignment(SwingConstants.LEFT);
-		txtSenha.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		txtSenha.setFont(font);
 		txtSenha.setToolTipText("");
 		painel.add(txtSenha, "cell 4 8 4 1,grow");
 		btfechar.setForeground(new Color(255, 255, 255));
