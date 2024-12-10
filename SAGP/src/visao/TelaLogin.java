@@ -103,6 +103,7 @@ public class TelaLogin extends JFrame {
 
 		
 		txtSenha = new JPasswordField();
+		txtSenha.setHorizontalAlignment(SwingConstants.LEFT);
 		txtSenha.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		txtSenha.setToolTipText("");
 		painel.add(txtSenha, "cell 4 8 4 1,grow");
