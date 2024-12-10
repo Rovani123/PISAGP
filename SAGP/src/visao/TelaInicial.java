@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import modelo.classes.Funcionario;
 import net.miginfocom.swing.MigLayout;
+import java.awt.event.ActionEvent;
 
 public class TelaInicial extends JFrame {
 
@@ -53,6 +54,15 @@ public class TelaInicial extends JFrame {
 
 		setContentPane(painel);
 		painel.setLayout(new MigLayout("", "[grow][][grow][][][][][][][][][][][][][][][][][][][][][][][grow][][grow]", "[grow][120px][150px][grow]"));
+		
+		JButton btSair = new JButton("Sair");
+		btSair.setFont(font);
+		btSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btSair.setIcon(new ImageIcon(TelaInicial.class.getResource("/Imagem/volte.png")));
+		painel.add(btSair, "cell 0 0");
 		
 		JLabel lblLogo = new JLabel("");
 		lblLogo.setBackground(new Color(230, 230, 230));
