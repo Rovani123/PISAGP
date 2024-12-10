@@ -273,11 +273,11 @@ public class TelaGerenciamentoF extends JFrame {
 		btPesquisar.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/lupa.png")));
 		panelPesquisa.add(btPesquisar, "cell 19 0");
 		
-		JScrollPane scrollPane = new JScrollPane();
-		panel_2.add(scrollPane, BorderLayout.CENTER);
+		JScrollPane panelTabelaFuncionario = new JScrollPane();
+		panel_2.add(panelTabelaFuncionario, BorderLayout.CENTER);
 			
 		table = new JTable();
-		scrollPane.setViewportView(table);
+		panelTabelaFuncionario.setViewportView(table);
 		
 	}
 //	private void getfuncionarios() {
