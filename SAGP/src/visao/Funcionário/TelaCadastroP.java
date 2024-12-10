@@ -33,7 +33,7 @@ public class TelaCadastroP extends JFrame {
 	private RoundButton btSalvar;
 	private RoundButton btCancelar;
 	private JComboBox cbCategoria;
-	private JButton btSelecionarImagem;
+	private RoundButton btSelecionarImagem;
 
 	public TelaCadastroP(Funcionario f) {
 
@@ -98,19 +98,22 @@ public class TelaCadastroP extends JFrame {
 		btSalvar = new RoundButton("Salvar");
 		btSalvar.setFont(font);
 		btSalvar.setActionCommand("btSalvar");
+		
 		btLimpar = new RoundButton("Limpar");
 		btLimpar.setFont(font);
 		btLimpar.setForeground(new Color(245, 245, 245));
 		btLimpar.setBackground(new Color(224, 83, 76));
-		btLimpar.setActionCommand("btLimpa");
+		btLimpar.setActionCommand("btLimpar");
 		painel.add(btLimpar, "cell 2 12,alignx center");
-		btSelecionarImagem = new JButton("Selecionar Imagem");
+		
+		btSelecionarImagem = new RoundButton("Selecionar Imagem");
 		btSelecionarImagem.setFont(font);
 		btSelecionarImagem.setActionCommand("btFile");
 		painel.add(btSelecionarImagem, "cell 3 12,alignx center,aligny center");
 		btSalvar.setForeground(new Color(245, 245, 245));
 		btSalvar.setBackground(new Color(224, 83, 76));
 		painel.add(btSalvar, "cell 3 14,alignx center");
+		
 		btCancelar = new RoundButton("Cancelar");
 		btCancelar.setFont(font);
 		btCancelar.setActionCommand("btCancelar");

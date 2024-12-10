@@ -16,13 +16,15 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import modelo.classes.Funcionario;
 import net.miginfocom.swing.MigLayout;
+import java.awt.event.ActionEvent;
 
 public class TelaInicial extends JFrame {
 
 	private JPanel painel;
 	private ImageIcon logo;
-	private JButton btCliente;
-	private JButton btLogin;
+	private RoundButton btCliente;
+	private RoundButton btLogin;
+	private RoundButton btSair;
 
 	public TelaInicial(Funcionario f) {
 		
@@ -53,6 +55,13 @@ public class TelaInicial extends JFrame {
 
 		setContentPane(painel);
 		painel.setLayout(new MigLayout("", "[grow][][grow][][][][][][][][][][][][][][][][][][][][][][][grow][][grow]", "[grow][120px][150px][grow]"));
+		
+		RoundButton btSair = new RoundButton("Sair");
+		btSair.setFont(font);
+		btSair.setActionCommand("btSair");
+		
+		btSair.setIcon(new ImageIcon(TelaInicial.class.getResource("/Imagem/volte.png")));
+		painel.add(btSair, "cell 0 0");
 		
 		JLabel lblLogo = new JLabel("");
 		lblLogo.setBackground(new Color(230, 230, 230));
@@ -89,6 +98,7 @@ public class TelaInicial extends JFrame {
 	public void addInicialListener(ActionListener listener) {		
 		btCliente.addActionListener(listener);
 		btLogin.addActionListener(listener);
+		btSair.addActionListener(listener);
 	}
 
 }

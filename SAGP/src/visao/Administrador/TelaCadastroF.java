@@ -26,9 +26,10 @@ public class TelaCadastroF extends JFrame {
 	private JTextField txtUsuario;
 	private JTextField txtNome;
 	private JPasswordField txtSenha;
-	private JButton btCancelar;
-	private JButton btCadastrar;
-	private JButton btLimpar;
+	private RoundButton btCancelar;
+	private RoundButton btCadastrar;
+	private RoundButton btLimpar;
+	private RoundButton btEntrar;
 	
 	public TelaCadastroF(Funcionario f) {
 		
@@ -160,9 +161,10 @@ public class TelaCadastroF extends JFrame {
 		btCancelar.setForeground(new Color(245, 245, 245));
 		painel.add(btCancelar, "cell 11 12");
 		
-		JButton btEntrar = new RoundButton("ENTRAR");
+		RoundButton btEntrar = new RoundButton("ENTRAR");
 		btEntrar.setText("Entrar");
 		btEntrar.setFont(font);
+		btEntrar.setActionCommand("btEntrar");
 		btEntrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btEntrar.setBackground(new Color(224, 83, 76));
 		btEntrar.setForeground(new Color(245, 245, 245));
@@ -172,5 +174,6 @@ public class TelaCadastroF extends JFrame {
 		btCancelar.addActionListener(listener);
 		btCadastrar.addActionListener(listener);
 		btLimpar.addActionListener(listener);
+		btEntrar.addActionListener(listener);
 	}
 }
