@@ -31,27 +31,17 @@ import java.awt.FontFormatException;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
 
 public class TesteDaniela extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel panel;
-	private JMenuItem mAdm;
-	private JMenuItem mFuncionario;
-	private JMenuItem mGProdutos;
-	private JMenuItem mCliente;
-	private JTextField txtPesquisar;
 	private JTable table;
-	private JMenuItem mVoltar;
 	private RoundButton btVoltar;
 	private RoundButton btSalgados;
 	private RoundButton btDoces;
 	private RoundButton btBebidas;
-	private RoundButton btAlterar;
-	private RoundButton btRemover;
-	private RoundButton btCadastrar;
-	private RoundButton btPesquisar;
-
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -84,51 +74,9 @@ public class TesteDaniela extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 955, 544);
 		
-		JMenuBar menuBar = new JMenuBar();
-		setJMenuBar(menuBar);
-		
-		JMenu mTelas = new JMenu("Telas");
-		mTelas.setFont(font);
-		menuBar.add(mTelas);
-		
-		mAdm = new JMenuItem("Administrador ");
-		mAdm.setFont(font);
-		mAdm.setEnabled(false);
-		mTelas.add(mAdm);
-		mAdm.setActionCommand("mAdm");
-		
-		mFuncionario = new JMenuItem("Funcionário ");
-		mFuncionario.setFont(font);
-		mFuncionario.setEnabled(false);
-		mFuncionario.setActionCommand("mFuncionario");
-		mTelas.add(mFuncionario);
-		
-		JMenu mOpcoes = new JMenu("Opções");
-		mOpcoes.setFont(font);
-		menuBar.add(mOpcoes);
-		
-	    mGProdutos = new JMenuItem("Produtos ");
-	    mGProdutos.setFont(font);
-		mGProdutos.setEnabled(false);
-		mOpcoes.add(mGProdutos);
-		mGProdutos.setActionCommand("mGProdutos");
-		
-	    mCliente = new JMenuItem("Cliente");
-	    mCliente.setFont(font);
-		mOpcoes.add(mCliente);
-		mCliente.setActionCommand("mCliente");
-		
-		
-	    mVoltar = new JMenuItem("Voltar ao início");
-		menuBar.add(mVoltar);
-		mVoltar.setFont(font);
-		mVoltar.setActionCommand("mVoltar");
-		
 		panel = new JPanel();
 		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		
-		
-
 		setContentPane(panel);
 		panel.setLayout(new BorderLayout(0, 0));
 		
@@ -138,8 +86,9 @@ public class TesteDaniela extends JFrame {
 		barraLateral.setLayout(new MigLayout("", "[]", "[][][][][][][][][][][][][][][][]"));
 		
 	    btVoltar = new RoundButton("Voltar");
+	    btVoltar.setFont(font);
 		btVoltar.setBackground(new Color(245, 245, 245));
-		btVoltar.setText("");
+		btVoltar.setText("Sair");
 		btVoltar.setActionCommand("btVoltar");
 
 		btVoltar.setIcon(new ImageIcon(TesteDaniela.class.getResource("/Imagem/volte.png")));
@@ -159,7 +108,6 @@ public class TesteDaniela extends JFrame {
 		btSalgados.setBackground(new Color(224, 83, 76));
 		barraLateral.add(btSalgados, "cell 0 5,growx,aligny center");
 		btSalgados.setActionCommand("btSalgados");
-		
 		
 		JLabel lblIconDoces = new JLabel("");
 		lblIconDoces.setIcon(new ImageIcon(TesteDaniela.class.getResource("/Imagem/bolinho.png")));
@@ -183,103 +131,53 @@ public class TesteDaniela extends JFrame {
 		barraLateral.add(btBebidas, "cell 0 7,growx,aligny center");
 		btBebidas.setActionCommand("btBebidas");
 		
-		JLabel lblIconAlterar = new JLabel("");
-		lblIconAlterar.setIcon(new ImageIcon(TesteDaniela.class.getResource("/Imagem/troca.png")));
-		barraLateral.add(lblIconAlterar, "flowx,cell 0 13");
 		
-		btAlterar = new RoundButton("Alterar");
-		btAlterar.setFont(font);
-		btAlterar.setActionCommand("btAlterar");
-		
-		btAlterar.setBackground(new Color(245, 245, 245));	
-		
-		barraLateral.add(btAlterar, "cell 0 13,growx,aligny center");
-		
-		JLabel lblIconExcluir = new JLabel("");
-		lblIconExcluir.setIcon(new ImageIcon(TesteDaniela.class.getResource("/Imagem/lixeira.png")));
-		barraLateral.add(lblIconExcluir, "flowx,cell 0 14");
-		
-		btRemover = new RoundButton("Remover");
-		btRemover.setBackground(new Color(245, 245, 245));
-		btRemover.setFont(font);
-		btRemover.setActionCommand("btRemover");
-		
-		
-		btRemover.setFont(font);
-		
-		barraLateral.add(btRemover, "cell 0 14,growx,aligny center");
-		
-		JLabel lblIconCadastrar = new JLabel("");
-		lblIconCadastrar.setIcon(new ImageIcon(TesteDaniela.class.getResource("/Imagem/lupa.png")));
-		barraLateral.add(lblIconCadastrar, "flowx,cell 0 15");
-		
-		btCadastrar = new RoundButton("Adicionar");
-		btCadastrar.setBackground(new Color(245, 245, 245));
-		btCadastrar.setFont(font);
-		btCadastrar.setActionCommand("btCadastrar");
-		
-		btCadastrar.setFont(font);
-		barraLateral.add(btCadastrar, "cell 0 15,growx,aligny center");
-		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(230, 230, 230));
-		panel.add(panel_1, BorderLayout.CENTER);
-		panel_1.setLayout(new MigLayout("", "[grow]", "[][][grow]"));
+		JPanel painelPrincipal = new JPanel();
+		painelPrincipal.setBackground(new Color(230, 230, 230));
+		panel.add(painelPrincipal, BorderLayout.CENTER);
+		painelPrincipal.setLayout(new MigLayout("", "[grow]", "[][][grow][]"));
 		
 		JPanel panelPesquisa = new JPanel();
 		panelPesquisa.setBackground(new Color(230, 230, 230));
-		panel_1.add(panelPesquisa, "cell 0 0,grow");
+		painelPrincipal.add(panelPesquisa, "cell 0 0,grow");
 		panelPesquisa.setLayout(new MigLayout("", "[][][][grow]", "[]"));
 		
-		JLabel lblIconEstoque = new JLabel("Estoque");
-		lblIconEstoque.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		JLabel lblIconEstoque = new JLabel("Carrinho");
+		lblIconEstoque.setFont(font);
+		//lblIconEstoque.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		panelPesquisa.add(lblIconEstoque, "cell 0 0 3 1,alignx right,aligny center");
 		
-		btPesquisar = new RoundButton("");
-		btPesquisar.setActionCommand("btPesquisar");
-		btPesquisar.setText("");
-		btPesquisar.setFont(font);
-		
-		btPesquisar.setBackground(new Color(245, 245, 245));
-		btPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		
-		txtPesquisar = new JTextField();
-		txtPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		panelPesquisa.add(txtPesquisar, "flowx,cell 3 0 2 1,growx");
-		txtPesquisar.setColumns(10);
-		btPesquisar.setIcon(new ImageIcon(TesteDaniela.class.getResource("/Imagem/lupa.png")));
-		panelPesquisa.add(btPesquisar, "cell 3 0 2 1,alignx right,aligny center");
-		
 		JScrollPane scrollPane = new JScrollPane();
-		panel_1.add(scrollPane, "cell 0 1 1 2,grow");
+		painelPrincipal.add(scrollPane, "cell 0 1 1 2,grow");
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
+		
+		JLabel lblNewLabel = new JLabel("Total à pagar:");
+		lblNewLabel.setFont(font);
+		painelPrincipal.add(lblNewLabel, "flowx,cell 0 3,alignx right");
+		
+		JLabel lblTotalPagar = new JLabel("New label");
+		painelPrincipal.add(lblTotalPagar, "cell 0 3");
+		
+		JButton btnNewButton = new JButton("Finalizar compra!");
+		btnNewButton.setBackground(new Color(224, 83, 76));
+		btnNewButton.setFont(font);
+		painelPrincipal.add(btnNewButton, "cell 0 3,alignx right");
 
 		
 	}
 	
 	public void addGerenciamentoPListner(ActionListener listener) {
-		mGProdutos.addActionListener(listener);
-		mCliente.addActionListener(listener);
-		mAdm.addActionListener(listener);
-		mFuncionario.addActionListener(listener);
 		btSalgados.addActionListener(listener);
 		btDoces.addActionListener(listener);
 		btBebidas.addActionListener(listener);
-		btAlterar.addActionListener(listener);
-		btRemover.addActionListener(listener);
-		btCadastrar.addActionListener(listener);
-		btPesquisar.addActionListener(listener);
 	}
 	
 	public void setTabela(ProdutosTableModel tm) {
 		table.setModel(tm);
 	}
 	
-	public void setmenuAdm(boolean b) {
-		mAdm.setEnabled(b);		
-	}
 	public void setBackgroundcolor(String botao, Color color) {
 		switch (botao) {
 		case "btSalgados":
