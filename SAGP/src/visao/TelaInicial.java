@@ -69,10 +69,11 @@ public class TelaInicial extends JFrame {
 		painel.add(lblLogo, "cell 1 1 26 1,alignx center,aligny center");
 		
 		btCliente = new RoundButton("");
-		btCliente.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		btCliente.setText("Entrar como cliente");
 		btCliente.setFont(font);
+		//btCliente.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		btCliente.setText("Entrar como cliente");
 		btCliente.setActionCommand("btCliente");
+		
 		JLabel lblCarrinho = new JLabel("");
 		lblCarrinho.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblCarrinho.setIcon(new ImageIcon(TelaInicial.class.getResource("/Imagem/carrinho-de-compras.png")));
@@ -82,7 +83,7 @@ public class TelaInicial extends JFrame {
 		painel.add(btCliente, "cell 4 2 9 1,alignx left,aligny center");
 		
 		btLogin = new RoundButton("");
-		btLogin.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		//btLogin.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		btLogin.setText("Entrar como funcionario");
 		btLogin.setFont(font);
 		btLogin.setActionCommand("btLogin");

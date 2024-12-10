@@ -150,7 +150,7 @@ public class TelaGerenciamentoF extends JFrame {
 		BarraLateral.add(lblLogo, "cell 0 1,alignx left,aligny center");
 		
 		JLabel lblTabelaFunc = new JLabel("TABELA DE FUNCIONÁRIO");
-		lblTabelaFunc.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		//lblTabelaFunc.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		BarraLateral.add(lblTabelaFunc, "cell 0 3,alignx left,aligny center");
 		
 		JLabel lblIconAlterar = new JLabel("");
@@ -167,7 +167,7 @@ public class TelaGerenciamentoF extends JFrame {
 		
 		btAdicionar = new RoundButton("ADICIONAR");
 		btAdicionar.setFont(font);
-		btAdicionar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		//btAdicionar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btAdicionar.setText("Adicionar");
 		btAdicionar.setForeground(new Color(245, 245, 245));
 		btAdicionar.setBackground(new Color(224, 83, 76));
@@ -187,7 +187,7 @@ public class TelaGerenciamentoF extends JFrame {
 		
 		btRemover = new RoundButton("DELETAR");
 		btRemover.setFont(font);
-		btRemover.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		//btRemover.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btRemover.setText("Remover");
 		btRemover.setActionCommand("btRemover");
 //		btRemover.addActionListener(new ActionListener() {
@@ -215,7 +215,7 @@ public class TelaGerenciamentoF extends JFrame {
 		
 		btAlterar = new RoundButton("ALTERAR");
 		btAlterar.setFont(font);
-		btAlterar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		//btAlterar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btAlterar.setText("Alterar");
 		btAlterar.setForeground(new Color(245, 245, 245));
 		btAlterar.setBackground(new Color(224, 83, 76));
@@ -243,11 +243,11 @@ public class TelaGerenciamentoF extends JFrame {
 		panelPesquisa.setLayout(new MigLayout("", "[][][][grow][][][][][][][][][][][][][][][][][][][1px][]", "[][1px]"));
 		
 		JLabel lblFuncionario = new JLabel("Funcionário");
-		lblFuncionario.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		//lblFuncionario.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		panelPesquisa.add(lblFuncionario, "cell 1 0");
 		
 		txtPesquisa = new JTextField();
-		txtPesquisa.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		//txtPesquisa.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		panelPesquisa.add(txtPesquisa, "cell 3 0 16 1,growx");
 		txtPesquisa.setColumns(10);
 		
@@ -258,7 +258,7 @@ public class TelaGerenciamentoF extends JFrame {
 			//public void actionPerformed(ActionEvent e) {
 			//}
 		//});
-		btPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		//btPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btPesquisar.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/lupa.png")));
 		panelPesquisa.add(btPesquisar, "cell 19 0");
 		

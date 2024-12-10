@@ -63,16 +63,16 @@ public class TelaCadastroF extends JFrame {
 		
 		JLabel lblCadastre = new JLabel("Cadastre um Funcionário:");
 		lblCadastre.setFont(font);
-		lblCadastre.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		//lblCadastre.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		painel.add(lblCadastre, "cell 3 4 9 1,alignx center");
 		
 		JLabel lblUsuario = new JLabel("Usuário:");
 		lblUsuario.setFont(font);
-		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		//lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		painel.add(lblUsuario, "cell 3 5,alignx left");
 		
 		txtUsuario = new JTextField();
-		txtUsuario.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		//txtUsuario.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		txtUsuario.setForeground(new Color(128, 128, 128));
 		txtUsuario.setText("Coloque o seu usuario para cadastar");
 		txtUsuario.setFont(font);
@@ -81,11 +81,11 @@ public class TelaCadastroF extends JFrame {
 		
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setFont(font);
-		lblNome.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		//lblNome.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		painel.add(lblNome, "cell 3 7,alignx left");
 		
 		txtNome = new JTextField();
-		txtNome.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		//txtNome.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		txtNome.setForeground(new Color(128, 128, 128));
 		txtNome.setText("Entre com seu nome para cadastar");
 		txtNome.setFont(font);
@@ -94,24 +94,24 @@ public class TelaCadastroF extends JFrame {
 		
 		JLabel lblSenha = new JLabel("Senha:");
 		lblSenha.setFont(font);
-		lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		//lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		painel.add(lblSenha, "cell 3 9,alignx left");
 		
 		txtSenha = new JPasswordField();
 		txtSenha.setToolTipText("");
-		txtSenha.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		//txtSenha.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		painel.add(txtSenha, "cell 3 10 9 1,growx");
 		
 		btCancelar = new RoundButton("CANCELAR");
 		btCancelar.setText("Cancelar");
 		btCancelar.setFont(font);
-		btCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		//btCancelar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btCancelar.setActionCommand("btCancelar");
 		
 		btLimpar = new RoundButton("LIMPAR");
 		btLimpar.setText("Limpar");
 		btLimpar.setFont(font);
-		btLimpar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		//btLimpar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btLimpar.setActionCommand("btLimpa3");
 		
 //		btLimpa3.addActionListener(new ActionListener() {
@@ -133,7 +133,7 @@ public class TelaCadastroF extends JFrame {
 		btCadastrar = new RoundButton("CADASTRAR");
 		btCadastrar.setText("Cadastrar");
 		btCadastrar.setFont(font);
-		btCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		//btCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btCadastrar.setActionCommand("btCadastrar");
 //		btCadastrar.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
@@ -165,7 +165,7 @@ public class TelaCadastroF extends JFrame {
 		btEntrar.setText("Entrar");
 		btEntrar.setFont(font);
 		btEntrar.setActionCommand("btEntrar");
-		btEntrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		//btEntrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btEntrar.setBackground(new Color(224, 83, 76));
 		btEntrar.setForeground(new Color(245, 245, 245));
 		painel.add(btEntrar, "cell 12 12,aligny bottom");

@@ -114,11 +114,11 @@ public class TelaAlteracaoF extends JFrame {
 				btLimpar.setActionCommand("btLimpar");
 				btLimpar.setForeground(new Color(245, 245, 245));
 				btLimpar.setBackground(new Color(224, 83, 76));
-				btLimpar.setFont(new Font("Tahoma", Font.PLAIN, 18));
+				//btLimpar.setFont(new Font("Tahoma", Font.PLAIN, 18));
 				contentPane.add(btLimpar, "cell 2 10");
 		btSalvar.setForeground(new Color(245, 245, 245));
 		btSalvar.setBackground(new Color(224, 83, 76));
-		btSalvar.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		//btSalvar.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
 		contentPane.add(btSalvar, "cell 6 10,alignx right,aligny center");
 
@@ -135,7 +135,7 @@ public class TelaAlteracaoF extends JFrame {
 //		});
 		btCancelar.setForeground(new Color(245, 245, 245));
 		btCancelar.setBackground(new Color(0, 0, 0));
-		btCancelar.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		//btCancelar.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		contentPane.add(btCancelar, "cell 8 10,alignx center,aligny center");
 
 		setText(f);

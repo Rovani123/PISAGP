@@ -28,7 +28,6 @@ import modelo.classes.Carrinho;
 import modelo.classes.Funcionario;
 import modelo.classes.Produto;
 import net.miginfocom.swing.MigLayout;
-import teste.TelaDeTes2;
 import visao.RoundButton;
 
 public class TelaCompra extends JFrame {
@@ -58,20 +57,6 @@ public class TelaCompra extends JFrame {
 	private JTable table;
 	private JMenuItem mVoltar;
 	private JPanel contentPane;
-
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaCompra frame = new TelaCompra(null);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	public TelaCompra(Funcionario f) {
 		
@@ -108,7 +93,7 @@ public class TelaCompra extends JFrame {
 		RoundButton btSair = new RoundButton("Sair");
 		btSair.setFont(font);
 		btSair.setBackground(new Color(245, 245, 245));
-		btSair.setIcon(new ImageIcon(TelaDeTes2.class.getResource("/Imagem/volte.png")));
+		btSair.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/volte.png")));
 		btSair.setActionCommand("btVoltar");
 		//btSair.addActionListener(new ActionListener() {
 		//	public void actionPerformed(ActionEvent e) {
@@ -118,19 +103,19 @@ public class TelaCompra extends JFrame {
 		BarraLateral.add(btSair, "cell 0 0");
 		
 		JLabel lblLogo = new JLabel("");
-		lblLogo.setIcon(new ImageIcon(TelaDeTes2.class.getResource("/Imagem/Logo.png")));
+		lblLogo.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/Logo.png")));
 		BarraLateral.add(lblLogo, "cell 0 3,alignx left,aligny center");
 		
 		JLabel lblIconAlterar = new JLabel("");
-		lblIconAlterar.setIcon(new ImageIcon(TelaDeTes2.class.getResource("/Imagem/biscoitos.png")));
+		lblIconAlterar.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/biscoitos.png")));
 		BarraLateral.add(lblIconAlterar, "flowx,cell 0 6,alignx left,aligny center");
 		
 		JLabel lblIconRemover = new JLabel("");
-		lblIconRemover.setIcon(new ImageIcon(TelaDeTes2.class.getResource("/Imagem/bolinho.png")));
+		lblIconRemover.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/bolinho.png")));
 		BarraLateral.add(lblIconRemover, "flowx,cell 0 7");
 		
 		JLabel lblIconAdicionar = new JLabel("");
-		lblIconAdicionar.setIcon(new ImageIcon(TelaDeTes2.class.getResource("/Imagem/garrafa-de-agua.png")));
+		lblIconAdicionar.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/garrafa-de-agua.png")));
 		BarraLateral.add(lblIconAdicionar, "flowx,cell 0 8");
 		
 		btBebidas = new RoundButton("Bebidas");
@@ -141,7 +126,7 @@ public class TelaCompra extends JFrame {
 		//	}
 		//});
 		btBebidas.setFont(new Font("Dialog", Font.PLAIN, 20));
-		btBebidas.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		//btBebidas.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btBebidas.setText("Bebidas");
 		btBebidas.setForeground(new Color(245, 245, 245));
 		btBebidas.setBackground(new Color(224, 83, 76));
@@ -161,7 +146,7 @@ public class TelaCompra extends JFrame {
 		//	}
 		//});
 		btDoces.setFont(new Font("Dialog", Font.PLAIN, 20));
-		btDoces.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		//btDoces.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btDoces.setText("Doces");
 		//btDoces.addActionListener(new ActionListener() {
 		//public void actionPerformed(ActionEvent e) {
@@ -194,14 +179,14 @@ public class TelaCompra extends JFrame {
 		btCarrinho.setFont(font);
 		btCarrinho.setActionCommand("btCarrinho");
 		btCarrinho.setForeground(new Color(0, 0, 0));
-		btCarrinho.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		//btCarrinho.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btCarrinho.setBackground(new Color(245, 245, 245));
 		//btCarrinho.addActionListener(new ActionListener() {
 		//	public void actionPerformed(ActionEvent e) {
 				
 		//	}
 		//});
-		btCarrinho.setIcon(new ImageIcon(TelaDeTes2.class.getResource("/Imagem/carrinho-de-compras.png")));
+		btCarrinho.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/carrinho-de-compras.png")));
 		BarraLateral.add(btCarrinho, "cell 0 10,growx,aligny center");
 		
 		JPanel panel_2 = new JPanel();
@@ -217,7 +202,7 @@ public class TelaCompra extends JFrame {
 		txtPesquisa = new JTextField();
 		txtPesquisa.setForeground(new Color(230, 230, 230));
 		txtPesquisa.setText("Pesquisar");
-		txtPesquisa.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		//txtPesquisa.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		panelPesquisa.add(txtPesquisa, "flowx,cell 0 0 22 1,grow");
 		txtPesquisa.setColumns(10);
 		
@@ -234,8 +219,8 @@ public class TelaCompra extends JFrame {
 		btPesquisar.setText("");
 		btPesquisar.setActionCommand("btPesquisar");
 		panelPesquisa.add(btPesquisar, "cell 13 0");
-		btPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btPesquisar.setIcon(new ImageIcon(TelaDeTes2.class.getResource("/Imagem/lupa.png")));
+		//btPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btPesquisar.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/lupa.png")));
 		
 		JScrollPane painelCompra = new JScrollPane();
 		panel_2.add(painelCompra, BorderLayout.CENTER);

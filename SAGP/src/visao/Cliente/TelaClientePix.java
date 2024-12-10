@@ -66,7 +66,7 @@ public class TelaClientePix extends JFrame {
 		//	}
 		//});
 		btVoltar.setBackground(new Color(224, 83, 76));
-		btVoltar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		//btVoltar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		contentPane.add(btVoltar, "cell 0 0,alignx left,aligny top");
 		
 		JLabel lblNewLabel = new JLabel("");
@@ -75,7 +75,7 @@ public class TelaClientePix extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("PAGAMENTO COM O PIX");
 		lblNewLabel_1.setFont(font);
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		//lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		contentPane.add(lblNewLabel_1, "cell 6 3,alignx center,aligny center");
 		
 		JLabel lblNewLabel_2 = new JLabel("");
@@ -92,7 +92,7 @@ public class TelaClientePix extends JFrame {
 				
 		//	}
 		//});
-		btCancelar.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		//btCancelar.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		contentPane.add(btCancelar, "flowx,cell 14 8");
 	}
 	

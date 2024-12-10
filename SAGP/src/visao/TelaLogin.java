@@ -76,7 +76,7 @@ public class TelaLogin extends JFrame {
 		painel.add(lblUsuario, "cell 4 5");
 		
 		txtUsuario = new JTextField();
-		txtUsuario.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		//txtUsuario.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		txtUsuario.setHorizontalAlignment(SwingConstants.LEFT);
 		txtUsuario.setForeground(new Color(130, 130, 130));
 		txtUsuario.setText("Entre com seu usuário para logar no sistema");
@@ -86,18 +86,18 @@ public class TelaLogin extends JFrame {
 		
 		JLabel lblSenha = new JLabel("Senha: *");
 		lblSenha.setFont(font);
-		lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		//lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		painel.add(lblSenha, "cell 4 7");
 		
 		btEntrar = new RoundButton("Entrar");
 		btEntrar.setFont(font);
-		btEntrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		//btEntrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btEntrar.setActionCommand("btEntrar");
 
 		
 		btfechar = new RoundButton("Voltar");
 		btfechar.setFont(font);
-		btfechar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		//btfechar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btfechar.setText("Fechar");
 		btfechar.setActionCommand("btVoltar");
 
@@ -114,7 +114,7 @@ public class TelaLogin extends JFrame {
 		btLimpar = new RoundButton("Limpar");
 		btLimpar.setFont(font);
 		btLimpar.setText("Limpar");
-		btLimpar.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		//btLimpar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btLimpar.setActionCommand("btLimpa");
 		btLimpar.setForeground(new Color(255, 255, 255));
 		btLimpar.setBackground(new Color(224, 83, 76));
