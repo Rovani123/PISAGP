@@ -88,4 +88,6 @@ public class GerenciamentoFControle {
 		FuncionariosTableModel model = new FuncionariosTableModel(new FuncionarioDAO().getFuncionarios());
 		view.setTabela(model);
 	}
+	
+//	criar metodo para pegar os get da view TelaGerenciamentoF
 }

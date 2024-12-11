@@ -159,13 +159,24 @@ public class CompraControle {
 	}
 	
 	private void CarregarDadosFiltro(Categoria categoria) {
-		int cont =0;
-		ArrayList<Produto> listaFiltro = new ProdutoDAO().getProdutosFiltro(categoria);
+		int coluna=1;
+		int linha=1;
+		ArrayList<Produto> listaFiltro;
+		try {
+			listaFiltro = new ProdutoDAO().getProdutosFiltro(categoria);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			listaFiltro =null;
+		}
 		for (Produto p : listaFiltro) {
-			pp = new PainelProduto(p,listaCarrinhos.get(cont));
+			pp = new PainelProduto(p,listaCarrinhos.get(listaFiltro.indexOf(p)));
 			pp.addPainelProdutoListeners(new PainelListeners(pp));
-			view.addPainelProdutos(pp, p.getIdProduto()-1, cont);
-			cont++;
+			view.addPainelProdutos(pp, linha, coluna);
+			if(linha%3==0) {
+				coluna++;
+				linha=0;
+			}
+			linha++;
 		}
 	}
 	
