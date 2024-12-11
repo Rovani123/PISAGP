@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 import java.util.ArrayList;
 import controle.inicio.TelaInicialControle;
 import modelo.classes.Carrinho;
@@ -29,7 +30,11 @@ public class CompraControle {
 	private int contB = 0;
 	public CompraControle(Funcionario f ,ArrayList<Carrinho> listaCarrinhos) {
 		this.f = f;
-		listaProdutos = new ProdutoDAO().getProdutos();
+		try {
+			listaProdutos = new ProdutoDAO().getProdutos();
+		} catch (IOException e) {
+			// mensagem
+		}
 		listaCarrinhosRecuperado = listaCarrinhos;
 		
 		view = new TelaCompra(f);

@@ -1,11 +1,17 @@
 package modelo.dao;
 
+import java.awt.Image;
+import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
 
 import dal.ConexaoBD;
 import modelo.classes.Produto;
@@ -49,7 +55,7 @@ public class ProdutoDAO extends ModeloDAO{
 		
 	}
 	
-	public ArrayList<Produto> getProdutos() {
+	public ArrayList<Produto> getProdutos() throws IOException {
 		
 		Statement stml = null;
 		Connection conn = getConnection();
@@ -69,6 +75,11 @@ public class ProdutoDAO extends ModeloDAO{
 					p.setQuantidadeEstoque(reslt.getInt("quantidadeEstoque"));
 					Categoria cat = Categoria.categoriaString(reslt.getString("categoria"));
 					p.setCategoria(cat);
+					Blob blob = reslt.getBlob("foto");
+					byte[] blobBytes = blob.getBytes(1, (int) blob.length());
+					ByteArrayInputStream bais = new ByteArrayInputStream(blobBytes); 
+					Image image = ImageIO.read(bais);
+					p.setFoto(image);
 					lista.add(p);
 				
 				

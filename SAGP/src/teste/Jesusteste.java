@@ -17,10 +17,7 @@ import visao.Funcionário.TelaGerenciamentoP;
 public class Jesusteste {
 	static ArrayList<Vendas> vendas;
 	public static void main(String[] args) {
-		vendas = new VendaDAO().getVendas();
-		for (Vendas v : vendas) {
-			System.out.println(v.getFuncionario().getNome());
-			
-		}
+
+		
 	}
 }

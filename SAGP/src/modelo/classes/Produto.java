@@ -1,5 +1,7 @@
 package modelo.classes;
 
+import java.awt.Image;
+
 import modelo.enumerador.Categoria;
 
 public class Produto {
@@ -9,6 +11,7 @@ public class Produto {
 	private float preco;
 	private int quantidadeEstoque;
 	private Categoria categoria;
+	private Image foto;
 	
 	public int getIdProduto() {
 		return idProduto;
@@ -39,6 +42,12 @@ public class Produto {
 	}
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
+	}
+	public Image getFoto() {
+		return foto;
+	}
+	public void setFoto(Image foto) {
+		this.foto = foto;
 	}
 	
 }
