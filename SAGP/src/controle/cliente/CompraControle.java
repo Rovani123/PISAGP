@@ -142,7 +142,7 @@ public class CompraControle {
 		int coluna=1;
 		int linha=1;
 		for (Produto p : listaProdutos) {
-			pp = new PainelProduto(p,listaCarrinhos.get(coluna));
+			pp = new PainelProduto(p,listaCarrinhos.get(listaProdutos.indexOf(p)));
 			pp.addPainelProdutoListeners(new PainelListeners(pp));
 			view.addPainelProdutos(pp, linha, coluna);
 			if(linha%3==0) {

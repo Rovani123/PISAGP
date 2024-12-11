@@ -31,7 +31,7 @@ public class CarrinhoControle {
 			switch (e.getActionCommand()) {
 			case "btVoltar":
 				view.dispose();
-				new CompraControle(null, listaCarrinhos);
+				new CompraControle(f, listaCarrinhos);
 				break;
 			case "btFinalizarCompra":
 				view.dispose();
