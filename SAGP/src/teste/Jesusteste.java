@@ -13,11 +13,12 @@ import visao.Cliente.TelaClientePix;
 import visao.Funcionário.TelaAlteracaoP;
 import visao.Funcionário.TelaCadastroP;
 import visao.Funcionário.TelaGerenciamentoP;
+import visaoTelasDeAviso.MensagemViewSenha;
 
 public class Jesusteste {
 	static ArrayList<Vendas> vendas;
 	public static void main(String[] args) {
 
-		
+		new MensagemViewSenha(null);
 	}
 }
