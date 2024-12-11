@@ -1,4 +1,4 @@
-package teste;
+package visao.Cliente;
 
 import java.awt.EventQueue;
 
@@ -33,7 +33,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
 
-public class TesteDaniela extends JFrame {
+public class TelaClienteCarrinhoCorreto extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel panel;
@@ -42,12 +42,13 @@ public class TesteDaniela extends JFrame {
 	private RoundButton btSalgados;
 	private RoundButton btDoces;
 	private RoundButton btBebidas;
+	private RoundButton btFinalizarCompra;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TesteDaniela frame = new TesteDaniela(null);
+					TelaClienteCarrinhoCorreto frame = new TelaClienteCarrinhoCorreto(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -57,7 +58,7 @@ public class TesteDaniela extends JFrame {
 	}
 
 	
-	public TesteDaniela(Funcionario f) {
+	public TelaClienteCarrinhoCorreto(Funcionario f) {
 		
 		Font font = new Font("Tahoma", Font.PLAIN, 11);;
 		try {
@@ -71,6 +72,7 @@ public class TesteDaniela extends JFrame {
 			e1.printStackTrace();
 		}
 		
+		setExtendedState(MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 955, 544);
 		
@@ -91,43 +93,43 @@ public class TesteDaniela extends JFrame {
 		btVoltar.setText("Sair");
 		btVoltar.setActionCommand("btVoltar");
 
-		btVoltar.setIcon(new ImageIcon(TesteDaniela.class.getResource("/Imagem/volte.png")));
+		btVoltar.setIcon(new ImageIcon(TelaClienteCarrinhoCorreto.class.getResource("/Imagem/volte.png")));
 		barraLateral.add(btVoltar, "cell 0 0,alignx left,aligny top");
 		
 		JLabel lblLogo = new JLabel("");
-		lblLogo.setIcon(new ImageIcon(TesteDaniela.class.getResource("/Imagem/LogoPequena.png")));
+		lblLogo.setIcon(new ImageIcon(TelaClienteCarrinhoCorreto.class.getResource("/Imagem/LogoPequena.png")));
 		barraLateral.add(lblLogo, "cell 0 2,alignx center,aligny center");
 		
 		JLabel lblIconSalgados = new JLabel("");
-		lblIconSalgados.setIcon(new ImageIcon(TesteDaniela.class.getResource("/Imagem/biscoitos.png")));
+		lblIconSalgados.setIcon(new ImageIcon(TelaClienteCarrinhoCorreto.class.getResource("/Imagem/biscoitos.png")));
 		barraLateral.add(lblIconSalgados, "flowx,cell 0 5");
 		
 		btSalgados = new RoundButton("Salgados");
-		btSalgados.setForeground(new Color(245, 245, 245));
+		btSalgados.setForeground(new Color(0, 0, 0));
 		btSalgados.setFont(font);
-		btSalgados.setBackground(new Color(224, 83, 76));
+		btSalgados.setBackground(new Color(245, 245, 245));
 		barraLateral.add(btSalgados, "cell 0 5,growx,aligny center");
 		btSalgados.setActionCommand("btSalgados");
 		
 		JLabel lblIconDoces = new JLabel("");
-		lblIconDoces.setIcon(new ImageIcon(TesteDaniela.class.getResource("/Imagem/bolinho.png")));
+		lblIconDoces.setIcon(new ImageIcon(TelaClienteCarrinhoCorreto.class.getResource("/Imagem/bolinho.png")));
 		barraLateral.add(lblIconDoces, "flowx,cell 0 6");
 		
 		btDoces = new RoundButton("Doces");
-		btDoces.setForeground(new Color(245, 245, 245));
+		btDoces.setForeground(new Color(0, 0, 0));
 		btDoces.setFont(font);
-		btDoces.setBackground(new Color(224, 83, 76));
+		btDoces.setBackground(new Color(245, 245, 245));
 		barraLateral.add(btDoces, "cell 0 6,growx,aligny center");
 		btDoces.setActionCommand("btDoces");
 		
 		JLabel lblIconBebidas = new JLabel("");
-		lblIconBebidas.setIcon(new ImageIcon(TesteDaniela.class.getResource("/Imagem/garrafa-de-agua.png")));
+		lblIconBebidas.setIcon(new ImageIcon(TelaClienteCarrinhoCorreto.class.getResource("/Imagem/garrafa-de-agua.png")));
 		barraLateral.add(lblIconBebidas, "flowx,cell 0 7");
 		
 	    btBebidas = new RoundButton("Bebidas");
-	    btBebidas.setForeground(new Color(245, 245, 245));
+	    btBebidas.setForeground(new Color(0, 0, 0));
 		btBebidas.setFont(font);
-		btBebidas.setBackground(new Color(224, 83, 76));
+		btBebidas.setBackground(new Color(245, 245, 245));
 		barraLateral.add(btBebidas, "cell 0 7,growx,aligny center");
 		btBebidas.setActionCommand("btBebidas");
 		
@@ -142,10 +144,17 @@ public class TesteDaniela extends JFrame {
 		painelPrincipal.add(panelPesquisa, "cell 0 0,grow");
 		panelPesquisa.setLayout(new MigLayout("", "[][][][grow]", "[]"));
 		
-		JLabel lblIconEstoque = new JLabel("Carrinho");
-		lblIconEstoque.setFont(font);
-		//lblIconEstoque.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		panelPesquisa.add(lblIconEstoque, "cell 0 0 3 1,alignx right,aligny center");
+		RoundButton btNO = new RoundButton("");
+		btNO.setBackground(new Color(245, 245, 245));
+		//btNO.addActionListener(new ActionListener() {
+			//public void actionPerformed(ActionEvent e) {
+			//}
+		//});
+		btNO.setIcon(new ImageIcon(TelaClienteCarrinhoCorreto.class.getResource("/Imagem/carrinho-de-compras.png")));
+		panelPesquisa.add(btNO, "cell 0 0");
+		
+		JLabel lblCarrinho = new JLabel("Carrinho:");
+		panelPesquisa.add(lblCarrinho, "cell 1 0");
 		
 		JScrollPane scrollPane = new JScrollPane();
 		painelPrincipal.add(scrollPane, "cell 0 1 1 2,grow");
@@ -153,17 +162,18 @@ public class TesteDaniela extends JFrame {
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		
-		JLabel lblNewLabel = new JLabel("Total à pagar:");
-		lblNewLabel.setFont(font);
-		painelPrincipal.add(lblNewLabel, "flowx,cell 0 3,alignx right");
+		JLabel lblTotal = new JLabel("Total à pagar:");
+		lblTotal.setFont(font);
+		painelPrincipal.add(lblTotal, "flowx,cell 0 3,alignx right");
 		
 		JLabel lblTotalPagar = new JLabel("New label");
 		painelPrincipal.add(lblTotalPagar, "cell 0 3");
 		
-		JButton btnNewButton = new JButton("Finalizar compra!");
-		btnNewButton.setBackground(new Color(224, 83, 76));
-		btnNewButton.setFont(font);
-		painelPrincipal.add(btnNewButton, "cell 0 3,alignx right");
+		RoundButton btFinalizarCompra = new RoundButton("Finalizar compra!");
+		btFinalizarCompra.setBackground(new Color(224, 83, 76));
+		btFinalizarCompra.setFont(font);
+		btFinalizarCompra.setActionCommand("btFinalizarCompra");
+		painelPrincipal.add(btFinalizarCompra, "cell 0 3,alignx right");
 
 		
 	}
@@ -172,6 +182,8 @@ public class TesteDaniela extends JFrame {
 		btSalgados.addActionListener(listener);
 		btDoces.addActionListener(listener);
 		btBebidas.addActionListener(listener);
+		btFinalizarCompra.addActionListener(listener);
+		btVoltar.addActionListener(listener);
 	}
 	
 	public void setTabela(ProdutosTableModel tm) {

@@ -17,7 +17,6 @@ import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import modelo.classes.Carrinho;
 import net.miginfocom.swing.MigLayout;
-import teste.TesteDaniela;
 import visao.RoundButton;
 
 public class TelaClienteCarrinho extends JFrame {
@@ -50,7 +49,7 @@ public class TelaClienteCarrinho extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TesteDaniela frame = new TesteDaniela(null);
+					TelaClienteCarrinhoCorreto frame = new TelaClienteCarrinhoCorreto(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
