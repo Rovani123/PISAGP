@@ -276,5 +276,11 @@ public class TelaGerenciamentoF extends JFrame {
 	public Funcionario getItemTabela() {
 		return ((FuncionariosTableModel) table.getModel()).getItem(table.getSelectedRow());
 	}
+	
+	public String getPesquisa() {
+		
+		return txtPesquisa.getText();
+		
+	}
 
 }

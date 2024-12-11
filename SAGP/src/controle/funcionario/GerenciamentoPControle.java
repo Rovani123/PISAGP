@@ -168,6 +168,7 @@ public class GerenciamentoPControle {
 				carregarProdutosFiltro(Categoria.categoriaString("bebidas"));
 			} else {
 				carregarProdutos();
+				new MensagemView("Produto Removido",0);
 			}
 		} catch (Exception e2) {
 			e2.printStackTrace();
@@ -188,7 +189,7 @@ public class GerenciamentoPControle {
 		} catch (Exception e) {
 			e.printStackTrace();
 			p=null;
-			new MensagemView("Erro ao alterar esse produto!");
+			new MensagemView("Erro ao alterar esse produto!",0);
 		}
 		view.dispose();
 		new AlterarPControle(f,p);

@@ -70,10 +70,10 @@ public class CadastroPControle {
 			new ProdutoDAO().cadastrarProduto(nome, preco, quantidade, categoria.toString(), fin);
 			view.dispose();
 			new GerenciamentoPControle(f);
-			new MensagemView("Produto cadastrado com sucesso!",0);
+			new MensagemView("Produto cadastrado com sucesso!",3);
 		} catch (SQLException e) {
 			e.printStackTrace();
-			new MensagemView("Não foi possivel adicionar esse produto");
+			new MensagemView("Não foi possivel adicionar esse produto",0);
 
 		}
 	}
