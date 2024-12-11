@@ -78,8 +78,8 @@ public class TelaInicial extends JFrame {
 		lblCarrinho.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblCarrinho.setIcon(new ImageIcon(TelaInicial.class.getResource("/Imagem/carrinho-de-compras.png")));
 		painel.add(lblCarrinho, "cell 3 2");
-		btCliente.setBackground(new Color(224, 83, 76));
-		btCliente.setForeground(new Color(245, 245, 245));
+		btCliente.setBackground(new Color(245, 245, 245));
+		btCliente.setForeground(new Color(0, 0, 0));
 		painel.add(btCliente, "cell 4 2 9 1,alignx left,aligny center");
 		
 		btLogin = new RoundButton("");
@@ -92,8 +92,8 @@ public class TelaInicial extends JFrame {
 		lblLupa.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblLupa.setIcon(new ImageIcon(TelaInicial.class.getResource("/Imagem/lupa.png")));
 		painel.add(lblLupa, "cell 16 2");
-		btLogin.setForeground(new Color(245, 245, 245));
-		btLogin.setBackground(new Color(224, 83, 76));
+		btLogin.setForeground(new Color(0, 0, 0));
+		btLogin.setBackground(new Color(245, 245, 245));
 		painel.add(btLogin, "cell 17 2 8 1,alignx left,aligny center");
 	}
 	public void addInicialListener(ActionListener listener) {		

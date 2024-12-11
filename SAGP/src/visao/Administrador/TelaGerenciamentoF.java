@@ -128,7 +128,7 @@ public class TelaGerenciamentoF extends JFrame {
 		lblLogo.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/LogoPequena.png")));
 		BarraLateral.add(lblLogo, "cell 0 1,alignx left,aligny center");
 		
-		JLabel lblTabelaFunc = new JLabel("TABELA DE FUNCIONÁRIO");
+		JLabel lblTabelaFunc = new JLabel("TABELA DE FUNCIONÁRIO:");
 		//lblTabelaFunc.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		BarraLateral.add(lblTabelaFunc, "cell 0 3,alignx left,aligny center");
 		
@@ -148,8 +148,8 @@ public class TelaGerenciamentoF extends JFrame {
 		btAdicionar.setFont(font);
 		//btAdicionar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btAdicionar.setText("Adicionar");
-		btAdicionar.setForeground(new Color(245, 245, 245));
-		btAdicionar.setBackground(new Color(224, 83, 76));
+		btAdicionar.setForeground(new Color(0, 0, 0));
+		btAdicionar.setBackground(new Color(245, 245, 245));
 		btAdicionar.setActionCommand("btAdicionar");
 //		btAdicionar.addActionListener(new ActionListener() {
 //		public void actionPerformed(ActionEvent e) {
@@ -188,8 +188,8 @@ public class TelaGerenciamentoF extends JFrame {
 //
 //			}
 //		});
-		btRemover.setForeground(new Color(245, 245, 245));
-		btRemover.setBackground(new Color(224, 83, 76));
+		btRemover.setForeground(new Color(0, 0, 0));
+		btRemover.setBackground(new Color(245, 245, 245));
 		BarraLateral.add(btRemover, "cell 0 5,alignx left,aligny center");
 		
 		btAlterar = new RoundButton("ALTERAR");
@@ -200,8 +200,8 @@ public class TelaGerenciamentoF extends JFrame {
 		btAlterar.setFont(font);
 		//btAlterar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btAlterar.setText("Alterar");
-		btAlterar.setForeground(new Color(245, 245, 245));
-		btAlterar.setBackground(new Color(224, 83, 76));
+		btAlterar.setForeground(new Color(0, 0, 0));
+		btAlterar.setBackground(new Color(245, 245, 245));
 		btAlterar.setActionCommand("btAlterar");
 	//	btAlterar.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
@@ -225,7 +225,7 @@ public class TelaGerenciamentoF extends JFrame {
 		panel_2.add(panelPesquisa, BorderLayout.NORTH);
 		panelPesquisa.setLayout(new MigLayout("", "[][][][grow][][][][][][][][][][][][][][][][][][][1px][]", "[][1px]"));
 		
-		JLabel lblFuncionario = new JLabel("Funcionário");
+		JLabel lblFuncionario = new JLabel("Funcionário:");
 		//lblFuncionario.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		panelPesquisa.add(lblFuncionario, "cell 1 0");
 		

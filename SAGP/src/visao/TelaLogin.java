@@ -116,8 +116,8 @@ public class TelaLogin extends JFrame {
 		btLimpar.setText("Limpar");
 		//btLimpar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btLimpar.setActionCommand("btLimpa");
-		btLimpar.setForeground(new Color(255, 255, 255));
-		btLimpar.setBackground(new Color(224, 83, 76));
+		btLimpar.setForeground(new Color(0, 0, 0));
+		btLimpar.setBackground(new Color(245, 245, 245));
 		painel.add(btLimpar, "cell 5 9");
 		
 		btEntrar.setForeground(new Color(255, 255, 255));

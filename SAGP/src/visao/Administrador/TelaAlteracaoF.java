@@ -112,8 +112,8 @@ public class TelaAlteracaoF extends JFrame {
 		btLimpar.setText("Limpar");
 		btLimpar.setFont(font);
 		btLimpar.setActionCommand("btLimpar");
-		btLimpar.setForeground(new Color(245, 245, 245));
-		btLimpar.setBackground(new Color(224, 83, 76));
+		btLimpar.setForeground(new Color(0, 0, 0));
+		btLimpar.setBackground(new Color(245, 245, 245));
 		// btLimpar.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		contentPane.add(btLimpar, "cell 2 10");
 		btSalvar.setForeground(new Color(245, 245, 245));
