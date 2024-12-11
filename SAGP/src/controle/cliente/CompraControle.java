@@ -160,7 +160,13 @@ public class CompraControle {
 	
 	private void CarregarDadosFiltro(Categoria categoria) {
 		int cont =0;
-		ArrayList<Produto> listaFiltro = new ProdutoDAO().getProdutosFiltro(categoria);
+		ArrayList<Produto> listaFiltro;
+		try {
+			listaFiltro = new ProdutoDAO().getProdutosFiltro(categoria);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			listaFiltro =null;
+		}
 		for (Produto p : listaFiltro) {
 			pp = new PainelProduto(p,listaCarrinhos.get(cont));
 			pp.addPainelProdutoListeners(new PainelListeners(pp));

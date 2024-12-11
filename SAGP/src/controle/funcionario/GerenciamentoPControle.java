@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 import java.sql.SQLException;
 
 import controle.administrador.GerenciamentoFControle;
@@ -195,13 +196,25 @@ public class GerenciamentoPControle {
 
 	private void carregarProdutos() {
 		ProdutoDAO dao = new ProdutoDAO();
-		ProdutosTableModel model = new ProdutosTableModel(dao.getProdutos());
+		ProdutosTableModel model;
+		try {
+			model = new ProdutosTableModel(dao.getProdutos());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			model =null;
+		}
 		view.setTabela(model);
 	}
 	
 	private void carregarProdutosFiltro(Categoria filtro) {
 		ProdutoDAO dao = new ProdutoDAO();
-		ProdutosTableModel model = new ProdutosTableModel(dao.getProdutosFiltro(filtro));
+		ProdutosTableModel model;
+		try {
+			model = new ProdutosTableModel(dao.getProdutosFiltro(filtro));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			model=null;
+		}
 		view.setTabela(model);
 	}
 	

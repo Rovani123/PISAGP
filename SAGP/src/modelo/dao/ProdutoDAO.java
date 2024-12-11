@@ -19,7 +19,7 @@ import modelo.enumerador.Categoria;
 
 public class ProdutoDAO extends ModeloDAO{
 	
-	public ArrayList<Produto> getProdutosFiltro(Categoria categoria) {
+	public ArrayList<Produto> getProdutosFiltro(Categoria categoria) throws IOException {
 		
 		Statement stml = null;
 		Connection conn = ConexaoBD.getConexaoMySQL();
@@ -40,6 +40,11 @@ public class ProdutoDAO extends ModeloDAO{
 					p.setQuantidadeEstoque(reslt.getInt("quantidadeEstoque"));
 					Categoria cat = Categoria.categoriaString(reslt.getString("categoria"));
 					p.setCategoria(cat);
+					Blob blob = reslt.getBlob("foto");
+					byte[] blobBytes = blob.getBytes(1, (int) blob.length());
+					ByteArrayInputStream bais = new ByteArrayInputStream(blobBytes); 
+					Image image = ImageIO.read(bais);
+					p.setFoto(image);
 					lista.add(p);
 				
 				}
