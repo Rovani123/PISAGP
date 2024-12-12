@@ -1,13 +1,16 @@
 package visao;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.Frame;
+import java.awt.Graphics;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -125,7 +128,8 @@ public class TelaLogin extends JFrame {
 		painel.add(btEntrar, "cell 6 9 2 1,alignx center");
 		
 		btMostar = new RoundButton("Voltar");
-		btMostar.setText("Colocar Icone");
+		btMostar.setText("Mostrar");
+		btMostar.setSelectedIcon(new ImageIcon(TelaLogin.class.getResource("/Imagem/Senha.png")));
 		btMostar.setForeground(Color.WHITE);
 		btMostar.setFont(null);
 		btMostar.setBackground(Color.BLACK);

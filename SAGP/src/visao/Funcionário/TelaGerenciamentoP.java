@@ -45,7 +45,6 @@ public class TelaGerenciamentoP extends JFrame {
 	private JTextField txtPesquisar;
 	private JTable table;
 	private JMenuItem mVoltar;
-	private RoundButton btVoltar;
 	private RoundButton btSalgados;
 	private RoundButton btDoces;
 	private RoundButton btBebidas;
@@ -127,14 +126,6 @@ public class TelaGerenciamentoP extends JFrame {
 		barraLateral.setBackground(new Color(167, 208, 214));
 		panel.add(barraLateral, BorderLayout.WEST);
 		barraLateral.setLayout(new MigLayout("", "[]", "[][][][][][][][][][][][][][][][]"));
-		
-	    btVoltar = new RoundButton("Voltar");
-		btVoltar.setBackground(new Color(245, 245, 245));
-		btVoltar.setText("");
-		btVoltar.setActionCommand("btVoltar");
-
-		btVoltar.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/volte.png")));
-		barraLateral.add(btVoltar, "cell 0 0,alignx left,aligny top");
 		
 		JLabel lblLogo = new JLabel("");
 		lblLogo.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/LogoPequena.png")));
@@ -251,6 +242,7 @@ public class TelaGerenciamentoP extends JFrame {
 	}
 	
 	public void addGerenciamentoPListner(ActionListener listener) {
+		mVoltar.addActionListener(listener);
 		mGProdutos.addActionListener(listener);
 		mCliente.addActionListener(listener);
 		mAdm.addActionListener(listener);

@@ -71,7 +71,8 @@ public class GerenciamentoPControle {
 			}
 		}
 	}
-	private void listeners() {
+	
+private void listeners() {
 		view.addGerenciamentoPListner(new GerenciamentoPListeners());
 		
 		view.addWindowListener(new WindowAdapter() {
@@ -83,7 +84,6 @@ public class GerenciamentoPControle {
 			}
 		});
 	}
-
 
 	private void mAdm() {
 		view.dispose();
@@ -97,16 +97,16 @@ public class GerenciamentoPControle {
 			contD = 0;
 			contB = 0;
 			view.setBackgroundcolor("btSalgados", new Color(255, 255, 0));
-			view.setBackgroundcolor("btDoces", new Color(255, 255, 255));
-			view.setBackgroundcolor("btBebidas", new Color(255, 255, 255));
+			view.setBackgroundcolor("btDoces", new Color(224, 83, 76));
+			view.setBackgroundcolor("btBebidas", new Color(224, 83, 76));
 		} else {
 			carregarProdutos();
 			contS = 0;
 			contD = 0;
 			contB = 0;
-			view.setBackgroundcolor("btSalgados", new Color(255, 255, 255));
-			view.setBackgroundcolor("btDoces", new Color(255, 255, 255));
-			view.setBackgroundcolor("btBebidas", new Color(255, 255, 255));
+			view.setBackgroundcolor("btSalgados", new Color(224, 83, 76));
+			view.setBackgroundcolor("btDoces", new Color(224, 83, 76));
+			view.setBackgroundcolor("btBebidas", new Color(224, 83, 76));
 		}
 	}
 	
@@ -116,17 +116,17 @@ public class GerenciamentoPControle {
 			contS = 0;
 			contD = 1;
 			contB = 0;
-			view.setBackgroundcolor("btSalgados", new Color(255, 255, 255));
+			view.setBackgroundcolor("btSalgados", new Color(224, 83, 76));
 			view.setBackgroundcolor("btDoces", new Color(255, 255, 0));
-			view.setBackgroundcolor("btBebidas", new Color(255, 255, 255));
+			view.setBackgroundcolor("btBebidas", new Color(224, 83, 76));
 		} else {
 			carregarProdutos();
 			contS = 0;
 			contD = 0;
 			contB = 0;
-			view.setBackgroundcolor("btSalgados", new Color(255, 255, 255));
-			view.setBackgroundcolor("btDoces", new Color(255, 255, 255));
-			view.setBackgroundcolor("btBebidas", new Color(255, 255, 255));
+			view.setBackgroundcolor("btSalgados", new Color(224, 83, 76));
+			view.setBackgroundcolor("btDoces", new Color(224, 83, 76));
+			view.setBackgroundcolor("btBebidas", new Color(224, 83, 76));
 		}
 	}
 	
@@ -136,17 +136,17 @@ public class GerenciamentoPControle {
 			contS = 0;
 			contD = 0;
 			contB = 1;
-			view.setBackgroundcolor("btSalgados", new Color(255, 255, 255));
-			view.setBackgroundcolor("btDoces", new Color(255, 255, 255));
+			view.setBackgroundcolor("btSalgados", new Color(224, 83, 76));
+			view.setBackgroundcolor("btDoces", new Color(224, 83, 76));
 			view.setBackgroundcolor("btBebidas", new Color(255, 255, 0));
 		} else {
 			carregarProdutos();
 			contS = 0;
 			contD = 0;
 			contB = 0;
-			view.setBackgroundcolor("btSalgados", new Color(255, 255, 255));
-			view.setBackgroundcolor("btDoces", new Color(255, 255, 255));
-			view.setBackgroundcolor("btBebidas", new Color(255, 255, 255));
+			view.setBackgroundcolor("btSalgados", new Color(224, 83, 76));
+			view.setBackgroundcolor("btDoces", new Color(224, 83, 76));
+			view.setBackgroundcolor("btBebidas", new Color(224, 83, 76));
 		}
 	}
 
@@ -155,10 +155,9 @@ public class GerenciamentoPControle {
 			Produto p = view.getItemTabela();
 			try {
 				new ProdutoDAO().deletarProduto(p);
-				// operação realizada com sucesso
+				new MensagemView("Produto Removido",3);
 			} catch (SQLException e1) {
-				e1.printStackTrace();
-				//Não é possivel remover esse produto
+				new MensagemView("Não Foi Possível Remover O Produto",0);
 			}
 			if (contS == 1) {
 				carregarProdutosFiltro(Categoria.categoriaString("salgados"));
@@ -168,11 +167,9 @@ public class GerenciamentoPControle {
 				carregarProdutosFiltro(Categoria.categoriaString("bebidas"));
 			} else {
 				carregarProdutos();
-				new MensagemView("Produto Removido",0);
 			}
 		} catch (Exception e2) {
-			e2.printStackTrace();
-			//Selecione um produto
+			new MensagemView("Selcione um Produto",2);
 		}
 		
 	}
@@ -186,13 +183,11 @@ public class GerenciamentoPControle {
 		Produto p;
 		try {
 			p = view.getItemTabela();
+			view.dispose();
+			new AlterarPControle(f,p);
 		} catch (Exception e) {
-			e.printStackTrace();
-			p=null;
-			new MensagemView("Erro ao alterar esse produto!",0);
+			new MensagemView("Selecione Um Produto!",2);
 		}
-		view.dispose();
-		new AlterarPControle(f,p);
 	}
 
 	private void carregarProdutos() {

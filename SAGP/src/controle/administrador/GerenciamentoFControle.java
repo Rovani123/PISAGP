@@ -12,6 +12,7 @@ import modelo.classes.Funcionario;
 import modelo.dao.FuncionarioDAO;
 import visao.Administrador.FuncionariosTableModel;
 import visao.Administrador.TelaGerenciamentoF;
+import visaoTelasDeAviso.MensagemView;
 
 public class GerenciamentoFControle {
 	private TelaGerenciamentoF view;
@@ -44,7 +45,6 @@ public class GerenciamentoFControle {
 				new CadastroFControle(f);
 				break;
 			case "btAlterar":
-				view.dispose();
 				alterar();
 				break;
 			case "mAnaliseVendas":
@@ -62,32 +62,44 @@ public class GerenciamentoFControle {
 		view.addGerenciamentoFListener(new GerenciamentoFListeners());
 		view.addWindowListener(new WindowAdapter() {
 			public void windowOpened(WindowEvent e) {
-				carregarProdutos();
+				carregarFuncionarios();
 			}
 		});
 	}
 	
 	private void alterar() {
-		Funcionario fselecionado =view.getItemTabela();
-		new AlterarFControle(f, fselecionado);
+		try {
+			Funcionario fselecionado =view.getItemTabela();
+			new AlterarFControle(f, fselecionado);
+			view.dispose();    
+		} catch (Exception e) {
+			new MensagemView("Selecione Um Funcionário!",2);
+		}
 	}
 
 	private void remover() {
-		Funcionario f =view.getItemTabela();
 		try {
-			new FuncionarioDAO().deletarFuncionario(f);
-			carregarProdutos();
-		} catch (SQLException e) {
-			e.printStackTrace();
-			// não foi possivel remover
+			Funcionario f =view.getItemTabela();
+			if(f.getadministrador() == 1) {
+				new MensagemView("Não é Possível Remover O Administrador!",2);
+			}else {
+				try {
+					new FuncionarioDAO().deletarFuncionario(f);
+					carregarFuncionarios();
+					new MensagemView("Funcionário Removido Com Sucesso!",3);
+				}catch (SQLException e) {
+				new MensagemView("Não Foi Possível Remover O Funcionário!",0);
+				}
+			}
+		} catch (Exception e) {
+			new MensagemView("Selecione Um Funcionário!",2);
 		};
 		
 	}
 	
-	private void carregarProdutos() {
+	private void carregarFuncionarios() {
 		FuncionariosTableModel model = new FuncionariosTableModel(new FuncionarioDAO().getFuncionarios());
 		view.setTabela(model);
 	}
 	
-//	criar metodo para pegar os get da view TelaGerenciamentoF
 }

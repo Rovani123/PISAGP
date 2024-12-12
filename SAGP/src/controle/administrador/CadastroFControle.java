@@ -9,6 +9,7 @@ import modelo.dao.FuncionarioDAO;
 import visao.TelaInicial;
 import visao.Administrador.TelaAlteracaoF;
 import visao.Administrador.TelaCadastroF;
+import visaoTelasDeAviso.MensagemView;
 
 public class CadastroFControle {
 	private TelaCadastroF view;
@@ -25,30 +26,23 @@ public class CadastroFControle {
 	}
 
 	private class CadastroF implements ActionListener{
-		
 		public void actionPerformed(ActionEvent e) {
 			switch (e.getActionCommand()) {
 			case "btCadastrar":
 				cadastrarFuncionario();
 				break;
-				
 			case "btLimpar":
 			     view.limpar();
 				break;
-				
-				
 			case "btCancelar":
 				view.dispose();
 				new GerenciamentoFControle(f);
 				break;
-				
 			case "btEntrar":
 				 entrar();
 				break;
 			}
-			
 		}
-		
 	}
 	
 	
@@ -63,15 +57,16 @@ public class CadastroFControle {
 		senha =view.getSenha();
 		
 		if(nome.isEmpty() && usuario.isEmpty() && senha.isEmpty()) {
-			//mensagem
+			new MensagemView("Todos Os Campos Prescisam Ser Preenchidos!",2);
 		}else {
 			try {
 				new FuncionarioDAO().cadastrarFuncionario(nome, usuario, senha);
-				view.dispose();
 				new GerenciamentoFControle(f);
-				//mensagem
+				new GerenciamentoFControle(f);
+				view.dispose();
+				new MensagemView("Funcionário Cadastrado Com Sucesso!",3);
 			} catch (SQLException e) {
-				// Mensagem
+				new MensagemView("Não Foi Possível Cadastrar O Funcionário!",0);
 			}
 		}
 //		Funcionario novoFuncionario = new FuncionarioDAO().get
@@ -85,12 +80,15 @@ public class CadastroFControle {
 		senha =view.getSenha();
 		
 		if(nome.isEmpty() && usuario.isEmpty() && senha.isEmpty()) {
-			//mensagem
+			new MensagemView("Todos Os Campos Prescisam Ser Preenchidos!",2);
 		}else {
 			try {
 				new FuncionarioDAO().cadastrarFuncionario(nome, usuario, senha);
+				new GerenciamentoFControle(f);
+				view.dispose();
+				new MensagemView("Funcionário Cadastrado Com Sucesso!",3);
 			} catch (SQLException e) {
-				// Mensagem
+				new MensagemView("Não Foi Possível Cadastrar O Funcionário!",0);
 			}
 		}
 		
