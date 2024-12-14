@@ -79,7 +79,7 @@ public class CadastroFControle {
 		usuario =view.getUsuario();
 		senha =view.getSenha();
 		
-		if(nome.isEmpty() && usuario.isEmpty() && senha.isEmpty()) {
+		if(nome.isEmpty() || usuario.isEmpty() || senha.isEmpty()) {
 			new MensagemView("Todos Os Campos Prescisam Ser Preenchidos!",2);
 		}else {
 			try {

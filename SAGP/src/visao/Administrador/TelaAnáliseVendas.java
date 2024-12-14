@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.IOException;
 
@@ -18,6 +19,7 @@ import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
 import modelo.classes.Funcionario;
+import modelo.classes.Vendas;
 import modelo.dao.VendaDAO;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
@@ -30,8 +32,6 @@ public class TelaAnáliseVendas extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
-	private JMenuItem mFuncionarios;
-	private JMenuItem mVoltarTelaInicial;
 	private JMenuBar menuBar;
 	private JMenu mTelas;
 	private JMenuItem mAdm;
@@ -127,5 +127,13 @@ public class TelaAnáliseVendas extends JFrame {
 	
 	public void setTabela(VendasTableModel model) {
 		table.setModel(model);
+	}
+	
+	public Vendas getItemTabela() {
+		return ((VendasTableModel) table.getModel()).getItem(table.getSelectedRow());
+	}
+	
+	public void addTabelaListeners(MouseListener listener) {
+		table.addMouseListener(listener);
 	}
 }

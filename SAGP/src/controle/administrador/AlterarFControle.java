@@ -10,6 +10,7 @@ import modelo.classes.Funcionario;
 import modelo.dao.FuncionarioDAO;
 import visao.Administrador.TelaAlteracaoF;
 import visao.Administrador.TelaGerenciamentoF;
+import visaoTelasDeAviso.MensagemView;
 
 public class AlterarFControle {
 	private TelaAlteracaoF view;
@@ -28,7 +29,6 @@ public class AlterarFControle {
 		public void actionPerformed(ActionEvent e) {
 			switch (e.getActionCommand()) {
 			case "btLimpar":
-				view.dispose();
 			    view.limpa();   	
 				break;
 			
@@ -58,14 +58,17 @@ public class AlterarFControle {
 		fSelecionado.setNome(view.getNome());
 		fSelecionado.setUsuarioFuncionario(view.getUsuario());
 		fSelecionado.setSenha(view.getSenha());
-		
-		try {
-			new FuncionarioDAO().alteraFuncionario(fSelecionado);
-			view.dispose();
-			new GerenciamentoFControle(f);
-			//mensagem
-		} catch (SQLException e) {
-			// mensagem
+		if(fSelecionado.getNome().isEmpty() || fSelecionado.getUsuarioFuncionario().isEmpty() || fSelecionado.getSenha().isEmpty()) {
+			new MensagemView("Todos Os Campos Precisam Ser Preenchidos",0);
+		}else {
+			try {
+				new FuncionarioDAO().alteraFuncionario(fSelecionado);
+				view.dispose();
+				new GerenciamentoFControle(f);
+				new MensagemView("Funcionário Alterado Com Sucesso",3);
+			} catch (SQLException e) {
+				new MensagemView("Não Foi Possível Alterar O Funcionário",0);
+			}
 		}
 	}
 
