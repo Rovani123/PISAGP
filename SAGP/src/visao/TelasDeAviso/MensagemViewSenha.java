@@ -40,8 +40,7 @@ public class MensagemViewSenha extends JDialog {
 		btOk.setPreferredSize(new Dimension(100, 30));
 		btOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				senha = String.valueOf(txtSenha.getPassword());
-				setVisible(false);
+				dispose();
 			}
 		});
 
@@ -66,6 +65,6 @@ public class MensagemViewSenha extends JDialog {
 	}
 
 	public String getSenha() {
-		return senha;
+		return String.valueOf(txtSenha.getPassword());
 	}
 }

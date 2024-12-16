@@ -60,7 +60,7 @@ public class CarrinhoDAO extends ModeloDAO{
 			ResultSet reslt = null;
 			ResultSet reslt2 = null;
 			reslt = stml.executeQuery("select * from Vendas v right join Carrinho c on v.idVenda = c.idVenda where v.idVenda = "+v.getIdVenda()+";");
-			reslt2 = stml2.executeQuery("select * from produtos p left join carrinho c on p.idProduto = c.idProduto;");
+			reslt2 = stml2.executeQuery("select * from produtos p left join carrinho c on p.idProduto = c.idProduto where c.idVenda= "+v.getIdVenda()+";");
 			
 			while(reslt2.next())
 			{
@@ -82,6 +82,7 @@ public class CarrinhoDAO extends ModeloDAO{
 					c.setProduto(p);
 					c.setQuantidade(reslt.getInt("quantidade"));
 					lista.add(c);
+					break;
 				}
 			}
 			

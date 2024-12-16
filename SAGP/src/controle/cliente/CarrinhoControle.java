@@ -39,15 +39,13 @@ public class CarrinhoControle {
 					for (Carrinho carrinho : listaCarrinhos) {
 						if (carrinho.getQuantidade() > 0) {
 							listaCarrinhosFinal.add(carrinho);
+						}
 					}
-				}
 				}
 				new ClienteFormaPagamentoControle(f,listaCarrinhosFinal);
 				break;
-			
 			}
 		}
-		
 	}
 	
 	private class PainelListeners implements ActionListener{

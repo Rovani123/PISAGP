@@ -26,7 +26,6 @@ public class CompraControle {
 	private ArrayList<Carrinho> listaCarrinhosRecuperado;
 	private ArrayList<Carrinho> listaCarrinhos =new ArrayList<Carrinho>();
 	private ArrayList<Carrinho> listaCarrinhosCompra =new ArrayList<Carrinho>();
-	private ArrayList<PainelListeners> paineis;
 	private int contS = 0;
 	private int contD = 0;
 	private int contB = 0;
@@ -56,7 +55,7 @@ public class CompraControle {
 					new TelaInicialControle(f);
 					view.dispose();
 				}else {
-					new MensagemView("Senha Incorreta!", 0);
+					//mensagem
 				}
 				break;
 			case "btCarrinho":
@@ -97,9 +96,6 @@ public class CompraControle {
 			}
 				break;
 			}
-		}
-		public Carrinho getCarrinho() {
-			return pp.getCarrinho();
 		}
 	}
 	
@@ -142,24 +138,12 @@ public class CompraControle {
 		}
 	}
 
-	private void criarDados() {
-		for (Produto p : listaProdutos) {
-			pp = new PainelProduto(p,listaCarrinhos.get(listaProdutos.indexOf(p)));
-			PainelListeners painel = new PainelListeners(pp);
-			paineis.add(painel);
-			pp.addPainelProdutoListeners(painel);
-
-		}
-	}
-	
 	private void CarregarDados() {
 		int coluna=1;
 		int linha=1;
 		for (Produto p : listaProdutos) {
 			pp = new PainelProduto(p,listaCarrinhos.get(listaProdutos.indexOf(p)));
-			PainelListeners painel = new PainelListeners(pp);
-			paineis.add(painel);
-			pp.addPainelProdutoListeners(painel);
+			pp.addPainelProdutoListeners(new PainelListeners(pp));
 			view.addPainelProdutos(pp, linha, coluna);
 			if(linha%3==0) {
 				coluna++;

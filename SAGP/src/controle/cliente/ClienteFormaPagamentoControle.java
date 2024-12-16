@@ -31,9 +31,11 @@ public class ClienteFormaPagamentoControle {
 		public void actionPerformed(ActionEvent e) {
 			switch (e.getActionCommand()) {
 			case "btCancelar":
-				//Confirmação
-				view.dispose();
-				new CompraControle(f, listaCarrinhos);
+				int conf =new MensagemView("Tem certeza que quer sair?").getResposta();
+				if(conf == 1) {
+					view.dispose();
+					new CompraControle(f, listaCarrinhos);
+				}
 				break;
 			case "btConfirmar":
 				criarVenda();
@@ -42,7 +44,8 @@ public class ClienteFormaPagamentoControle {
 					for (Carrinho c : listaCarrinhos) {
 						new CarrinhoDAO().cadastrarCarrinho(c);
 					}
-					
+					view.dispose();
+					new CompraControle(f, null);
 				} catch (SQLException e1) {
 					e1.printStackTrace();
 					new MensagemView("Compra nao efetuada, tente novamente",0);
