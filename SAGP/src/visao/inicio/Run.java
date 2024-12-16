@@ -1,4 +1,4 @@
-package visao;
+package visao.inicio;
 
 import controle.inicio.LoginControle;
 

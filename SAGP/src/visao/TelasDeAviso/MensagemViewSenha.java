@@ -1,4 +1,4 @@
-package visaoTelasDeAviso;
+package visao.TelasDeAviso;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -13,16 +13,16 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JPasswordField;
-import javax.swing.JTable;
 
-public class MensagemViewProdutos extends JDialog {
+public class MensagemViewSenha extends JDialog {
 
 	private static final long serialVersionUID = 1L;
-	private JTable table;
+	private String senha;
+	private JPasswordField txtSenha;
 
 	
 	// Método para mensagens de perguntas
-	public MensagemViewProdutos(String pergunta) {
+	public MensagemViewSenha() {
 		setTitle("Mensagem");
 		setModal(true);
 
@@ -40,18 +40,23 @@ public class MensagemViewProdutos extends JDialog {
 		btOk.setPreferredSize(new Dimension(100, 30));
 		btOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				senha = String.valueOf(txtSenha.getPassword());
 				setVisible(false);
 			}
 		});
 
 		painelSul.add(btOk);
+		
+		JLabel lblNewLabel = new JLabel("Insira a Senha");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		panel.add(lblNewLabel, BorderLayout.NORTH);
+		
+		txtSenha = new JPasswordField();
+		panel.add(txtSenha, BorderLayout.CENTER);
 
 		painelSul.setBorder(new EmptyBorder(10, 10, 10, 10));
 
 		panel.add(painelSul, BorderLayout.SOUTH);
-		
-		table = new JTable();
-		panel.add(table, BorderLayout.CENTER);
 
 		setSize(400, 200);
 		setResizable(false);
@@ -60,7 +65,7 @@ public class MensagemViewProdutos extends JDialog {
 
 	}
 
-	public void setTabela() {
-		table.setModel(model);
+	public String getSenha() {
+		return senha;
 	}
 }

@@ -1,4 +1,4 @@
-package visaoTelasDeAviso;
+package visao.TelasDeAviso;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -12,17 +12,23 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JPasswordField;
 
-public class MensagemViewSenha extends JDialog {
+import modelo.classes.Vendas;
+import modelo.tableModel.CarrinhoTableModel;
+
+import javax.swing.JPasswordField;
+import javax.swing.JTable;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+
+public class MensagemViewProdutos extends JDialog {
 
 	private static final long serialVersionUID = 1L;
-	private String senha;
-	private JPasswordField txtSenha;
+	private JTable table;
 
 	
 	// Método para mensagens de perguntas
-	public MensagemViewSenha(String pergunta) {
+	public MensagemViewProdutos(Vendas v, CarrinhoTableModel model) {
 		setTitle("Mensagem");
 		setModal(true);
 
@@ -40,32 +46,32 @@ public class MensagemViewSenha extends JDialog {
 		btOk.setPreferredSize(new Dimension(100, 30));
 		btOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				senha = String.valueOf(txtSenha.getPassword());
 				setVisible(false);
 			}
 		});
 
 		painelSul.add(btOk);
-		
-		JLabel lblNewLabel = new JLabel("Insira a Senha");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		panel.add(lblNewLabel, BorderLayout.NORTH);
-		
-		txtSenha = new JPasswordField();
-		panel.add(txtSenha, BorderLayout.CENTER);
 
 		painelSul.setBorder(new EmptyBorder(10, 10, 10, 10));
 
 		panel.add(painelSul, BorderLayout.SOUTH);
+		
+		JLabel lblNome = new JLabel("");
+		lblNome.setText(String.valueOf("Venda "+v.getIdVenda()));
+		lblNome.setHorizontalAlignment(SwingConstants.CENTER);
+		panel.add(lblNome, BorderLayout.NORTH);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		panel.add(scrollPane, BorderLayout.WEST);
+		
+		table = new JTable();
+		table.setModel(model);
+		scrollPane.setViewportView(table);
 
 		setSize(400, 200);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setVisible(true);
 
-	}
-
-	public String getSenha() {
-		return senha;
 	}
 }

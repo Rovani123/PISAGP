@@ -8,8 +8,8 @@ import controle.administrador.GerenciamentoFControle;
 import controle.funcionario.GerenciamentoPControle;
 import modelo.classes.Funcionario;
 import modelo.dao.LoginDAO;
-import visao.TelaLogin;
-import visaoTelasDeAviso.MensagemView;
+import visao.TelasDeAviso.MensagemView;
+import visao.inicio.TelaLogin;
 
 public class LoginControle {
 	private TelaLogin view;

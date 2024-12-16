@@ -15,7 +15,8 @@ import modelo.dao.ProdutoDAO;
 import modelo.enumerador.Categoria;
 import visao.Cliente.PainelProduto;
 import visao.Cliente.TelaCompra;
-import visaoTelasDeAviso.MensagemView;
+import visao.TelasDeAviso.MensagemView;
+import visao.TelasDeAviso.MensagemViewSenha;
 
 public class CompraControle {
 	private TelaCompra view;
@@ -25,6 +26,7 @@ public class CompraControle {
 	private ArrayList<Carrinho> listaCarrinhosRecuperado;
 	private ArrayList<Carrinho> listaCarrinhos =new ArrayList<Carrinho>();
 	private ArrayList<Carrinho> listaCarrinhosCompra =new ArrayList<Carrinho>();
+	private ArrayList<PainelListeners> paineis;
 	private int contS = 0;
 	private int contD = 0;
 	private int contB = 0;
@@ -49,13 +51,12 @@ public class CompraControle {
 		public void actionPerformed(ActionEvent e) {
 			switch (e.getActionCommand()) {
 			case "btSair":
-				// colocar Mensagem com um txt pra colocar senha
-				String senha = "adm69"; //teste
+				String senha = new MensagemViewSenha().getSenha();
 				if(senha.equals(f.getSenha())){
 					new TelaInicialControle(f);
 					view.dispose();
 				}else {
-					//mensagem
+					new MensagemView("Senha Incorreta!", 0);
 				}
 				break;
 			case "btCarrinho":
@@ -97,6 +98,9 @@ public class CompraControle {
 				break;
 			}
 		}
+		public Carrinho getCarrinho() {
+			return pp.getCarrinho();
+		}
 	}
 	
 	private void listeners() {
@@ -104,8 +108,7 @@ public class CompraControle {
 		view.addWindowListener(new WindowAdapter() {
 		public void windowOpened(WindowEvent e) {
 			CarregarDados();
-		}
-		});
+		}});
 	}
 	
 	private void carrinho() {
@@ -115,10 +118,6 @@ public class CompraControle {
 					listaCarrinhosCompra.add(carrinho);
 			}
 		}
-//			for(Carrinho c : listaCarrinhosCompra) {
-//				System.out.println(c.getQuantidade());
-//			}
-			System.out.println(listaCarrinhosCompra.size());
 	}
 		view.dispose();
 		new CarrinhoControle(f,listaCarrinhosCompra);		
@@ -143,12 +142,24 @@ public class CompraControle {
 		}
 	}
 
+	private void criarDados() {
+		for (Produto p : listaProdutos) {
+			pp = new PainelProduto(p,listaCarrinhos.get(listaProdutos.indexOf(p)));
+			PainelListeners painel = new PainelListeners(pp);
+			paineis.add(painel);
+			pp.addPainelProdutoListeners(painel);
+
+		}
+	}
+	
 	private void CarregarDados() {
 		int coluna=1;
 		int linha=1;
 		for (Produto p : listaProdutos) {
 			pp = new PainelProduto(p,listaCarrinhos.get(listaProdutos.indexOf(p)));
-			pp.addPainelProdutoListeners(new PainelListeners(pp));
+			PainelListeners painel = new PainelListeners(pp);
+			paineis.add(painel);
+			pp.addPainelProdutoListeners(painel);
 			view.addPainelProdutos(pp, linha, coluna);
 			if(linha%3==0) {
 				coluna++;
@@ -220,7 +231,6 @@ public class CompraControle {
 		}
 	}
 	
-
 	private void btBebidas() {
 		if (contB == 0) {
 			carregarProdutosFiltro(Categoria.categoriaString("bebidas"));

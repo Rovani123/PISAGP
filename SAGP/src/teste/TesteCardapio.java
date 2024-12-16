@@ -13,7 +13,7 @@ import java.awt.Frame;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import net.miginfocom.swing.MigLayout;
-import visao.TelaInicial;
+import visao.inicio.TelaInicial;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;

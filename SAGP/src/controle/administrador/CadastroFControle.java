@@ -6,10 +6,10 @@ import java.sql.SQLException;
 
 import modelo.classes.Funcionario;
 import modelo.dao.FuncionarioDAO;
-import visao.TelaInicial;
 import visao.Administrador.TelaAlteracaoF;
 import visao.Administrador.TelaCadastroF;
-import visaoTelasDeAviso.MensagemView;
+import visao.TelasDeAviso.MensagemView;
+import visao.inicio.TelaInicial;
 
 public class CadastroFControle {
 	private TelaCadastroF view;

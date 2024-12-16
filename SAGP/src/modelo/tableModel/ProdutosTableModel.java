@@ -1,18 +1,20 @@
-package visao.Administrador;
+package modelo.tableModel;
 
 import java.util.ArrayList;
 
 import javax.swing.table.AbstractTableModel;
-import modelo.classes.Vendas;
 
-public class VendasTableModel extends AbstractTableModel{
-	ArrayList<Vendas> lista;
-	String[] colunas = new String[] {"idVenda","Funcionario", "metodoPagamento", "Total"};
+import modelo.classes.Produto;
+
+public class ProdutosTableModel extends AbstractTableModel{
+	
+	ArrayList<Produto> lista;
+	String[] colunas = new String[] { "Nome do Produto", "preco", "quantidadeEstoque", "categoria" };
 
 	public String getColumnName(int column) {
 		return colunas[column];
 	}
-	public VendasTableModel(ArrayList<Vendas> lista) {
+	public ProdutosTableModel(ArrayList<Produto> lista) {
 		this.lista = lista;
 	}
 
@@ -24,23 +26,25 @@ public class VendasTableModel extends AbstractTableModel{
 		return colunas.length;
 	}
 	
-	protected Vendas getItem(int i) {
+	public Produto getItem(int i) {
 		return lista.get(i);
 	}
 
 	public Object getValueAt(int rowIndex, int columnIndex) {
 	
-		Vendas v = lista.get(rowIndex);
+		Produto p = lista.get(rowIndex);
 		
 		switch (columnIndex) {
-		case 0: 
-			return v.getIdVenda();
+		case 0: {
+			
+			return p.getNomeProduto();
+		}
 		case 1:
-			return v.getFuncionario().getNome();
+			return p.getPreco();
 		case 2:
-			return v.getMetodoPagamento();
+			return p.getQuantidadeEstoque();
 		case 3:
-			return v.getTotal();
+			return p.getCategoria();
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + columnIndex);
 		}

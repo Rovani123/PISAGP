@@ -7,13 +7,13 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import modelo.classes.Funcionario;
+import modelo.tableModel.ProdutosTableModel;
 
 import javax.swing.BoxLayout;
 import java.awt.Color;
 import java.awt.BorderLayout;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
-import visao.Funcionário.ProdutosTableModel;
 
 import javax.swing.JButton;
 import javax.swing.ImageIcon;

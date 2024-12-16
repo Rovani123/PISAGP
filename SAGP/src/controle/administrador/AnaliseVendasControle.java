@@ -7,6 +7,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
@@ -14,11 +15,13 @@ import controle.funcionario.GerenciamentoPControle;
 import controle.inicio.TelaInicialControle;
 import modelo.classes.Funcionario;
 import modelo.classes.Vendas;
+import modelo.dao.CarrinhoDAO;
 import modelo.dao.VendaDAO;
+import modelo.tableModel.CarrinhoTableModel;
+import modelo.tableModel.VendasTableModel;
 import visao.Administrador.TelaAnáliseVendas;
 import visao.Administrador.TelaCadastroF;
-import visao.Administrador.VendasTableModel;
-import visaoTelasDeAviso.MensagemViewProdutos;
+import visao.TelasDeAviso.MensagemViewProdutos;
 
 public class AnaliseVendasControle {
 	private TelaAnáliseVendas view;
@@ -55,8 +58,12 @@ public class AnaliseVendasControle {
 		public void mouseClicked(MouseEvent e) {
 			if(e.getButton() == MouseEvent.BUTTON1) {
 				Vendas v=view.getItemTabela();
-				
-				new MensagemViewProdutos();
+				try {
+					CarrinhoTableModel model = new CarrinhoTableModel(new CarrinhoDAO().getCarrinhos(v));
+					new MensagemViewProdutos(v, model);
+				} catch (IOException e1) {
+					//mensagem
+				}
 			}
 		}
 	}

@@ -1,4 +1,4 @@
-package visaoTelasDeAviso;
+package visao.TelasDeAviso;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;

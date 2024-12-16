@@ -61,7 +61,6 @@ public class ProdutoDAO extends ModeloDAO{
 	}
 	
 	public ArrayList<Produto> getProdutos() throws IOException {
-		
 		Statement stml = null;
 		Connection conn = getConnection();
 		
@@ -98,7 +97,6 @@ public class ProdutoDAO extends ModeloDAO{
 			e.printStackTrace();
 			return null;
 		}
-		
 	}
 	
 	public Produto getProdutoId(int id) {
@@ -133,6 +131,45 @@ public class ProdutoDAO extends ModeloDAO{
 			return null;
 		}
 		
+	}
+	
+	public ArrayList<Produto> getProdutosNome(String s) throws IOException {
+		Statement stml = null;
+		Connection conn = getConnection();
+		
+		ArrayList<Produto> lista = new ArrayList<Produto>();
+		try {
+			stml = (Statement) conn.createStatement();
+			ResultSet reslt = null;
+			reslt = stml.executeQuery("SELECT * FROM produtos where nomeProduto like '"+s+"%';");
+			
+			while(reslt.next())
+			{
+				Produto p = new Produto();
+					p.setIdProduto(reslt.getInt("idProduto"));
+					p.setNomeProduto(reslt.getString("nomeProduto"));
+					p.setPreco(reslt.getFloat("preco"));
+					p.setQuantidadeEstoque(reslt.getInt("quantidadeEstoque"));
+					Categoria cat = Categoria.categoriaString(reslt.getString("categoria"));
+					p.setCategoria(cat);
+					Blob blob = reslt.getBlob("foto");
+					byte[] blobBytes = blob.getBytes(1, (int) blob.length());
+					ByteArrayInputStream bais = new ByteArrayInputStream(blobBytes); 
+					Image image = ImageIO.read(bais);
+					p.setFoto(image);
+					lista.add(p);
+				
+				
+				}
+			reslt.close();
+			stml.close();
+			conn.close();
+			return lista;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 	public void alterarProduto(Produto p) throws SQLException {

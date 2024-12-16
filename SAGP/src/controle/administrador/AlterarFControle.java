@@ -10,7 +10,7 @@ import modelo.classes.Funcionario;
 import modelo.dao.FuncionarioDAO;
 import visao.Administrador.TelaAlteracaoF;
 import visao.Administrador.TelaGerenciamentoF;
-import visaoTelasDeAviso.MensagemView;
+import visao.TelasDeAviso.MensagemView;
 
 public class AlterarFControle {
 	private TelaAlteracaoF view;

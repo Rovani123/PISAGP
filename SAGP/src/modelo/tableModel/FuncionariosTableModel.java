@@ -1,4 +1,4 @@
-package visao.Administrador;
+package modelo.tableModel;
 
 import java.util.ArrayList;
 
@@ -26,7 +26,7 @@ public class FuncionariosTableModel extends AbstractTableModel{
 		return colunas.length;
 	}
 	
-	protected Funcionario getItem(int i) {
+	public Funcionario getItem(int i) {
 		return lista.get(i);
 	}
 

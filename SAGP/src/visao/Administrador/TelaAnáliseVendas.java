@@ -21,10 +21,12 @@ import javax.swing.border.EmptyBorder;
 import modelo.classes.Funcionario;
 import modelo.classes.Vendas;
 import modelo.dao.VendaDAO;
+import modelo.tableModel.VendasTableModel;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
-import visao.TelaInicial;
 import visao.Funcionário.TelaGerenciamentoP;
+import visao.inicio.TelaInicial;
+
 import java.awt.Font;
 import java.awt.FontFormatException;
 

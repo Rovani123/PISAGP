@@ -21,9 +21,10 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import modelo.classes.Funcionario;
 import modelo.classes.Produto;
+import modelo.tableModel.FuncionariosTableModel;
+import modelo.tableModel.ProdutosTableModel;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
-import visao.Funcionário.ProdutosTableModel;
 
 import java.awt.Font;
 import java.awt.FontFormatException;
@@ -278,9 +279,7 @@ public class TelaGerenciamentoF extends JFrame {
 	}
 	
 	public String getPesquisa() {
-		
 		return txtPesquisa.getText();
-		
 	}
 
 }

@@ -17,7 +17,6 @@ import modelo.enumerador.Categoria;
 public class FuncionarioDAO extends ModeloDAO {
 
 	public ArrayList<Funcionario> getFuncionarios() {
-		
 		Statement stml = null;
 		Connection conn = getConnection();
 		
@@ -63,5 +62,37 @@ public class FuncionarioDAO extends ModeloDAO {
 		super.delete("DELETE FROM funcionarios WHERE idFuncionario = ?", f.getIdFuncionario());
 	}
 
+	public ArrayList<Funcionario> getFuncionariosNome(String s) {
+		Statement stml = null;
+		Connection conn = getConnection();
+		
+		ArrayList<Funcionario> lista = new ArrayList<Funcionario>();
+		try {
+			stml = (Statement) conn.createStatement();
+			ResultSet reslt = null;
+			reslt = stml.executeQuery("SELECT * FROM Funcionarios where nomeFuncionario like '"+s+"%';");
+			
+			while(reslt.next())
+			{
+				Funcionario f = new Funcionario();
+					f.setIdFuncionario(reslt.getInt("idFuncionario"));
+					f.setUsuarioFuncionario(reslt.getString("usuarioFuncionario"));
+					f.setNome(reslt.getString("nomeFuncionario"));
+					f.setSenha(reslt.getString("senha"));
+						
+					lista.add(f);
+				
+				
+				}
+			reslt.close();
+			stml.close();
+			conn.close();
+			return lista;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 }

@@ -11,7 +11,7 @@ import modelo.classes.Funcionario;
 import modelo.classes.Vendas;
 import modelo.dao.CarrinhoDAO;
 import visao.Cliente.TelaClienteFormaPagamento;
-import visaoTelasDeAviso.MensagemView;
+import visao.TelasDeAviso.MensagemView;
 
 public class ClienteFormaPagamentoControle {
 	private TelaClienteFormaPagamento view;

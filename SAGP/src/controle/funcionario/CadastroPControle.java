@@ -11,7 +11,7 @@ import modelo.classes.Funcionario;
 import modelo.dao.ProdutoDAO;
 import modelo.enumerador.Categoria;
 import visao.Funcionário.TelaCadastroP;
-import visaoTelasDeAviso.MensagemView;
+import visao.TelasDeAviso.MensagemView;
 
 public class CadastroPControle {
 	private TelaCadastroP view;

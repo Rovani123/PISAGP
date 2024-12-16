@@ -15,9 +15,9 @@ import modelo.classes.Funcionario;
 import modelo.classes.Produto;
 import modelo.dao.ProdutoDAO;
 import modelo.enumerador.Categoria;
-import visao.Funcionário.ProdutosTableModel;
+import modelo.tableModel.ProdutosTableModel;
 import visao.Funcionário.TelaGerenciamentoP;
-import visaoTelasDeAviso.MensagemView;
+import visao.TelasDeAviso.MensagemView;
 
 public class GerenciamentoPControle {
 	private TelaGerenciamentoP view;
@@ -58,7 +58,14 @@ public class GerenciamentoPControle {
 				btCadastrar();
 				break;
 			case "btPesquisar":
-//				btPesquisar();
+				String nome = view.getPesquisa();
+				ProdutosTableModel model;
+				try {
+					model = new ProdutosTableModel(new ProdutoDAO().getProdutosNome(nome));
+					view.setTabela(model);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+				}
 				break;
 			case "mVoltar":
 				view.dispose();

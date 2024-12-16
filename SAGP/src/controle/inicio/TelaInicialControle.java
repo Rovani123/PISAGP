@@ -7,9 +7,9 @@ import controle.administrador.GerenciamentoFControle;
 import controle.cliente.CompraControle;
 import controle.funcionario.GerenciamentoPControle;
 import modelo.classes.Funcionario;
-import visao.TelaInicial;
-import visao.TelaLogin;
-import visaoTelasDeAviso.MensagemView;
+import visao.TelasDeAviso.MensagemView;
+import visao.inicio.TelaInicial;
+import visao.inicio.TelaLogin;
 
 public class TelaInicialControle {
 	private TelaInicial view;

@@ -10,9 +10,9 @@ import controle.funcionario.GerenciamentoPControle;
 import controle.inicio.TelaInicialControle;
 import modelo.classes.Funcionario;
 import modelo.dao.FuncionarioDAO;
-import visao.Administrador.FuncionariosTableModel;
+import modelo.tableModel.FuncionariosTableModel;
 import visao.Administrador.TelaGerenciamentoF;
-import visaoTelasDeAviso.MensagemView;
+import visao.TelasDeAviso.MensagemView;
 
 public class GerenciamentoFControle {
 	private TelaGerenciamentoF view;
@@ -52,7 +52,9 @@ public class GerenciamentoFControle {
 				new AnaliseVendasControle(f);
 				break;
 			case "btPesquisar":
-				System.out.println("btPesquisar");
+				String nome = view.getPesquisa();
+				FuncionariosTableModel model = new FuncionariosTableModel(new FuncionarioDAO().getFuncionariosNome(nome));
+				view.setTabela(model);
 				break;
 			}
 		}

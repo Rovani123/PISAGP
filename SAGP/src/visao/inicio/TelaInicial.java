@@ -1,4 +1,4 @@
-package visao;
+package visao.inicio;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -16,6 +16,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import modelo.classes.Funcionario;
 import net.miginfocom.swing.MigLayout;
+import visao.RoundButton;
+
 import java.awt.event.ActionEvent;
 
 public class TelaInicial extends JFrame {

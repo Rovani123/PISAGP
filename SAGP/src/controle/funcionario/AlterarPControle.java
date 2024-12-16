@@ -18,7 +18,7 @@ import modelo.enumerador.Categoria;
 import visao.RoundButton;
 import visao.Funcionário.TelaAlteracaoP;
 import visao.Funcionário.TelaGerenciamentoP;
-import visaoTelasDeAviso.MensagemView;
+import visao.TelasDeAviso.MensagemView;
 
 public class AlterarPControle {
 	private TelaAlteracaoP view;

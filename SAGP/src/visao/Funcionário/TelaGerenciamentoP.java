@@ -8,14 +8,14 @@ import javax.swing.border.EmptyBorder;
 
 import modelo.classes.Funcionario;
 import modelo.classes.Produto;
+import modelo.tableModel.FuncionariosTableModel;
+import modelo.tableModel.ProdutosTableModel;
 
 import javax.swing.BoxLayout;
 import java.awt.Color;
 import java.awt.BorderLayout;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
-import visao.Administrador.FuncionariosTableModel;
-import visao.Funcionário.ProdutosTableModel;
 
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
@@ -279,5 +279,9 @@ public class TelaGerenciamentoP extends JFrame {
 
 	public Produto getItemTabela() {
 		return ((ProdutosTableModel) table.getModel()).getItem(table.getSelectedRow());
+	}
+	
+	public String getPesquisa() {
+		return txtPesquisar.getText();
 	}
 }

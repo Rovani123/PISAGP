@@ -10,7 +10,7 @@ import modelo.classes.Carrinho;
 import modelo.classes.Funcionario;
 import visao.Cliente.PainelProduto;
 import visao.Cliente.TelaClienteCarrinho;
-import visaoTelasDeAviso.MensagemView;
+import visao.TelasDeAviso.MensagemView;
 
 public class CarrinhoControle {
 	private TelaClienteCarrinho view;

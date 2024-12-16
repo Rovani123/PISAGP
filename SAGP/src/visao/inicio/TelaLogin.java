@@ -1,4 +1,4 @@
-package visao;
+package visao.inicio;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -21,6 +21,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import net.miginfocom.swing.MigLayout;
+import visao.RoundButton;
 
 public class TelaLogin extends JFrame {
 
