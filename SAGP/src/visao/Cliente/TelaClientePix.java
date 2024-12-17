@@ -26,6 +26,9 @@ public class TelaClientePix extends JFrame {
 	private RoundButton btVoltar;
 	private RoundButton btCancelar;
 
+	
+	
+	
 	public TelaClientePix() {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -44,7 +47,7 @@ public class TelaClientePix extends JFrame {
 		
 		
 		btVoltar = new RoundButton("Voltar");
-		btVoltar.setFont(new Font("Arial", Font.PLAIN, 15));
+		btVoltar.setFont(new Font("Arial", Font.PLAIN, 20));
 		btVoltar.setActionCommand("btVoltar");
 		btVoltar.setForeground(new Color(245, 245, 245));
 		//btVoltar.addActionListener(new ActionListener() {
@@ -55,12 +58,16 @@ public class TelaClientePix extends JFrame {
 		//btVoltar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		contentPane.add(btVoltar, "cell 0 0,alignx left,aligny top");
 		
+		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setIcon(new ImageIcon(TelaClientePix.class.getResource("/Imagem/LogoMediaMedia.png")));
+		contentPane.add(lblNewLabel_3, "flowx,cell 6 1,alignx center,aligny center");
+		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(TelaClientePix.class.getResource("/Imagem/ImagemLogoGrande.png")));
 		contentPane.add(lblNewLabel, "cell 6 1,alignx center,aligny center");
 		
 		JLabel lblNewLabel_1 = new JLabel("PAGAMENTO COM O PIX:");
-		lblNewLabel_1.setFont(new Font("Arial", Font.PLAIN, 16));
+		lblNewLabel_1.setFont(new Font("Arial", Font.BOLD, 25));
 		//lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		contentPane.add(lblNewLabel_1, "cell 6 3,alignx center,aligny center");
 		
@@ -69,7 +76,7 @@ public class TelaClientePix extends JFrame {
 		contentPane.add(lblNewLabel_2, "cell 6 5,alignx center,aligny center");
 		
 		btCancelar = new RoundButton("Cancelar");
-		btCancelar.setFont(new Font("Arial", Font.PLAIN, 15));
+		btCancelar.setFont(new Font("Arial", Font.PLAIN, 20));
 		btCancelar.setActionCommand("btCancelar");
 		btCancelar.setBackground(new Color(224, 83, 76));
 		btCancelar.setForeground(new Color(230, 230, 230));

@@ -2,6 +2,7 @@ package visao.Cliente;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.event.ActionListener;
@@ -31,6 +32,20 @@ public class TelaCompra extends JFrame {
 	private JPanel painel;
 	private RoundButton btPesquisar;
 
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TelaCompra frame = new TelaCompra(null);
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
 	public TelaCompra(Funcionario f) {
 		
 		setExtendedState(MAXIMIZED_BOTH);
@@ -50,7 +65,7 @@ public class TelaCompra extends JFrame {
 		BarraLateral.setLayout(new MigLayout("", "[]", "[][grow 50][][][grow 50][][][][][grow 50][grow][][grow][]"));
 		
 		btSair = new RoundButton("Sair");
-		btSair.setFont(new Font("Arial", Font.PLAIN, 15));
+		btSair.setFont(new Font("Arial", Font.PLAIN, 16));
 		btSair.setBackground(new Color(245, 245, 245));
 		btSair.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/volte.png")));
 		btSair.setActionCommand("btSair");
@@ -74,30 +89,30 @@ public class TelaCompra extends JFrame {
 		
 		btBebidas = new RoundButton("Bebidas");
 		btBebidas.setActionCommand("btBebidas");
-		btBebidas.setFont(new Font("Arial", Font.PLAIN, 15));
+		btBebidas.setFont(new Font("Arial", Font.PLAIN, 16));
 		btBebidas.setText("Bebidas");
-		btBebidas.setForeground(new Color(245, 245, 245));
-		btBebidas.setBackground(new Color(224, 83, 76));
+		btBebidas.setForeground(new Color(0, 0, 0));
+		btBebidas.setBackground(new Color(245, 245, 245));
 		BarraLateral.add(btBebidas, "cell 0 8,growx,aligny center");
 		
 		btDoces = new RoundButton("Doce");
 		btDoces.setActionCommand("btDoces");
-		btDoces.setFont(new Font("Arial", Font.PLAIN, 15));
+		btDoces.setFont(new Font("Arial", Font.PLAIN, 16));
 		btDoces.setText("Doces");
-		btDoces.setForeground(new Color(245, 245, 245));
-		btDoces.setBackground(new Color(224, 83, 76));
+		btDoces.setForeground(new Color(0, 0, 0));
+		btDoces.setBackground(new Color(245, 245, 245));
 		BarraLateral.add(btDoces, "cell 0 7,growx,aligny center");
 		
 		btSalgados = new RoundButton("Salgado");
 		btSalgados.setActionCommand("btSalgados");
 		btSalgados.setText("Salgados");
-		btSalgados.setForeground(new Color(245, 245, 245));
-		btSalgados.setBackground(new Color(224, 83, 76));
-		btSalgados.setFont(new Font("Arial", Font.PLAIN, 15));
+		btSalgados.setForeground(new Color(0, 0, 0));
+		btSalgados.setBackground(new Color(245, 245, 245));
+		btSalgados.setFont(new Font("Arial", Font.PLAIN, 16));
 		BarraLateral.add(btSalgados, "cell 0 6,growx,aligny center");
 		
 		btCarrinho = new RoundButton("Carrinho");
-		btCarrinho.setFont(new Font("Arial", Font.PLAIN, 15));
+		btCarrinho.setFont(new Font("Arial", Font.PLAIN, 16));
 		btCarrinho.setActionCommand("btCarrinho");
 		btCarrinho.setForeground(new Color(0, 0, 0));
 		btCarrinho.setBackground(new Color(245, 245, 245));
@@ -115,6 +130,7 @@ public class TelaCompra extends JFrame {
 		panelPesquisa.setLayout(new MigLayout("", "[][][][grow][][][][][][][][][][][][][][][][][][][1px][]", "[][1px]"));
 		
 		txtPesquisa = new JTextField();
+		txtPesquisa.setBackground(new Color(245, 245, 245));
 		txtPesquisa.setFont(new Font("Arial", Font.PLAIN, 16));
 		txtPesquisa.setForeground(new Color(230, 230, 230));
 		txtPesquisa.setText("Pesquisar");
@@ -123,6 +139,7 @@ public class TelaCompra extends JFrame {
 		txtPesquisa.setColumns(10);
 		
 		btPesquisar = new RoundButton("");
+		btPesquisar.setFont(new Font("Arial", Font.PLAIN, 16));
 		btPesquisar.setBackground(new Color(245, 245, 245));
 		btPesquisar.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/lupa.png")));
 		btPesquisar.setActionCommand("btPesquisar");
@@ -132,6 +149,7 @@ public class TelaCompra extends JFrame {
 		panel_2.add(painelCompra, BorderLayout.CENTER);
 		
 		painelProdutos = new JPanel();
+		painelProdutos.setBackground(new Color(230, 230, 230));
 		painelCompra.setViewportView(painelProdutos);
 		painelProdutos.setLayout(new MigLayout("", "[center]", "[]"));
 	

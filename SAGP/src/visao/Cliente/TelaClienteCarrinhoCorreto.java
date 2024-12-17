@@ -47,6 +47,7 @@ public class TelaClienteCarrinhoCorreto extends JFrame {
 	private RoundButton btBebidas;
 	private RoundButton btFinalizarCompra;
 	
+	
 	public TelaClienteCarrinhoCorreto(Funcionario f,ArrayList<Carrinho> listaCarrinhos) {
 		
 		setExtendedState(MAXIMIZED_BOTH);
@@ -54,6 +55,7 @@ public class TelaClienteCarrinhoCorreto extends JFrame {
 		setBounds(100, 100, 955, 544);
 		
 		panel = new JPanel();
+		panel.setBackground(new Color(230, 230, 230));
 		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		
 		setContentPane(panel);
@@ -144,7 +146,7 @@ public class TelaClienteCarrinhoCorreto extends JFrame {
 		lblTotal.setFont(new Font("Arial", Font.PLAIN, 16));
 		painelPrincipal.add(lblTotal, "flowx,cell 0 3,alignx right");
 		
-		lblTotalPagar = new JLabel("New label");
+		lblTotalPagar = new JLabel("R$:");
 		lblTotalPagar.setFont(new Font("Arial", Font.PLAIN, 15));
 		painelPrincipal.add(lblTotalPagar, "cell 0 3");
 		

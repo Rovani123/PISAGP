@@ -34,10 +34,10 @@ public class PainelProduto extends JPanel {
 		produto=p;
 		carrinho = c;
 		setBackground(new Color(230, 230, 230));
-		setLayout(new MigLayout("", "[][grow][][][][][][][][][][]", "[grow][][][][][][][][][][][]"));
+		setLayout(new MigLayout("", "[][grow][][][][][][][][][][][]", "[grow][][][][][][][][][][][]"));
 		
 		JPanel painelImagem = new JPanel();
-		add(painelImagem, "cell 1 0 10 8,grow");
+		add(painelImagem, "cell 1 0 11 8,grow");
 		painelImagem.setLayout(new BorderLayout(0, 0));
 		
 		JLabel lblImagem = new JLabel("");
@@ -45,30 +45,34 @@ public class PainelProduto extends JPanel {
 		painelImagem.add(lblImagem);
 		
 		JLabel lblNome = new JLabel("");
-		lblNome.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblNome.setFont(new Font("Arial", Font.PLAIN, 16));
 		lblNome.setText(p.getNomeProduto());
-		add(lblNome, "cell 1 9 3 1,alignx center");
+		add(lblNome, "cell 1 9 4 1,alignx center");
+		
+		JLabel lblNewLabel = new JLabel("R$:");
+		lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 16));
+		add(lblNewLabel, "cell 1 10,alignx right");
 		
 		JLabel lblPreco = new JLabel("");
-		lblPreco.setFont(new Font("Arial", Font.PLAIN, 12));
+		lblPreco.setFont(new Font("Arial", Font.PLAIN, 16));
 		lblPreco.setText(String.valueOf(p.getPreco()));
-		add(lblPreco, "cell 1 10,alignx center");
+		add(lblPreco, "cell 2 10,alignx center");
 		
 		btMenos = new RoundButton("-");
-		btMenos.setFont(new Font("Arial", Font.PLAIN, 12));
+		btMenos.setFont(new Font("Arial", Font.PLAIN, 16));
 		btMenos.setBackground(new Color(245, 245, 245));
 		btMenos.setActionCommand("btMenos");
-		add(btMenos, "cell 4 10");
+		add(btMenos, "cell 5 10");
 		
 		lblQuantidade = new JLabel("0");
-		lblQuantidade.setFont(new Font("Arial", Font.PLAIN, 12));
-		add(lblQuantidade, "cell 6 10 2 1");
+		lblQuantidade.setFont(new Font("Arial", Font.PLAIN, 16));
+		add(lblQuantidade, "cell 7 10 2 1");
 		
 		btMais = new RoundButton("+");
-		btMais.setFont(new Font("Arial", Font.PLAIN, 12));
+		btMais.setFont(new Font("Arial", Font.PLAIN, 16));
 		btMais.setBackground(new Color(245, 245, 245));
 		btMais.setActionCommand("btMais");
-		add(btMais, "cell 9 10");
+		add(btMais, "cell 10 10");
 		lblQuantidade.setText(String.valueOf(carrinho.getQuantidade()));
 	}
 	
