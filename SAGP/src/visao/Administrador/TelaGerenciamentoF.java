@@ -48,20 +48,22 @@ public class TelaGerenciamentoF extends JFrame {
 	private RoundButton btAdicionar;
 	private RoundButton btPesquisar;
 	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TelaGerenciamentoF frame = new TelaGerenciamentoF(null);
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
 
 	public TelaGerenciamentoF(Funcionario f) {
 		
-		Font font = new Font("Tahoma", Font.PLAIN, 11);;
-		try {
-			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
-			
-			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
-	
-		} catch (FontFormatException e1) {
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
 		
 		TelaGerenciamentoF tela = this;
 		
@@ -71,39 +73,38 @@ public class TelaGerenciamentoF extends JFrame {
 		
 		// inico menu
 		menuBar = new JMenuBar();
-		menuBar.setFont(font);
 		setJMenuBar(menuBar);
 		
 		mTelas = new JMenu("Telas");
-		mTelas.setFont(font);
+		mTelas.setFont(new Font("Arial", Font.PLAIN, 16));
 		menuBar.add(mTelas);
 		
 		mAdm = new JMenuItem("Administrador");
-		mAdm.setFont(font);
+		mAdm.setFont(new Font("Arial", Font.PLAIN, 15));
 		mAdm.setEnabled(false);
 		mTelas.add(mAdm);
 		
 		mFuncionario = new JMenuItem("Funcionário");
-		mFuncionario.setFont(font);
+		mFuncionario.setFont(new Font("Arial", Font.PLAIN, 15));
 		mFuncionario.setActionCommand("mFuncionario");
 		mTelas.add(mFuncionario);
 		
 		mOpcoes = new JMenu("Opções");
-		mOpcoes.setFont(font);
+		mOpcoes.setFont(new Font("Arial", Font.PLAIN, 16));
 		menuBar.add(mOpcoes);
 		
 		mAnaliseVendas = new JMenuItem("Análise de vendas");
-		mAnaliseVendas.setFont(font);
+		mAnaliseVendas.setFont(new Font("Arial", Font.PLAIN, 15));
 		mAnaliseVendas.setActionCommand("mAnaliseVendas");
 		mOpcoes.add(mAnaliseVendas);
 		
 		mGFuncionarios = new JMenuItem(" Funcionarios");
-		mGFuncionarios.setFont(font);
+		mGFuncionarios.setFont(new Font("Arial", Font.PLAIN, 15));
 		mGFuncionarios.setEnabled(false);
 		mOpcoes.add(mGFuncionarios);
 		
 		mVoltar = new JMenuItem("Voltar ao inicio");
-		mVoltar.setFont(font);
+		mVoltar.setFont(new Font("Arial", Font.PLAIN, 16));
 		mVoltar.setActionCommand("mVoltar");
 		menuBar.add(mVoltar);
 		painel = new JPanel();
@@ -126,10 +127,11 @@ public class TelaGerenciamentoF extends JFrame {
 		BarraLateral.setLayout(new MigLayout("", "[]", "[][][][][][][][][][][grow][]"));
 		
 		JLabel lblLogo = new JLabel("");
-		lblLogo.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/LogoPequena.png")));
+		lblLogo.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/Logo.png")));
 		BarraLateral.add(lblLogo, "cell 0 1,alignx left,aligny center");
 		
 		JLabel lblTabelaFunc = new JLabel("TABELA DE FUNCIONÁRIO:");
+		lblTabelaFunc.setFont(new Font("Arial", Font.PLAIN, 16));
 		//lblTabelaFunc.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		BarraLateral.add(lblTabelaFunc, "cell 0 3,alignx left,aligny center");
 		
@@ -139,14 +141,14 @@ public class TelaGerenciamentoF extends JFrame {
 		
 		JLabel lblIconRemover = new JLabel("");
 		lblIconRemover.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/lixeira.png")));
-		BarraLateral.add(lblIconRemover, "flowx,cell 0 5");
+		BarraLateral.add(lblIconRemover, "flowx,cell 0 5,alignx left,aligny center");
 		
 		JLabel lblIconAdicionar = new JLabel("");
 		lblIconAdicionar.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/lupa.png")));
-		BarraLateral.add(lblIconAdicionar, "flowx,cell 0 6");
+		BarraLateral.add(lblIconAdicionar, "flowx,cell 0 6,alignx left,aligny center");
 		
 		btAdicionar = new RoundButton("ADICIONAR");
-		btAdicionar.setFont(font);
+		btAdicionar.setFont(new Font("Arial", Font.PLAIN, 15));
 		//btAdicionar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btAdicionar.setText("Adicionar");
 		btAdicionar.setForeground(new Color(0, 0, 0));
@@ -163,10 +165,10 @@ public class TelaGerenciamentoF extends JFrame {
 //		            e2.printStackTrace();
 //			}
 //		}});
-		BarraLateral.add(btAdicionar, "cell 0 6,alignx left,aligny center");
+		BarraLateral.add(btAdicionar, "cell 0 6,alignx left,aligny bottom");
 		
 		btRemover = new RoundButton("DELETAR");
-		btRemover.setFont(font);
+		btRemover.setFont(new Font("Arial", Font.PLAIN, 15));
 		//btRemover.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btRemover.setText("Remover");
 		btRemover.setActionCommand("btRemover");
@@ -191,14 +193,14 @@ public class TelaGerenciamentoF extends JFrame {
 //		});
 		btRemover.setForeground(new Color(0, 0, 0));
 		btRemover.setBackground(new Color(245, 245, 245));
-		BarraLateral.add(btRemover, "cell 0 5,alignx left,aligny center");
+		BarraLateral.add(btRemover, "cell 0 5,alignx left,aligny bottom");
 		
 		btAlterar = new RoundButton("ALTERAR");
 		btAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btAlterar.setFont(font);
+		btAlterar.setFont(new Font("Arial", Font.PLAIN, 15));
 		//btAlterar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btAlterar.setText("Alterar");
 		btAlterar.setForeground(new Color(0, 0, 0));
@@ -214,7 +216,7 @@ public class TelaGerenciamentoF extends JFrame {
 //		            e2.printStackTrace();
 //			}
 //		}});
-		BarraLateral.add(btAlterar, "cell 0 4");
+		BarraLateral.add(btAlterar, "cell 0 4,alignx left,aligny bottom");
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(new Color(230, 230, 230));
@@ -227,16 +229,19 @@ public class TelaGerenciamentoF extends JFrame {
 		panelPesquisa.setLayout(new MigLayout("", "[][][][grow][][][][][][][][][][][][][][][][][][][1px][]", "[][1px]"));
 		
 		JLabel lblFuncionario = new JLabel("Funcionário:");
+		lblFuncionario.setFont(new Font("Arial", Font.PLAIN, 16));
 		//lblFuncionario.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		panelPesquisa.add(lblFuncionario, "cell 1 0");
+		panelPesquisa.add(lblFuncionario, "cell 1 0,alignx left,aligny center");
 		
 		txtPesquisa = new JTextField();
+		txtPesquisa.setFont(new Font("Arial", Font.PLAIN, 16));
 		//txtPesquisa.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		panelPesquisa.add(txtPesquisa, "cell 3 0 16 1,growx");
+		panelPesquisa.add(txtPesquisa, "cell 2 0 17 1,growx,aligny center");
 		txtPesquisa.setColumns(10);
 		
 		btPesquisar = new RoundButton("");
-		btPesquisar.setFont(font);
+		btPesquisar.setForeground(new Color(245, 245, 245));
+		btPesquisar.setBackground(new Color(245, 245, 245));
 		btPesquisar.setActionCommand("btPesquisar");
 		//btPesquisar.addActionListener(new ActionListener() {
 			//public void actionPerformed(ActionEvent e) {
@@ -244,7 +249,7 @@ public class TelaGerenciamentoF extends JFrame {
 		//});
 		//btPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btPesquisar.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/lupa.png")));
-		panelPesquisa.add(btPesquisar, "cell 19 0");
+		panelPesquisa.add(btPesquisar, "cell 19 0,alignx right");
 		
 		JScrollPane panelTabelaFuncionario = new JScrollPane();
 		panel_2.add(panelTabelaFuncionario, BorderLayout.CENTER);

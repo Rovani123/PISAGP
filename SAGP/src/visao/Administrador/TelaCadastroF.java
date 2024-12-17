@@ -10,6 +10,8 @@ import visao.RoundButton;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Color;
+import java.awt.EventQueue;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -31,21 +33,9 @@ public class TelaCadastroF extends JFrame {
 	private RoundButton btLimpar;
 	private RoundButton btEntrar;
 	
+	
 	public TelaCadastroF(Funcionario f) {
 		
-		Font font = new Font("Tahoma", Font.PLAIN, 11);;
-		try {
-			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
-			
-			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
-	
-		} catch (FontFormatException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
 		
 		setExtendedState(MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -58,72 +48,72 @@ public class TelaCadastroF extends JFrame {
 		painel.setLayout(new MigLayout("", "[grow][][][grow][][][grow][][][][][][][grow]", "[grow][][][grow][][][][][][][][][grow]"));
 		
 		ImageLabel lblLogo = new ImageLabel("");
-		lblLogo.setIcon(new ImageIcon(TelaCadastroF.class.getResource("/Imagem/ImagemLogoGrande.png")));
-		painel.add(lblLogo, "cell 3 2 10 1,alignx center,growy");
+		lblLogo.setIcon(new ImageIcon(TelaCadastroF.class.getResource("/Imagem/logoGrande.png")));
+		painel.add(lblLogo, "cell 0 0 14 2,alignx center,aligny top");
 		
 		JLabel lblCadastre = new JLabel("Cadastre um Funcionário:");
-		lblCadastre.setFont(font);
-		painel.add(lblCadastre, "cell 3 4 9 1,alignx center");
+		lblCadastre.setFont(new Font("Arial", Font.PLAIN, 30));
+		painel.add(lblCadastre, "cell 3 2 9 1,alignx center,aligny baseline");
 		
 		JLabel lblUsuario = new JLabel("Usuário:");
-		lblUsuario.setFont(font);
-		painel.add(lblUsuario, "cell 3 5,alignx left");
+		lblUsuario.setFont(new Font("Arial", Font.PLAIN, 20));
+		painel.add(lblUsuario, "cell 3 4,alignx left,aligny top");
 		
 		txtUsuario = new JTextField();
 		txtUsuario.setForeground(new Color(128, 128, 128));
 		txtUsuario.setText("Coloque o seu usuario para cadastar");
-		txtUsuario.setFont(font);
-		painel.add(txtUsuario, "cell 3 6 9 1,growx");
+		txtUsuario.setFont(new Font("Arial", Font.PLAIN, 20));
+		painel.add(txtUsuario, "cell 3 5 10 1,growx,aligny top");
 		txtUsuario.setColumns(10);
 		
 		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setFont(font);
-		painel.add(lblNome, "cell 3 7,alignx left");
+		lblNome.setFont(new Font("Arial", Font.PLAIN, 20));
+		painel.add(lblNome, "cell 3 6,alignx left,aligny top");
 		
 		txtNome = new JTextField();
 		txtNome.setForeground(new Color(128, 128, 128));
 		txtNome.setText("Entre com seu nome para cadastar");
-		txtNome.setFont(font);
-		painel.add(txtNome, "cell 3 8 9 1,growx");
+		txtNome.setFont(new Font("Arial", Font.PLAIN, 20));
+		painel.add(txtNome, "cell 3 7 10 1,growx,aligny top");
 		txtNome.setColumns(10);
 		
 		JLabel lblSenha = new JLabel("Senha:");
-		lblSenha.setFont(font);
-		painel.add(lblSenha, "cell 3 9,alignx left");
-		
-		txtSenha = new JPasswordField();
-		txtSenha.setToolTipText("");
-		painel.add(txtSenha, "cell 3 10 9 1,growx");
+		lblSenha.setFont(new Font("Arial", Font.PLAIN, 20));
+		painel.add(lblSenha, "cell 3 8,alignx left,aligny top");
 		
 		btCancelar = new RoundButton("CANCELAR");
 		btCancelar.setText("Cancelar");
-		btCancelar.setFont(font);
+		btCancelar.setFont(new Font("Arial", Font.PLAIN, 20));
 		btCancelar.setActionCommand("btCancelar");
 		
 		btLimpar = new RoundButton("LIMPAR");
 		btLimpar.setText("Limpar");
-		btLimpar.setFont(font);
 		btLimpar.setActionCommand("btLimpa3");
 		btLimpar.setBackground(new Color(224, 83, 76));
 		btLimpar.setForeground(new Color(245, 245, 245));
+		
+		txtSenha = new JPasswordField();
+		txtSenha.setFont(new Font("Arial", Font.PLAIN, 20));
+		txtSenha.setToolTipText("");
+		painel.add(txtSenha, "cell 3 9 10 1,growx,aligny top");
 		btCadastrar = new RoundButton("CADASTRAR");
 		btCadastrar.setText("Cadastrar");
-		btCadastrar.setFont(font);
+		btCadastrar.setFont(new Font("Arial", Font.PLAIN, 20));
 		btCadastrar.setActionCommand("btCadastrar");
 		btCadastrar.setBackground(new Color(224, 83, 76));
 		btCadastrar.setForeground(new Color(245, 245, 245));
-		painel.add(btCadastrar, "cell 6 11");
+		painel.add(btCadastrar, "cell 3 12,alignx left,aligny center");
 		btCancelar.setBackground(new Color(0, 0, 0));
 		btCancelar.setForeground(new Color(245, 245, 245));
-		painel.add(btCancelar, "cell 11 12");
+		painel.add(btCancelar, "cell 11 12,alignx left,aligny center");
 		
 		btEntrar = new RoundButton("ENTRAR");
 		btEntrar.setText("Entrar");
-		btEntrar.setFont(font);
+		btEntrar.setFont(new Font("Arial", Font.PLAIN, 20));
 		btEntrar.setActionCommand("btEntrar");
 		btEntrar.setBackground(new Color(224, 83, 76));
 		btEntrar.setForeground(new Color(245, 245, 245));
-		painel.add(btEntrar, "cell 12 12,aligny bottom");
+		painel.add(btEntrar, "cell 12 12,alignx right,aligny center");
 	}
 	public void addCadastroF(ActionListener listener) {
 		btCancelar.addActionListener(listener);

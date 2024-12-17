@@ -16,6 +16,8 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.awt.Color;
+import java.awt.EventQueue;
+
 import javax.swing.JPasswordField;
 import java.awt.event.ActionEvent;
 
@@ -28,23 +30,9 @@ public class TelaAlteracaoF extends JFrame {
 	private RoundButton btSalvar;
 	private RoundButton btCancelar;
 	private RoundButton btLimpar;
+	
 
 	public TelaAlteracaoF(Funcionario f) {
-
-		Font font = new Font("Tahoma", Font.PLAIN, 11);
-		;
-		try {
-			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
-
-			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
-
-		} catch (FontFormatException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
 
 		setExtendedState(MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -58,37 +46,39 @@ public class TelaAlteracaoF extends JFrame {
 
 		JLabel lblLogo = new JLabel("");
 		lblLogo.setIcon(new ImageIcon(TelaAlteracaoF.class.getResource("/Imagem/logoGrande.png")));
-		contentPane.add(lblLogo, "cell 6 1,growx,aligny center");
+		contentPane.add(lblLogo, "cell 2 1 7 1,alignx center,aligny center");
 
 		JLabel lblNome = new JLabel("Nome do funcionário:");
-		lblNome.setFont(font);
+		lblNome.setFont(new Font("Arial", Font.PLAIN, 25));
 		lblNome.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		contentPane.add(lblNome, "cell 2 2,alignx left,aligny center");
+		contentPane.add(lblNome, "cell 2 2,alignx left,aligny bottom");
 
 		txtNome = new JTextField();
-		contentPane.add(txtNome, "cell 2 3 6 1,growx,aligny center");
+		txtNome.setFont(new Font("Arial", Font.PLAIN, 20));
+		contentPane.add(txtNome, "cell 2 3 7 1,growx,aligny top");
 		txtNome.setColumns(10);
 
 		JLabel lblUsuario = new JLabel("Usuário:");
-		lblUsuario.setFont(font);
+		lblUsuario.setFont(new Font("Arial", Font.PLAIN, 25));
 		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		contentPane.add(lblUsuario, "cell 2 4,alignx left,aligny center");
+		contentPane.add(lblUsuario, "cell 2 4,alignx left,aligny bottom");
 
 		txtUsuario = new JTextField();
-		contentPane.add(txtUsuario, "cell 2 5 6 1,growx,aligny center");
+		txtUsuario.setFont(new Font("Arial", Font.PLAIN, 20));
+		contentPane.add(txtUsuario, "cell 2 5 7 1,growx,aligny top");
 		txtUsuario.setColumns(10);
 
 		JLabel lblSenha = new JLabel("Senha:");
-		lblSenha.setFont(font);
-		lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		contentPane.add(lblSenha, "cell 2 6,alignx left,aligny center");
+		lblSenha.setFont(new Font("Arial", Font.PLAIN, 20));
+		contentPane.add(lblSenha, "cell 2 6,alignx left,aligny bottom");
 
 		txtSenha = new JPasswordField();
-		contentPane.add(txtSenha, "cell 2 7 6 1,growx,aligny center");
+		txtSenha.setFont(new Font("Arial", Font.PLAIN, 20));
+		contentPane.add(txtSenha, "cell 2 7 7 1,growx,aligny top");
 
 		btSalvar = new RoundButton("SALVAR");
+		btSalvar.setFont(new Font("Arial", Font.PLAIN, 20));
 		btSalvar.setText("Salvar");
-		btSalvar.setFont(font);
 		btSalvar.setActionCommand("btSalvar");
 //		btSalvar.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
@@ -109,11 +99,11 @@ public class TelaAlteracaoF extends JFrame {
 //		});
 
 		btLimpar = new RoundButton("LIMPAR");
+		btLimpar.setFont(new Font("Arial", Font.PLAIN, 20));
 		btLimpar.setText("Limpar");
-		btLimpar.setFont(font);
 		btLimpar.setActionCommand("btLimpar");
-		btLimpar.setForeground(new Color(0, 0, 0));
-		btLimpar.setBackground(new Color(245, 245, 245));
+		btLimpar.setForeground(new Color(245, 245, 245));
+		btLimpar.setBackground(new Color(224, 83, 76));
 		// btLimpar.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		contentPane.add(btLimpar, "cell 2 10");
 		btSalvar.setForeground(new Color(245, 245, 245));
@@ -123,8 +113,8 @@ public class TelaAlteracaoF extends JFrame {
 		contentPane.add(btSalvar, "cell 6 10,alignx right,aligny center");
 
 		btCancelar = new RoundButton("CANCELAR");
+		btCancelar.setFont(new Font("Arial", Font.PLAIN, 20));
 		btCancelar.setText("Cancelar");
-		btCancelar.setFont(font);
 		btCancelar.setActionCommand("btCancelar");
 //		btCancelar.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
