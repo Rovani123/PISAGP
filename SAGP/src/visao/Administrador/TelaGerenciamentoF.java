@@ -49,6 +49,19 @@ public class TelaGerenciamentoF extends JFrame {
 	private RoundButton btPesquisar;
 	
 	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TelaGerenciamentoF frame = new TelaGerenciamentoF(null);
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
 
 	public TelaGerenciamentoF(Funcionario f) {
 		
@@ -112,7 +125,7 @@ public class TelaGerenciamentoF extends JFrame {
 		JPanel BarraLateral = new JPanel();
 		BarraLateral.setBackground(new Color(167, 208, 214));
 		painel.add(BarraLateral, BorderLayout.WEST);
-		BarraLateral.setLayout(new MigLayout("", "[]", "[][][][][][][][][][][grow][]"));
+		BarraLateral.setLayout(new MigLayout("", "[]", "[][][grow 20][][][][][][][][grow][]"));
 		
 		JLabel lblLogo = new JLabel("");
 		lblLogo.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/Logo.png")));
@@ -132,7 +145,7 @@ public class TelaGerenciamentoF extends JFrame {
 		BarraLateral.add(lblIconRemover, "flowx,cell 0 5,alignx left,aligny center");
 		
 		JLabel lblIconAdicionar = new JLabel("");
-		lblIconAdicionar.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/lupa.png")));
+		lblIconAdicionar.setIcon(new ImageIcon(TelaGerenciamentoF.class.getResource("/Imagem/postagem-no-instagramCorreto.png")));
 		BarraLateral.add(lblIconAdicionar, "flowx,cell 0 6,alignx left,aligny center");
 		
 		btAdicionar = new RoundButton("ADICIONAR");
@@ -228,6 +241,7 @@ public class TelaGerenciamentoF extends JFrame {
 		txtPesquisa.setColumns(10);
 		
 		btPesquisar = new RoundButton("");
+		btPesquisar.setFont(new Font("Arial", Font.PLAIN, 16));
 		btPesquisar.setForeground(new Color(245, 245, 245));
 		btPesquisar.setBackground(new Color(245, 245, 245));
 		btPesquisar.setActionCommand("btPesquisar");

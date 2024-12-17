@@ -34,6 +34,8 @@ public class TelaCadastroF extends JFrame {
 	private RoundButton btEntrar;
 	
 	
+	
+	
 	public TelaCadastroF(Funcionario f) {
 		
 		
@@ -48,11 +50,11 @@ public class TelaCadastroF extends JFrame {
 		painel.setLayout(new MigLayout("", "[grow][][][grow][][][grow][][][][][][][grow]", "[grow][][][grow][][][][][][][][][grow]"));
 		
 		ImageLabel lblLogo = new ImageLabel("");
-		lblLogo.setIcon(new ImageIcon(TelaCadastroF.class.getResource("/Imagem/logoGrande.png")));
+		lblLogo.setIcon(new ImageIcon(TelaCadastroF.class.getResource("/Imagem/LogoMediaMedia.png")));
 		painel.add(lblLogo, "cell 0 0 14 2,alignx center,aligny top");
 		
-		JLabel lblCadastre = new JLabel("Cadastre um Funcionário:");
-		lblCadastre.setFont(new Font("Arial", Font.PLAIN, 30));
+		JLabel lblCadastre = new JLabel("Cadastre um funcionário:");
+		lblCadastre.setFont(new Font("Arial", Font.BOLD, 30));
 		painel.add(lblCadastre, "cell 3 2 9 1,alignx center,aligny baseline");
 		
 		JLabel lblUsuario = new JLabel("Usuário:");

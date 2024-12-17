@@ -30,6 +30,8 @@ public class TelaAlteracaoF extends JFrame {
 	private RoundButton btSalvar;
 	private RoundButton btCancelar;
 	private RoundButton btLimpar;
+	private JLabel lblNewLabel;
+	
 	
 
 	public TelaAlteracaoF(Funcionario f) {
@@ -42,39 +44,43 @@ public class TelaAlteracaoF extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[grow][][grow][][][][][][][grow]", "[grow][][grow][][][][][][][][][grow]"));
-
-		JLabel lblLogo = new JLabel("");
-		lblLogo.setIcon(new ImageIcon(TelaAlteracaoF.class.getResource("/Imagem/logoGrande.png")));
-		contentPane.add(lblLogo, "cell 2 1 7 1,alignx center,aligny center");
+		contentPane.setLayout(new MigLayout("", "[grow 50][][grow 50][][][][][][][grow 50]", "[grow][][][][grow][][][][][][][][][grow]"));
+		
+				JLabel lblLogo = new JLabel("");
+				lblLogo.setIcon(new ImageIcon(TelaAlteracaoF.class.getResource("/Imagem/LogoMediaMedia.png")));
+				contentPane.add(lblLogo, "cell 2 1 7 1,alignx center,aligny center");
+		
+		lblNewLabel = new JLabel("Alteração de funcionário");
+		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 30));
+		contentPane.add(lblNewLabel, "cell 2 2 7 1,alignx center,aligny center");
 
 		JLabel lblNome = new JLabel("Nome do funcionário:");
 		lblNome.setFont(new Font("Arial", Font.PLAIN, 25));
 		lblNome.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		contentPane.add(lblNome, "cell 2 2,alignx left,aligny bottom");
+		contentPane.add(lblNome, "cell 2 4,alignx left,aligny bottom");
 
 		txtNome = new JTextField();
 		txtNome.setFont(new Font("Arial", Font.PLAIN, 20));
-		contentPane.add(txtNome, "cell 2 3 7 1,growx,aligny top");
+		contentPane.add(txtNome, "cell 2 5 7 1,growx,aligny top");
 		txtNome.setColumns(10);
 
 		JLabel lblUsuario = new JLabel("Usuário:");
 		lblUsuario.setFont(new Font("Arial", Font.PLAIN, 25));
 		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		contentPane.add(lblUsuario, "cell 2 4,alignx left,aligny bottom");
+		contentPane.add(lblUsuario, "cell 2 6,alignx left,aligny bottom");
 
 		txtUsuario = new JTextField();
 		txtUsuario.setFont(new Font("Arial", Font.PLAIN, 20));
-		contentPane.add(txtUsuario, "cell 2 5 7 1,growx,aligny top");
+		contentPane.add(txtUsuario, "cell 2 7 7 1,growx,aligny top");
 		txtUsuario.setColumns(10);
 
 		JLabel lblSenha = new JLabel("Senha:");
 		lblSenha.setFont(new Font("Arial", Font.PLAIN, 20));
-		contentPane.add(lblSenha, "cell 2 6,alignx left,aligny bottom");
+		contentPane.add(lblSenha, "cell 2 8,alignx left,aligny bottom");
 
 		txtSenha = new JPasswordField();
 		txtSenha.setFont(new Font("Arial", Font.PLAIN, 20));
-		contentPane.add(txtSenha, "cell 2 7 7 1,growx,aligny top");
+		contentPane.add(txtSenha, "cell 2 9 7 1,growx,aligny top");
 
 		btSalvar = new RoundButton("SALVAR");
 		btSalvar.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -105,12 +111,12 @@ public class TelaAlteracaoF extends JFrame {
 		btLimpar.setForeground(new Color(245, 245, 245));
 		btLimpar.setBackground(new Color(224, 83, 76));
 		// btLimpar.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		contentPane.add(btLimpar, "cell 2 10");
+		contentPane.add(btLimpar, "cell 2 12");
 		btSalvar.setForeground(new Color(245, 245, 245));
 		btSalvar.setBackground(new Color(224, 83, 76));
 		// btSalvar.setFont(new Font("Tahoma", Font.PLAIN, 18));
 
-		contentPane.add(btSalvar, "cell 6 10,alignx right,aligny center");
+		contentPane.add(btSalvar, "cell 6 12,alignx right,aligny center");
 
 		btCancelar = new RoundButton("CANCELAR");
 		btCancelar.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -125,7 +131,7 @@ public class TelaAlteracaoF extends JFrame {
 //		});
 		btCancelar.setForeground(new Color(245, 245, 245));
 		btCancelar.setBackground(new Color(0, 0, 0));
-		contentPane.add(btCancelar, "cell 8 10,alignx center,aligny center");
+		contentPane.add(btCancelar, "cell 8 12,alignx center,aligny center");
 
 	}
 

@@ -32,20 +32,6 @@ public class TelaCompra extends JFrame {
 	private JPanel painel;
 	private RoundButton btPesquisar;
 
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaCompra frame = new TelaCompra(null);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	
 	public TelaCompra(Funcionario f) {
 		
 		setExtendedState(MAXIMIZED_BOTH);

@@ -46,6 +46,7 @@ public class TelaAnáliseVendas extends JFrame {
 	private JMenuItem mVoltar;
 	private JLabel lblNewLabel;
 	
+
 	
 	public TelaAnáliseVendas(Funcionario f) {
 		
@@ -94,7 +95,7 @@ public class TelaAnáliseVendas extends JFrame {
 		menuBar.add(mVoltar);;
 		
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(230, 230, 230));
+		contentPane.setBackground(new Color(167, 208, 214));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
