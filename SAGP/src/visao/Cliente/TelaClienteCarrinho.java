@@ -48,19 +48,6 @@ public class TelaClienteCarrinho extends JFrame {
 	
 	public TelaClienteCarrinho(ArrayList<Carrinho> listaCarrinhos) {
 		
-		Font font = new Font("Tahoma", Font.PLAIN, 11);;
-		try {
-			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
-			
-			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
-				
-		} catch (FontFormatException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
 		
 		//TelaClienteCarrinho tela = this;
 		
@@ -80,8 +67,8 @@ public class TelaClienteCarrinho extends JFrame {
 		menuLateral.setLayout(new MigLayout("", "[][][]", "[][][][][][][][][][][][][]"));
 		
 		btSair = new RoundButton("");
+		btSair.setFont(new Font("Arial", Font.PLAIN, 16));
 		btSair.setText("Sair");
-		btSair.setFont(font);
 		btSair.setActionCommand("btVoltar");
 //		btnNewButton_2.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
@@ -96,7 +83,7 @@ public class TelaClienteCarrinho extends JFrame {
 		menuLateral.add(lblLogo, "cell 1 2");
 		
 		lblCategorias = new JLabel("Categorias:");
-		lblCategorias.setFont(font);
+		lblCategorias.setFont(new Font("Arial", Font.PLAIN, 16));
 		menuLateral.add(lblCategorias, "cell 1 5");
 		
 		lblIconSalgado = new JLabel("");
@@ -104,7 +91,7 @@ public class TelaClienteCarrinho extends JFrame {
 		menuLateral.add(lblIconSalgado, "cell 0 6");
 		
 		btSalgado = new RoundButton("Salgado");
-		btSalgado.setFont(font);
+		btSalgado.setFont(new Font("Arial", Font.PLAIN, 16));
 		btSalgado.setActionCommand("btSalgado");
 		menuLateral.add(btSalgado, "cell 1 6");
 		
@@ -113,7 +100,7 @@ public class TelaClienteCarrinho extends JFrame {
 		menuLateral.add(lblIconDoce, "cell 0 7");
 		
 		btDoce = new RoundButton("Doce");
-		btDoce.setFont(font);
+		btDoce.setFont(new Font("Arial", Font.PLAIN, 16));
 		btDoce.setActionCommand("btDoce");
 //		btDoce.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
@@ -127,7 +114,7 @@ public class TelaClienteCarrinho extends JFrame {
 		menuLateral.add(lblIconBebidas, "cell 0 8");
 		
 		btBebidas = new RoundButton("Bebidas");
-		btBebidas.setFont(font);
+		btBebidas.setFont(new Font("Arial", Font.PLAIN, 16));
 		btBebidas.setActionCommand("btBebidas");
 //		btBebidas.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
@@ -141,7 +128,7 @@ public class TelaClienteCarrinho extends JFrame {
 		menuLateral.add(lblIconOfertas, "cell 0 9");
 		
 		btOfertas = new RoundButton("Ofertas");
-		btOfertas.setFont(font);
+		btOfertas.setFont(new Font("Arial", Font.PLAIN, 16));
 		btOfertas.setActionCommand("btOfertas");
 		menuLateral.add(btOfertas, "cell 1 9");
 		
@@ -153,7 +140,7 @@ public class TelaClienteCarrinho extends JFrame {
 		painelCima.add(btNO);
 		
 		lblCarrinho = new JLabel("Carrinho:");
-		lblCarrinho.setFont(font);
+		lblCarrinho.setFont(new Font("Arial", Font.PLAIN, 16));
 		painelCima.add(lblCarrinho);
 		
 		scrollPane = new JScrollPane();
@@ -166,7 +153,7 @@ public class TelaClienteCarrinho extends JFrame {
 		painelPrincipal.add(painelBaixo, "cell 7 18 19 2,alignx right,growy");
 		
 		lblTotalPagar = new JLabel("Total a pagar: ");
-		lblTotalPagar.setFont(font);
+		lblTotalPagar.setFont(new Font("Arial", Font.PLAIN, 16));
 		painelBaixo.add(lblTotalPagar);
 		
 		lblValorTotal = new JLabel("");
@@ -174,8 +161,8 @@ public class TelaClienteCarrinho extends JFrame {
 		painelBaixo.add(lblValorTotal);
 		
 		btFinalizarCompra = new RoundButton("Finalizar compra");
+		btFinalizarCompra.setFont(new Font("Arial", Font.PLAIN, 16));
 		btFinalizarCompra.setForeground(new Color(245, 245, 245));
-		btFinalizarCompra.setFont(font);
 		btFinalizarCompra.setActionCommand("btFinalizarCompra");
 		painelBaixo.add(btFinalizarCompra);
 		btFinalizarCompra.setBackground(new Color(224, 83, 76));

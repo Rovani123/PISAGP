@@ -49,18 +49,6 @@ public class TelaClienteCarrinhoCorreto extends JFrame {
 	
 	public TelaClienteCarrinhoCorreto(Funcionario f,ArrayList<Carrinho> listaCarrinhos) {
 		
-		Font font = new Font("Tahoma", Font.PLAIN, 11);;
-		try {
-			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
-			
-			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
-				
-		} catch (FontFormatException e1) {
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-		
 		setExtendedState(MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 955, 544);
@@ -77,7 +65,7 @@ public class TelaClienteCarrinhoCorreto extends JFrame {
 		barraLateral.setLayout(new MigLayout("", "[]", "[][][][][][][][][][][][][][][][]"));
 		
 	    btSair = new RoundButton("Voltar");
-	    btSair.setFont(font);
+	    btSair.setFont(new Font("Arial", Font.PLAIN, 15));
 		btSair.setBackground(new Color(245, 245, 245));
 		btSair.setText("Sair");
 		btSair.setActionCommand("btVoltar");
@@ -86,7 +74,7 @@ public class TelaClienteCarrinhoCorreto extends JFrame {
 		barraLateral.add(btSair, "cell 0 0,alignx left,aligny top");
 		
 		JLabel lblLogo = new JLabel("");
-		lblLogo.setIcon(new ImageIcon(TelaClienteCarrinhoCorreto.class.getResource("/Imagem/LogoPequena.png")));
+		lblLogo.setIcon(new ImageIcon(TelaClienteCarrinhoCorreto.class.getResource("/Imagem/Logo.png")));
 		barraLateral.add(lblLogo, "cell 0 2,alignx center,aligny center");
 		
 		JLabel lblIconSalgados = new JLabel("");
@@ -94,8 +82,8 @@ public class TelaClienteCarrinhoCorreto extends JFrame {
 		barraLateral.add(lblIconSalgados, "flowx,cell 0 5");
 		
 		btSalgados = new RoundButton("Salgados");
+		btSalgados.setFont(new Font("Arial", Font.PLAIN, 15));
 		btSalgados.setForeground(new Color(0, 0, 0));
-		btSalgados.setFont(font);
 		btSalgados.setBackground(new Color(245, 245, 245));
 		barraLateral.add(btSalgados, "cell 0 5,growx,aligny center");
 		btSalgados.setActionCommand("btSalgados");
@@ -105,8 +93,8 @@ public class TelaClienteCarrinhoCorreto extends JFrame {
 		barraLateral.add(lblIconDoces, "flowx,cell 0 6");
 		
 		btDoces = new RoundButton("Doces");
+		btDoces.setFont(new Font("Arial", Font.PLAIN, 15));
 		btDoces.setForeground(new Color(0, 0, 0));
-		btDoces.setFont(font);
 		btDoces.setBackground(new Color(245, 245, 245));
 		barraLateral.add(btDoces, "cell 0 6,growx,aligny center");
 		btDoces.setActionCommand("btDoces");
@@ -116,8 +104,8 @@ public class TelaClienteCarrinhoCorreto extends JFrame {
 		barraLateral.add(lblIconBebidas, "flowx,cell 0 7");
 		
 	    btBebidas = new RoundButton("Bebidas");
+	    btBebidas.setFont(new Font("Arial", Font.PLAIN, 15));
 	    btBebidas.setForeground(new Color(0, 0, 0));
-		btBebidas.setFont(font);
 		btBebidas.setBackground(new Color(245, 245, 245));
 		barraLateral.add(btBebidas, "cell 0 7,growx,aligny center");
 		btBebidas.setActionCommand("btBebidas");
@@ -143,6 +131,7 @@ public class TelaClienteCarrinhoCorreto extends JFrame {
 		panelPesquisa.add(btNO, "cell 0 0");
 		
 		JLabel lblCarrinho = new JLabel("Carrinho:");
+		lblCarrinho.setFont(new Font("Arial", Font.PLAIN, 16));
 		panelPesquisa.add(lblCarrinho, "cell 1 0");
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -152,15 +141,16 @@ public class TelaClienteCarrinhoCorreto extends JFrame {
 		scrollPane.setViewportView(painelProdutos);
 		
 		JLabel lblTotal = new JLabel("Total à pagar:");
-		lblTotal.setFont(font);
+		lblTotal.setFont(new Font("Arial", Font.PLAIN, 16));
 		painelPrincipal.add(lblTotal, "flowx,cell 0 3,alignx right");
 		
 		lblTotalPagar = new JLabel("New label");
+		lblTotalPagar.setFont(new Font("Arial", Font.PLAIN, 15));
 		painelPrincipal.add(lblTotalPagar, "cell 0 3");
 		
 		btFinalizarCompra = new RoundButton("Finalizar compra!");
+		btFinalizarCompra.setFont(new Font("Arial", Font.PLAIN, 15));
 		btFinalizarCompra.setBackground(new Color(224, 83, 76));
-		btFinalizarCompra.setFont(font);
 		btFinalizarCompra.setActionCommand("btFinalizarCompra");
 		painelPrincipal.add(btFinalizarCompra, "cell 0 3,alignx right");
 

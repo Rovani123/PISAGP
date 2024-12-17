@@ -28,21 +28,6 @@ public class TelaClientePix extends JFrame {
 
 	public TelaClientePix() {
 		
-		Font font = new Font("Tahoma", Font.PLAIN, 30);;
-		try {
-			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
-			
-			font = font.deriveFont(Font.PLAIN, 30); // Definir o tamanho da fonte
-	
-		} catch (FontFormatException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-
-		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setExtendedState(MAXIMIZED_BOTH);
 		setResizable(false);
@@ -59,7 +44,7 @@ public class TelaClientePix extends JFrame {
 		
 		
 		btVoltar = new RoundButton("Voltar");
-		btVoltar.setFont(font);
+		btVoltar.setFont(new Font("Arial", Font.PLAIN, 15));
 		btVoltar.setActionCommand("btVoltar");
 		btVoltar.setForeground(new Color(245, 245, 245));
 		//btVoltar.addActionListener(new ActionListener() {
@@ -74,8 +59,8 @@ public class TelaClientePix extends JFrame {
 		lblNewLabel.setIcon(new ImageIcon(TelaClientePix.class.getResource("/Imagem/ImagemLogoGrande.png")));
 		contentPane.add(lblNewLabel, "cell 6 1,alignx center,aligny center");
 		
-		JLabel lblNewLabel_1 = new JLabel("PAGAMENTO COM O PIX");
-		lblNewLabel_1.setFont(font);
+		JLabel lblNewLabel_1 = new JLabel("PAGAMENTO COM O PIX:");
+		lblNewLabel_1.setFont(new Font("Arial", Font.PLAIN, 16));
 		//lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		contentPane.add(lblNewLabel_1, "cell 6 3,alignx center,aligny center");
 		
@@ -84,7 +69,7 @@ public class TelaClientePix extends JFrame {
 		contentPane.add(lblNewLabel_2, "cell 6 5,alignx center,aligny center");
 		
 		btCancelar = new RoundButton("Cancelar");
-		btCancelar.setFont(font);
+		btCancelar.setFont(new Font("Arial", Font.PLAIN, 15));
 		btCancelar.setActionCommand("btCancelar");
 		btCancelar.setBackground(new Color(224, 83, 76));
 		btCancelar.setForeground(new Color(230, 230, 230));
