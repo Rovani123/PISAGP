@@ -23,7 +23,7 @@ public class VendaDAO extends ModeloDAO{
 		try {
 			stml = (Statement) conn.createStatement();
 			ResultSet reslt = null;
-			reslt = stml.executeQuery("select * from Vendas v Inner join Funcionarios f on v.idFuncionario = f.idFuncionario;");
+			reslt = stml.executeQuery("select * from Vendas v Inner join Funcionarios f on v.idFuncionario = f.idFuncionario order by idVenda desc;;");
 			
 			while(reslt.next())
 			{

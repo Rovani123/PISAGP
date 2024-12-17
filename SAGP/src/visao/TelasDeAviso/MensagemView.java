@@ -18,9 +18,7 @@ public class MensagemView extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private int resposta;
 
-	/**
-	 * @wbp.parser.constructor
-	 */
+
 	public MensagemView(String mensagem, int tipo) {
 		setTitle("Mensagem");
 		setModal(true);
@@ -77,17 +75,20 @@ public class MensagemView extends JDialog {
 		panel.add(painelSul, BorderLayout.SOUTH);
 
 		getRootPane().setDefaultButton(btOK);
-		setSize(350, 200);
 		setResizable(false);
 		setLocationRelativeTo(null);
+		setSize(350, 200);
 		setVisible(true);
-
 	}
 
 	// Método para mensagens de perguntas
+	/**
+	 * @wbp.parser.constructor
+	 */
 	public MensagemView(String pergunta) {
 		setTitle("Mensagem");
 		setModal(true);
+		
 
 		// Criar Panel
 		JPanel panel = new JPanel();
@@ -96,7 +97,7 @@ public class MensagemView extends JDialog {
 
 		JLabel labelPergunta = new JLabel(pergunta, SwingConstants.CENTER);
 		String iconPath;
-		iconPath = "/src/imagem/erro.png";
+		iconPath = "/imagem/atencao.png";
 		labelPergunta.setIcon(new ImageIcon(getClass().getResource(iconPath)));
 		panel.add(labelPergunta, BorderLayout.CENTER);
 
@@ -130,12 +131,10 @@ public class MensagemView extends JDialog {
 		painelSul.setBorder(new EmptyBorder(10, 10, 10, 10));
 
 		panel.add(painelSul, BorderLayout.SOUTH);
-
 		setSize(400, 200);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setVisible(true);
-
 	}
 
 	public int getResposta() {

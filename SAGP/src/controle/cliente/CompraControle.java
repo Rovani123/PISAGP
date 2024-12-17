@@ -22,6 +22,7 @@ public class CompraControle {
 	private TelaCompra view;
 	private PainelProduto pp;
 	private Funcionario f;
+	private ArrayList<PainelProduto> lista= new ArrayList<PainelProduto>();
 	private ArrayList<Produto> listaProdutos;
 	private ArrayList<Carrinho> listaCarrinhosRecuperado;
 	private ArrayList<Carrinho> listaCarrinhos =new ArrayList<Carrinho>();
@@ -44,6 +45,7 @@ public class CompraControle {
 		construirCarrinhos();
 		listeners();
 		recuperarEstado();
+			
 	}
 
 	private class CompraListeners implements ActionListener{
@@ -63,6 +65,13 @@ public class CompraControle {
 				break;
 			case"btSalgados":
 				btSalgados();
+				System.out.println(lista.size());
+				for (PainelProduto p:lista) {
+					if(p.getCarrinho().getQuantidade() != 0) {
+						System.out.println(p.getCarrinho().getProduto().getNomeProduto());
+						System.out.println(p.getCarrinho().getQuantidade());
+					}
+				}
 				break;
 			case"btDoces":
 				btDoces();
@@ -78,6 +87,7 @@ public class CompraControle {
 		private PainelProduto pp;
 		public PainelListeners(PainelProduto pp) {
 			this.pp = pp;
+			addlista(pp);
 		}
 		public void actionPerformed(ActionEvent e) {
 			switch (e.getActionCommand()) {
@@ -159,19 +169,16 @@ public class CompraControle {
 		ArrayList<Produto> listaFiltro;
 		try {
 			listaFiltro = new ProdutoDAO().getProdutosFiltro(categoria);
+			for (Produto p : listaFiltro) {
+				view.addPainelProdutos(lista.get(listaFiltro.indexOf(p)), linha, coluna);
+				if(linha%3==0) {
+					coluna++;
+					linha=0;
+				}
+				linha++;
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			listaFiltro =null;
-		}
-		for (Produto p : listaFiltro) {
-			pp = new PainelProduto(p,listaCarrinhos.get(listaFiltro.indexOf(p)));
-			pp.addPainelProdutoListeners(new PainelListeners(pp));
-			view.addPainelProdutos(pp, linha, coluna);
-			if(linha%3==0) {
-				coluna++;
-				linha=0;
-			}
-			linha++;
 		}
 	}
 	
@@ -244,6 +251,10 @@ public class CompraControle {
 		view.resetPainel();
 		CarregarDadosFiltro(categoria);
 		
+	}
+	
+	public void addlista(PainelProduto pp) {
+		lista.add(pp);
 	}
 
 }

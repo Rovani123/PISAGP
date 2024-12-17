@@ -32,7 +32,8 @@ public class ClienteFormaPagamentoControle {
 		public void actionPerformed(ActionEvent e) {
 			switch (e.getActionCommand()) {
 			case "btCancelar":
-				int conf =new MensagemView("Tem certeza que quer sair?").getResposta();
+				MensagemView mv =new MensagemView("Tem certeza que quer sair?");
+				int conf = mv.getResposta();
 				if(conf == 1) {
 					view.dispose();
 					new CompraControle(f, listaCarrinhos);
@@ -40,6 +41,7 @@ public class ClienteFormaPagamentoControle {
 				break;
 			case "btConfirmar":
 				if(view.getCbMetodoPagamento().equals(MetodoPagamento.PIX.toString())) {
+					view.dispose();
 					new ClientePixControle(f, listaCarrinhos);
 				}else {
 					criarVenda();
