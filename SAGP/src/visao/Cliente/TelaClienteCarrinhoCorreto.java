@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import modelo.classes.Carrinho;
 import modelo.classes.Funcionario;
 import modelo.tableModel.ProdutosTableModel;
 
@@ -20,6 +21,7 @@ import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JMenuBar;
@@ -37,28 +39,15 @@ public class TelaClienteCarrinhoCorreto extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel panel;
-	private JTable table;
-	private RoundButton btVoltar;
+	private JPanel painelProdutos;
+	private JLabel lblTotalPagar;
+	private RoundButton btSair;
 	private RoundButton btSalgados;
 	private RoundButton btDoces;
 	private RoundButton btBebidas;
 	private RoundButton btFinalizarCompra;
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaClienteCarrinhoCorreto frame = new TelaClienteCarrinhoCorreto(null);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	
-	public TelaClienteCarrinhoCorreto(Funcionario f) {
+	public TelaClienteCarrinhoCorreto(Funcionario f,ArrayList<Carrinho> listaCarrinhos) {
 		
 		Font font = new Font("Tahoma", Font.PLAIN, 11);;
 		try {
@@ -87,14 +76,14 @@ public class TelaClienteCarrinhoCorreto extends JFrame {
 		panel.add(barraLateral, BorderLayout.WEST);
 		barraLateral.setLayout(new MigLayout("", "[]", "[][][][][][][][][][][][][][][][]"));
 		
-	    btVoltar = new RoundButton("Voltar");
-	    btVoltar.setFont(font);
-		btVoltar.setBackground(new Color(245, 245, 245));
-		btVoltar.setText("Sair");
-		btVoltar.setActionCommand("btVoltar");
+	    btSair = new RoundButton("Voltar");
+	    btSair.setFont(font);
+		btSair.setBackground(new Color(245, 245, 245));
+		btSair.setText("Sair");
+		btSair.setActionCommand("btVoltar");
 
-		btVoltar.setIcon(new ImageIcon(TelaClienteCarrinhoCorreto.class.getResource("/Imagem/volte.png")));
-		barraLateral.add(btVoltar, "cell 0 0,alignx left,aligny top");
+		btSair.setIcon(new ImageIcon(TelaClienteCarrinhoCorreto.class.getResource("/Imagem/volte.png")));
+		barraLateral.add(btSair, "cell 0 0,alignx left,aligny top");
 		
 		JLabel lblLogo = new JLabel("");
 		lblLogo.setIcon(new ImageIcon(TelaClienteCarrinhoCorreto.class.getResource("/Imagem/LogoPequena.png")));
@@ -159,17 +148,17 @@ public class TelaClienteCarrinhoCorreto extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		painelPrincipal.add(scrollPane, "cell 0 1 1 2,grow");
 		
-		table = new JTable();
-		scrollPane.setViewportView(table);
+		painelProdutos = new JPanel();
+		scrollPane.setViewportView(painelProdutos);
 		
 		JLabel lblTotal = new JLabel("Total à pagar:");
 		lblTotal.setFont(font);
 		painelPrincipal.add(lblTotal, "flowx,cell 0 3,alignx right");
 		
-		JLabel lblTotalPagar = new JLabel("New label");
+		lblTotalPagar = new JLabel("New label");
 		painelPrincipal.add(lblTotalPagar, "cell 0 3");
 		
-		RoundButton btFinalizarCompra = new RoundButton("Finalizar compra!");
+		btFinalizarCompra = new RoundButton("Finalizar compra!");
 		btFinalizarCompra.setBackground(new Color(224, 83, 76));
 		btFinalizarCompra.setFont(font);
 		btFinalizarCompra.setActionCommand("btFinalizarCompra");
@@ -178,18 +167,23 @@ public class TelaClienteCarrinhoCorreto extends JFrame {
 		
 	}
 	
-	public void addGerenciamentoPListner(ActionListener listener) {
+	public void addCarrinhoListeners(ActionListener listener) {
+		btSair.addActionListener(listener);
 		btSalgados.addActionListener(listener);
 		btDoces.addActionListener(listener);
 		btBebidas.addActionListener(listener);
 		btFinalizarCompra.addActionListener(listener);
-		btVoltar.addActionListener(listener);
 	}
 	
-	public void setTabela(ProdutosTableModel tm) {
-		table.setModel(tm);
+	public void addPainelProdutos(PainelProduto pp, int l, int c) {
+		painelProdutos.add(pp, "cell " + l + " " + c);
 	}
 	
+	public void setLblValorTotal(String s) {
+		lblTotalPagar.setText(s);
+	}
+	
+
 	public void setBackgroundcolor(String botao, Color color) {
 		switch (botao) {
 		case "btSalgados":

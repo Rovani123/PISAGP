@@ -10,10 +10,11 @@ import modelo.classes.Carrinho;
 import modelo.classes.Funcionario;
 import visao.Cliente.PainelProduto;
 import visao.Cliente.TelaClienteCarrinho;
+import visao.Cliente.TelaClienteCarrinhoCorreto;
 import visao.TelasDeAviso.MensagemView;
 
 public class CarrinhoControle {
-	private TelaClienteCarrinho view;
+	private TelaClienteCarrinhoCorreto view;
 	private PainelProduto pp;
 	private Funcionario f;
 	private ArrayList<Carrinho> listaCarrinhos;
@@ -22,7 +23,7 @@ public class CarrinhoControle {
 	public CarrinhoControle(Funcionario f,ArrayList<Carrinho> listaCarrinhosCompra) {
 		this.f =f;
 		this.listaCarrinhos = listaCarrinhosCompra;
-		view = new TelaClienteCarrinho(listaCarrinhosCompra);
+		view = new TelaClienteCarrinhoCorreto(f, listaCarrinhosCompra);
 		view.setVisible(true);
 		listeners();
 	}

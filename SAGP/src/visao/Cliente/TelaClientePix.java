@@ -57,7 +57,8 @@ public class TelaClientePix extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new MigLayout("", "[grow][][][][][][][][][][][][][][grow]", "[][][][][][][][][]"));
 		
-		RoundButton btVoltar = new RoundButton("Voltar");
+		
+		btVoltar = new RoundButton("Voltar");
 		btVoltar.setFont(font);
 		btVoltar.setActionCommand("btVoltar");
 		btVoltar.setForeground(new Color(245, 245, 245));
@@ -82,7 +83,7 @@ public class TelaClientePix extends JFrame {
 		lblNewLabel_2.setIcon(new ImageIcon(TelaClientePix.class.getResource("/Imagem/pixPagamento.jpg")));
 		contentPane.add(lblNewLabel_2, "cell 6 5,alignx center,aligny center");
 		
-		RoundButton btCancelar = new RoundButton("Cancelar");
+		btCancelar = new RoundButton("Cancelar");
 		btCancelar.setFont(font);
 		btCancelar.setActionCommand("btCancelar");
 		btCancelar.setBackground(new Color(224, 83, 76));

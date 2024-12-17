@@ -45,18 +45,6 @@ public class TelaClienteCarrinho extends JFrame {
 	private RoundButton btFinalizarCompra;
 	private ArrayList<Carrinho> listaCarrinhos;
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaClienteCarrinhoCorreto frame = new TelaClienteCarrinhoCorreto(null);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 	
 	public TelaClienteCarrinho(ArrayList<Carrinho> listaCarrinhos) {
 		
@@ -190,12 +178,6 @@ public class TelaClienteCarrinho extends JFrame {
 		btFinalizarCompra.setFont(font);
 		btFinalizarCompra.setActionCommand("btFinalizarCompra");
 		painelBaixo.add(btFinalizarCompra);
-//		btFinalizarCompra.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				finalizarVenda();
-//				finalizarCarrinho();
-//			}
-//		});
 		btFinalizarCompra.setBackground(new Color(224, 83, 76));
 		
 	}
@@ -217,65 +199,5 @@ public class TelaClienteCarrinho extends JFrame {
 		lblValorTotal.setText(s);
 	}
 	
-//	private void getProdutos() {
-//
-//		painelProdutos.removeAll();
-//		ProdutoControle pc = new ProdutoControle();
-//		
-//		int cont=0;
-//		int c = 0;
-//		int l = 0;
-//
-//		ProdutoControle pc2 = new ProdutoControle();
-//		for(Carrinho carrinho :listaCarrinhos) {
-//			PainelProduto pp = new PainelProduto(listaCarrinhos.get(cont).getProduto(),listaCarrinhos.get(cont));
-//			painelProdutos.add(pp, "cell " + l + " " + c);
-//			cont++;
-//			l++;
-//			if (l % 3 == 0) {
-//				c++;
-//				l = 0;
-//			}
-//		}
-//		
-//	}
-	
-//	private float calcTotal() {
-//		float reultado=0;
-//		ProdutoControle pc = new ProdutoControle();
-//		for (Carrinho carrinho : listaCarrinhos) {
-//			reultado += carrinho.getQuantidade()*pc.getProdutoId(carrinho.getIdProduto()).getPreco();
-//		}
-//		return reultado;
-//	}
-//
-//	private void finalizarVenda() {
-//		VendaControle vc = new VendaControle();
-//		try {
-//			vc.cadastrarVenda(1,1,"DébitoA",calcTotal());
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//	}
-//	
-//	private void finalizarCarrinho() {
-//		CarrinhoControle cc = new CarrinhoControle();
-//		try {
-//			VendaControle vc = new VendaControle();
-//			for(int i=0;i<listaCarrinhos.size();i++) {
-//				listaCarrinhos.get(i).setIdVenda(vc.getIdVenda());
-//			}
-//			cc.cadastrarCarrinho(listaCarrinhos);
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//	}
-//	
-//	private void test() {
-//		for(int i=0;i<listaCarrinhos.size();i++) {
-//			String m = "ID Carrinho: "+String.valueOf(listaCarrinhos.get(i).getIdCarrinho()+"  ID Produto: "+String.valueOf(listaCarrinhos.get(i).getIdProduto())+"  ID Venda: "+String.valueOf(listaCarrinhos.get(i).getIdVenda())+"  Quantidade: "+String.valueOf(listaCarrinhos.get(i).getQuantidade()));
-//			JOptionPane.showMessageDialog(null, m);
-//		}
-//	}
 	
 }
