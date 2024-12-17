@@ -30,20 +30,6 @@ public class TelaInicial extends JFrame {
 
 	public TelaInicial(Funcionario f) {
 		
-		Font font = new Font("Tahoma", Font.PLAIN, 11);;
-		try {
-			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
-			
-			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
-	
-		} catch (FontFormatException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		
 		setExtendedState(Frame.MAXIMIZED_BOTH);
 		setBackground(new Color(230, 230, 230));
 		logo = new ImageIcon(TelaInicial.class.getResource("/Imagem/Logo.png"));
@@ -59,7 +45,8 @@ public class TelaInicial extends JFrame {
 		painel.setLayout(new MigLayout("", "[grow][][grow][][][][][][][][][][][][][][][][][][][][][][][grow][][grow]", "[grow][120px][150px][grow]"));
 		
 		btSair = new RoundButton("Sair");
-		btSair.setFont(font);
+		btSair.setBackground(new Color(245, 245, 245));
+		btSair.setFont(new Font("Arial", Font.PLAIN, 20));
 		btSair.setActionCommand("btSair");
 		
 		btSair.setIcon(new ImageIcon(TelaInicial.class.getResource("/Imagem/volte.png")));
@@ -71,7 +58,7 @@ public class TelaInicial extends JFrame {
 		painel.add(lblLogo, "cell 1 1 26 1,alignx center,aligny center");
 		
 		btCliente = new RoundButton("");
-		btCliente.setFont(font);
+		btCliente.setFont(new Font("Arial", Font.PLAIN, 20));
 		//btCliente.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		btCliente.setText("Entrar como cliente");
 		btCliente.setActionCommand("btCliente");
@@ -85,9 +72,9 @@ public class TelaInicial extends JFrame {
 		painel.add(btCliente, "cell 4 2 9 1,alignx left,aligny center");
 		
 		btLogin = new RoundButton("");
+		btLogin.setFont(new Font("Arial", Font.PLAIN, 20));
 		//btLogin.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		btLogin.setText("Entrar como funcionario");
-		btLogin.setFont(font);
 		btLogin.setActionCommand("btLogin");
 		
 		JLabel lblLupa = new JLabel("");

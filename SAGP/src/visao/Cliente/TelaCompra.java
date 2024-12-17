@@ -33,20 +33,6 @@ public class TelaCompra extends JFrame {
 
 	public TelaCompra(Funcionario f) {
 		
-		Font font = new Font("Tahoma", Font.PLAIN, 11);;
-		try {
-			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
-			
-			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
-	
-		} catch (FontFormatException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		
 		setExtendedState(MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 824, 519);
@@ -64,7 +50,7 @@ public class TelaCompra extends JFrame {
 		BarraLateral.setLayout(new MigLayout("", "[]", "[][grow 50][][][grow 50][][][][][grow 50][grow][][grow][]"));
 		
 		btSair = new RoundButton("Sair");
-		btSair.setFont(font);
+		btSair.setFont(new Font("Arial", Font.PLAIN, 15));
 		btSair.setBackground(new Color(245, 245, 245));
 		btSair.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/volte.png")));
 		btSair.setActionCommand("btSair");
@@ -87,34 +73,31 @@ public class TelaCompra extends JFrame {
 		BarraLateral.add(lblIconAdicionar, "flowx,cell 0 8");
 		
 		btBebidas = new RoundButton("Bebidas");
-		btBebidas.setFont(font);
 		btBebidas.setActionCommand("btBebidas");
-		btBebidas.setFont(new Font("Dialog", Font.PLAIN, 20));
+		btBebidas.setFont(new Font("Arial", Font.PLAIN, 15));
 		btBebidas.setText("Bebidas");
 		btBebidas.setForeground(new Color(245, 245, 245));
 		btBebidas.setBackground(new Color(224, 83, 76));
 		BarraLateral.add(btBebidas, "cell 0 8,growx,aligny center");
 		
 		btDoces = new RoundButton("Doce");
-		btDoces.setFont(font);
 		btDoces.setActionCommand("btDoces");
-		btDoces.setFont(new Font("Dialog", Font.PLAIN, 20));
+		btDoces.setFont(new Font("Arial", Font.PLAIN, 15));
 		btDoces.setText("Doces");
 		btDoces.setForeground(new Color(245, 245, 245));
 		btDoces.setBackground(new Color(224, 83, 76));
 		BarraLateral.add(btDoces, "cell 0 7,growx,aligny center");
 		
 		btSalgados = new RoundButton("Salgado");
-		btDoces.setFont(font);
 		btSalgados.setActionCommand("btSalgados");
 		btSalgados.setText("Salgados");
 		btSalgados.setForeground(new Color(245, 245, 245));
 		btSalgados.setBackground(new Color(224, 83, 76));
-		btSalgados.setFont(new Font("Dialog", Font.PLAIN, 20));
+		btSalgados.setFont(new Font("Arial", Font.PLAIN, 15));
 		BarraLateral.add(btSalgados, "cell 0 6,growx,aligny center");
 		
 		btCarrinho = new RoundButton("Carrinho");
-		btCarrinho.setFont(font);
+		btCarrinho.setFont(new Font("Arial", Font.PLAIN, 15));
 		btCarrinho.setActionCommand("btCarrinho");
 		btCarrinho.setForeground(new Color(0, 0, 0));
 		btCarrinho.setBackground(new Color(245, 245, 245));
@@ -132,6 +115,7 @@ public class TelaCompra extends JFrame {
 		panelPesquisa.setLayout(new MigLayout("", "[][][][grow][][][][][][][][][][][][][][][][][][][1px][]", "[][1px]"));
 		
 		txtPesquisa = new JTextField();
+		txtPesquisa.setFont(new Font("Arial", Font.PLAIN, 16));
 		txtPesquisa.setForeground(new Color(230, 230, 230));
 		txtPesquisa.setText("Pesquisar");
 		//txtPesquisa.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -139,6 +123,7 @@ public class TelaCompra extends JFrame {
 		txtPesquisa.setColumns(10);
 		
 		btPesquisar = new RoundButton("");
+		btPesquisar.setBackground(new Color(245, 245, 245));
 		btPesquisar.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/lupa.png")));
 		btPesquisar.setActionCommand("btPesquisar");
 		panelPesquisa.add(btPesquisar, "cell 23 0");

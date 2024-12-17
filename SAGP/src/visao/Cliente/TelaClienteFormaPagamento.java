@@ -52,18 +52,6 @@ public class TelaClienteFormaPagamento extends JFrame {
 	
 	public TelaClienteFormaPagamento() {
 		
-		Font font = new Font("Tahoma", Font.PLAIN, 11);;
-		try {
-			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
-			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
-		} catch (FontFormatException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		
 		setExtendedState(Frame.MAXIMIZED_BOTH);
 		setBackground(new Color(230, 230, 230));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -75,7 +63,7 @@ public class TelaClienteFormaPagamento extends JFrame {
 		painelPrincipal.setLayout(new MigLayout("", "[grow]", "[][grow]"));
 		
 		lblFormaPagamento = new JLabel("FORMA DE PAGAMENTO:");
-		lblFormaPagamento.setFont(font);
+		lblFormaPagamento.setFont(new Font("Arial", Font.PLAIN, 20));
 		painelPrincipal.add(lblFormaPagamento, "cell 0 0,alignx center");
 		
 		painelFormaPagamento = new JPanel();
@@ -83,37 +71,38 @@ public class TelaClienteFormaPagamento extends JFrame {
 		painelFormaPagamento.setLayout(new MigLayout("", "[][][][][grow][][]", "[][][][][][][][]"));
 		
 		lblTotalPagar = new JLabel("Total à pagar:");
-		lblTotalPagar.setFont(font);
+		lblTotalPagar.setFont(new Font("Arial", Font.PLAIN, 16));
 		painelFormaPagamento.add(lblTotalPagar, "cell 3 1");
 		
 		lblValorTotal = new JLabel("0.0");
-		lblValorTotal.setFont(font);
+		lblValorTotal.setFont(new Font("Arial", Font.PLAIN, 15));
 		painelFormaPagamento.add(lblValorTotal, "cell 4 1");
 		
 		lblEscolhaMetodoPagamento = new JLabel("Escolha a forma de pagamento:");
-		lblEscolhaMetodoPagamento.setFont(font);
+		lblEscolhaMetodoPagamento.setFont(new Font("Arial", Font.PLAIN, 16));
 		painelFormaPagamento.add(lblEscolhaMetodoPagamento, "cell 3 3");
 		
 		cbMetodoPagamento = new JComboBox();
+		cbMetodoPagamento.setFont(new Font("Arial", Font.PLAIN, 15));
 		cbMetodoPagamento.setModel(new DefaultComboBoxModel(MetodoPagamento.values()));
 		painelFormaPagamento.add(cbMetodoPagamento, "cell 3 4 2 1,growx");
 		
 		btLimpar = new RoundButton("Limpar");
-		btLimpar.setFont(font);
+		btLimpar.setFont(new Font("Arial", Font.PLAIN, 15));
 		btLimpar.setForeground(new Color(245, 245, 245));
 		btLimpar.setBackground(new Color(224, 83, 76));
 		btLimpar.setActionCommand("btLimpar");
 		painelFormaPagamento.add(btLimpar, "cell 5 4");
 		
 		btConfirmar = new RoundButton("Confirmar");
-		btConfirmar.setFont(font);
+		btConfirmar.setFont(new Font("Arial", Font.PLAIN, 15));
 		btConfirmar.setForeground(new Color(245, 245, 245));
 		btConfirmar.setBackground(new Color(224, 83, 76));
 		btConfirmar.setActionCommand("btConfirmar");
 		painelFormaPagamento.add(btConfirmar, "cell 4 7,alignx right");
 		
 		btCancelar = new RoundButton("Cancelar");
-		btCancelar.setFont(font);
+		btCancelar.setFont(new Font("Arial", Font.PLAIN, 15));
 		btCancelar.setForeground(new Color(245, 245, 245));
 		btCancelar.setBackground(new Color(0, 0, 0));
 		btCancelar.setActionCommand("btCancelar");

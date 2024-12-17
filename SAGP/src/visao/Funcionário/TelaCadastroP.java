@@ -37,20 +37,8 @@ public class TelaCadastroP extends JFrame {
 
 	public TelaCadastroP(Funcionario f) {
 
-		Font font = new Font("Tahoma", Font.PLAIN, 11);
-		;
-		try {
-			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
-
-			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
-
-		} catch (FontFormatException e1) {
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-
 		setBackground(new Color(230, 230, 230));
+		setExtendedState(MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 594, 434);
 		painel = new JPanel();
@@ -60,54 +48,59 @@ public class TelaCadastroP extends JFrame {
 		painel.setLayout(new MigLayout("", "[][][][grow][][][][]", "[][][][][][][][][][][][][][][]"));
 
 		JLabel lblCadastroProduto = new JLabel("CADASTRO DE PRODUTO:");
-		lblCadastroProduto.setFont(font);
+		lblCadastroProduto.setFont(new Font("Arial", Font.PLAIN, 30));
 		painel.add(lblCadastroProduto, "cell 3 2,alignx center");
 
 		JLabel lblNome = new JLabel("Nome do Produto:");
-		lblNome.setFont(font);
+		lblNome.setFont(new Font("Arial", Font.PLAIN, 20));
 		painel.add(lblNome, "cell 2 4");
 
 		txtNome = new JTextField();
+		txtNome.setFont(new Font("Arial", Font.PLAIN, 20));
 		painel.add(txtNome, "cell 2 5 4 1,growx");
 		txtNome.setColumns(10);
 
 		JLabel lblPreco = new JLabel("Preço:");
-		lblPreco.setFont(font);
+		lblPreco.setFont(new Font("Arial", Font.PLAIN, 20));
 		painel.add(lblPreco, "cell 2 6");
 
 		txtPreco = new JTextField();
+		txtPreco.setFont(new Font("Arial", Font.PLAIN, 20));
 		painel.add(txtPreco, "cell 2 7 4 1,growx");
 		txtPreco.setColumns(10);
 
 		JLabel lblQuantidade = new JLabel("Quantidade:");
-		lblQuantidade.setFont(font);
+		lblQuantidade.setFont(new Font("Arial", Font.PLAIN, 20));
 		painel.add(lblQuantidade, "cell 2 8");
 
 		txtQuantidade = new JTextField();
+		txtQuantidade.setFont(new Font("Arial", Font.PLAIN, 20));
 		painel.add(txtQuantidade, "cell 2 9 4 1,growx");
 		txtQuantidade.setColumns(10);
 
 		JLabel lblCategoria = new JLabel("Categoria:");
-		lblCategoria.setFont(font);
+		lblCategoria.setFont(new Font("Arial", Font.PLAIN, 20));
 		painel.add(lblCategoria, "cell 2 10");
 
 		cbCategoria = new JComboBox();
+		cbCategoria.setFont(new Font("Arial", Font.PLAIN, 20));
 		cbCategoria.setModel(new DefaultComboBoxModel(Categoria.values()));
 		painel.add(cbCategoria, "cell 2 11 4 1,growx");
 
 		btSalvar = new RoundButton("Salvar");
-		btSalvar.setFont(font);
+		btSalvar.setFont(new Font("Arial", Font.PLAIN, 20));
 		btSalvar.setActionCommand("btSalvar");
 		
 		btLimpar = new RoundButton("Limpar");
-		btLimpar.setFont(font);
+		btLimpar.setFont(new Font("Arial", Font.PLAIN, 20));
 		btLimpar.setForeground(new Color(245, 245, 245));
 		btLimpar.setBackground(new Color(224, 83, 76));
 		btLimpar.setActionCommand("btLimpar");
 		painel.add(btLimpar, "cell 2 12,alignx center");
 		
 		btSelecionarImagem = new RoundButton("Selecionar Imagem");
-		btSelecionarImagem.setFont(font);
+		btSelecionarImagem.setBackground(new Color(245, 245, 245));
+		btSelecionarImagem.setFont(new Font("Arial", Font.PLAIN, 20));
 		btSelecionarImagem.setActionCommand("btFile");
 		painel.add(btSelecionarImagem, "cell 3 12,alignx center,aligny center");
 		btSalvar.setForeground(new Color(245, 245, 245));
@@ -115,7 +108,7 @@ public class TelaCadastroP extends JFrame {
 		painel.add(btSalvar, "cell 3 14,alignx center");
 		
 		btCancelar = new RoundButton("Cancelar");
-		btCancelar.setFont(font);
+		btCancelar.setFont(new Font("Arial", Font.PLAIN, 20));
 		btCancelar.setActionCommand("btCancelar");
 		btCancelar.setForeground(new Color(245, 245, 245));
 		btCancelar.setBackground(new Color(0, 0, 0));

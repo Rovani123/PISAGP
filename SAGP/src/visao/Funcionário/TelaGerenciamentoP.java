@@ -58,18 +58,6 @@ public class TelaGerenciamentoP extends JFrame {
 	public TelaGerenciamentoP (Funcionario f) {
 		setTitle("TelaGerenciamentoP");
 		
-		Font font = new Font("Tahoma", Font.PLAIN, 11);;
-		try {
-			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
-			
-			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
-				
-		} catch (FontFormatException e1) {
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setExtendedState(MAXIMIZED_BOTH);
 		setBounds(100, 100, 955, 544);
@@ -78,40 +66,37 @@ public class TelaGerenciamentoP extends JFrame {
 		setJMenuBar(menuBar);
 		
 		JMenu mTelas = new JMenu("Telas");
-		mTelas.setFont(font);
+		mTelas.setFont(new Font("Arial", Font.PLAIN, 16));
 		menuBar.add(mTelas);
 		
 		mAdm = new JMenuItem("Administrador ");
-		mAdm.setFont(font);
 		mAdm.setEnabled(false);
 		mTelas.add(mAdm);
 		mAdm.setActionCommand("mAdm");
 		
 		mFuncionario = new JMenuItem("Funcionário ");
-		mFuncionario.setFont(font);
 		mFuncionario.setEnabled(false);
 		mFuncionario.setActionCommand("mFuncionario");
 		mTelas.add(mFuncionario);
 		
 		JMenu mOpcoes = new JMenu("Opções");
-		mOpcoes.setFont(font);
+		mOpcoes.setFont(new Font("Arial", Font.PLAIN, 16));
 		menuBar.add(mOpcoes);
 		
 	    mGProdutos = new JMenuItem("Produtos ");
-	    mGProdutos.setFont(font);
 		mGProdutos.setEnabled(false);
 		mOpcoes.add(mGProdutos);
 		mGProdutos.setActionCommand("mGProdutos");
 		
 	    mCliente = new JMenuItem("Cliente");
-	    mCliente.setFont(font);
+	    mCliente.setFont(new Font("Arial", Font.PLAIN, 15));
 		mOpcoes.add(mCliente);
 		mCliente.setActionCommand("mCliente");
 		
 		
 	    mVoltar = new JMenuItem("Voltar ao início");
+	    mVoltar.setFont(new Font("Arial", Font.PLAIN, 16));
 		menuBar.add(mVoltar);
-		mVoltar.setFont(font);
 		mVoltar.setActionCommand("mVoltar");
 		
 		panel = new JPanel();
@@ -128,7 +113,7 @@ public class TelaGerenciamentoP extends JFrame {
 		barraLateral.setLayout(new MigLayout("", "[]", "[][][][][][][][][][][][][][][][]"));
 		
 		JLabel lblLogo = new JLabel("");
-		lblLogo.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/LogoPequena.png")));
+		lblLogo.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/Logo.png")));
 		barraLateral.add(lblLogo, "cell 0 2,alignx center,aligny center");
 		
 		JLabel lblIconSalgados = new JLabel("");
@@ -136,8 +121,8 @@ public class TelaGerenciamentoP extends JFrame {
 		barraLateral.add(lblIconSalgados, "flowx,cell 0 5");
 		
 		btSalgados = new RoundButton("Salgados");
+		btSalgados.setFont(new Font("Arial", Font.PLAIN, 15));
 		btSalgados.setForeground(new Color(245, 245, 245));
-		btSalgados.setFont(font);
 		btSalgados.setBackground(new Color(224, 83, 76));
 		barraLateral.add(btSalgados, "cell 0 5,growx,aligny center");
 		btSalgados.setActionCommand("btSalgados");
@@ -148,8 +133,8 @@ public class TelaGerenciamentoP extends JFrame {
 		barraLateral.add(lblIconDoces, "flowx,cell 0 6");
 		
 		btDoces = new RoundButton("Doces");
+		btDoces.setFont(new Font("Arial", Font.PLAIN, 15));
 		btDoces.setForeground(new Color(245, 245, 245));
-		btDoces.setFont(font);
 		btDoces.setBackground(new Color(224, 83, 76));
 		barraLateral.add(btDoces, "cell 0 6,growx,aligny center");
 		btDoces.setActionCommand("btDoces");
@@ -159,8 +144,8 @@ public class TelaGerenciamentoP extends JFrame {
 		barraLateral.add(lblIconBebidas, "flowx,cell 0 7");
 		
 	    btBebidas = new RoundButton("Bebidas");
+	    btBebidas.setFont(new Font("Arial", Font.PLAIN, 15));
 	    btBebidas.setForeground(new Color(245, 245, 245));
-		btBebidas.setFont(font);
 		btBebidas.setBackground(new Color(224, 83, 76));
 		barraLateral.add(btBebidas, "cell 0 7,growx,aligny center");
 		btBebidas.setActionCommand("btBebidas");
@@ -170,7 +155,7 @@ public class TelaGerenciamentoP extends JFrame {
 		barraLateral.add(lblIconAlterar, "flowx,cell 0 13");
 		
 		btAlterar = new RoundButton("Alterar");
-		btAlterar.setFont(font);
+		btAlterar.setFont(new Font("Arial", Font.PLAIN, 15));
 		btAlterar.setActionCommand("btAlterar");
 		
 		btAlterar.setBackground(new Color(245, 245, 245));	
@@ -182,25 +167,20 @@ public class TelaGerenciamentoP extends JFrame {
 		barraLateral.add(lblIconExcluir, "flowx,cell 0 14");
 		
 		btRemover = new RoundButton("Remover");
+		btRemover.setFont(new Font("Arial", Font.PLAIN, 15));
 		btRemover.setBackground(new Color(245, 245, 245));
-		btRemover.setFont(font);
 		btRemover.setActionCommand("btRemover");
-		
-		
-		btRemover.setFont(font);
 		
 		barraLateral.add(btRemover, "cell 0 14,growx,aligny center");
 		
 		JLabel lblIconCadastrar = new JLabel("");
-		lblIconCadastrar.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/lupa.png")));
+		lblIconCadastrar.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/postagem-no-instagramCorreto.png")));
 		barraLateral.add(lblIconCadastrar, "flowx,cell 0 15");
 		
 		btCadastrar = new RoundButton("Adicionar");
+		btCadastrar.setFont(new Font("Arial", Font.PLAIN, 15));
 		btCadastrar.setBackground(new Color(245, 245, 245));
-		btCadastrar.setFont(font);
 		btCadastrar.setActionCommand("btCadastrar");
-		
-		btCadastrar.setFont(font);
 		barraLateral.add(btCadastrar, "cell 0 15,growx,aligny center");
 		
 		JPanel panel_1 = new JPanel();
@@ -214,13 +194,16 @@ public class TelaGerenciamentoP extends JFrame {
 		panelPesquisa.setLayout(new MigLayout("", "[][][][grow]", "[]"));
 		
 		JLabel lblIconEstoque = new JLabel("Estoque");
-		lblIconEstoque.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblIconEstoque.setFont(new Font("Arial", Font.PLAIN, 16));
 		panelPesquisa.add(lblIconEstoque, "cell 0 0 3 1,alignx right,aligny center");
 		
 		btPesquisar = new RoundButton("");
+		btPesquisar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btPesquisar.setActionCommand("btPesquisar");
 		btPesquisar.setText("");
-		btPesquisar.setFont(font);
 		
 		btPesquisar.setBackground(new Color(245, 245, 245));
 		btPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 15));

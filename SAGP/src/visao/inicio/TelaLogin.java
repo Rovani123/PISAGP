@@ -38,20 +38,6 @@ public class TelaLogin extends JFrame {
 
 	public TelaLogin() {
 		
-		Font font = new Font("Tahoma", Font.PLAIN, 11);;
-		try {
-			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/Poppins-SemiBold.ttf"));
-			
-			font = font.deriveFont(Font.PLAIN, 11); // Definir o tamanho da fonte
-	
-		} catch (FontFormatException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		
 		setExtendedState(Frame.MAXIMIZED_BOTH);
 		logo = new ImageIcon(TelaInicial.class.getResource("/Imagem/Logo.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -70,45 +56,43 @@ public class TelaLogin extends JFrame {
 		painel.add(lblLogo, "cell 6 1 2 1,alignx center");
 		
 		JLabel lblEntre = new JLabel("ENTRE COM SUA CONTA:");
-		lblEntre.setFont(font);
-		lblEntre.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblEntre.setFont(new Font("Arial", Font.PLAIN, 30));
 		painel.add(lblEntre, "cell 6 3 2 1,alignx center");
 		
 		JLabel lblUsuario = new JLabel("Usuário: *");
-		lblUsuario.setFont(font);
-		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblUsuario.setFont(new Font("Arial", Font.PLAIN, 20));
 		painel.add(lblUsuario, "cell 4 5");
 		
 		txtUsuario = new JTextField();
+		txtUsuario.setFont(new Font("Arial", Font.PLAIN, 20));
 		//txtUsuario.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		txtUsuario.setHorizontalAlignment(SwingConstants.LEFT);
 		txtUsuario.setForeground(new Color(130, 130, 130));
 		txtUsuario.setText("Entre com seu usuário para logar no sistema");
-		txtUsuario.setFont(font);
 		painel.add(txtUsuario, "cell 4 6 4 1,growx");
 		txtUsuario.setColumns(10);
 		
 		JLabel lblSenha = new JLabel("Senha: *");
-		lblSenha.setFont(font);
+		lblSenha.setFont(new Font("Arial", Font.PLAIN, 20));
 		//lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		painel.add(lblSenha, "cell 4 7");
 		
 		btEntrar = new RoundButton("Entrar");
-		btEntrar.setFont(font);
+		btEntrar.setFont(new Font("Arial", Font.PLAIN, 20));
 		//btEntrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btEntrar.setActionCommand("btEntrar");
 
 		
 		btfechar = new RoundButton("Voltar");
-		btfechar.setFont(font);
+		btfechar.setFont(new Font("Arial", Font.PLAIN, 20));
 		//btfechar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btfechar.setText("Fechar");
 		btfechar.setActionCommand("btVoltar");
 
 		
 		txtSenha = new JPasswordField();
+		txtSenha.setFont(new Font("Arial", Font.PLAIN, 20));
 		txtSenha.setHorizontalAlignment(SwingConstants.LEFT);
-		txtSenha.setFont(font);
 		txtSenha.setToolTipText("");
 		painel.add(txtSenha, "cell 4 8 4 1,grow");
 		btfechar.setForeground(new Color(255, 255, 255));
@@ -116,7 +100,7 @@ public class TelaLogin extends JFrame {
 		painel.add(btfechar, "cell 4 9");
 		
 		btLimpar = new RoundButton("Limpar");
-		btLimpar.setFont(font);
+		btLimpar.setFont(new Font("Arial", Font.PLAIN, 20));
 		btLimpar.setText("Limpar");
 		//btLimpar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btLimpar.setActionCommand("btLimpa");
@@ -132,7 +116,7 @@ public class TelaLogin extends JFrame {
 		btMostar.setText("Mostrar");
 		btMostar.setSelectedIcon(new ImageIcon(TelaLogin.class.getResource("/Imagem/Senha.png")));
 		btMostar.setForeground(Color.WHITE);
-		btMostar.setFont(null);
+		btMostar.setFont(new Font("Arial", Font.PLAIN, 20));
 		btMostar.setBackground(Color.BLACK);
 		btMostar.setActionCommand("btMostar");
 		painel.add(btMostar, "cell 4 10");
