@@ -19,6 +19,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.BoxLayout;
 import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
+import java.awt.Font;
 
 public class PainelProduto extends JPanel {
 	
@@ -44,22 +45,27 @@ public class PainelProduto extends JPanel {
 		painelImagem.add(lblImagem);
 		
 		JLabel lblNome = new JLabel("");
+		lblNome.setFont(new Font("Arial", Font.PLAIN, 12));
 		lblNome.setText(p.getNomeProduto());
 		add(lblNome, "cell 1 9 3 1,alignx center");
 		
 		JLabel lblPreco = new JLabel("");
+		lblPreco.setFont(new Font("Arial", Font.PLAIN, 12));
 		lblPreco.setText(String.valueOf(p.getPreco()));
 		add(lblPreco, "cell 1 10,alignx center");
 		
 		btMenos = new RoundButton("-");
+		btMenos.setFont(new Font("Arial", Font.PLAIN, 12));
 		btMenos.setBackground(new Color(245, 245, 245));
 		btMenos.setActionCommand("btMenos");
 		add(btMenos, "cell 4 10");
 		
 		lblQuantidade = new JLabel("0");
+		lblQuantidade.setFont(new Font("Arial", Font.PLAIN, 12));
 		add(lblQuantidade, "cell 6 10 2 1");
 		
 		btMais = new RoundButton("+");
+		btMais.setFont(new Font("Arial", Font.PLAIN, 12));
 		btMais.setBackground(new Color(245, 245, 245));
 		btMais.setActionCommand("btMais");
 		add(btMais, "cell 9 10");

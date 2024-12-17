@@ -46,6 +46,7 @@ public class TelaAnáliseVendas extends JFrame {
 	private JMenuItem mVoltar;
 	private JLabel lblNewLabel;
 	
+	
 	public TelaAnáliseVendas(Funcionario f) {
 		
 		setTitle("Tela de análise das vendas");
@@ -59,29 +60,36 @@ public class TelaAnáliseVendas extends JFrame {
 		setJMenuBar(menuBar);
 		
 		mTelas = new JMenu("Telas");
+		mTelas.setFont(new Font("Arial", Font.PLAIN, 16));
 		menuBar.add(mTelas);
 		
 		mAdm = new JMenuItem("Administrador");
+		mAdm.setFont(new Font("Arial", Font.PLAIN, 15));
 		mAdm.setEnabled(false);
 		mTelas.add(mAdm);
 		
 		mFuncionario = new JMenuItem("Funcionário");
+		mFuncionario.setFont(new Font("Arial", Font.PLAIN, 15));
 		mFuncionario.setActionCommand("mFuncionario");
 		mTelas.add(mFuncionario);
 		
 		mOpcoes = new JMenu("Opções");
+		mOpcoes.setFont(new Font("Arial", Font.PLAIN, 16));
 		menuBar.add(mOpcoes);
 		
 		mAnaliseVendas = new JMenuItem("Análise de vendas");
+		mAnaliseVendas.setFont(new Font("Arial", Font.PLAIN, 15));
 		mAnaliseVendas.setEnabled(false);
 		mAnaliseVendas.setActionCommand("mAnaliseVendas");
 		mOpcoes.add(mAnaliseVendas);
 		
 		mGFuncionarios = new JMenuItem(" Funcionarios");
+		mGFuncionarios.setFont(new Font("Arial", Font.PLAIN, 15));
 		mGFuncionarios.setActionCommand("mGFuncionarios");
 		mOpcoes.add(mGFuncionarios);
 		
 		mVoltar = new JMenuItem("Voltar ao inicio");
+		mVoltar.setFont(new Font("Arial", Font.PLAIN, 16));
 		mVoltar.setActionCommand("mVoltar");
 		menuBar.add(mVoltar);;
 		

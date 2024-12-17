@@ -93,7 +93,7 @@ public class TelaCadastroF extends JFrame {
 		btLimpar.setForeground(new Color(245, 245, 245));
 		
 		txtSenha = new JPasswordField();
-		txtSenha.setFont(new Font("Arial", Font.PLAIN, 20));
+		txtSenha.setFont(new Font("Arial", Font.PLAIN, 19));
 		txtSenha.setToolTipText("");
 		painel.add(txtSenha, "cell 3 9 10 1,growx,aligny top");
 		btCadastrar = new RoundButton("CADASTRAR");

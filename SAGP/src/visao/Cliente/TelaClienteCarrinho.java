@@ -18,6 +18,8 @@ import javax.swing.border.EmptyBorder;
 import modelo.classes.Carrinho;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
+import visao.Administrador.TelaGerenciamentoF;
+import java.awt.event.ActionEvent;
 
 public class TelaClienteCarrinho extends JFrame {
 	
@@ -34,8 +36,6 @@ public class TelaClienteCarrinho extends JFrame {
 	private RoundButton btDoce;
 	private JLabel lblIconBebidas;
 	private RoundButton btBebidas;
-	private JLabel lblIconOfertas;
-	private RoundButton btOfertas;
 	private JPanel painelCima;
 	private JLabel lblCarrinho;
 	private JScrollPane scrollPane;
@@ -44,6 +44,21 @@ public class TelaClienteCarrinho extends JFrame {
 	private JLabel lblValorTotal;
 	private RoundButton btFinalizarCompra;
 	private ArrayList<Carrinho> listaCarrinhos;
+	
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TelaClienteCarrinho frame = new TelaClienteCarrinho(null);
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
 	
 	
 	public TelaClienteCarrinho(ArrayList<Carrinho> listaCarrinhos) {
@@ -57,6 +72,7 @@ public class TelaClienteCarrinho extends JFrame {
 		setBackground(new Color(230, 230, 230));
 		
 		painelPrincipal = new JPanel();
+		painelPrincipal.setBackground(new Color(230, 230, 230));
 		painelPrincipal.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(painelPrincipal);
 		painelPrincipal.setLayout(new MigLayout("", "[grow][][][][][][][grow][][][][][][][][][][][][][][grow][][][][]", "[grow][grow][][][][][][][][][][][][][][][][][grow][]"));
@@ -67,80 +83,80 @@ public class TelaClienteCarrinho extends JFrame {
 		menuLateral.setLayout(new MigLayout("", "[][][]", "[][][][][][][][][][][][][]"));
 		
 		btSair = new RoundButton("");
+		btSair.setBackground(new Color(245, 245, 245));
+		btSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btSair.setFont(new Font("Arial", Font.PLAIN, 16));
 		btSair.setText("Sair");
 		btSair.setActionCommand("btVoltar");
-//		btnNewButton_2.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				
-//			}
-//		});
-		btSair.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/volte.png")));
-		menuLateral.add(btSair, "cell 1 0");
+		//		btnNewButton_2.addActionListener(new ActionListener() {
+		//			public void actionPerformed(ActionEvent e) {
+		//				
+		//			}
+		//		});
+				btSair.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/volte.png")));
+				menuLateral.add(btSair, "cell 0 0");
 		
 		lblLogo = new JLabel("");
-		lblLogo.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/LogoPequena.png")));
-		menuLateral.add(lblLogo, "cell 1 2");
+		lblLogo.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/Logo.png")));
+		menuLateral.add(lblLogo, "cell 0 2");
 		
 		lblCategorias = new JLabel("Categorias:");
 		lblCategorias.setFont(new Font("Arial", Font.PLAIN, 16));
-		menuLateral.add(lblCategorias, "cell 1 5");
+		menuLateral.add(lblCategorias, "cell 0 5");
 		
 		lblIconSalgado = new JLabel("");
 		lblIconSalgado.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/biscoitos.png")));
-		menuLateral.add(lblIconSalgado, "cell 0 6");
-		
-		btSalgado = new RoundButton("Salgado");
-		btSalgado.setFont(new Font("Arial", Font.PLAIN, 16));
-		btSalgado.setActionCommand("btSalgado");
-		menuLateral.add(btSalgado, "cell 1 6");
+		menuLateral.add(lblIconSalgado, "flowx,cell 0 6");
 		
 		lblIconDoce = new JLabel("");
 		lblIconDoce.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/bolinho.png")));
-		menuLateral.add(lblIconDoce, "cell 0 7");
-		
-		btDoce = new RoundButton("Doce");
-		btDoce.setFont(new Font("Arial", Font.PLAIN, 16));
-		btDoce.setActionCommand("btDoce");
-//		btDoce.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				
-//			}
-//		});
-		menuLateral.add(btDoce, "cell 1 7");
+		menuLateral.add(lblIconDoce, "flowx,cell 0 7");
 		
 		lblIconBebidas = new JLabel("");
 		lblIconBebidas.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/garrafa-de-agua.png")));
-		menuLateral.add(lblIconBebidas, "cell 0 8");
+		menuLateral.add(lblIconBebidas, "flowx,cell 0 8");
 		
-		btBebidas = new RoundButton("Bebidas");
-		btBebidas.setFont(new Font("Arial", Font.PLAIN, 16));
-		btBebidas.setActionCommand("btBebidas");
-//		btBebidas.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				
-//			}
-//		});
-		menuLateral.add(btBebidas, "cell 1 8");
+		btSalgado = new RoundButton("Salgado");
+		btSalgado.setBackground(new Color(245, 245, 245));
+		btSalgado.setFont(new Font("Arial", Font.PLAIN, 15));
+		btSalgado.setActionCommand("btSalgado");
+		menuLateral.add(btSalgado, "cell 0 6");
 		
-		lblIconOfertas = new JLabel("");
-		lblIconOfertas.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/etiqueta-de-desconto.png")));
-		menuLateral.add(lblIconOfertas, "cell 0 9");
-		
-		btOfertas = new RoundButton("Ofertas");
-		btOfertas.setFont(new Font("Arial", Font.PLAIN, 16));
-		btOfertas.setActionCommand("btOfertas");
-		menuLateral.add(btOfertas, "cell 1 9");
+		btDoce = new RoundButton("Doce");
+		btDoce.setBackground(new Color(245, 245, 245));
+		btDoce.setFont(new Font("Arial", Font.PLAIN, 15));
+		btDoce.setActionCommand("btDoce");
+		//		btDoce.addActionListener(new ActionListener() {
+		//			public void actionPerformed(ActionEvent e) {
+		//				
+		//			}
+		//		});
+				menuLateral.add(btDoce, "cell 0 7");
+				
+				btBebidas = new RoundButton("Bebidas");
+				btBebidas.setBackground(new Color(245, 245, 245));
+				btBebidas.setFont(new Font("Arial", Font.PLAIN, 15));
+				btBebidas.setActionCommand("btBebidas");
+				//		btBebidas.addActionListener(new ActionListener() {
+				//			public void actionPerformed(ActionEvent e) {
+				//				
+				//			}
+				//		});
+						menuLateral.add(btBebidas, "cell 0 8");
 		
 		painelCima = new JPanel();
-		painelPrincipal.add(painelCima, "cell 7 0 19 1,alignx left,growy");
+		painelPrincipal.add(painelCima, "cell 7 0 19 1,grow");
 		
 		RoundButton btNO = new RoundButton("");
+		btNO.setBackground(new Color(245, 245, 245));
 		btNO.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/carrinho-de-compras.png")));
 		painelCima.add(btNO);
 		
 		lblCarrinho = new JLabel("Carrinho:");
-		lblCarrinho.setFont(new Font("Arial", Font.PLAIN, 16));
+		lblCarrinho.setFont(new Font("Arial", Font.BOLD, 16));
 		painelCima.add(lblCarrinho);
 		
 		scrollPane = new JScrollPane();
@@ -150,10 +166,11 @@ public class TelaClienteCarrinho extends JFrame {
 		scrollPane.setViewportView(painelProdutos);
 		
 		painelBaixo = new JPanel();
-		painelPrincipal.add(painelBaixo, "cell 7 18 19 2,alignx right,growy");
+		painelPrincipal.add(painelBaixo, "cell 7 18 19 2,grow");
 		
 		lblTotalPagar = new JLabel("Total a pagar: ");
-		lblTotalPagar.setFont(new Font("Arial", Font.PLAIN, 16));
+		lblTotalPagar.setBackground(new Color(230, 230, 230));
+		lblTotalPagar.setFont(new Font("Arial", Font.BOLD, 16));
 		painelBaixo.add(lblTotalPagar);
 		
 		lblValorTotal = new JLabel("");

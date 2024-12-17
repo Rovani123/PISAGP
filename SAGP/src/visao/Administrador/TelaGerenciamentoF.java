@@ -48,18 +48,6 @@ public class TelaGerenciamentoF extends JFrame {
 	private RoundButton btAdicionar;
 	private RoundButton btPesquisar;
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaGerenciamentoF frame = new TelaGerenciamentoF(null);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 	
 
 	public TelaGerenciamentoF(Funcionario f) {
