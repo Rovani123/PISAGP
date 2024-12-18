@@ -52,8 +52,6 @@ public class TelaGerenciamentoP extends JFrame {
 	private RoundButton btRemover;
 	private RoundButton btCadastrar;
 	private RoundButton btPesquisar;
-
-
 	
 	public TelaGerenciamentoP (Funcionario f) {
 		setTitle("TelaGerenciamentoP");
@@ -89,7 +87,7 @@ public class TelaGerenciamentoP extends JFrame {
 		mGProdutos.setActionCommand("mGProdutos");
 		
 	    mCliente = new JMenuItem("Cliente");
-	    mCliente.setFont(new Font("Arial", Font.PLAIN, 15));
+	    mCliente.setFont(new Font("Arial", Font.PLAIN, 16));
 		mOpcoes.add(mCliente);
 		mCliente.setActionCommand("mCliente");
 		
@@ -113,6 +111,7 @@ public class TelaGerenciamentoP extends JFrame {
 		barraLateral.setLayout(new MigLayout("", "[]", "[][][][][][][][][][][][][][][][]"));
 		
 		JLabel lblLogo = new JLabel("");
+		lblLogo.setBackground(new Color(167, 208, 214));
 		lblLogo.setIcon(new ImageIcon(TelaGerenciamentoP.class.getResource("/Imagem/Logo.png")));
 		barraLateral.add(lblLogo, "cell 0 2,alignx center,aligny center");
 		
@@ -121,9 +120,9 @@ public class TelaGerenciamentoP extends JFrame {
 		barraLateral.add(lblIconSalgados, "flowx,cell 0 5");
 		
 		btSalgados = new RoundButton("Salgados");
-		btSalgados.setFont(new Font("Arial", Font.PLAIN, 15));
-		btSalgados.setForeground(new Color(245, 245, 245));
-		btSalgados.setBackground(new Color(224, 83, 76));
+		btSalgados.setFont(new Font("Arial", Font.PLAIN, 16));
+		btSalgados.setForeground(new Color(0, 0, 0));
+		btSalgados.setBackground(new Color(245, 245, 245));
 		barraLateral.add(btSalgados, "cell 0 5,growx,aligny center");
 		btSalgados.setActionCommand("btSalgados");
 		
@@ -133,9 +132,9 @@ public class TelaGerenciamentoP extends JFrame {
 		barraLateral.add(lblIconDoces, "flowx,cell 0 6");
 		
 		btDoces = new RoundButton("Doces");
-		btDoces.setFont(new Font("Arial", Font.PLAIN, 15));
-		btDoces.setForeground(new Color(245, 245, 245));
-		btDoces.setBackground(new Color(224, 83, 76));
+		btDoces.setFont(new Font("Arial", Font.PLAIN, 16));
+		btDoces.setForeground(new Color(0, 0, 0));
+		btDoces.setBackground(new Color(245, 245, 245));
 		barraLateral.add(btDoces, "cell 0 6,growx,aligny center");
 		btDoces.setActionCommand("btDoces");
 		
@@ -144,9 +143,9 @@ public class TelaGerenciamentoP extends JFrame {
 		barraLateral.add(lblIconBebidas, "flowx,cell 0 7");
 		
 	    btBebidas = new RoundButton("Bebidas");
-	    btBebidas.setFont(new Font("Arial", Font.PLAIN, 15));
-	    btBebidas.setForeground(new Color(245, 245, 245));
-		btBebidas.setBackground(new Color(224, 83, 76));
+	    btBebidas.setFont(new Font("Arial", Font.PLAIN, 16));
+	    btBebidas.setForeground(new Color(0, 0, 0));
+		btBebidas.setBackground(new Color(245, 245, 245));
 		barraLateral.add(btBebidas, "cell 0 7,growx,aligny center");
 		btBebidas.setActionCommand("btBebidas");
 		
@@ -155,7 +154,7 @@ public class TelaGerenciamentoP extends JFrame {
 		barraLateral.add(lblIconAlterar, "flowx,cell 0 13");
 		
 		btAlterar = new RoundButton("Alterar");
-		btAlterar.setFont(new Font("Arial", Font.PLAIN, 15));
+		btAlterar.setFont(new Font("Arial", Font.PLAIN, 16));
 		btAlterar.setActionCommand("btAlterar");
 		
 		btAlterar.setBackground(new Color(245, 245, 245));	
@@ -167,7 +166,7 @@ public class TelaGerenciamentoP extends JFrame {
 		barraLateral.add(lblIconExcluir, "flowx,cell 0 14");
 		
 		btRemover = new RoundButton("Remover");
-		btRemover.setFont(new Font("Arial", Font.PLAIN, 15));
+		btRemover.setFont(new Font("Arial", Font.PLAIN, 16));
 		btRemover.setBackground(new Color(245, 245, 245));
 		btRemover.setActionCommand("btRemover");
 		
@@ -178,7 +177,7 @@ public class TelaGerenciamentoP extends JFrame {
 		barraLateral.add(lblIconCadastrar, "flowx,cell 0 15");
 		
 		btCadastrar = new RoundButton("Adicionar");
-		btCadastrar.setFont(new Font("Arial", Font.PLAIN, 15));
+		btCadastrar.setFont(new Font("Arial", Font.PLAIN, 16));
 		btCadastrar.setBackground(new Color(245, 245, 245));
 		btCadastrar.setActionCommand("btCadastrar");
 		barraLateral.add(btCadastrar, "cell 0 15,growx,aligny center");

@@ -32,10 +32,7 @@ public class TelaCadastroF extends JFrame {
 	private RoundButton btCadastrar;
 	private RoundButton btLimpar;
 	private RoundButton btEntrar;
-	
-	
-	
-	
+
 	public TelaCadastroF(Funcionario f) {
 		
 		
@@ -51,7 +48,7 @@ public class TelaCadastroF extends JFrame {
 		
 		ImageLabel lblLogo = new ImageLabel("");
 		lblLogo.setIcon(new ImageIcon(TelaCadastroF.class.getResource("/Imagem/LogoMediaMedia.png")));
-		painel.add(lblLogo, "cell 0 0 14 2,alignx center,aligny top");
+		painel.add(lblLogo, "cell 3 0 10 2,alignx center,aligny top");
 		
 		JLabel lblCadastre = new JLabel("Cadastre um funcionário:");
 		lblCadastre.setFont(new Font("Arial", Font.BOLD, 30));
@@ -95,7 +92,7 @@ public class TelaCadastroF extends JFrame {
 		btLimpar.setForeground(new Color(245, 245, 245));
 		
 		txtSenha = new JPasswordField();
-		txtSenha.setFont(new Font("Arial", Font.PLAIN, 19));
+		txtSenha.setFont(new Font("Arial", Font.PLAIN, 20));
 		txtSenha.setToolTipText("");
 		painel.add(txtSenha, "cell 3 9 10 1,growx,aligny top");
 		btCadastrar = new RoundButton("CADASTRAR");

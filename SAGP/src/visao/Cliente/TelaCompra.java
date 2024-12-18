@@ -58,6 +58,7 @@ public class TelaCompra extends JFrame {
 		BarraLateral.add(btSair, "cell 0 0");
 		
 		JLabel lblLogo = new JLabel("");
+		lblLogo.setBackground(new Color(167, 208, 214));
 		lblLogo.setIcon(new ImageIcon(TelaCompra.class.getResource("/Imagem/Logo.png")));
 		BarraLateral.add(lblLogo, "cell 0 3,alignx left,aligny center");
 		
