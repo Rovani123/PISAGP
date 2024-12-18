@@ -75,7 +75,7 @@ public class TelaAlteracaoF extends JFrame {
 		txtUsuario.setColumns(10);
 
 		JLabel lblSenha = new JLabel("Senha:");
-		lblSenha.setFont(new Font("Arial", Font.PLAIN, 20));
+		lblSenha.setFont(new Font("Arial", Font.PLAIN, 25));
 		contentPane.add(lblSenha, "cell 2 8,alignx left,aligny bottom");
 
 		txtSenha = new JPasswordField();

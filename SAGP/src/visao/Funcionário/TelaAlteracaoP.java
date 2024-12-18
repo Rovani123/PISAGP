@@ -1,6 +1,7 @@
 package visao.Funcionário;
 
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.event.ActionEvent;
@@ -20,6 +21,7 @@ import modelo.classes.Produto;
 import modelo.enumerador.Categoria;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
+import javax.swing.ImageIcon;
 
 public class TelaAlteracaoP extends JFrame {
 
@@ -32,7 +34,8 @@ public class TelaAlteracaoP extends JFrame {
 	private RoundButton btCancelar;
 	private RoundButton btLimpar;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
-
+	private JLabel lblNewLabel;
+	
 	public TelaAlteracaoP(Produto p, Funcionario f) {
 
 		setBackground(new Color(230, 230, 230));
@@ -43,48 +46,53 @@ public class TelaAlteracaoP extends JFrame {
 		painel.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(painel);
-		painel.setLayout(new MigLayout("", "[][][][][grow][][][][]", "[][][][][][][][][][][][][][][]"));
+		painel.setLayout(new MigLayout("", "[][][][][grow][][][][]", "[][][][][][][][][][][][][][][][]"));
+		
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setBackground(new Color(230, 230, 230));
+		lblNewLabel.setIcon(new ImageIcon(TelaAlteracaoP.class.getResource("/Imagem/LogoMediaMedia.png")));
+		painel.add(lblNewLabel, "cell 3 1 3 1");
 
-		JLabel lblAlteracao = new JLabel("ALTERAÇÃO DO PRODUTO:");
-		lblAlteracao.setFont(new Font("Arial", Font.PLAIN, 20));
-		painel.add(lblAlteracao, "cell 4 2,alignx center");
+		JLabel lblAlteracao = new JLabel("Alteração do produto:");
+		lblAlteracao.setFont(new Font("Arial", Font.BOLD, 30));
+		painel.add(lblAlteracao, "cell 4 3,alignx center");
 
 		JLabel lblNome = new JLabel("Nome do Produto:");
 		lblNome.setFont(new Font("Arial", Font.PLAIN, 20));
-		painel.add(lblNome, "cell 3 4");
+		painel.add(lblNome, "cell 3 5");
 
 		txtNome = new JTextField();
 		txtNome.setFont(new Font("Arial", Font.PLAIN, 20));
-		painel.add(txtNome, "cell 3 5 3 1,growx");
+		painel.add(txtNome, "cell 3 6 3 1,growx");
 		txtNome.setColumns(10);
 
 		JLabel lblPreco = new JLabel("Preço:");
 		lblPreco.setFont(new Font("Arial", Font.PLAIN, 20));
-		painel.add(lblPreco, "cell 3 6");
+		painel.add(lblPreco, "cell 3 7");
 
 		txtPreco = new JTextField();
 		txtPreco.setFont(new Font("Arial", Font.PLAIN, 20));
-		painel.add(txtPreco, "cell 3 7 3 1,growx");
+		painel.add(txtPreco, "cell 3 8 3 1,growx");
 		txtPreco.setColumns(10);
 
 		JLabel lblQuantidade = new JLabel("Quantidade:");
 		lblQuantidade.setFont(new Font("Arial", Font.PLAIN, 20));
-		painel.add(lblQuantidade, "cell 3 8");
+		painel.add(lblQuantidade, "cell 3 9");
 
 		txtQuantidade = new JTextField();
 		txtQuantidade.setFont(new Font("Arial", Font.PLAIN, 20));
-		painel.add(txtQuantidade, "cell 3 9 3 1,growx");
+		painel.add(txtQuantidade, "cell 3 10 3 1,growx");
 		txtQuantidade.setColumns(10);
 
 		JLabel lblCategoria = new JLabel("Categoria:");
 		lblCategoria.setFont(new Font("Arial", Font.PLAIN, 20));
-		painel.add(lblCategoria, "cell 3 10");
+		painel.add(lblCategoria, "cell 3 11");
 
 		cbCategoria = new JComboBox();
 		cbCategoria.setFont(new Font("Arial", Font.PLAIN, 20));
 		cbCategoria.setModel(new DefaultComboBoxModel(Categoria.values()));
 		cbCategoria.setBackground(new Color(245, 245, 245));
-		painel.add(cbCategoria, "cell 3 11 3 1,growx");
+		painel.add(cbCategoria, "cell 3 12 3 1,growx");
 
 		btLimpar = new RoundButton("Limpar");
 		btLimpar.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -92,21 +100,21 @@ public class TelaAlteracaoP extends JFrame {
 		btLimpar.setBackground(new Color(224, 83, 76));
 		btLimpar.setForeground(new Color(245, 245, 245));
 		btLimpar.setActionCommand("btLimpa");
-		painel.add(btLimpar, "cell 3 14");
+		painel.add(btLimpar, "cell 3 15");
 
 		btSalvar = new RoundButton("Salvar");
 		btSalvar.setFont(new Font("Arial", Font.PLAIN, 20));
 		btSalvar.setActionCommand("btSalvar");
 		btSalvar.setBackground(new Color(224, 83, 76));
 		btSalvar.setForeground(new Color(245, 245, 245));
-		painel.add(btSalvar, "cell 4 14,alignx center");
+		painel.add(btSalvar, "cell 4 15,alignx center");
 
 		btCancelar = new RoundButton("Cancelar");
 		btCancelar.setFont(new Font("Arial", Font.PLAIN, 20));
 		btCancelar.setActionCommand("btCancelar");
 		btCancelar.setBackground(new Color(0, 0, 0));
 		btCancelar.setForeground(new Color(245, 245, 245));
-		painel.add(btCancelar, "cell 5 14");
+		painel.add(btCancelar, "cell 5 15");
 		setText(p);
 	}
 
