@@ -46,8 +46,6 @@ public class TelaAnáliseVendas extends JFrame {
 	private JMenuItem mVoltar;
 	private JLabel lblNewLabel;
 	
-
-	
 	public TelaAnáliseVendas(Funcionario f) {
 		
 		setTitle("Tela de análise das vendas");

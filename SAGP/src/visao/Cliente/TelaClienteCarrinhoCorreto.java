@@ -47,8 +47,8 @@ public class TelaClienteCarrinhoCorreto extends JFrame {
 	private RoundButton btBebidas;
 	private RoundButton btFinalizarCompra;
 	
-	
 	public TelaClienteCarrinhoCorreto(Funcionario f,ArrayList<Carrinho> listaCarrinhos) {
+		setTitle("Tela de Carrinho");
 		
 		setExtendedState(MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

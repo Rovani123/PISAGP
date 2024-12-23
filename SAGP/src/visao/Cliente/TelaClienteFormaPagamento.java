@@ -38,6 +38,7 @@ public class TelaClienteFormaPagamento extends JFrame {
 	private JLabel lblNewLabel;
 
 	public TelaClienteFormaPagamento() {
+		setTitle("Forma de Pagamento");
 		
 		setExtendedState(Frame.MAXIMIZED_BOTH);
 		setBackground(new Color(230, 230, 230));

@@ -47,10 +47,9 @@ public class TelaGerenciamentoF extends JFrame {
 	private RoundButton btRemover;
 	private RoundButton btAdicionar;
 	private RoundButton btPesquisar;
-	
 
 	public TelaGerenciamentoF(Funcionario f) {
-		
+		setTitle("Tela de Gerenciamento de Funcionário");
 		
 		TelaGerenciamentoF tela = this;
 		

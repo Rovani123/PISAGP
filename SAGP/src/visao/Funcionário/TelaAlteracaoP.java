@@ -37,6 +37,7 @@ public class TelaAlteracaoP extends JFrame {
 	private JLabel lblNewLabel;
 	
 	public TelaAlteracaoP(Produto p, Funcionario f) {
+		setTitle("Tela de Alteração de Produto");
 
 		setBackground(new Color(230, 230, 230));
 		setExtendedState(MAXIMIZED_BOTH);
@@ -53,7 +54,7 @@ public class TelaAlteracaoP extends JFrame {
 		lblNewLabel.setIcon(new ImageIcon(TelaAlteracaoP.class.getResource("/Imagem/LogoMediaMedia.png")));
 		painel.add(lblNewLabel, "cell 3 1 3 1");
 
-		JLabel lblAlteracao = new JLabel("Alteração do produto:");
+		JLabel lblAlteracao = new JLabel("Alteração do Produto:");
 		lblAlteracao.setFont(new Font("Arial", Font.BOLD, 30));
 		painel.add(lblAlteracao, "cell 4 3,alignx center");
 

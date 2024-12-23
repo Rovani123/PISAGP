@@ -32,9 +32,8 @@ public class TelaAlteracaoF extends JFrame {
 	private RoundButton btLimpar;
 	private JLabel lblNewLabel;
 	
-	
-
 	public TelaAlteracaoF(Funcionario f) {
+		setTitle("Tela de Alteração do Funcionário");
 
 		setExtendedState(MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -54,7 +53,7 @@ public class TelaAlteracaoF extends JFrame {
 		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 30));
 		contentPane.add(lblNewLabel, "cell 2 2 7 1,alignx center,aligny center");
 
-		JLabel lblNome = new JLabel("Nome do funcionário:");
+		JLabel lblNome = new JLabel("Nome do Funcionário: *");
 		lblNome.setFont(new Font("Arial", Font.PLAIN, 25));
 		lblNome.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		contentPane.add(lblNome, "cell 2 4,alignx left,aligny bottom");
@@ -64,7 +63,7 @@ public class TelaAlteracaoF extends JFrame {
 		contentPane.add(txtNome, "cell 2 5 7 1,growx,aligny top");
 		txtNome.setColumns(10);
 
-		JLabel lblUsuario = new JLabel("Usuário:");
+		JLabel lblUsuario = new JLabel("Usuário: *");
 		lblUsuario.setFont(new Font("Arial", Font.PLAIN, 25));
 		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		contentPane.add(lblUsuario, "cell 2 6,alignx left,aligny bottom");
@@ -74,7 +73,7 @@ public class TelaAlteracaoF extends JFrame {
 		contentPane.add(txtUsuario, "cell 2 7 7 1,growx,aligny top");
 		txtUsuario.setColumns(10);
 
-		JLabel lblSenha = new JLabel("Senha:");
+		JLabel lblSenha = new JLabel("Senha: *");
 		lblSenha.setFont(new Font("Arial", Font.PLAIN, 25));
 		contentPane.add(lblSenha, "cell 2 8,alignx left,aligny bottom");
 
