@@ -39,6 +39,7 @@ public class TelaCadastroP extends JFrame {
 	private JLabel lblNewLabel;
 
 	public TelaCadastroP(Funcionario f) {
+		setTitle("Tela de Cadastro de Produto");
 
 		setBackground(new Color(230, 230, 230));
 		setExtendedState(MAXIMIZED_BOTH);
@@ -55,7 +56,7 @@ public class TelaCadastroP extends JFrame {
 		lblNewLabel.setIcon(new ImageIcon(TelaCadastroP.class.getResource("/Imagem/LogoMediaMedia.png")));
 		painel.add(lblNewLabel, "cell 2 1 4 1,alignx center,aligny center");
 
-		JLabel lblCadastroProduto = new JLabel("Cadastro de produto:");
+		JLabel lblCadastroProduto = new JLabel("Cadastro de Produto:");
 		lblCadastroProduto.setFont(new Font("Arial", Font.BOLD, 30));
 		painel.add(lblCadastroProduto, "cell 3 3,alignx center");
 

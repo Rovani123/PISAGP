@@ -20,6 +20,7 @@ import java.io.IOException;
 import javax.swing.JPasswordField;
 import java.awt.Font;
 import java.awt.FontFormatException;
+import java.awt.event.ActionEvent;
 
 public class TelaCadastroF extends JFrame {
 
@@ -32,8 +33,22 @@ public class TelaCadastroF extends JFrame {
 	private RoundButton btCadastrar;
 	private RoundButton btLimpar;
 	private RoundButton btEntrar;
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TelaCadastroF frame = new TelaCadastroF(null);
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
 	public TelaCadastroF(Funcionario f) {
+		setTitle("Tela de Cadastro de Funcionário");
 		
 		
 		setExtendedState(MAXIMIZED_BOTH);
@@ -50,11 +65,11 @@ public class TelaCadastroF extends JFrame {
 		lblLogo.setIcon(new ImageIcon(TelaCadastroF.class.getResource("/Imagem/LogoMediaMedia.png")));
 		painel.add(lblLogo, "cell 3 0 10 2,alignx center,aligny top");
 		
-		JLabel lblCadastre = new JLabel("Cadastre um funcionário:");
+		JLabel lblCadastre = new JLabel("Cadastre um Funcionário:");
 		lblCadastre.setFont(new Font("Arial", Font.BOLD, 30));
 		painel.add(lblCadastre, "cell 3 2 9 1,alignx center,aligny baseline");
 		
-		JLabel lblUsuario = new JLabel("Usuário:");
+		JLabel lblUsuario = new JLabel("Usuário: *");
 		lblUsuario.setFont(new Font("Arial", Font.PLAIN, 20));
 		painel.add(lblUsuario, "cell 3 4,alignx left,aligny top");
 		
@@ -65,7 +80,7 @@ public class TelaCadastroF extends JFrame {
 		painel.add(txtUsuario, "cell 3 5 10 1,growx,aligny top");
 		txtUsuario.setColumns(10);
 		
-		JLabel lblNome = new JLabel("Nome:");
+		JLabel lblNome = new JLabel("Nome: *");
 		lblNome.setFont(new Font("Arial", Font.PLAIN, 20));
 		painel.add(lblNome, "cell 3 6,alignx left,aligny top");
 		
@@ -76,7 +91,7 @@ public class TelaCadastroF extends JFrame {
 		painel.add(txtNome, "cell 3 7 10 1,growx,aligny top");
 		txtNome.setColumns(10);
 		
-		JLabel lblSenha = new JLabel("Senha:");
+		JLabel lblSenha = new JLabel("Senha: *");
 		lblSenha.setFont(new Font("Arial", Font.PLAIN, 20));
 		painel.add(lblSenha, "cell 3 8,alignx left,aligny top");
 		
@@ -101,7 +116,7 @@ public class TelaCadastroF extends JFrame {
 		btCadastrar.setActionCommand("btCadastrar");
 		btCadastrar.setBackground(new Color(224, 83, 76));
 		btCadastrar.setForeground(new Color(245, 245, 245));
-		painel.add(btCadastrar, "cell 3 12,alignx left,aligny center");
+		painel.add(btCadastrar, "flowx,cell 3 12,alignx left,aligny center");
 		btCancelar.setBackground(new Color(0, 0, 0));
 		btCancelar.setForeground(new Color(245, 245, 245));
 		painel.add(btCancelar, "cell 11 12,alignx left,aligny center");
@@ -113,6 +128,7 @@ public class TelaCadastroF extends JFrame {
 		btEntrar.setBackground(new Color(224, 83, 76));
 		btEntrar.setForeground(new Color(245, 245, 245));
 		painel.add(btEntrar, "cell 12 12,alignx right,aligny center");
+		
 	}
 	public void addCadastroF(ActionListener listener) {
 		btCancelar.addActionListener(listener);

@@ -38,6 +38,7 @@ public class TelaLogin extends JFrame {
 	private JLabel lblNewLabel;
 
 	public TelaLogin() {
+		setTitle("Tela de Login");
 		
 		setExtendedState(Frame.MAXIMIZED_BOTH);
 		logo = new ImageIcon(TelaInicial.class.getResource("/Imagem/Logo.png"));

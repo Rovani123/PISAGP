@@ -53,8 +53,21 @@ public class TelaGerenciamentoP extends JFrame {
 	private RoundButton btCadastrar;
 	private RoundButton btPesquisar;
 	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TelaGerenciamentoP frame = new TelaGerenciamentoP(null);
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
 	public TelaGerenciamentoP (Funcionario f) {
-		setTitle("TelaGerenciamentoP");
+		setTitle("Tela de Gerenciamento de Produto");
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setExtendedState(MAXIMIZED_BOTH);

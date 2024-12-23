@@ -28,8 +28,10 @@ public class TelaInicial extends JFrame {
 	private RoundButton btCliente;
 	private RoundButton btLogin;
 	private RoundButton btSair;
+	private JLabel lblNewLabel;
 
 	public TelaInicial(Funcionario f) {
+		setTitle("Tela Inicial");
 		
 		setExtendedState(Frame.MAXIMIZED_BOTH);
 		setBackground(new Color(230, 230, 230));
@@ -51,7 +53,11 @@ public class TelaInicial extends JFrame {
 		btSair.setActionCommand("btSair");
 		
 		btSair.setIcon(new ImageIcon(TelaInicial.class.getResource("/Imagem/volte.png")));
-		painel.add(btSair, "cell 0 0");
+		painel.add(btSair, "cell 0 0,aligny top");
+		
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(TelaInicial.class.getResource("/Imagem/logoGrande.png")));
+		painel.add(lblNewLabel, "cell 13 0");
 		
 		JLabel lblLogo = new JLabel("");
 		lblLogo.setBackground(new Color(230, 230, 230));
@@ -72,19 +78,19 @@ public class TelaInicial extends JFrame {
 		btCliente.setForeground(new Color(0, 0, 0));
 		painel.add(btCliente, "cell 4 2 9 1,alignx left,aligny center");
 		
+		JLabel lblLupa = new JLabel("");
+		lblLupa.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblLupa.setIcon(new ImageIcon(TelaInicial.class.getResource("/Imagem/lupa.png")));
+		painel.add(lblLupa, "cell 14 2");
+		
 		btLogin = new RoundButton("");
 		btLogin.setFont(new Font("Arial", Font.PLAIN, 20));
 		//btLogin.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		btLogin.setText("Entrar como funcionario");
 		btLogin.setActionCommand("btLogin");
-		
-		JLabel lblLupa = new JLabel("");
-		lblLupa.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblLupa.setIcon(new ImageIcon(TelaInicial.class.getResource("/Imagem/lupa.png")));
-		painel.add(lblLupa, "cell 16 2");
 		btLogin.setForeground(new Color(0, 0, 0));
 		btLogin.setBackground(new Color(245, 245, 245));
-		painel.add(btLogin, "cell 17 2 8 1,alignx left,aligny center");
+		painel.add(btLogin, "cell 15 2,alignx left,aligny center");
 	}
 	public void addInicialListener(ActionListener listener) {		
 		btCliente.addActionListener(listener);

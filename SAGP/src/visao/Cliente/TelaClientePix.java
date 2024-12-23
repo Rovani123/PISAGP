@@ -25,11 +25,9 @@ public class TelaClientePix extends JFrame {
 	private JPanel contentPane;
 	private RoundButton btVoltar;
 	private RoundButton btCancelar;
-
-	
-	
 	
 	public TelaClientePix() {
+		setTitle("Tela de Pagamento Pix");
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setExtendedState(MAXIMIZED_BOTH);

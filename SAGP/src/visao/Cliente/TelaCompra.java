@@ -33,6 +33,7 @@ public class TelaCompra extends JFrame {
 	private RoundButton btPesquisar;
 
 	public TelaCompra(Funcionario f) {
+		setTitle("Tela de Compra");
 		
 		setExtendedState(MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
