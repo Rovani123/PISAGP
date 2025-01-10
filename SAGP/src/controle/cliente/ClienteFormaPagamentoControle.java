@@ -11,6 +11,7 @@ import modelo.classes.Funcionario;
 import modelo.classes.Vendas;
 import modelo.dao.CarrinhoDAO;
 import modelo.enumerador.MetodoPagamento;
+import visao.Cliente.PainelProduto;
 import visao.Cliente.TelaClienteFormaPagamento;
 import visao.TelasDeAviso.MensagemView;
 
@@ -19,10 +20,12 @@ public class ClienteFormaPagamentoControle {
 	private Funcionario f;
 	private Vendas v;
 	private ArrayList<Carrinho> listaCarrinhos;
+	private ArrayList<PainelProduto> listaPaineis;
 	
-	public ClienteFormaPagamentoControle(Funcionario f,ArrayList<Carrinho> listaCarrinhos) {
+	public ClienteFormaPagamentoControle(Funcionario f,ArrayList<Carrinho> listaCarrinhos, ArrayList<PainelProduto> listaPaineis) {
 		this.f=f;
 		this.listaCarrinhos = listaCarrinhos;
+		this.listaPaineis = listaPaineis;
 		view = new TelaClienteFormaPagamento();
 		view.setVisible(true);
 		listeners();
@@ -36,7 +39,7 @@ public class ClienteFormaPagamentoControle {
 				int conf = mv.getResposta();
 				if(conf == 1) {
 					view.dispose();
-					new CompraControle(f, listaCarrinhos);
+					new CompraControle(f);
 				}
 				break;
 			case "btConfirmar":
@@ -51,7 +54,7 @@ public class ClienteFormaPagamentoControle {
 							new CarrinhoDAO().cadastrarCarrinho(c);
 						}
 						view.dispose();
-						new CompraControle(f, null);
+						new CompraControle(f);
 					} catch (SQLException e1) {
 						e1.printStackTrace();
 						new MensagemView("Compra nao efetuada, tente novamente",0);

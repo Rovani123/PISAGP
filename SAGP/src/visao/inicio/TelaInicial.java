@@ -56,13 +56,8 @@ public class TelaInicial extends JFrame {
 		painel.add(btSair, "cell 0 0,aligny top");
 		
 		lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(TelaInicial.class.getResource("/Imagem/logoGrande.png")));
+//		lblNewLabel.setIcon(new ImageIcon(TelaInicial.class.getResource("/Imagem/logoGrande.png")));
 		painel.add(lblNewLabel, "cell 13 0");
-		
-		JLabel lblLogo = new JLabel("");
-		lblLogo.setBackground(new Color(230, 230, 230));
-		lblLogo.setIcon(new ImageIcon(TelaInicial.class.getResource("/Imagem/ImagemLogoGrande.png")));
-		painel.add(lblLogo, "cell 1 1 26 1,alignx center,aligny center");
 		
 		btCliente = new RoundButton("");
 		btCliente.setFont(new Font("Arial", Font.PLAIN, 20));

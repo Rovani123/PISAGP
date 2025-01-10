@@ -47,7 +47,7 @@ public class TelaClienteCarrinhoCorreto extends JFrame {
 	private RoundButton btBebidas;
 	private RoundButton btFinalizarCompra;
 	
-	public TelaClienteCarrinhoCorreto(Funcionario f,ArrayList<Carrinho> listaCarrinhos) {
+	public TelaClienteCarrinhoCorreto(Funcionario f) {
 		setTitle("Tela de Carrinho");
 		
 		setExtendedState(MAXIMIZED_BOTH);
@@ -188,5 +188,9 @@ public class TelaClienteCarrinhoCorreto extends JFrame {
 			btBebidas.setBackground(color);
 			break;
 		}
+	}
+	
+	public void resetPainel() {
+		painelProdutos.removeAll();
 	}
 }

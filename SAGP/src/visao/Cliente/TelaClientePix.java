@@ -60,10 +60,6 @@ public class TelaClientePix extends JFrame {
 		lblNewLabel_3.setIcon(new ImageIcon(TelaClientePix.class.getResource("/Imagem/LogoMediaMedia.png")));
 		contentPane.add(lblNewLabel_3, "flowx,cell 6 1,alignx center,aligny center");
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(TelaClientePix.class.getResource("/Imagem/ImagemLogoGrande.png")));
-		contentPane.add(lblNewLabel, "cell 6 1,alignx center,aligny center");
-		
 		JLabel lblNewLabel_1 = new JLabel("PAGAMENTO COM O PIX:");
 		lblNewLabel_1.setFont(new Font("Arial", Font.BOLD, 25));
 		//lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 30));

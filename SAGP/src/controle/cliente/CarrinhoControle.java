@@ -1,75 +1,53 @@
 package controle.cliente;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
-
 import modelo.classes.Carrinho;
 import modelo.classes.Funcionario;
+import modelo.enumerador.Categoria;
 import visao.Cliente.PainelProduto;
-import visao.Cliente.TelaClienteCarrinho;
 import visao.Cliente.TelaClienteCarrinhoCorreto;
 import visao.TelasDeAviso.MensagemView;
 
 public class CarrinhoControle {
 	private TelaClienteCarrinhoCorreto view;
-	private PainelProduto pp;
 	private Funcionario f;
-	private ArrayList<Carrinho> listaCarrinhos;
+	private ArrayList<PainelProduto> listaPaineis;
 	private ArrayList<Carrinho> listaCarrinhosFinal = new ArrayList<Carrinho>();
+	private int contS = 0;
+	private int contD = 0;
+	private int contB = 0;
+	private Color corPadrao = new Color(255, 255, 0);
+	private Color corSelecionada = new Color(255, 255, 255);
 	
-	public CarrinhoControle(Funcionario f,ArrayList<Carrinho> listaCarrinhosCompra) {
+	public CarrinhoControle(Funcionario f,ArrayList<PainelProduto> listaPaineis) {
 		this.f =f;
-		this.listaCarrinhos = listaCarrinhosCompra;
-		view = new TelaClienteCarrinhoCorreto(f, listaCarrinhosCompra);
+		this.listaPaineis = listaPaineis;
+		view = new TelaClienteCarrinhoCorreto(f);
 		view.setVisible(true);
 		listeners();
 	}
 	private class CarrinhoListeners implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
-			switch (e.getActionCommand()) {
+			switch (e.getActionCommand()) {  
 			case "btVoltar":
 				view.dispose();
-				new CompraControle(f, listaCarrinhos);
+				new CompraControle(f, listaPaineis);
 				break;
 			case "btFinalizarCompra":
 				view.dispose();
 				if (listaCarrinhosFinal.size() == 0) {
-					for (Carrinho carrinho : listaCarrinhos) {
-						if (carrinho.getQuantidade() > 0) {
-							listaCarrinhosFinal.add(carrinho);
+					for (PainelProduto painel : listaPaineis) {
+						if (painel.getCarrinho().getQuantidade() > 0) {
+							listaCarrinhosFinal.add(painel.getCarrinho());
 						}
 					}
 				}
-				new ClienteFormaPagamentoControle(f,listaCarrinhosFinal);
-				break;
-			}
-		}
-	}
-	
-	private class PainelListeners implements ActionListener{
-		private PainelProduto pp;
-		public PainelListeners(PainelProduto pp) {
-			this.pp = pp;
-		}
-		public void actionPerformed(ActionEvent e) {
-			switch (e.getActionCommand()) {
-			case "btMenos":
-				if(pp.getCarrinho().getQuantidade()>0) {
-					pp.setCarrinhoQuant(pp.getCarrinho().getQuantidade()-1);
-					pp.setLblQuant(String.valueOf(pp.getCarrinho().getQuantidade()));
-				}
-				break;
-			case "btMais":
-				if(pp.getCarrinho().getQuantidade() < pp.getProduto().getQuantidadeEstoque()) {
-					pp.setCarrinhoQuant(pp.getCarrinho().getQuantidade()+1);
-					pp.setLblQuant(String.valueOf(pp.getCarrinho().getQuantidade()));
-			}else {
-				//mensagem
-				new MensagemView("Estoque insuficiente",2);
-			}
+				new ClienteFormaPagamentoControle(f,listaCarrinhosFinal, listaPaineis);
 				break;
 			}
 		}
@@ -80,21 +58,121 @@ public class CarrinhoControle {
 		view.addWindowListener(new WindowAdapter() {
 			public void windowOpened(WindowEvent e) {
 				view.setLblValorTotal(String.valueOf(calcTotal()));
-				int cont =0;
-				for (Carrinho c : listaCarrinhos) {
-					pp = new PainelProduto(c.getProduto(),c);
-					pp.addPainelProdutoListeners(new PainelListeners(pp));
-					view.addPainelProdutos(pp, c.getProduto().getIdProduto()-1, 0);
-					cont++;
+				view.resetPainel();
+				int coluna=1;
+				int linha=1;
+				for (PainelProduto painelProduto : listaPaineis) {
+					if(painelProduto.getCarrinho().getQuantidade() >0) {
+						view.addPainelProdutos(painelProduto, linha, coluna);
+						if(linha%3==0) {
+							coluna++;
+							linha=0;
+						}
+						linha++;
+					}
 				}
-			}
-			});
+			}});
 	}
 	private float calcTotal() {
 		int resultado=0;
-		for (Carrinho c : listaCarrinhos) {
-			resultado += c.getProduto().getPreco()*c.getQuantidade();
+		for (PainelProduto p : listaPaineis) {
+			resultado += p.getProduto().getPreco()*p.getCarrinho().getQuantidade();
 		}
 		return resultado;
 	}
+	
+	private void colocarPaineis() {
+		view.resetPainel();
+		int coluna=1;
+		int linha=1;
+		for (PainelProduto painelProduto : listaPaineis) {
+			view.addPainelProdutos(painelProduto, linha, coluna);
+			if(linha%3==0) {
+				coluna++;
+				linha=0;
+			}
+			linha++;
+		}
+	}
+	
+	private void carregarProdutosFiltro(Categoria categoria) {
+		view.resetPainel();
+		int coluna=1;
+		int linha=1;
+		try {
+			for (PainelProduto painelProduto : listaPaineis) {
+				if(painelProduto.getProduto().getCategoria().equals(categoria)) {
+					view.addPainelProdutos(painelProduto, linha, coluna);
+					if(linha%3==0) {
+						coluna++;
+						linha=0;
+					}
+					linha++;
+				}
+			}
+		} catch (Exception e) {
+			//mensagem
+		}
+	}
+	
+	private void btSalgados() {
+		if (contS == 0) {
+			carregarProdutosFiltro(Categoria.categoriaString("salgados"));
+			contS = 1;
+			contD = 0;
+			contB = 0;
+			view.setBackgroundcolor("btSalgados", corSelecionada);
+			view.setBackgroundcolor("btDoces", corPadrao);
+			view.setBackgroundcolor("btBebidas", corPadrao);
+		} else {
+			colocarPaineis();
+			contS = 0;
+			contD = 0;
+			contB = 0;
+			view.setBackgroundcolor("btSalgados", corPadrao);
+			view.setBackgroundcolor("btDoces", corPadrao);
+			view.setBackgroundcolor("btBebidas", corPadrao);
+		}
+	}
+	
+	private void btDoces() {
+		if (contD == 0) {
+			carregarProdutosFiltro(Categoria.categoriaString("doces"));
+			contS = 0;
+			contD = 1;
+			contB = 0;
+			view.setBackgroundcolor("btSalgados", corPadrao);
+			view.setBackgroundcolor("btDoces", corSelecionada);
+			view.setBackgroundcolor("btBebidas", corPadrao);
+		} else {
+			colocarPaineis();
+			contS = 0;
+			contD = 0;
+			contB = 0;
+			view.setBackgroundcolor("btSalgados", corPadrao);
+			view.setBackgroundcolor("btDoces", corPadrao);
+			view.setBackgroundcolor("btBebidas", corPadrao);
+		}
+	}
+	
+	private void btBebidas() {
+		if (contB == 0) {
+			carregarProdutosFiltro(Categoria.categoriaString("bebidas"));
+			contS = 0;
+			contD = 0;
+			contB = 1;
+			view.setBackgroundcolor("btSalgados", corPadrao);
+			view.setBackgroundcolor("btDoces", corPadrao);
+			view.setBackgroundcolor("btBebidas", corSelecionada);
+		} else {
+			colocarPaineis();
+			contS = 0;
+			contD = 0;
+			contB = 0;
+			view.setBackgroundcolor("btSalgados", corPadrao);
+			view.setBackgroundcolor("btDoces", corPadrao);
+			view.setBackgroundcolor("btBebidas", corPadrao);
+		}
+	}
+
 }

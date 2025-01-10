@@ -148,6 +148,7 @@ public class TelaCompra extends JFrame {
 		btBebidas.addActionListener(listener);
 		btSair.addActionListener(listener);
 		btCarrinho.addActionListener(listener);
+		btPesquisar.addActionListener(listener);
 	}
 	
 	public void addPainelProdutos(PainelProduto pp, int l, int c) {
@@ -172,54 +173,7 @@ public class TelaCompra extends JFrame {
 		painelProdutos.removeAll();
 	}
 	
-//	private void getProdutos() {
-//
-//		painelProdutos.removeAll();
-//		ProdutoControle pc = new ProdutoControle();
-//		listaProdutos = pc.getProdutos();
-//
-//		int c = 0;
-//		int l = 0;
-//
-//		for (Produto produto : listaProdutos) {
-//
-//			Carrinho carrinho = new Carrinho();
-//			carrinho.setIdCarrinho(listaProdutos.indexOf(produto));
-//			carrinho.setIdProduto(produto.getIdProduto());
-//			carrinho.setIdVenda(-1);
-//			carrinho.setQuantidade(0);
-//			listaCarrinhos.add(carrinho);
-//
-//			PainelProduto pp = new PainelProduto(produto, carrinho);
-//			painelProdutos.add(pp, "cell " + l + " " + c);
-//
-//			l++;
-//			if (l % 3 == 0) {
-//				c++;
-//				l = 0;
-//			}
-//		}
-//	}
-//
-//	private void getProdutosFiltro(Categoria categoria) {
-//		painelProdutos.removeAll();
-//		ProdutoControle pc = new ProdutoControle();
-//		listaProdutos = pc.getProdutoFiltro(categoria);
-//		int c = 0;
-//		int l = 0;
-//		for (Produto produto : listaProdutos) {
-//			Carrinho ca = new Carrinho();
-//			ca.setIdCarrinho(listaProdutos.indexOf(produto));
-//			ca.setIdProduto(produto.getIdProduto());
-//			ca.setIdVenda(-1);
-//			ca.setQuantidade(0);
-//			PainelProduto pp = new PainelProduto(produto, ca);
-//			painelProdutos.add(pp, "cell " + l + " " + c);
-//			l++;
-//			if (l % 3 == 0) {
-//				c++;
-//				l = 0;
-//			}
-//		}
-//	}
+	public String getPeesquisa() {
+		return txtPesquisa.getText();
+	}
 }

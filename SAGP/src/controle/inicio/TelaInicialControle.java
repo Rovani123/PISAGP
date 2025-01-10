@@ -25,7 +25,7 @@ public class TelaInicialControle {
 			switch (e.getActionCommand()) {
 			case "btCliente":
 				view.dispose();
-				new CompraControle(f,null); 
+				new CompraControle(f); 
 				break;
 			case "btLogin":
 				view.dispose();

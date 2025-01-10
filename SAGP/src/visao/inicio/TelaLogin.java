@@ -57,11 +57,6 @@ public class TelaLogin extends JFrame {
 		lblNewLabel.setIcon(new ImageIcon(TelaLogin.class.getResource("/Imagem/LogoMediaMedia.png")));
 		painel.add(lblNewLabel, "cell 4 1 2 1,alignx center,aligny center");
 		
-		JLabel lblLogo = new JLabel("");
-		lblLogo.setBackground(new Color(230, 230, 230));
-		lblLogo.setIcon(new ImageIcon(TelaLogin.class.getResource("/Imagem/ImagemLogoGrande.png")));
-		painel.add(lblLogo, "cell 6 1 2 1,alignx center");
-		
 		JLabel lblEntre = new JLabel("Entre com sua conta:");
 		lblEntre.setFont(new Font("Arial", Font.BOLD, 30));
 		painel.add(lblEntre, "cell 4 3 3 1,alignx center");

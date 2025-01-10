@@ -33,7 +33,7 @@ public class ClientePixControle {
 				int conf =new MensagemView("Tem certeza que quer sair?").getResposta();
 				if(conf == 1) {
 					view.dispose();
-					new CompraControle(f, listaCarrinhos);
+					new CompraControle(f);
 				}
 				break;
 			case "btVoltar":
@@ -44,7 +44,7 @@ public class ClientePixControle {
 						new CarrinhoDAO().cadastrarCarrinho(c);
 					}
 					view.dispose();
-					new CompraControle(f, null);
+					new CompraControle(f);
 				} catch (SQLException e1) {
 					e1.printStackTrace();
 					new MensagemView("Compra nao efetuada, tente novamente",0);

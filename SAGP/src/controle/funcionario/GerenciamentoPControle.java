@@ -73,7 +73,7 @@ public class GerenciamentoPControle {
 				break;
 			case "mCliente":
 				view.dispose();
-				new CompraControle(f,null);
+				new CompraControle(f);
 				break;
 			}
 		}
