@@ -22,6 +22,7 @@ import modelo.enumerador.Categoria;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 
 public class TelaAlteracaoP extends JFrame {
 
@@ -35,6 +36,7 @@ public class TelaAlteracaoP extends JFrame {
 	private RoundButton btLimpar;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JLabel lblNewLabel;
+	private RoundButton btSelecionarFoto;
 	
 	public TelaAlteracaoP(Produto p, Funcionario f) {
 		setTitle("Tela de Alteração de Produto");
@@ -94,6 +96,12 @@ public class TelaAlteracaoP extends JFrame {
 		cbCategoria.setModel(new DefaultComboBoxModel(Categoria.values()));
 		cbCategoria.setBackground(new Color(245, 245, 245));
 		painel.add(cbCategoria, "cell 3 12 3 1,growx");
+		
+		btSelecionarFoto = new RoundButton("Selecionar Foto");
+		btSelecionarFoto.setForeground(new Color(245, 245, 245));
+		btSelecionarFoto.setBackground(new Color(224, 83, 76));
+		btSelecionarFoto.setFont(new Font("Arial", Font.PLAIN, 20));
+		painel.add(btSelecionarFoto, "cell 3 13");
 
 		btLimpar = new RoundButton("Limpar");
 		btLimpar.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -145,6 +153,7 @@ public class TelaAlteracaoP extends JFrame {
 		btLimpar.addActionListener(listener);
 		btSalvar.addActionListener(listener);
 		btCancelar.addActionListener(listener);
+		btSelecionarFoto.addActionListener(listener);
 	}
 
 	public String getNome() {

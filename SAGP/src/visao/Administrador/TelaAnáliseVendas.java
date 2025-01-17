@@ -31,6 +31,8 @@ import java.awt.Font;
 import java.awt.FontFormatException;
 import javax.swing.ImageIcon;
 import javax.swing.JSplitPane;
+import javax.swing.JTextField;
+import javax.swing.JButton;
 
 public class TelaAnáliseVendas extends JFrame {
 
@@ -45,6 +47,8 @@ public class TelaAnáliseVendas extends JFrame {
 	private JMenuItem mGFuncionarios;
 	private JMenuItem mVoltar;
 	private JLabel lblNewLabel;
+	private JTextField txtPesquisar;
+	private RoundButton btPesquisar;
 	
 	public TelaAnáliseVendas(Funcionario f) {
 		
@@ -97,20 +101,34 @@ public class TelaAnáliseVendas extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[grow][][][grow]", "[][][][][][][grow]"));
+		contentPane.setLayout(new MigLayout("", "[grow][][][grow][]", "[][][][][][][][grow]"));
+		
+		txtPesquisar = new JTextField();
+		txtPesquisar.setForeground(new Color(230, 230, 230));
+		txtPesquisar.setFont(new Font("Arial", Font.PLAIN, 16));
+		txtPesquisar.setText("Pesquisar");
+		txtPesquisar.setBackground(new Color(245, 245, 245));
+		contentPane.add(txtPesquisar, "cell 0 0 4 1,growx");
+		txtPesquisar.setColumns(10);
+		
+		btPesquisar = new RoundButton("");
+		btPesquisar.setIcon(new ImageIcon(TelaAnáliseVendas.class.getResource("/Imagem/lupa.png")));
+		btPesquisar.setFont(new Font("Arial", Font.PLAIN, 16));
+		btPesquisar.setBackground(new Color(245, 245, 245));
+		contentPane.add(btPesquisar, "cell 4 0");
 		
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setBackground(new Color(230, 230, 232));
 		lblNewLabel.setIcon(new ImageIcon(TelaAnáliseVendas.class.getResource("/Imagem/Logo.png")));
-		contentPane.add(lblNewLabel, "cell 0 0 4 1,alignx center,aligny top");
+		contentPane.add(lblNewLabel, "cell 0 1 5 1,alignx center,aligny top");
 		
 		JLabel lblTabelaVendas = new JLabel("TABELA DE VENDAS:");
 		lblTabelaVendas.setFont(new Font("Arial", Font.BOLD, 30));
 		//lblTabelaVendas.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		contentPane.add(lblTabelaVendas, "cell 0 1 4 1,alignx center,aligny top");
+		contentPane.add(lblTabelaVendas, "cell 0 2 5 1,alignx center,aligny top");
 		
 		JScrollPane panelTabelaVendas = new JScrollPane();
-		contentPane.add(panelTabelaVendas, "cell 0 2 4 5,grow");
+		contentPane.add(panelTabelaVendas, "cell 0 3 5 5,grow");
 		
 		table = new JTable();
 		panelTabelaVendas.setViewportView(table);
@@ -119,6 +137,8 @@ public class TelaAnáliseVendas extends JFrame {
 		mFuncionario.addActionListener(listener);
 		mVoltar.addActionListener(listener);
 		mGFuncionarios.addActionListener(listener);
+		btPesquisar.addActionListener(listener);
+		
 	}
 	
 	public void setTabela(VendasTableModel model) {
