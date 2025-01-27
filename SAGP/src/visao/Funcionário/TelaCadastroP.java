@@ -1,14 +1,9 @@
 package visao.Funcionário;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.FontFormatException;
 import java.awt.Image;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -20,17 +15,15 @@ import modelo.classes.Funcionario;
 import modelo.enumerador.Categoria;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
-import javax.swing.JButton;
 import javax.swing.ImageIcon;
 
 public class TelaCadastroP extends JFrame {
 
+	private static final long serialVersionUID = 1L;
 	private JPanel painel;
 	private JTextField txtNome;
 	private JTextField txtPreco;
 	private JTextField txtQuantidade;
-	private JLabel lblFoto;
-	private Image imagemProduto;
 	private RoundButton btLimpar;
 	private RoundButton btSalvar;
 	private RoundButton btCancelar;

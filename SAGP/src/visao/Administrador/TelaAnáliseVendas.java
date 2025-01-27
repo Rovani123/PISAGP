@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -17,7 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
-
+import javax.swing.table.TableRowSorter;
 import modelo.classes.Funcionario;
 import modelo.classes.Vendas;
 import modelo.dao.VendaDAO;
@@ -26,12 +27,12 @@ import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
 import visao.Funcionário.TelaGerenciamentoP;
 import visao.inicio.TelaInicial;
-
 import java.awt.Font;
 import java.awt.FontFormatException;
 import javax.swing.ImageIcon;
 import javax.swing.JSplitPane;
 import javax.swing.JTextField;
+import javax.swing.RowFilter;
 import javax.swing.JButton;
 
 public class TelaAnáliseVendas extends JFrame {
@@ -49,6 +50,7 @@ public class TelaAnáliseVendas extends JFrame {
 	private JLabel lblNewLabel;
 	private JTextField txtPesquisar;
 	private RoundButton btPesquisar;
+	private TableRowSorter<VendasTableModel> pesquisalinha;
 	
 	public TelaAnáliseVendas(Funcionario f) {
 		
@@ -115,6 +117,7 @@ public class TelaAnáliseVendas extends JFrame {
 		btPesquisar.setIcon(new ImageIcon(TelaAnáliseVendas.class.getResource("/Imagem/lupa.png")));
 		btPesquisar.setFont(new Font("Arial", Font.PLAIN, 16));
 		btPesquisar.setBackground(new Color(245, 245, 245));
+		btPesquisar.setActionCommand("btPesquisar");
 		contentPane.add(btPesquisar, "cell 4 0");
 		
 		lblNewLabel = new JLabel("");
@@ -138,7 +141,6 @@ public class TelaAnáliseVendas extends JFrame {
 		mVoltar.addActionListener(listener);
 		mGFuncionarios.addActionListener(listener);
 		btPesquisar.addActionListener(listener);
-		
 	}
 	
 	public void setTabela(VendasTableModel model) {
@@ -151,5 +153,17 @@ public class TelaAnáliseVendas extends JFrame {
 	
 	public void addTabelaListeners(MouseListener listener) {
 		table.addMouseListener(listener);
+	}
+	public void filtrarRegistros() {
+		String busca = txtPesquisar.getText().trim();
+		if(busca.isEmpty()) {
+			pesquisalinha.setRowFilter(null);
+		}else {
+			pesquisalinha.setRowFilter(RowFilter.regexFilter("(?i)"+busca));
+		}
+	}
+	public void rowsorter(VendasTableModel model) {
+		pesquisalinha = new TableRowSorter<VendasTableModel>(model);
+		table.setRowSorter(pesquisalinha);
 	}
 }

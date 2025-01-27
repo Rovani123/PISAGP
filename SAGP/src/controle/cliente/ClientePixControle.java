@@ -46,7 +46,6 @@ public class ClientePixControle {
 					view.dispose();
 					new CompraControle(f);
 				} catch (SQLException e1) {
-					e1.printStackTrace();
 					new MensagemView("Compra nao efetuada, tente novamente",0);
 				}
 				break;

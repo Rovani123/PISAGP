@@ -101,6 +101,7 @@ public class TelaAlteracaoP extends JFrame {
 		btSelecionarFoto.setForeground(new Color(245, 245, 245));
 		btSelecionarFoto.setBackground(new Color(224, 83, 76));
 		btSelecionarFoto.setFont(new Font("Arial", Font.PLAIN, 20));
+		btSelecionarFoto.setActionCommand("btSelecionarFoto");
 		painel.add(btSelecionarFoto, "cell 3 13");
 
 		btLimpar = new RoundButton("Limpar");

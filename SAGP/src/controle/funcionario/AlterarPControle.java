@@ -4,8 +4,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.imageio.ImageIO;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -24,6 +29,7 @@ public class AlterarPControle {
 	private TelaAlteracaoP view;
 	private Funcionario f;
 	private Produto p;
+	private FileInputStream fin;
 	
 	public AlterarPControle(Funcionario f, Produto p){
 		this.f = f;
@@ -52,6 +58,9 @@ public class AlterarPControle {
 			case "btSalvar":
 				salvar();
 				break;
+			case"btSelecionarFoto":
+				Imagem();
+				break;
 			case "btCancelar":
 				cancelar();
 			}
@@ -64,14 +73,29 @@ public class AlterarPControle {
 		p.setQuantidadeEstoque(Integer.parseInt(view.getQuantidade()));
 		p.setCategoria(view.getCategoria());
 		try {
-			new ProdutoDAO().alterarProduto(p);;
+			new ProdutoDAO().alterarProduto(p,fin);;
 			view.dispose();
 			new GerenciamentoPControle(f);
 			new MensagemView("Produto alterado com sucesso!",3);
 		} catch (SQLException e) {
-			e.printStackTrace();
 			new MensagemView("não foi possível alterar esse produto!",0);
 		}
+	}
+	
+	private void Imagem() {
+		JFileChooser fileChooser = new JFileChooser();
+        int result = fileChooser.showOpenDialog(null);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            try {
+                fin = new FileInputStream(selectedFile);
+                if(fin ==null) {
+                	new MensagemView("Não foi possivel colocar a imagem", 0);
+                }
+            } catch (IOException e1) {
+            	new MensagemView("Não foi possivel colocar a imagem", 0);
+            }
+        }
 	}
 	
 	private void cancelar() {

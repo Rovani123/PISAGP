@@ -40,7 +40,7 @@ public class MensagemView extends JDialog {
 			lblMensagem.setIcon(new ImageIcon(getClass().getResource(iconPath)));
 			break;
 		case 1: // Informação
-			iconPath = "/imagem/atencao.png";
+			iconPath = "/imagem/IconeAtencao.png";
 				
 			lblMensagem.setIcon(new ImageIcon(getClass().getResource(iconPath)));
 			break;

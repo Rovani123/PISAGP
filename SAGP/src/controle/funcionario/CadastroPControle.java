@@ -55,28 +55,22 @@ public class CadastroPControle {
 	}
 	
 	private void Salvar() {
-		try {
 		nome = view.getNome();
 		preco = Float.parseFloat(view.getPreco());
 		quantidade = Integer.parseInt(view.getQuantidade());
 		categoria = view.getCategoria();
-		}catch (Exception e) {
-			e.printStackTrace();
+		if (nome.isEmpty() || preco == 0 || quantidade == 0) {
+			new MensagemView("Todos os Campos precisam ser preenchidos", 2);
+		}else {
+			try {
+				new ProdutoDAO().cadastrarProduto(nome, preco, quantidade, categoria.toString(), fin);
+				view.dispose();
+				new GerenciamentoPControle(f);
+				new MensagemView("Produto cadastrado com sucesso!", 3);
+			} catch (SQLException e) {
+				new MensagemView("Não foi possivel adicionar esse produto", 0);
+			}
 		}
-		if (nome.isEmpty() || preco ==0 || quantidade ==0) {
-			//Todos os campos precisam ser preenchidos
-	} else {
-		try {
-			new ProdutoDAO().cadastrarProduto(nome, preco, quantidade, categoria.toString(), fin);
-			view.dispose();
-			new GerenciamentoPControle(f);
-			new MensagemView("Produto cadastrado com sucesso!",3);
-		} catch (SQLException e) {
-			e.printStackTrace();
-			new MensagemView("Não foi possivel adicionar esse produto",0);
-
-		}
-	}
 	}
 	
 	private void Imagem() {
@@ -87,10 +81,10 @@ public class CadastroPControle {
             try {
                 fin = new FileInputStream(selectedFile);
                 if(fin ==null) {
-                	//Não foi possivel colocar a imagem
+                	new MensagemView("Não foi possivel colocar a imagem", 0);
                 }
             } catch (IOException e1) {
-                e1.printStackTrace();
+            	new MensagemView("Não foi possivel colocar a imagem", 0);
             }
         }
 	}

@@ -1,17 +1,9 @@
 package visao.inicio;
 
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.FontFormatException;
 import java.awt.Frame;
-import java.awt.Graphics;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
-
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,7 +12,6 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
 
@@ -28,7 +19,6 @@ public class TelaLogin extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel painel;
-	private ImageIcon logo;
 	private JTextField txtUsuario;
 	private JPasswordField txtSenha;
 	private RoundButton btEntrar;
@@ -41,7 +31,6 @@ public class TelaLogin extends JFrame {
 		setTitle("Tela de Login");
 		
 		setExtendedState(Frame.MAXIMIZED_BOTH);
-		logo = new ImageIcon(TelaInicial.class.getResource("/Imagem/Logo.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1241, 912);
 		

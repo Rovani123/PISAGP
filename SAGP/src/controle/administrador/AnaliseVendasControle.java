@@ -21,6 +21,7 @@ import modelo.tableModel.CarrinhoTableModel;
 import modelo.tableModel.VendasTableModel;
 import visao.Administrador.TelaAnáliseVendas;
 import visao.Administrador.TelaCadastroF;
+import visao.TelasDeAviso.MensagemView;
 import visao.TelasDeAviso.MensagemViewProdutos;
 
 public class AnaliseVendasControle {
@@ -50,6 +51,9 @@ public class AnaliseVendasControle {
 					view.dispose();
 					new GerenciamentoPControle(f);
 					break;
+				case"btPesquisar":
+					view.filtrarRegistros();
+					break;
 			}
 		}
 	}
@@ -62,7 +66,7 @@ public class AnaliseVendasControle {
 					CarrinhoTableModel model = new CarrinhoTableModel(new CarrinhoDAO().getCarrinhos(v));
 					new MensagemViewProdutos(v, model);
 				} catch (IOException e1) {
-					//mensagem
+					new MensagemView("Erro ao conectar com o banco de dados",0);
 				}
 			}
 		}
@@ -82,5 +86,6 @@ public class AnaliseVendasControle {
 	private void carregarDados() {
 		VendasTableModel model = new VendasTableModel(new VendaDAO().getVendas());
 		view.setTabela(model);
+		view.rowsorter(model);
 	}
 }

@@ -28,15 +28,15 @@ public class CompraControle {
 	private int contS = 0;
 	private int contD = 0;
 	private int contB = 0;
-	private Color corPadrao = new Color(255, 255, 0);
-	private Color corSelecionada = new Color(255, 255, 255);
+	private Color corPadrao = new Color(255, 255, 255);
+	private Color corSelecionada = new Color(0, 255, 0);
 	
 	public CompraControle(Funcionario f) {
 		this.f = f;
 		try {
 			listaProdutos = new ProdutoDAO().getProdutos();
 		} catch (IOException e) {
-			// mensagem
+			new MensagemView("Erro ao conectar com o banco de dados",0);
 		}
 		
 		view = new TelaCompra(f);
@@ -52,7 +52,7 @@ public class CompraControle {
 		try {
 			listaProdutos = new ProdutoDAO().getProdutos();
 		} catch (IOException e) {
-			// mensagem
+			new MensagemView("Erro ao conectar com o banco de dados",0);   
 		}
 		this.listaPaineis = listaPaineis;
 		view = new TelaCompra(f);
@@ -75,7 +75,7 @@ public class CompraControle {
 					new TelaInicialControle(f);
 					view.dispose();
 				}else {
-					//mensagem
+					new MensagemView("senha inválida",2);
 				}
 				break;
 			case "btCarrinho":
@@ -181,8 +181,8 @@ public class CompraControle {
 					linha++;
 				}
 			}
-		} catch (Exception e) {
-			//mensagem
+		}catch (Exception e) {
+			new MensagemView("Erro ao carregar os produtos",0);
 		}
 	}
 	
@@ -202,7 +202,7 @@ public class CompraControle {
 				}
 			}
 		} catch (Exception e) {
-			//mensagem
+			new MensagemView("Erro ao carregar os produtos",0);
 		}
 	}
 	

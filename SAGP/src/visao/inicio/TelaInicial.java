@@ -2,15 +2,11 @@ package visao.inicio;
 
 import java.awt.Color;
 import java.awt.Cursor;
-import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.FontFormatException;
 import java.awt.Frame;
+import java.awt.ScrollPane;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -19,12 +15,10 @@ import modelo.classes.Funcionario;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
 
-import java.awt.event.ActionEvent;
-
 public class TelaInicial extends JFrame {
 
+	private static final long serialVersionUID = 1L;
 	private JPanel painel;
-	private ImageIcon logo;
 	private RoundButton btCliente;
 	private RoundButton btLogin;
 	private RoundButton btSair;
@@ -35,7 +29,6 @@ public class TelaInicial extends JFrame {
 		
 		setExtendedState(Frame.MAXIMIZED_BOTH);
 		setBackground(new Color(230, 230, 230));
-		logo = new ImageIcon(TelaInicial.class.getResource("/Imagem/Logo.png"));
 		setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 1281, 567);
@@ -44,7 +37,10 @@ public class TelaInicial extends JFrame {
 		painel.setBackground(new Color(167, 208, 214));
 		painel.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-		setContentPane(painel);
+		ScrollPane scroll = new ScrollPane();
+		scroll.add(painel);
+		
+		setContentPane(scroll);
 		painel.setLayout(new MigLayout("", "[grow][][grow][][][][][][][][][][][][][][][][][][][][][][][grow][][grow]", "[grow][120px][150px][grow]"));
 		
 		btSair = new RoundButton("Sair");
@@ -56,7 +52,7 @@ public class TelaInicial extends JFrame {
 		painel.add(btSair, "cell 0 0,aligny top");
 		
 		lblNewLabel = new JLabel("");
-//		lblNewLabel.setIcon(new ImageIcon(TelaInicial.class.getResource("/Imagem/logoGrande.png")));
+		lblNewLabel.setIcon(new ImageIcon(TelaInicial.class.getResource("/Imagem/logoGrande.png")));
 		painel.add(lblNewLabel, "cell 13 0");
 		
 		btCliente = new RoundButton("");
@@ -86,6 +82,7 @@ public class TelaInicial extends JFrame {
 		btLogin.setForeground(new Color(0, 0, 0));
 		btLogin.setBackground(new Color(245, 245, 245));
 		painel.add(btLogin, "cell 15 2,alignx left,aligny center");
+		
 	}
 	public void addInicialListener(ActionListener listener) {		
 		btCliente.addActionListener(listener);

@@ -172,8 +172,8 @@ public class ProdutoDAO extends ModeloDAO{
 		}
 	}
 	
-	public void alterarProduto(Produto p) throws SQLException {
-		super.update("UPDATE produtos SET nomeProduto = ?, preco = ?, quantidadeEstoque = ?, categoria = ? WHERE idProduto = ?", p.getIdProduto(), p.getNomeProduto(),p.getPreco(),p.getQuantidadeEstoque(),p.getCategoria().toString());
+	public void alterarProduto(Produto p,FileInputStream foto) throws SQLException {
+		super.update("UPDATE produtos SET nomeProduto = ?, preco = ?, quantidadeEstoque = ?, categoria = ?, foto = ? WHERE idProduto = ?", p.getIdProduto(), p.getNomeProduto(),p.getPreco(),p.getQuantidadeEstoque(),p.getCategoria().toString(),foto);
 	}
 
 	public void cadastrarProduto(String nome,float preco,int quantidade,String categoria,FileInputStream foto) throws SQLException {

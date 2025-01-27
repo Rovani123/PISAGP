@@ -1,27 +1,18 @@
 package visao.Funcionário;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import modelo.classes.Funcionario;
 import modelo.classes.Produto;
-import modelo.tableModel.FuncionariosTableModel;
 import modelo.tableModel.ProdutosTableModel;
-
-import javax.swing.BoxLayout;
 import java.awt.Color;
 import java.awt.BorderLayout;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
-
-import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JMenuBar;
@@ -29,8 +20,6 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JTextField;
 import java.awt.Font;
-import java.awt.FontFormatException;
-
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 

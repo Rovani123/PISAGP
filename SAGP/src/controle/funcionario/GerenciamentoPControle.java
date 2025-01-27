@@ -7,7 +7,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.sql.SQLException;
-
 import controle.administrador.GerenciamentoFControle;
 import controle.cliente.CompraControle;
 import controle.inicio.TelaInicialControle;
@@ -25,6 +24,8 @@ public class GerenciamentoPControle {
 	private int contS = 0;
 	private int contD = 0;
 	private int contB = 0;
+	private Color corSelecionada = new Color(0, 255, 0);
+	private Color corPadrao = new Color(255, 255, 255);
 	
 	public GerenciamentoPControle(Funcionario f) {
 		this.f = f;
@@ -64,7 +65,7 @@ public class GerenciamentoPControle {
 					model = new ProdutosTableModel(new ProdutoDAO().getProdutosNome(nome));
 					view.setTabela(model);
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
+					new MensagemView("Erro ao conectar com o banco de dados",0);
 				}
 				break;
 			case "mVoltar":
@@ -88,8 +89,7 @@ private void listeners() {
 				if(f.getadministrador() == 1) {
 					view.setmenuAdm(true);
 				}
-			}
-		});
+			}});
 	}
 
 	private void mAdm() {
@@ -103,17 +103,17 @@ private void listeners() {
 			contS = 1;
 			contD = 0;
 			contB = 0;
-			view.setBackgroundcolor("btSalgados", new Color(255, 255, 0));
-			view.setBackgroundcolor("btDoces", new Color(224, 83, 76));
-			view.setBackgroundcolor("btBebidas", new Color(224, 83, 76));
+			view.setBackgroundcolor("btSalgados", corSelecionada);
+			view.setBackgroundcolor("btDoces", corPadrao);
+			view.setBackgroundcolor("btBebidas", corPadrao);
 		} else {
 			carregarProdutos();
 			contS = 0;
 			contD = 0;
 			contB = 0;
-			view.setBackgroundcolor("btSalgados", new Color(224, 83, 76));
-			view.setBackgroundcolor("btDoces", new Color(224, 83, 76));
-			view.setBackgroundcolor("btBebidas", new Color(224, 83, 76));
+			view.setBackgroundcolor("btSalgados", corPadrao);
+			view.setBackgroundcolor("btDoces", corPadrao);
+			view.setBackgroundcolor("btBebidas", corPadrao);
 		}
 	}
 	
@@ -123,17 +123,17 @@ private void listeners() {
 			contS = 0;
 			contD = 1;
 			contB = 0;
-			view.setBackgroundcolor("btSalgados", new Color(224, 83, 76));
-			view.setBackgroundcolor("btDoces", new Color(255, 255, 0));
-			view.setBackgroundcolor("btBebidas", new Color(224, 83, 76));
+			view.setBackgroundcolor("btSalgados", corPadrao);
+			view.setBackgroundcolor("btDoces", corSelecionada);
+			view.setBackgroundcolor("btBebidas", corPadrao);
 		} else {
 			carregarProdutos();
 			contS = 0;
 			contD = 0;
 			contB = 0;
-			view.setBackgroundcolor("btSalgados", new Color(224, 83, 76));
-			view.setBackgroundcolor("btDoces", new Color(224, 83, 76));
-			view.setBackgroundcolor("btBebidas", new Color(224, 83, 76));
+			view.setBackgroundcolor("btSalgados", corPadrao);
+			view.setBackgroundcolor("btDoces", corPadrao);
+			view.setBackgroundcolor("btBebidas", corPadrao);
 		}
 	}
 	
@@ -143,17 +143,17 @@ private void listeners() {
 			contS = 0;
 			contD = 0;
 			contB = 1;
-			view.setBackgroundcolor("btSalgados", new Color(224, 83, 76));
-			view.setBackgroundcolor("btDoces", new Color(224, 83, 76));
-			view.setBackgroundcolor("btBebidas", new Color(255, 255, 0));
+			view.setBackgroundcolor("btSalgados", corPadrao);
+			view.setBackgroundcolor("btDoces", corPadrao);
+			view.setBackgroundcolor("btBebidas", corSelecionada);
 		} else {
 			carregarProdutos();
 			contS = 0;
-			contD = 0;
+			contD = 0;     
 			contB = 0;
-			view.setBackgroundcolor("btSalgados", new Color(224, 83, 76));
-			view.setBackgroundcolor("btDoces", new Color(224, 83, 76));
-			view.setBackgroundcolor("btBebidas", new Color(224, 83, 76));
+			view.setBackgroundcolor("btSalgados", corPadrao);
+			view.setBackgroundcolor("btDoces", corPadrao);
+			view.setBackgroundcolor("btBebidas", corPadrao);
 		}
 	}
 
@@ -176,7 +176,7 @@ private void listeners() {
 				carregarProdutos();
 			}
 		} catch (Exception e2) {
-			new MensagemView("Selcione um Produto",2);
+			new MensagemView("Selecione Um Produto!",2);
 		}
 		
 	}
@@ -202,11 +202,10 @@ private void listeners() {
 		ProdutosTableModel model;
 		try {
 			model = new ProdutosTableModel(dao.getProdutos());
+			view.setTabela(model);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			model =null;
+			new MensagemView("Erro ao conectar com o banco de dados",0);
 		}
-		view.setTabela(model);
 	}
 	
 	private void carregarProdutosFiltro(Categoria filtro) {
@@ -214,11 +213,10 @@ private void listeners() {
 		ProdutosTableModel model;
 		try {
 			model = new ProdutosTableModel(dao.getProdutosFiltro(filtro));
+			view.setTabela(model);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			model=null;
+			new MensagemView("Erro ao conectar com o banco de dados",0);
 		}
-		view.setTabela(model);
 	}
 	
 }

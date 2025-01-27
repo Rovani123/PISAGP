@@ -5,7 +5,6 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -17,7 +16,6 @@ import javax.swing.JPasswordField;
 public class MensagemViewSenha extends JDialog {
 
 	private static final long serialVersionUID = 1L;
-	private String senha;
 	private JPasswordField txtSenha;
 
 	
@@ -30,8 +28,6 @@ public class MensagemViewSenha extends JDialog {
 		JPanel panel = new JPanel();
 		panel.setLayout(new BorderLayout());
 		getContentPane().add(panel);
-		String iconPath;
-		iconPath = "/src/imagem/erro.png";
 
 		JPanel painelSul = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
 

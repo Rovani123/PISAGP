@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import java.awt.FontFormatException;
+import java.awt.ScrollPane;
 import java.io.File;
 import java.io.IOException;
 import javax.swing.JButton;
@@ -38,9 +39,10 @@ public class TelaClientePix extends JFrame {
 		contentPane.setBackground(new Color(167, 208, 214));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		
-	
-
-		setContentPane(contentPane);
+		ScrollPane scroll = new ScrollPane();
+		scroll.add(contentPane);
+		
+		setContentPane(scroll);
 		contentPane.setLayout(new MigLayout("", "[grow][][][][][][][][][][][][][][grow]", "[][][][][][][][][]"));
 		
 		
@@ -48,10 +50,6 @@ public class TelaClientePix extends JFrame {
 		btVoltar.setFont(new Font("Arial", Font.PLAIN, 20));
 		btVoltar.setActionCommand("btVoltar");
 		btVoltar.setForeground(new Color(245, 245, 245));
-		//btVoltar.addActionListener(new ActionListener() {
-		//	public void actionPerformed(ActionEvent e) {
-		//	}
-		//});
 		btVoltar.setBackground(new Color(224, 83, 76));
 		//btVoltar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		contentPane.add(btVoltar, "cell 0 0,alignx left,aligny top");
@@ -74,12 +72,6 @@ public class TelaClientePix extends JFrame {
 		btCancelar.setActionCommand("btCancelar");
 		btCancelar.setBackground(new Color(224, 83, 76));
 		btCancelar.setForeground(new Color(230, 230, 230));
-		//btCancelar.addActionListener(new ActionListener() {
-		//	public void actionPerformed(ActionEvent e) {
-				
-		//	}
-		//});
-		//btCancelar.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		contentPane.add(btCancelar, "flowx,cell 14 8");
 	}
 	

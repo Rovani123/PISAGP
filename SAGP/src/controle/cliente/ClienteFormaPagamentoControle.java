@@ -56,8 +56,7 @@ public class ClienteFormaPagamentoControle {
 						view.dispose();
 						new CompraControle(f);
 					} catch (SQLException e1) {
-						e1.printStackTrace();
-						new MensagemView("Compra nao efetuada, tente novamente",0);
+						new MensagemView("Compra não efetuada, tente novamente",0);
 					}
 					break;
 				}

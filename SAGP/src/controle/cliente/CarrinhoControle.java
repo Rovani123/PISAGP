@@ -21,8 +21,8 @@ public class CarrinhoControle {
 	private int contS = 0;
 	private int contD = 0;
 	private int contB = 0;
-	private Color corPadrao = new Color(255, 255, 0);
-	private Color corSelecionada = new Color(255, 255, 255);
+	private Color corPadrao = new Color(255, 255, 255);
+	private Color corSelecionada = new Color(0, 255, 0);
 	
 	public CarrinhoControle(Funcionario f,ArrayList<PainelProduto> listaPaineis) {
 		this.f =f;
@@ -48,6 +48,15 @@ public class CarrinhoControle {
 					}
 				}
 				new ClienteFormaPagamentoControle(f,listaCarrinhosFinal, listaPaineis);
+				break;
+			case"btSalgados":
+				btSalgados();
+				break;
+			case"btDoces":
+				btDoces();
+				break;
+			case"btBebidas":
+				btBebidas();
 				break;
 			}
 		}
@@ -86,12 +95,14 @@ public class CarrinhoControle {
 		int coluna=1;
 		int linha=1;
 		for (PainelProduto painelProduto : listaPaineis) {
-			view.addPainelProdutos(painelProduto, linha, coluna);
-			if(linha%3==0) {
-				coluna++;
-				linha=0;
+			if(painelProduto.getCarrinho().getQuantidade() >0) {
+				view.addPainelProdutos(painelProduto, linha, coluna);
+				if(linha%3==0) {
+					coluna++;
+					linha=0;
+				}
+				linha++;
 			}
-			linha++;
 		}
 	}
 	
@@ -102,16 +113,18 @@ public class CarrinhoControle {
 		try {
 			for (PainelProduto painelProduto : listaPaineis) {
 				if(painelProduto.getProduto().getCategoria().equals(categoria)) {
-					view.addPainelProdutos(painelProduto, linha, coluna);
-					if(linha%3==0) {
-						coluna++;
-						linha=0;
+					if(painelProduto.getCarrinho().getQuantidade() >0) {
+						view.addPainelProdutos(painelProduto, linha, coluna);
+						if(linha%3==0) {
+							coluna++;
+							linha=0;
+						}
+						linha++;
 					}
-					linha++;
 				}
 			}
 		} catch (Exception e) {
-			//mensagem
+			new MensagemView("Erro ao carregar os produtos",0);
 		}
 	}
 	

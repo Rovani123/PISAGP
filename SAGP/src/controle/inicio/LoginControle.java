@@ -63,8 +63,7 @@ public class LoginControle {
 					new MensagemView("Usuário ou senha inválidos",2);
 				}
 			} catch (SQLException e) {
-				e.printStackTrace();
-				f=null;
+				new MensagemView("Erro ao conectar com o banco de dados",0);
 			}
 		}
 	}

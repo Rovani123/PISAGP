@@ -69,8 +69,6 @@ public class CadastroFControle {
 				new MensagemView("Não Foi Possível Cadastrar O Funcionário!",0);
 			}
 		}
-//		Funcionario novoFuncionario = new FuncionarioDAO().get
-//		new TelaInicial(novoFuncionario);
 	}
 
 

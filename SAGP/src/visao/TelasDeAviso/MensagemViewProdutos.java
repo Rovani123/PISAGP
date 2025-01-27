@@ -5,21 +5,16 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-
 import modelo.classes.Vendas;
 import modelo.tableModel.CarrinhoTableModel;
-
-import javax.swing.JPasswordField;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
-import javax.swing.JTextField;
 
 public class MensagemViewProdutos extends JDialog {
 
@@ -36,8 +31,6 @@ public class MensagemViewProdutos extends JDialog {
 		JPanel panel = new JPanel();
 		panel.setLayout(new BorderLayout());
 		getContentPane().add(panel);
-		String iconPath;
-		iconPath = "/src/imagem/erro.png";
 
 		JPanel painelSul = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
 
