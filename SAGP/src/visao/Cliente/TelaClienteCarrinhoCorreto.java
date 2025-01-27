@@ -1,39 +1,18 @@
 package visao.Cliente;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import modelo.classes.Carrinho;
 import modelo.classes.Funcionario;
-import modelo.tableModel.ProdutosTableModel;
-
-import javax.swing.BoxLayout;
 import java.awt.Color;
 import java.awt.BorderLayout;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
-
-import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.JTextField;
 import java.awt.Font;
-import java.awt.FontFormatException;
-
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.SwingConstants;
 
 public class TelaClienteCarrinhoCorreto extends JFrame {
 

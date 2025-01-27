@@ -2,13 +2,9 @@ package visao.Administrador;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -20,18 +16,15 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import modelo.classes.Funcionario;
-import modelo.classes.Produto;
 import modelo.tableModel.FuncionariosTableModel;
-import modelo.tableModel.ProdutosTableModel;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
-
 import java.awt.Font;
-import java.awt.FontFormatException;
 
 public class TelaGerenciamentoF extends JFrame {
 	
 
+	private static final long serialVersionUID = 1L;
 	private JPanel painel;
 	private JTextField txtPesquisa;
 	private JTable table;
@@ -50,8 +43,6 @@ public class TelaGerenciamentoF extends JFrame {
 
 	public TelaGerenciamentoF(Funcionario f) {
 		setTitle("Tela de Gerenciamento de Funcionário");
-		
-		TelaGerenciamentoF tela = this;
 		
 		setExtendedState(MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

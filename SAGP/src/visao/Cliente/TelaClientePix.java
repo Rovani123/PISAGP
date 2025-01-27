@@ -1,24 +1,16 @@
 package visao.Cliente;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
-
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Font;
-import java.awt.FontFormatException;
 import java.awt.ScrollPane;
-import java.io.File;
-import java.io.IOException;
-import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class TelaClientePix extends JFrame {
 

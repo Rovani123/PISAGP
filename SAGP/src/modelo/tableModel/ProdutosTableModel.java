@@ -8,6 +8,7 @@ import modelo.classes.Produto;
 
 public class ProdutosTableModel extends AbstractTableModel{
 	
+	private static final long serialVersionUID = 1L;
 	ArrayList<Produto> lista;
 	String[] colunas = new String[] { "Nome do Produto", "preco", "quantidadeEstoque", "categoria" };
 

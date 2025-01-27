@@ -1,13 +1,8 @@
 package visao.Funcionário;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.FontFormatException;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
@@ -22,10 +17,10 @@ import modelo.enumerador.Categoria;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 
 public class TelaAlteracaoP extends JFrame {
 
+	private static final long serialVersionUID = 1L;
 	private JPanel painel;
 	private JTextField txtNome;
 	private JTextField txtPreco;

@@ -27,5 +27,17 @@ public class ProdutosPromocao {
 	public Date getDataT() {
 		return null;
 	}
+	public Produto getProduto() {
+		return produto;
+	}
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
+	public Promocoes getPromocao() {
+		return promocao;
+	}
+	public void setPromocao(Promocoes promocao) {
+		this.promocao = promocao;
+	}
 	
 }

@@ -4,25 +4,18 @@ import javax.swing.JPanel;
 
 import modelo.classes.Carrinho;
 import modelo.classes.Produto;
-
 import java.awt.Color;
-import java.awt.Frame;
-
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
-
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.BoxLayout;
 import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 
 public class PainelProduto extends JPanel {
 	
+	private static final long serialVersionUID = 1L;
 	private JLabel lblQuantidade;
 	private RoundButton btMenos;
 	private RoundButton btMais;

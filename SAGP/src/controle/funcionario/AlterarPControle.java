@@ -8,21 +8,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.SQLException;
-
-import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-
-import org.w3c.dom.Text;
-
 import modelo.classes.Funcionario;
 import modelo.classes.Produto;
 import modelo.dao.ProdutoDAO;
-import modelo.enumerador.Categoria;
-import visao.RoundButton;
 import visao.Funcionário.TelaAlteracaoP;
-import visao.Funcionário.TelaGerenciamentoP;
 import visao.TelasDeAviso.MensagemView;
 
 public class AlterarPControle {

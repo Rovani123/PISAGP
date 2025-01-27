@@ -1,14 +1,8 @@
 package visao.Administrador;
 
 import java.awt.Color;
-import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -21,22 +15,17 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.TableRowSorter;
 import modelo.classes.Funcionario;
 import modelo.classes.Vendas;
-import modelo.dao.VendaDAO;
 import modelo.tableModel.VendasTableModel;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
-import visao.Funcionário.TelaGerenciamentoP;
-import visao.inicio.TelaInicial;
 import java.awt.Font;
-import java.awt.FontFormatException;
 import javax.swing.ImageIcon;
-import javax.swing.JSplitPane;
 import javax.swing.JTextField;
 import javax.swing.RowFilter;
-import javax.swing.JButton;
 
 public class TelaAnáliseVendas extends JFrame {
 
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTable table;
 	private JMenuBar menuBar;

@@ -1,13 +1,12 @@
 package modelo.tableModel;
 
 import java.util.ArrayList;
-
 import javax.swing.table.AbstractTableModel;
-
 import modelo.classes.Carrinho;
-import modelo.classes.Vendas;
 
 public class CarrinhoTableModel extends AbstractTableModel{
+	
+	private static final long serialVersionUID = 1L;
 	ArrayList<Carrinho> lista;
 	String[] colunas = new String[] {"nome do Produto","quantidade"};
 

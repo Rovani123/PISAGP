@@ -9,20 +9,14 @@ import visao.RoundButton;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Font;
-import java.awt.FontFormatException;
 import javax.swing.JTextField;
-import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
 import java.awt.Color;
-import java.awt.EventQueue;
-
 import javax.swing.JPasswordField;
-import java.awt.event.ActionEvent;
 
 public class TelaAlteracaoF extends JFrame {
 
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtNome;
 	private JTextField txtUsuario;

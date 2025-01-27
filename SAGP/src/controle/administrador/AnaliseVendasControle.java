@@ -4,13 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
-
-import javax.swing.JOptionPane;
-
 import controle.funcionario.GerenciamentoPControle;
 import controle.inicio.TelaInicialControle;
 import modelo.classes.Funcionario;
@@ -20,7 +16,6 @@ import modelo.dao.VendaDAO;
 import modelo.tableModel.CarrinhoTableModel;
 import modelo.tableModel.VendasTableModel;
 import visao.Administrador.TelaAnáliseVendas;
-import visao.Administrador.TelaCadastroF;
 import visao.TelasDeAviso.MensagemView;
 import visao.TelasDeAviso.MensagemViewProdutos;
 

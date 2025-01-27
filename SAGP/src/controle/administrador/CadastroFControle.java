@@ -3,13 +3,10 @@ package controle.administrador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-
 import modelo.classes.Funcionario;
 import modelo.dao.FuncionarioDAO;
-import visao.Administrador.TelaAlteracaoF;
 import visao.Administrador.TelaCadastroF;
 import visao.TelasDeAviso.MensagemView;
-import visao.inicio.TelaInicial;
 
 public class CadastroFControle {
 	private TelaCadastroF view;

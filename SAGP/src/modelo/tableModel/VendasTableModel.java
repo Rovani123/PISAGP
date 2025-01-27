@@ -6,6 +6,8 @@ import javax.swing.table.AbstractTableModel;
 import modelo.classes.Vendas;
 
 public class VendasTableModel extends AbstractTableModel{
+	
+	private static final long serialVersionUID = 1L;
 	ArrayList<Vendas> lista;
 	String[] colunas = new String[] {"idVenda","Funcionario", "metodoPagamento", "Total"};
 

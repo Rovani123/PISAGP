@@ -1,13 +1,12 @@
 package modelo.tableModel;
 
 import java.util.ArrayList;
-
 import javax.swing.table.AbstractTableModel;
-
 import modelo.classes.Funcionario;
-import modelo.classes.Produto;
 
 public class FuncionariosTableModel extends AbstractTableModel{
+	
+	private static final long serialVersionUID = 1L;
 	ArrayList<Funcionario> lista;
 	String[] colunas = new String[] {"Usuário do Funcionário","Nome do funcionario", };
 

@@ -47,7 +47,7 @@ public class CarrinhoControle {
 						}
 					}
 				}
-				new ClienteFormaPagamentoControle(f,listaCarrinhosFinal, listaPaineis);
+				new ClienteFormaPagamentoControle(f,listaCarrinhosFinal);
 				break;
 			case"btSalgados":
 				btSalgados();

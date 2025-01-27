@@ -2,14 +2,11 @@ package controle.inicio;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import controle.administrador.GerenciamentoFControle;
 import controle.cliente.CompraControle;
 import controle.funcionario.GerenciamentoPControle;
 import modelo.classes.Funcionario;
-import visao.TelasDeAviso.MensagemView;
 import visao.inicio.TelaInicial;
-import visao.inicio.TelaLogin;
 
 public class TelaInicialControle {
 	private TelaInicial view;

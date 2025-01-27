@@ -11,7 +11,6 @@ import modelo.classes.Funcionario;
 import modelo.classes.Vendas;
 import modelo.dao.CarrinhoDAO;
 import modelo.enumerador.MetodoPagamento;
-import visao.Cliente.PainelProduto;
 import visao.Cliente.TelaClienteFormaPagamento;
 import visao.TelasDeAviso.MensagemView;
 
@@ -20,12 +19,10 @@ public class ClienteFormaPagamentoControle {
 	private Funcionario f;
 	private Vendas v;
 	private ArrayList<Carrinho> listaCarrinhos;
-	private ArrayList<PainelProduto> listaPaineis;
 	
-	public ClienteFormaPagamentoControle(Funcionario f,ArrayList<Carrinho> listaCarrinhos, ArrayList<PainelProduto> listaPaineis) {
+	public ClienteFormaPagamentoControle(Funcionario f,ArrayList<Carrinho> listaCarrinhos) {
 		this.f=f;
 		this.listaCarrinhos = listaCarrinhos;
-		this.listaPaineis = listaPaineis;
 		view = new TelaClienteFormaPagamento();
 		view.setVisible(true);
 		listeners();
