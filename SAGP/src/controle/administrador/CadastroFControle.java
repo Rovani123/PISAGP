@@ -3,6 +3,8 @@ package controle.administrador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+
+import controle.inicio.TelaInicialControle;
 import modelo.classes.Funcionario;
 import modelo.dao.FuncionarioDAO;
 import visao.Administrador.TelaCadastroF;
@@ -35,9 +37,6 @@ public class CadastroFControle {
 				view.dispose();
 				new GerenciamentoFControle(f);
 				break;
-			case "btEntrar":
-				 entrar();
-				break;
 			}
 		}
 	}
@@ -46,28 +45,6 @@ public class CadastroFControle {
 	private void listeners() {
 		view.addCadastroF(new CadastroF());
 	}
-
-
-	private void entrar() {
-		nome =view.getNome();
-		usuario =view.getUsuario();
-		senha =view.getSenha();
-		
-		if(nome.isEmpty() && usuario.isEmpty() && senha.isEmpty()) {
-			new MensagemView("Todos Os Campos Prescisam Ser Preenchidos!",2);
-		}else {
-			try {
-				new FuncionarioDAO().cadastrarFuncionario(nome, usuario, senha);
-				new GerenciamentoFControle(f);
-				new GerenciamentoFControle(f);
-				view.dispose();
-				new MensagemView("Funcionário Cadastrado Com Sucesso!",3);
-			} catch (SQLException e) {
-				new MensagemView("Não Foi Possível Cadastrar O Funcionário!",0);
-			}
-		}
-	}
-
 
 	private void cadastrarFuncionario()  {
 		nome =view.getNome();

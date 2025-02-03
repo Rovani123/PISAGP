@@ -10,7 +10,6 @@ import visao.RoundButton;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Color;
-import java.awt.EventQueue;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import javax.swing.JPasswordField;
@@ -26,21 +25,7 @@ public class TelaCadastroF extends JFrame {
 	private RoundButton btCancelar;
 	private RoundButton btCadastrar;
 	private RoundButton btLimpar;
-	private RoundButton btEntrar;
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaCadastroF frame = new TelaCadastroF(null);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
 	public TelaCadastroF(Funcionario f) {
 		setTitle("Tela de Cadastro de Funcionário");
 		
@@ -89,11 +74,6 @@ public class TelaCadastroF extends JFrame {
 		lblSenha.setFont(new Font("Arial", Font.PLAIN, 20));
 		painel.add(lblSenha, "cell 3 8,alignx left,aligny top");
 		
-		btCancelar = new RoundButton("CANCELAR");
-		btCancelar.setText("Cancelar");
-		btCancelar.setFont(new Font("Arial", Font.PLAIN, 20));
-		btCancelar.setActionCommand("btCancelar");
-		
 		btLimpar = new RoundButton("LIMPAR");
 		btLimpar.setText("Limpar");
 		btLimpar.setActionCommand("btLimpa3");
@@ -111,24 +91,20 @@ public class TelaCadastroF extends JFrame {
 		btCadastrar.setBackground(new Color(224, 83, 76));
 		btCadastrar.setForeground(new Color(245, 245, 245));
 		painel.add(btCadastrar, "flowx,cell 3 12,alignx left,aligny center");
+		
+		btCancelar = new RoundButton("CANCELAR");
+		btCancelar.setText("Cancelar");
+		btCancelar.setFont(new Font("Arial", Font.PLAIN, 20));
+		btCancelar.setActionCommand("btCancelar");
 		btCancelar.setBackground(new Color(0, 0, 0));
 		btCancelar.setForeground(new Color(245, 245, 245));
-		painel.add(btCancelar, "cell 11 12,alignx left,aligny center");
-		
-		btEntrar = new RoundButton("ENTRAR");
-		btEntrar.setText("Entrar");
-		btEntrar.setFont(new Font("Arial", Font.PLAIN, 20));
-		btEntrar.setActionCommand("btEntrar");
-		btEntrar.setBackground(new Color(224, 83, 76));
-		btEntrar.setForeground(new Color(245, 245, 245));
-		painel.add(btEntrar, "cell 12 12,alignx right,aligny center");
+		painel.add(btCancelar, "cell 12 12,alignx left,aligny center");
 		
 	}
 	public void addCadastroF(ActionListener listener) {
 		btCancelar.addActionListener(listener);
 		btCadastrar.addActionListener(listener);
 		btLimpar.addActionListener(listener);
-		btEntrar.addActionListener(listener);
 	}
 	public void limpar() {
 		txtNome.setText("");

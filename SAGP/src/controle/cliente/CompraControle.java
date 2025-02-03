@@ -28,8 +28,8 @@ public class CompraControle {
 	private int contS = 0;
 	private int contD = 0;
 	private int contB = 0;
-	private Color corPadrao = new Color(255, 255, 255);
-	private Color corSelecionada = new Color(0, 255, 0);
+	private Color corPadrao = new Color(255, 245, 245);
+	private Color corSelecionada = new Color(238, 69, 57);
 	
 	public CompraControle(Funcionario f) {
 		this.f = f;

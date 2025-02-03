@@ -2,6 +2,7 @@ package visao.Funcionário;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.ScrollPane;
 import java.awt.event.ActionListener;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
@@ -39,8 +40,11 @@ public class TelaCadastroP extends JFrame {
 		setBounds(100, 100, 594, 434);
 		painel = new JPanel();
 		painel.setBorder(new EmptyBorder(5, 5, 5, 5));
-
-		setContentPane(painel);
+		
+		ScrollPane scroll = new ScrollPane();
+		scroll.add(painel);
+		
+		setContentPane(scroll);
 		painel.setLayout(new MigLayout("", "[][][][grow][][][][]", "[][][][][][][][][][][][][][][][]"));
 		
 		lblNewLabel = new JLabel("");
