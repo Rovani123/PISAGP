@@ -164,6 +164,8 @@ public class CompraControle {
 			}
 			linha++;
 		}
+		view.repaint();
+		view.pack();
 	}
 	
 	private void carregarProdutosFiltro(Categoria categoria) {
@@ -181,6 +183,8 @@ public class CompraControle {
 					linha++;
 				}
 			}
+			view.repaint();
+			view.pack();
 		}catch (Exception e) {
 			new MensagemView("Erro ao carregar os produtos",0);
 		}
@@ -201,6 +205,8 @@ public class CompraControle {
 					linha++;
 				}
 			}
+			view.repaint();
+			view.pack();
 		} catch (Exception e) {
 			new MensagemView("Erro ao carregar os produtos",0);
 		}

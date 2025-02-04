@@ -4,10 +4,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.SQLException;
+import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import modelo.classes.Funcionario;
 import modelo.classes.Produto;
@@ -35,6 +39,19 @@ public class AlterarPControle {
 		view.addWindowListener(new WindowAdapter() {
 			public void windowOpened(WindowEvent e) {
 				view.setCampos(p);
+				try {
+			        BufferedImage bufferedImage = new BufferedImage(p.getFoto().getWidth(null), p.getFoto().getHeight(null), BufferedImage.TYPE_INT_ARGB);
+			        bufferedImage.getGraphics().drawImage(p.getFoto(), 0, 0, null);
+			        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			        ImageIO.write(bufferedImage, "png", baos);
+			        baos.flush();
+			        ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+			        java.io.File tempFile = java.io.File.createTempFile("tempImage", ".png");
+			        java.nio.file.Files.copy(bais, tempFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+			        fin = new FileInputStream(tempFile);
+				} catch (Exception e2) {
+					new MensagemView("Erro ao Definir a imagem do produto!",2);
+				}
 			}
 		});
 	}
@@ -63,7 +80,7 @@ public class AlterarPControle {
 		p.setQuantidadeEstoque(Integer.parseInt(view.getQuantidade()));
 		p.setCategoria(view.getCategoria());
 		try {
-			new ProdutoDAO().alterarProduto(p,fin);;
+			new ProdutoDAO().alterarProduto(p,fin);
 			view.dispose();
 			new GerenciamentoPControle(f);
 			new MensagemView("Produto alterado com sucesso!",3);
