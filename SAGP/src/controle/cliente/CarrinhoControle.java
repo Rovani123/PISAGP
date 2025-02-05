@@ -10,11 +10,11 @@ import modelo.classes.Carrinho;
 import modelo.classes.Funcionario;
 import modelo.enumerador.Categoria;
 import visao.Cliente.PainelProduto;
-import visao.Cliente.TelaClienteCarrinhoCorreto;
+import visao.Cliente.TelaClienteCarrinho;
 import visao.TelasDeAviso.MensagemView;
 
 public class CarrinhoControle {
-	private TelaClienteCarrinhoCorreto view;
+	private TelaClienteCarrinho view;
 	private Funcionario f;
 	private ArrayList<PainelProduto> listaPaineis;
 	private ArrayList<Carrinho> listaCarrinhosFinal = new ArrayList<Carrinho>();
@@ -27,7 +27,7 @@ public class CarrinhoControle {
 	public CarrinhoControle(Funcionario f,ArrayList<PainelProduto> listaPaineis) {
 		this.f =f;
 		this.listaPaineis = listaPaineis;
-		view = new TelaClienteCarrinhoCorreto(f);
+		view = new TelaClienteCarrinho(f);
 		view.setVisible(true);
 		listeners();
 	}
@@ -82,6 +82,7 @@ public class CarrinhoControle {
 				}
 			}});
 	}
+	
 	private float calcTotal() {
 		int resultado=0;
 		for (PainelProduto p : listaPaineis) {
@@ -106,6 +107,7 @@ public class CarrinhoControle {
 		}
 		view.repaint();
 		view.pack();
+		view.telaCheia();
 	}
 	
 	private void carregarProdutosFiltro(Categoria categoria) {
@@ -127,6 +129,7 @@ public class CarrinhoControle {
 			}
 			view.repaint();
 			view.pack();
+			view.telaCheia();
 		} catch (Exception e) {
 			new MensagemView("Erro ao carregar os produtos",0);
 		}

@@ -166,6 +166,7 @@ public class CompraControle {
 		}
 		view.repaint();
 		view.pack();
+		view.telaCheia();
 	}
 	
 	private void carregarProdutosFiltro(Categoria categoria) {
@@ -185,6 +186,7 @@ public class CompraControle {
 			}
 			view.repaint();
 			view.pack();
+			view.telaCheia();
 		}catch (Exception e) {
 			new MensagemView("Erro ao carregar os produtos",0);
 		}
@@ -207,6 +209,7 @@ public class CompraControle {
 			}
 			view.repaint();
 			view.pack();
+			view.telaCheia();
 		} catch (Exception e) {
 			new MensagemView("Erro ao carregar os produtos",0);
 		}

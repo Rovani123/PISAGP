@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import modelo.classes.Funcionario;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.BorderLayout;
 import net.miginfocom.swing.MigLayout;
 import visao.RoundButton;
@@ -14,7 +15,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JScrollPane;
 
-public class TelaClienteCarrinhoCorreto extends JFrame {
+public class TelaClienteCarrinho extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel panel;
@@ -26,12 +27,12 @@ public class TelaClienteCarrinhoCorreto extends JFrame {
 	private RoundButton btBebidas;
 	private RoundButton btFinalizarCompra;
 	
-	public TelaClienteCarrinhoCorreto(Funcionario f) {
+	public TelaClienteCarrinho(Funcionario f) {
 		setTitle("Tela de Carrinho");
-		
 		setExtendedState(MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 955, 544);
+		setMinimumSize(new Dimension(1920,1080));
 		
 		panel = new JPanel();
 		panel.setBackground(new Color(230, 230, 230));
@@ -51,15 +52,15 @@ public class TelaClienteCarrinhoCorreto extends JFrame {
 		btSair.setText("Sair");
 		btSair.setActionCommand("btVoltar");
 
-		btSair.setIcon(new ImageIcon(TelaClienteCarrinhoCorreto.class.getResource("/Imagem/volte.png")));
+		btSair.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/volte.png")));
 		barraLateral.add(btSair, "cell 0 0,alignx left,aligny top");
 		
 		JLabel lblLogo = new JLabel("");
-		lblLogo.setIcon(new ImageIcon(TelaClienteCarrinhoCorreto.class.getResource("/Imagem/Logo.png")));
+		lblLogo.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/Logo.png")));
 		barraLateral.add(lblLogo, "cell 0 2,alignx center,aligny center");
 		
 		JLabel lblIconSalgados = new JLabel("");
-		lblIconSalgados.setIcon(new ImageIcon(TelaClienteCarrinhoCorreto.class.getResource("/Imagem/biscoitos.png")));
+		lblIconSalgados.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/biscoitos.png")));
 		barraLateral.add(lblIconSalgados, "flowx,cell 0 5");
 		
 		btSalgados = new RoundButton("Salgados");
@@ -70,7 +71,7 @@ public class TelaClienteCarrinhoCorreto extends JFrame {
 		btSalgados.setActionCommand("btSalgados");
 		
 		JLabel lblIconDoces = new JLabel("");
-		lblIconDoces.setIcon(new ImageIcon(TelaClienteCarrinhoCorreto.class.getResource("/Imagem/bolinho.png")));
+		lblIconDoces.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/bolinho.png")));
 		barraLateral.add(lblIconDoces, "flowx,cell 0 6");
 		
 		btDoces = new RoundButton("Doces");
@@ -81,7 +82,7 @@ public class TelaClienteCarrinhoCorreto extends JFrame {
 		btDoces.setActionCommand("btDoces");
 		
 		JLabel lblIconBebidas = new JLabel("");
-		lblIconBebidas.setIcon(new ImageIcon(TelaClienteCarrinhoCorreto.class.getResource("/Imagem/garrafa-de-agua.png")));
+		lblIconBebidas.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/garrafa-de-agua.png")));
 		barraLateral.add(lblIconBebidas, "flowx,cell 0 7");
 		
 	    btBebidas = new RoundButton("Bebidas");
@@ -104,11 +105,7 @@ public class TelaClienteCarrinhoCorreto extends JFrame {
 		
 		RoundButton btNO = new RoundButton("");
 		btNO.setBackground(new Color(245, 245, 245));
-		//btNO.addActionListener(new ActionListener() {
-			//public void actionPerformed(ActionEvent e) {
-			//}
-		//});
-		btNO.setIcon(new ImageIcon(TelaClienteCarrinhoCorreto.class.getResource("/Imagem/carrinho-de-compras.png")));
+		btNO.setIcon(new ImageIcon(TelaClienteCarrinho.class.getResource("/Imagem/carrinho-de-compras.png")));
 		panelPesquisa.add(btNO, "cell 0 0");
 		
 		JLabel lblCarrinho = new JLabel("Carrinho:");
@@ -152,6 +149,10 @@ public class TelaClienteCarrinhoCorreto extends JFrame {
 	
 	public void setLblValorTotal(String s) {
 		lblTotalPagar.setText(s);
+	}
+	
+	public void telaCheia() {
+		setExtendedState(MAXIMIZED_BOTH);
 	}
 	
 

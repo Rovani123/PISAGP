@@ -2,6 +2,7 @@ package visao.Cliente;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
@@ -34,6 +35,8 @@ public class TelaCompra extends JFrame {
 		setExtendedState(MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 824, 519);
+		setMinimumSize(new Dimension(1920,1080));
+		
 		
 		painel = new JPanel();
 		painel.setBackground(new Color(230, 230, 230));
@@ -167,6 +170,10 @@ public class TelaCompra extends JFrame {
 	
 	public void resetPainel() {
 		painelProdutos.removeAll();
+	}
+	
+	public void telaCheia() {
+		setExtendedState(MAXIMIZED_BOTH);
 	}
 	
 	public String getPeesquisa() {
